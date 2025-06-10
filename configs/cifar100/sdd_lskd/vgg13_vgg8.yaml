@@ -4,8 +4,8 @@ EXPERIMENT:
   PROJECT: "cifar100_baselines"
 DISTILLER:
   TYPE: "SDD_LSKD"
-  TEACHER: "vgg13"
-  STUDENT: "vgg8"
+  TEACHER: "vgg13_sdd"
+  STUDENT: "vgg8_sdd"
 SOLVER:
   BATCH_SIZE: 64
   EPOCHS: 240

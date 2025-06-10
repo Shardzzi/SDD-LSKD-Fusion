@@ -4,7 +4,7 @@ EXPERIMENT:
   PROJECT: "cifar100_baselines"
 DISTILLER:
   TYPE: "SDD_LSKD"
-  TEACHER: "wrn_40_2"
+  TEACHER: "wrn_40_2_sdd"
   STUDENT: "ShuffleV1"
 SOLVER:
   BATCH_SIZE: 64

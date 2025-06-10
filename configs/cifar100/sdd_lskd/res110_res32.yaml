@@ -4,8 +4,8 @@ EXPERIMENT:
   PROJECT: "cifar100_baselines"
 DISTILLER:
   TYPE: "SDD_LSKD"
-  TEACHER: "resnet110"
-  STUDENT: "resnet32"
+  TEACHER: "resnet110_sdd"
+  STUDENT: "resnet32_sdd"
 SOLVER:
   BATCH_SIZE: 64
   EPOCHS: 240
