@@ -1,5 +1,9 @@
 # fetch pre-trained teacher models
 
+# Set proxy for wget
+export http_proxy=http://127.0.0.1:7890
+export https_proxy=http://127.0.0.1:7890
+
 mkdir -p save/models/
 
 cd save/models

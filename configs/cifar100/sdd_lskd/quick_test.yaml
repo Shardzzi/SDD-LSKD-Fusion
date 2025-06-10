@@ -1,11 +1,11 @@
 EXPERIMENT:
   NAME: ""
-  TAG: "sdd_lskd_quick,res32x4_sdd,res8x4_sdd"
+  TAG: "sdd_lskd_quick,res32x4,res8x4"
   PROJECT: "cifar100_baselines"
 DISTILLER:
   TYPE: "SDD_LSKD"
-  TEACHER: "resnet32x4_sdd"
-  STUDENT: "resnet8x4_sdd"
+  TEACHER: "resnet32x4"
+  STUDENT: "resnet8x4"
 SOLVER:
   BATCH_SIZE: 64
   EPOCHS: 5  # Quick test with only 5 epochs
@@ -23,4 +23,4 @@ DKD:
   WARMUP: 3  # Adjusted for 5 epochs
 DATASET:
   TYPE: "cifar100"
-  NUM_WORKERS: 8
+  NUM_WORKERS: 2

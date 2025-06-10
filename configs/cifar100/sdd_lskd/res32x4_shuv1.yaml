@@ -1,11 +1,11 @@
 EXPERIMENT:
   NAME: ""
-  TAG: "sdd_lskd,res32x4_sdd,shuv1_sdd"
+  TAG: "sdd_lskd,res32x4,shuv1"
   PROJECT: "cifar100_baselines"
 DISTILLER:
   TYPE: "SDD_LSKD"
-  TEACHER: "resnet32x4_sdd"
-  STUDENT: "ShuffleV1_sdd"
+  TEACHER: "resnet32x4"
+  STUDENT: "ShuffleV1"
 SOLVER:
   BATCH_SIZE: 64
   EPOCHS: 240
@@ -21,4 +21,6 @@ DKD:
   BETA: 8.0
   T: 4.0
   WARMUP: 20
-USE_LOGIT_STANDARDIZATION: true
+DATASET:
+  TYPE: "cifar100"
+  NUM_WORKERS: 2

@@ -108,26 +108,34 @@ class BaseTrainer(object):
             "top5": AverageMeter(),
         }
         num_iter = len(self.train_loader)
-        pbar = tqdm(range(num_iter))
         loss_ce=0
         loss_kd=0
 
-        # train loops
+        # train loops - simplified output
         self.distiller.train()
+        print(f"Epoch {epoch}: Training...")
+        
         for idx, data in enumerate(self.train_loader):
             msg,loss_dict = self.train_iter(data, epoch, train_meters)
-            pbar.set_description(log_msg(msg, "TRAIN"))
-            pbar.update()
             loss_ce+=loss_dict['loss_ce'].item()
-            loss_kd+=loss_dict['loss_kd'].item()
-            # print(loss_dict['loss_kd'].item(),loss_nkd.item())
-        pbar.close()
+            # Handle tensor losses that may have batch dimension
+            if hasattr(loss_dict['loss_kd'], 'mean'):
+                loss_kd+=loss_dict['loss_kd'].mean().item()
+            else:
+                loss_kd+=loss_dict['loss_kd'].item()
+            
+            # Show progress every 100 iterations
+            if (idx + 1) % 100 == 0 or (idx + 1) == num_iter:
+                print(f"  Batch {idx+1}/{num_iter} - Loss CE: {loss_ce/(idx+1):.4f}, Loss KD: {loss_kd/(idx+1):.4f}")
 
-        print(loss_ce/idx,loss_kd/idx)
+        print(f"Epoch {epoch} Training Complete - Avg Loss CE: {loss_ce/num_iter:.4f}, Avg Loss KD: {loss_kd/num_iter:.4f}")
 
 
         # validate
         test_acc, test_acc_top5, test_loss = validate(self.val_loader, self.distiller)
+
+        # Print epoch summary
+        print(f"Epoch {epoch} Results - Train Acc: {train_meters['top1'].avg:.2f}% | Test Acc: {test_acc:.2f}% | Best: {max(self.best_acc, test_acc):.2f}%")
 
         # log
         log_dict = OrderedDict(

@@ -53,6 +53,45 @@ def dkd_loss_with_standardization(logits_student, logits_teacher, target, alpha,
 
     tckd_loss = torch.sum(tckd_loss, dim=1)
     nckd_loss = torch.sum(nckd_loss, dim=1)
+    # Return mean to get scalar loss
+    return (alpha * tckd_loss + beta * nckd_loss).mean()
+
+
+def dkd_loss_per_sample(logits_student, logits_teacher, target, alpha, beta, temperature, use_standardization=True):
+    """
+    DKD loss with optional logit standardization - returns per-sample losses for SDD weighting
+    """
+    if use_standardization:
+        logits_student = normalize_logit(logits_student, temperature)
+        logits_teacher = normalize_logit(logits_teacher, temperature)
+    
+    gt_mask = _get_gt_mask(logits_student, target)
+    other_mask = _get_other_mask(logits_student, target)
+    pred_student = F.softmax(logits_student / temperature, dim=1)
+    pred_teacher = F.softmax(logits_teacher / temperature, dim=1)
+    pred_student = cat_mask(pred_student, gt_mask, other_mask)
+    pred_teacher = cat_mask(pred_teacher, gt_mask, other_mask)
+    log_pred_student = torch.log(pred_student)
+    tckd_loss = (
+            F.kl_div(log_pred_student, pred_teacher, reduction='none')
+            * (temperature ** 2)
+            / target.shape[0]
+    )
+    pred_teacher_part2 = F.softmax(
+        logits_teacher / temperature - 1000.0 * gt_mask, dim=1
+    )
+    log_pred_student_part2 = F.log_softmax(
+        logits_student / temperature - 1000.0 * gt_mask, dim=1
+    )
+    nckd_loss = (
+            F.kl_div(log_pred_student_part2, pred_teacher_part2, reduction='none')
+            * (temperature ** 2)
+            / target.shape[0]
+    )
+
+    tckd_loss = torch.sum(tckd_loss, dim=1)
+    nckd_loss = torch.sum(nckd_loss, dim=1)
+    # Return per-sample losses for SDD weighting
     return alpha * tckd_loss + beta * nckd_loss
 
 
@@ -75,8 +114,8 @@ def multi_scale_distillation_with_lskd(out_s_multi, out_t_multi, target, alpha, 
     out_s = torch.reshape(out_s_multi_t, (out_s_multi_t.shape[0] * out_s_multi_t.shape[1], out_s_multi_t.shape[2]))
     target_r = target.repeat(out_t_multi.shape[2])
 
-    # Calculate distillation loss with optional standardization
-    loss = dkd_loss_with_standardization(out_s, out_t, target_r, alpha, beta, temperature, use_standardization)
+    # Calculate distillation loss with optional standardization - per sample for SDD weighting
+    loss = dkd_loss_per_sample(out_s, out_t, target_r, alpha, beta, temperature, use_standardization)
 
     # Find complementary and consistent local distillation loss (SDD mechanism)
     out_t_predict = torch.argmax(out_t, dim=1)
@@ -165,8 +204,8 @@ class SDD_LSKD(Distiller):
         self.alpha = cfg.DKD.ALPHA
         self.beta = cfg.DKD.BETA
         self.temperature = cfg.DKD.T
-        self.warmup = cfg.warmup
-        self.M = cfg.M
+        self.warmup = cfg.DKD.WARMUP
+        self.M = getattr(cfg, 'M', 4)
         
         # LSKD specific parameters
         self.use_logit_standardization = getattr(cfg, 'USE_LOGIT_STANDARDIZATION', True)

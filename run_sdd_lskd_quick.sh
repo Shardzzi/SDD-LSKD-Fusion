@@ -8,7 +8,7 @@ echo "==============================="
 
 # Set conda environment
 source ~/miniconda3/etc/profile.d/conda.sh
-conda activate sdd
+conda activate sdd-lskd-fusion
 
 # Create log directory
 mkdir -p logs/sdd_lskd_quick
