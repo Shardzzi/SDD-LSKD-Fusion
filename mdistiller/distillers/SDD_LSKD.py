@@ -1,0 +1,217 @@
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+
+from ._base import Distiller
+
+
+def normalize_logit(logit, temperature=1.0):
+    """
+    Z-score logit standardization from LSKD
+    Args:
+        logit: input logit tensor
+        temperature: base temperature parameter
+    Returns:
+        standardized logit tensor
+    """
+    mean = logit.mean(dim=-1, keepdims=True)
+    stdv = logit.std(dim=-1, keepdims=True)
+    return (logit - mean) / (1e-7 + stdv) / temperature
+
+
+def dkd_loss_with_standardization(logits_student, logits_teacher, target, alpha, beta, temperature, use_standardization=True):
+    """
+    DKD loss with optional logit standardization
+    """
+    if use_standardization:
+        logits_student = normalize_logit(logits_student, temperature)
+        logits_teacher = normalize_logit(logits_teacher, temperature)
+    
+    gt_mask = _get_gt_mask(logits_student, target)
+    other_mask = _get_other_mask(logits_student, target)
+    pred_student = F.softmax(logits_student / temperature, dim=1)
+    pred_teacher = F.softmax(logits_teacher / temperature, dim=1)
+    pred_student = cat_mask(pred_student, gt_mask, other_mask)
+    pred_teacher = cat_mask(pred_teacher, gt_mask, other_mask)
+    log_pred_student = torch.log(pred_student)
+    tckd_loss = (
+            F.kl_div(log_pred_student, pred_teacher, reduction='none')
+            * (temperature ** 2)
+            / target.shape[0]
+    )
+    pred_teacher_part2 = F.softmax(
+        logits_teacher / temperature - 1000.0 * gt_mask, dim=1
+    )
+    log_pred_student_part2 = F.log_softmax(
+        logits_student / temperature - 1000.0 * gt_mask, dim=1
+    )
+    nckd_loss = (
+            F.kl_div(log_pred_student_part2, pred_teacher_part2, reduction='none')
+            * (temperature ** 2)
+            / target.shape[0]
+    )
+
+    tckd_loss = torch.sum(tckd_loss, dim=1)
+    nckd_loss = torch.sum(nckd_loss, dim=1)
+    return alpha * tckd_loss + beta * nckd_loss
+
+
+def multi_scale_distillation_with_lskd(out_s_multi, out_t_multi, target, alpha, beta, temperature, use_standardization=True):
+    """
+    Multi-scale distillation from SDD combined with LSKD logit standardization
+    Args:
+        out_s_multi: student multi-scale logits [B, C, N]
+        out_t_multi: teacher multi-scale logits [B, C, N] 
+        target: ground truth labels
+        alpha, beta: DKD loss weights
+        temperature: base temperature
+        use_standardization: whether to apply LSKD standardization
+    """
+    # Convert shape from B x C x N to N*B x C
+    out_s_multi_t = out_s_multi.permute(2, 0, 1)
+    out_t_multi_t = out_t_multi.permute(2, 0, 1)
+
+    out_t = torch.reshape(out_t_multi_t, (out_t_multi_t.shape[0] * out_t_multi_t.shape[1], out_t_multi_t.shape[2]))
+    out_s = torch.reshape(out_s_multi_t, (out_s_multi_t.shape[0] * out_s_multi_t.shape[1], out_s_multi_t.shape[2]))
+    target_r = target.repeat(out_t_multi.shape[2])
+
+    # Calculate distillation loss with optional standardization
+    loss = dkd_loss_with_standardization(out_s, out_t, target_r, alpha, beta, temperature, use_standardization)
+
+    # Find complementary and consistent local distillation loss (SDD mechanism)
+    out_t_predict = torch.argmax(out_t, dim=1)
+    mask_true = out_t_predict == target_r
+    mask_false = out_t_predict != target_r
+
+    # Global prediction (first batch corresponds to global scale)
+    global_prediction = out_t_predict[0:len(target)]
+    global_prediction_true_mask = global_prediction == target
+    global_prediction_false_mask = global_prediction != target
+
+    global_prediction_true_mask_repeat = torch.tensor(global_prediction_true_mask).repeat(out_t_multi.shape[2])
+    global_prediction_false_mask_repeat = torch.tensor(global_prediction_false_mask).repeat(out_t_multi.shape[2])
+
+    # Global true, local wrong
+    mask_false[global_prediction_false_mask_repeat] = False
+    mask_false[0:len(target)] = False
+    gt_lw = mask_false
+
+    # Global wrong, local true
+    mask_true[global_prediction_true_mask_repeat] = False
+    mask_true[0:len(target)] = False
+    gw_lt = mask_true
+
+    # Reset masks
+    mask_false = out_t_predict != target_r
+    mask_true = out_t_predict == target_r
+
+    # Global wrong, local wrong
+    mask_false[global_prediction_true_mask_repeat] = False
+    gw_lw = mask_false
+
+    # Global true, local true
+    mask_true[global_prediction_false_mask_repeat] = False
+    gt_lt = mask_true
+
+    assert torch.sum(gt_lt) + torch.sum(gw_lw) + torch.sum(gt_lw) + torch.sum(gw_lt) == target_r.shape[0]
+
+    # Apply SDD weighting scheme for complementary terms
+    index = torch.zeros_like(loss).float()
+    index[gw_lw] = 1.0  # Global wrong, local wrong - consistent
+    index[gt_lt] = 1.0  # Global true, local true - consistent  
+    index[gw_lt] = 2.0  # Global wrong, local true - complementary
+    index[gt_lw] = 2.0  # Global true, local wrong - complementary
+
+    loss = torch.sum(loss * index)
+
+    if torch.isnan(loss) or torch.isinf(loss):
+        print("Warning: NaN or Inf loss detected, setting to zero")
+        loss = torch.zeros(1).float().to(loss.device)
+
+    return loss
+
+
+def _get_gt_mask(logits, target):
+    target = target.reshape(-1)
+    mask = torch.zeros_like(logits).scatter_(1, target.unsqueeze(1), 1).bool()
+    return mask
+
+
+def _get_other_mask(logits, target):
+    target = target.reshape(-1)
+    mask = torch.ones_like(logits).scatter_(1, target.unsqueeze(1), 0).bool()
+    return mask
+
+
+def cat_mask(t, mask1, mask2):
+    t1 = (t * mask1).sum(dim=1, keepdims=True)
+    t2 = (t * mask2).sum(1, keepdims=True)
+    rt = torch.cat([t1, t2], dim=1)
+    return rt
+
+
+class SDD_LSKD(Distiller):
+    """
+    SDD-LSKD Fusion: Scale Decoupled Distillation with Logit Standardization
+    
+    This class combines:
+    - SDD: Multi-scale logit decoupling with consistent/complementary knowledge weighting
+    - LSKD: Z-score logit standardization to focus on logit relations rather than magnitude
+    """
+
+    def __init__(self, student, teacher, cfg):
+        super(SDD_LSKD, self).__init__(student, teacher)
+        self.ce_loss_weight = cfg.DKD.CE_WEIGHT
+        self.alpha = cfg.DKD.ALPHA
+        self.beta = cfg.DKD.BETA
+        self.temperature = cfg.DKD.T
+        self.warmup = cfg.warmup
+        self.M = cfg.M
+        
+        # LSKD specific parameters
+        self.use_logit_standardization = getattr(cfg, 'USE_LOGIT_STANDARDIZATION', True)
+        
+    def forward_train(self, image, target, **kwargs):
+        logits_student, patch_s = self.student(image)
+        with torch.no_grad():
+            logits_teacher, patch_t = self.teacher(image)
+
+        # Standard cross-entropy loss
+        loss_ce = self.ce_loss_weight * F.cross_entropy(logits_student, target)
+
+        # Choose between global distillation and multi-scale distillation
+        if self.M == '[1]':
+            # Global distillation with LSKD standardization
+            if self.use_logit_standardization:
+                logits_student_norm = normalize_logit(logits_student, self.temperature)
+                logits_teacher_norm = normalize_logit(logits_teacher, self.temperature)
+            else:
+                logits_student_norm = logits_student
+                logits_teacher_norm = logits_teacher
+                
+            loss_kd = min(kwargs["epoch"] / self.warmup, 1.0) * dkd_loss_with_standardization(
+                logits_student_norm,
+                logits_teacher_norm,
+                target,
+                self.alpha,
+                self.beta,
+                self.temperature,
+                use_standardization=False  # Already standardized above if needed
+            )
+        else:
+            # Multi-scale distillation with SDD + LSKD fusion
+            loss_kd = min(kwargs["epoch"] / self.warmup, 1.0) * multi_scale_distillation_with_lskd(
+                patch_s,
+                patch_t,
+                target,
+                self.alpha,
+                self.beta,
+                self.temperature,
+                self.use_logit_standardization,
+            )
+            
+        losses_dict = {
+            "loss_ce": loss_ce,
+            "loss_kd": loss_kd,
+        }
+        return logits_student, losses_dict

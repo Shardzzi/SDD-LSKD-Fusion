@@ -13,6 +13,7 @@ from .VID import VID
 from .ReviewKD import ReviewKD
 from .DKD import DKD
 from .SDD_DKD import SDD_DKD
+from .SDD_LSKD import SDD_LSKD
 from .nkd import NKDLoss
 from .SDD_nkd import SDD_NKDLoss
 
@@ -32,6 +33,7 @@ distiller_dict = {
     "REVIEWKD": ReviewKD,
     "DKD": DKD,
     "SDD_DKD": SDD_DKD,
+    "SDD_LSKD": SDD_LSKD,
     "SDD_KD": SDD_KD,
     "NKD": NKDLoss,
     "SDD_NKD": SDD_NKDLoss
