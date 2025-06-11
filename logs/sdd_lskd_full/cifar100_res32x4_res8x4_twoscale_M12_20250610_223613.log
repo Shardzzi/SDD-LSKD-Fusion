@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "train_origin.py", line 204, in <module>
+    cfg.merge_from_file(args.cfg)
+  File "/root/miniconda3/envs/sdd-lskd-fusion/lib/python3.8/site-packages/yacs/config.py", line 213, in merge_from_file
+    self.merge_from_other_cfg(cfg)
+  File "/root/miniconda3/envs/sdd-lskd-fusion/lib/python3.8/site-packages/yacs/config.py", line 217, in merge_from_other_cfg
+    _merge_a_into_b(cfg_other, self, self, [])
+  File "/root/miniconda3/envs/sdd-lskd-fusion/lib/python3.8/site-packages/yacs/config.py", line 473, in _merge_a_into_b
+    raise KeyError("Non-existent config key: {}".format(full_key))
+KeyError: 'Non-existent config key: USE_LOGIT_STANDARDIZATION'

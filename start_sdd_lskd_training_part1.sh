@@ -71,12 +71,10 @@ run_full_training "configs/cifar100/sdd_lskd/res32x4_res8x4.yaml" "[1]" "res32x4
 run_full_training "configs/cifar100/sdd_lskd/res32x4_res8x4.yaml" "[1,2]" "res32x4_res8x4_twoscale" "Two-scale SDD-LSKD fusion"
 run_full_training "configs/cifar100/sdd_lskd/res32x4_res8x4.yaml" "[1,2,4]" "res32x4_res8x4_threescale" "Three-scale SDD-LSKD fusion"
 
-# 2. SDD Ablation Study on ResNet32x4 -> ResNet8x4
-echo "=== Experiment 2: SDD Ablation Study (ResNet32x4 -> ResNet8x4) ==="
-run_full_training "configs/cifar100/sdd_lskd/res32x4_res8x4.yaml" "[2]" "res32x4_res8x4_scale2_only" "Scale-2 only ablation"
-run_full_training "configs/cifar100/sdd_lskd/res32x4_res8x4.yaml" "[4]" "res32x4_res8x4_scale4_only" "Scale-4 only ablation"
-run_full_training "configs/cifar100/sdd_lskd/res32x4_res8x4.yaml" "[1,4]" "res32x4_res8x4_scale1_4" "Scale-1&4 combination ablation"
-run_full_training "configs/cifar100/sdd_lskd/res32x4_res8x4.yaml" "[2,4]" "res32x4_res8x4_scale2_4" "Scale-2&4 combination ablation"
+# 2. SDD Ablation Study
+echo "=== Experiment 2: SDD Ablation Study ==="
+run_full_training "configs/cifar100/sdd_lskd/res32x4_res8x4.yaml" "[1,4]" "res32x4_res8x4_scale1_4" "ResNet32x4->ResNet8x4 M=[1,4] ablation"
+run_full_training "configs/cifar100/sdd_lskd/res32x4_shuv1.yaml" "[1,4]" "res32x4_shuv1_scale1_4" "ResNet32x4->ShuffleNetV1 M=[1,4] ablation"
 
 # Generate training summary
 echo "=========================================="
@@ -91,9 +89,9 @@ echo "=========================================" >> "$SUMMARY_FILE"
 echo "" >> "$SUMMARY_FILE"
 echo "Experiments completed:" >> "$SUMMARY_FILE"
 echo "1. ResNet32x4 -> ResNet8x4 (M=[1], M=[1,2], M=[1,2,4])" >> "$SUMMARY_FILE"
-echo "2. SDD Ablation Study - ResNet32x4 -> ResNet8x4 (M=[2], M=[4], M=[1,4], M=[2,4])" >> "$SUMMARY_FILE"
+echo "2. SDD Ablation Study - ResNet32x4->ResNet8x4 & ResNet32x4->ShuffleNetV1 (M=[1,4])" >> "$SUMMARY_FILE"
 echo "" >> "$SUMMARY_FILE"
-echo "Total experiments: 7" >> "$SUMMARY_FILE"
+echo "Total experiments: 5" >> "$SUMMARY_FILE"
 echo "Log files location: $SESSION_DIR" >> "$SUMMARY_FILE"
 
 # Show final results
