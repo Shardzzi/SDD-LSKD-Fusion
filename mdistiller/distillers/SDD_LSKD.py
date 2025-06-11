@@ -19,36 +19,42 @@ def normalize_logit(logit, temperature=1.0):
     return (logit - mean) / (1e-7 + stdv) / temperature
 
 
-def dkd_loss_with_standardization(logits_student, logits_teacher, target, alpha, beta, temperature, use_standardization=True):
+def dkd_loss_with_lskd(logits_student, logits_teacher, target, alpha, beta, temperature):
     """
-    DKD loss with optional logit standardization
+    DKD loss with LSKD logit standardization (always applied)
     """
-    if use_standardization:
-        logits_student = normalize_logit(logits_student, temperature)
-        logits_teacher = normalize_logit(logits_teacher, temperature)
+    # Apply Z-score standardization with temperature (Algorithm 2 implementation)
+    logits_student = normalize_logit(logits_student, temperature)
+    logits_teacher = normalize_logit(logits_teacher, temperature)
     
     gt_mask = _get_gt_mask(logits_student, target)
     other_mask = _get_other_mask(logits_student, target)
-    pred_student = F.softmax(logits_student / temperature, dim=1)
-    pred_teacher = F.softmax(logits_teacher / temperature, dim=1)
+    
+    # softmax[Z(vn; τ)] and softmax[Z(zn; τ)] - no additional temperature scaling
+    pred_student = F.softmax(logits_student, dim=1)
+    pred_teacher = F.softmax(logits_teacher, dim=1)
+    
     pred_student = cat_mask(pred_student, gt_mask, other_mask)
     pred_teacher = cat_mask(pred_teacher, gt_mask, other_mask)
     log_pred_student = torch.log(pred_student)
+    
+    # TCKD loss - no temperature scaling since it's already in normalize_logit
     tckd_loss = (
-            F.kl_div(log_pred_student, pred_teacher, reduction='none')
-            * (temperature ** 2)
-            / target.shape[0]
+        F.kl_div(log_pred_student, pred_teacher, reduction='none')
+        / target.shape[0]
     )
+    
+    # NCKD loss - no additional temperature scaling
     pred_teacher_part2 = F.softmax(
-        logits_teacher / temperature - 1000.0 * gt_mask, dim=1
+        logits_teacher - 1000.0 * gt_mask, dim=1
     )
     log_pred_student_part2 = F.log_softmax(
-        logits_student / temperature - 1000.0 * gt_mask, dim=1
+        logits_student - 1000.0 * gt_mask, dim=1
     )
+    
     nckd_loss = (
-            F.kl_div(log_pred_student_part2, pred_teacher_part2, reduction='none')
-            * (temperature ** 2)
-            / target.shape[0]
+        F.kl_div(log_pred_student_part2, pred_teacher_part2, reduction='none')
+        / target.shape[0]
     )
 
     tckd_loss = torch.sum(tckd_loss, dim=1)
@@ -57,36 +63,42 @@ def dkd_loss_with_standardization(logits_student, logits_teacher, target, alpha,
     return (alpha * tckd_loss + beta * nckd_loss).mean()
 
 
-def dkd_loss_per_sample(logits_student, logits_teacher, target, alpha, beta, temperature, use_standardization=True):
+def dkd_loss_per_sample_lskd(logits_student, logits_teacher, target, alpha, beta, temperature):
     """
-    DKD loss with optional logit standardization - returns per-sample losses for SDD weighting
+    DKD loss with LSKD logit standardization - returns per-sample losses for SDD weighting
     """
-    if use_standardization:
-        logits_student = normalize_logit(logits_student, temperature)
-        logits_teacher = normalize_logit(logits_teacher, temperature)
+    # Apply Z-score standardization with temperature (already includes temperature scaling)
+    logits_student = normalize_logit(logits_student, temperature)
+    logits_teacher = normalize_logit(logits_teacher, temperature)
     
     gt_mask = _get_gt_mask(logits_student, target)
     other_mask = _get_other_mask(logits_student, target)
-    pred_student = F.softmax(logits_student / temperature, dim=1)
-    pred_teacher = F.softmax(logits_teacher / temperature, dim=1)
+    
+    # For standardized logits, don't apply temperature again
+    pred_student = F.softmax(logits_student, dim=1)
+    pred_teacher = F.softmax(logits_teacher, dim=1)
+    
     pred_student = cat_mask(pred_student, gt_mask, other_mask)
     pred_teacher = cat_mask(pred_teacher, gt_mask, other_mask)
     log_pred_student = torch.log(pred_student)
+    
+    # For standardized logits, temperature is already applied in normalize_logit
     tckd_loss = (
-            F.kl_div(log_pred_student, pred_teacher, reduction='none')
-            * (temperature ** 2)
-            / target.shape[0]
+        F.kl_div(log_pred_student, pred_teacher, reduction='none')
+        / target.shape[0]
     )
+    
+    # For standardized logits, don't apply temperature scaling again
     pred_teacher_part2 = F.softmax(
-        logits_teacher / temperature - 1000.0 * gt_mask, dim=1
+        logits_teacher - 1000.0 * gt_mask, dim=1
     )
     log_pred_student_part2 = F.log_softmax(
-        logits_student / temperature - 1000.0 * gt_mask, dim=1
+        logits_student - 1000.0 * gt_mask, dim=1
     )
+        
     nckd_loss = (
-            F.kl_div(log_pred_student_part2, pred_teacher_part2, reduction='none')
-            * (temperature ** 2)
-            / target.shape[0]
+        F.kl_div(log_pred_student_part2, pred_teacher_part2, reduction='none')
+        / target.shape[0]
     )
 
     tckd_loss = torch.sum(tckd_loss, dim=1)
@@ -95,7 +107,7 @@ def dkd_loss_per_sample(logits_student, logits_teacher, target, alpha, beta, tem
     return alpha * tckd_loss + beta * nckd_loss
 
 
-def multi_scale_distillation_with_lskd(out_s_multi, out_t_multi, target, alpha, beta, temperature, use_standardization=True):
+def multi_scale_distillation_with_lskd(out_s_multi, out_t_multi, target, alpha, beta, temperature):
     """
     Multi-scale distillation from SDD combined with LSKD logit standardization
     Args:
@@ -103,8 +115,7 @@ def multi_scale_distillation_with_lskd(out_s_multi, out_t_multi, target, alpha, 
         out_t_multi: teacher multi-scale logits [B, C, N] 
         target: ground truth labels
         alpha, beta: DKD loss weights
-        temperature: base temperature
-        use_standardization: whether to apply LSKD standardization
+        temperature: base temperature (LSKD standardization always applied)
     """
     # Convert shape from B x C x N to N*B x C
     out_s_multi_t = out_s_multi.permute(2, 0, 1)
@@ -114,8 +125,8 @@ def multi_scale_distillation_with_lskd(out_s_multi, out_t_multi, target, alpha, 
     out_s = torch.reshape(out_s_multi_t, (out_s_multi_t.shape[0] * out_s_multi_t.shape[1], out_s_multi_t.shape[2]))
     target_r = target.repeat(out_t_multi.shape[2])
 
-    # Calculate distillation loss with optional standardization - per sample for SDD weighting
-    loss = dkd_loss_per_sample(out_s, out_t, target_r, alpha, beta, temperature, use_standardization)
+    # Calculate distillation loss with LSKD standardization - per sample for SDD weighting
+    loss = dkd_loss_per_sample_lskd(out_s, out_t, target_r, alpha, beta, temperature)
 
     # Find complementary and consistent local distillation loss (SDD mechanism)
     out_t_predict = torch.argmax(out_t, dim=1)
@@ -196,6 +207,8 @@ class SDD_LSKD(Distiller):
     This class combines:
     - SDD: Multi-scale logit decoupling with consistent/complementary knowledge weighting
     - LSKD: Z-score logit standardization to focus on logit relations rather than magnitude
+    
+    Note: LSKD standardization is always applied in this implementation.
     """
 
     def __init__(self, student, teacher, cfg):
@@ -206,9 +219,6 @@ class SDD_LSKD(Distiller):
         self.temperature = cfg.DKD.T
         self.warmup = cfg.DKD.WARMUP
         self.M = getattr(cfg, 'M', 4)
-        
-        # LSKD specific parameters
-        self.use_logit_standardization = getattr(cfg, 'USE_LOGIT_STANDARDIZATION', True)
         
     def forward_train(self, image, target, **kwargs):
         logits_student, patch_s = self.student(image)
@@ -221,21 +231,13 @@ class SDD_LSKD(Distiller):
         # Choose between global distillation and multi-scale distillation
         if self.M == '[1]':
             # Global distillation with LSKD standardization
-            if self.use_logit_standardization:
-                logits_student_norm = normalize_logit(logits_student, self.temperature)
-                logits_teacher_norm = normalize_logit(logits_teacher, self.temperature)
-            else:
-                logits_student_norm = logits_student
-                logits_teacher_norm = logits_teacher
-                
-            loss_kd = min(kwargs["epoch"] / self.warmup, 1.0) * dkd_loss_with_standardization(
-                logits_student_norm,
-                logits_teacher_norm,
+            loss_kd = min(kwargs["epoch"] / self.warmup, 1.0) * dkd_loss_with_lskd(
+                logits_student,
+                logits_teacher,
                 target,
                 self.alpha,
                 self.beta,
                 self.temperature,
-                use_standardization=False  # Already standardized above if needed
             )
         else:
             # Multi-scale distillation with SDD + LSKD fusion
@@ -246,7 +248,6 @@ class SDD_LSKD(Distiller):
                 self.alpha,
                 self.beta,
                 self.temperature,
-                self.use_logit_standardization,
             )
             
         losses_dict = {
