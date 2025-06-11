@@ -39,7 +39,9 @@ Files already downloaded and verified
 [1]
 [1]
 [36m[INFO] Extra parameters of SDD_LSKD: 0[0m[0m
-  0%|          | 0/782 [00:00<?, ?it/s][32m[TRAIN] Epoch:1| Time(data):0.000| Time(train):0.896| Loss:4.7208| Top-1:0.000| Top-5:1.562[0m:   0%|          | 0/782 [00:01<?, ?it/s][32m[TRAIN] Epoch:1| Time(data):0.000| Time(train):0.896| Loss:4.7208| Top-1:0.000| Top-5:1.562[0m:   0%|          | 1/782 [00:01<14:05,  1.08s/it]Traceback (most recent call last):
+
+[32m[TRAIN] Epoch:1| Time(data):0.000| Time(train):0.896| Loss:4.7208| Top-1:0.000| Top-5:1.562[0m:   0%|          | 0/782 [00:01<?, ?it/s]
+[32m[TRAIN] Epoch:1| Time(data):0.000| Time(train):0.896| Loss:4.7208| Top-1:0.000| Top-5:1.562[0m:   0%|          | 1/782 [00:01<14:05,  1.08s/it]Traceback (most recent call last):
   File "train_origin.py", line 211, in <module>
     main(cfg, args.resume, args.opts)
   File "train_origin.py", line 187, in main
@@ -49,4 +51,5 @@ Files already downloaded and verified
   File "/root/repos/SDD-LSKD-Fusion/mdistiller/engine/trainer.py", line 122, in train_epoch
     loss_kd+=loss_dict['loss_kd'].item()
 RuntimeError: a Tensor with 64 elements cannot be converted to Scalar
-[32m[TRAIN] Epoch:1| Time(data):0.000| Time(train):0.896| Loss:4.7208| Top-1:0.000| Top-5:1.562[0m:   0%|          | 1/782 [00:01<15:45,  1.21s/it]
+
+[32m[TRAIN] Epoch:1| Time(data):0.000| Time(train):0.896| Loss:4.7208| Top-1:0.000| Top-5:1.562[0m:   0%|          | 1/782 [00:01<15:45,  1.21s/it]

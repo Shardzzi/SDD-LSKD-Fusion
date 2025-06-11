@@ -1,0 +1,3414 @@
+Start time: Wed Jun 11 20:00:56 CST 2025
+Configuration: configs/cifar100/sdd_lskd/res32x4_res8x4.yaml
+M setting: [1,2,4]
+=========================================
+<class 'str'>
+[36m[INFO] CONFIG:
+DATASET:
+  NUM_WORKERS: 2
+  TEST:
+    BATCH_SIZE: 64
+  TYPE: cifar100
+DISTILLER:
+  STUDENT: resnet8x4_sdd
+  TEACHER: resnet32x4_sdd
+  TYPE: SDD_LSKD
+EXPERIMENT:
+  NAME: ''
+  PROJECT: cifar100_baselines
+  TAG: sdd_lskd,res32x4,res8x4
+LOG:
+  PREFIX: ./output
+  SAVE_CHECKPOINT_FREQ: 40
+  TENSORBOARD_FREQ: 500
+  WANDB: false
+SOLVER:
+  BATCH_SIZE: 64
+  EPOCHS: 240
+  LR: 0.05
+  LR_DECAY_RATE: 0.1
+  LR_DECAY_STAGES:
+  - 150
+  - 180
+  - 210
+  MOMENTUM: 0.9
+  TRAINER: base
+  TYPE: SGD
+  WEIGHT_DECAY: 0.0005
+[0m
+Files already downloaded and verified
+Files already downloaded and verified
+[36m[INFO] Loading teacher model[0m
+[1,2,4]
+[1,2,4]
+[36m[INFO] Extra parameters of SDD_LSKD: 0[0m[0m
+Epoch 1: Training...
+/root/repos/SDD-LSKD-Fusion/mdistiller/engine/utils.py:107: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  return torch.load(f, map_location="cpu")
+/root/repos/SDD-LSKD-Fusion/mdistiller/distillers/SDD_LSKD.py:164: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  global_prediction_true_mask_repeat = torch.tensor(global_prediction_true_mask).repeat(out_t_multi.shape[2])
+/root/repos/SDD-LSKD-Fusion/mdistiller/distillers/SDD_LSKD.py:165: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  global_prediction_false_mask_repeat = torch.tensor(global_prediction_false_mask).repeat(out_t_multi.shape[2])
+  Batch 100/782 - Loss CE: 21.8675, Loss KD: 4388.0766
+  Batch 200/782 - Loss CE: 25.4880, Loss KD: 4273.8320
+  Batch 300/782 - Loss CE: 27.3653, Loss KD: 4220.3561
+  Batch 400/782 - Loss CE: 28.2615, Loss KD: 4177.3830
+  Batch 500/782 - Loss CE: 29.0813, Loss KD: 4140.4484
+  Batch 600/782 - Loss CE: 29.6690, Loss KD: 4108.5081
+  Batch 700/782 - Loss CE: 29.8539, Loss KD: 4074.0002
+  Batch 782/782 - Loss CE: 30.0295, Loss KD: 4042.2492
+Epoch 1 Training Complete - Avg Loss CE: 30.0295, Avg Loss KD: 4042.2492
+
+Epoch 1 Results - Train Acc: 9.37% | Test Acc: 12.01% | Best: 12.01%
+0.00629945
+Epoch 2: Training...
+
+  Batch 100/782 - Loss CE: 36.2906, Loss KD: 7368.8639
+  Batch 200/782 - Loss CE: 37.4716, Loss KD: 7300.9340
+  Batch 300/782 - Loss CE: 38.4899, Loss KD: 7241.0576
+  Batch 400/782 - Loss CE: 38.7946, Loss KD: 7174.0810
+  Batch 500/782 - Loss CE: 38.7810, Loss KD: 7075.4930
+  Batch 600/782 - Loss CE: 38.5408, Loss KD: 6995.9766
+  Batch 700/782 - Loss CE: 38.4223, Loss KD: 6928.2451
+  Batch 782/782 - Loss CE: 38.3928, Loss KD: 6874.6407
+Epoch 2 Training Complete - Avg Loss CE: 38.3928, Avg Loss KD: 6874.6407
+
+Epoch 2 Results - Train Acc: 20.93% | Test Acc: 24.57% | Best: 24.57%
+0.00630440888888889
+Epoch 3: Training...
+
+  Batch 100/782 - Loss CE: 39.5028, Loss KD: 9545.4251
+  Batch 200/782 - Loss CE: 40.0537, Loss KD: 9515.1026
+  Batch 300/782 - Loss CE: 39.4838, Loss KD: 9433.7370
+  Batch 400/782 - Loss CE: 39.6458, Loss KD: 9391.4138
+  Batch 500/782 - Loss CE: 39.8107, Loss KD: 9332.4576
+  Batch 600/782 - Loss CE: 39.7450, Loss KD: 9286.2682
+  Batch 700/782 - Loss CE: 39.7051, Loss KD: 9244.6833
+  Batch 782/782 - Loss CE: 39.4858, Loss KD: 9189.3414
+Epoch 3 Training Complete - Avg Loss CE: 39.4858, Avg Loss KD: 9189.3414
+
+Epoch 3 Results - Train Acc: 30.23% | Test Acc: 31.11% | Best: 31.11%
+0.006099723055555555
+Epoch 4: Training...
+
+  Batch 100/782 - Loss CE: 38.2251, Loss KD: 11692.6522
+  Batch 200/782 - Loss CE: 38.3292, Loss KD: 11616.2606
+  Batch 300/782 - Loss CE: 38.6706, Loss KD: 11595.3602
+  Batch 400/782 - Loss CE: 38.9727, Loss KD: 11553.0701
+  Batch 500/782 - Loss CE: 38.7934, Loss KD: 11495.4967
+  Batch 600/782 - Loss CE: 38.7812, Loss KD: 11451.7002
+  Batch 700/782 - Loss CE: 38.7011, Loss KD: 11411.4704
+  Batch 782/782 - Loss CE: 38.6415, Loss KD: 11371.5985
+Epoch 4 Training Complete - Avg Loss CE: 38.6415, Avg Loss KD: 11371.5985
+
+Epoch 4 Results - Train Acc: 37.22% | Test Acc: 36.65% | Best: 36.65%
+0.006042512222222222
+Epoch 5: Training...
+
+  Batch 100/782 - Loss CE: 38.4463, Loss KD: 13785.5670
+  Batch 200/782 - Loss CE: 38.4337, Loss KD: 13686.0650
+  Batch 300/782 - Loss CE: 38.0045, Loss KD: 13613.8887
+  Batch 400/782 - Loss CE: 37.6917, Loss KD: 13564.5947
+  Batch 500/782 - Loss CE: 37.7025, Loss KD: 13546.0324
+  Batch 600/782 - Loss CE: 37.5315, Loss KD: 13505.9562
+  Batch 700/782 - Loss CE: 37.3797, Loss KD: 13483.4758
+  Batch 782/782 - Loss CE: 37.4649, Loss KD: 13448.7567
+Epoch 5 Training Complete - Avg Loss CE: 37.4649, Avg Loss KD: 13448.7567
+
+Epoch 5 Results - Train Acc: 42.34% | Test Acc: 40.15% | Best: 40.15%
+0.006108619444444444
+Epoch 6: Training...
+
+  Batch 100/782 - Loss CE: 35.8452, Loss KD: 15729.7628
+  Batch 200/782 - Loss CE: 36.9751, Loss KD: 15755.3621
+  Batch 300/782 - Loss CE: 36.7434, Loss KD: 15665.3766
+  Batch 400/782 - Loss CE: 36.7154, Loss KD: 15645.3332
+  Batch 500/782 - Loss CE: 36.5427, Loss KD: 15622.2784
+  Batch 600/782 - Loss CE: 36.1897, Loss KD: 15595.5654
+  Batch 700/782 - Loss CE: 36.0716, Loss KD: 15552.3636
+  Batch 782/782 - Loss CE: 36.0017, Loss KD: 15505.3876
+Epoch 6 Training Complete - Avg Loss CE: 36.0017, Avg Loss KD: 15505.3876
+
+Epoch 6 Results - Train Acc: 46.14% | Test Acc: 43.21% | Best: 43.21%
+0.006210191388888888
+Epoch 7: Training...
+
+  Batch 100/782 - Loss CE: 33.6275, Loss KD: 17687.3213
+  Batch 200/782 - Loss CE: 34.2043, Loss KD: 17741.0695
+  Batch 300/782 - Loss CE: 34.7521, Loss KD: 17759.9107
+  Batch 400/782 - Loss CE: 34.9671, Loss KD: 17719.1407
+  Batch 500/782 - Loss CE: 34.8604, Loss KD: 17667.6568
+  Batch 600/782 - Loss CE: 34.9305, Loss KD: 17645.3973
+  Batch 700/782 - Loss CE: 34.6548, Loss KD: 17593.8975
+  Batch 782/782 - Loss CE: 34.6113, Loss KD: 17559.2017
+Epoch 7 Training Complete - Avg Loss CE: 34.6113, Avg Loss KD: 17559.2017
+
+Epoch 7 Results - Train Acc: 48.56% | Test Acc: 45.76% | Best: 45.76%
+0.006169525833333333
+Epoch 8: Training...
+
+  Batch 100/782 - Loss CE: 33.9995, Loss KD: 19857.0209
+  Batch 200/782 - Loss CE: 33.1683, Loss KD: 19750.9437
+  Batch 300/782 - Loss CE: 33.0025, Loss KD: 19762.9654
+  Batch 400/782 - Loss CE: 32.8669, Loss KD: 19744.0124
+  Batch 500/782 - Loss CE: 32.8575, Loss KD: 19746.2495
+  Batch 600/782 - Loss CE: 32.7976, Loss KD: 19719.5658
+  Batch 700/782 - Loss CE: 32.5581, Loss KD: 19654.5127
+  Batch 782/782 - Loss CE: 32.5256, Loss KD: 19610.4807
+Epoch 8 Training Complete - Avg Loss CE: 32.5256, Avg Loss KD: 19610.4807
+
+Epoch 8 Results - Train Acc: 51.03% | Test Acc: 48.94% | Best: 48.94%
+0.005966050555555556
+Epoch 9: Training...
+
+  Batch 100/782 - Loss CE: 30.3853, Loss KD: 21634.4624
+  Batch 200/782 - Loss CE: 30.9998, Loss KD: 21661.1837
+  Batch 300/782 - Loss CE: 31.1793, Loss KD: 21707.3441
+  Batch 400/782 - Loss CE: 31.1167, Loss KD: 21747.2064
+  Batch 500/782 - Loss CE: 31.2762, Loss KD: 21751.6557
+  Batch 600/782 - Loss CE: 31.2432, Loss KD: 21733.2243
+  Batch 700/782 - Loss CE: 31.1273, Loss KD: 21705.7205
+  Batch 782/782 - Loss CE: 30.8965, Loss KD: 21647.2892
+Epoch 9 Training Complete - Avg Loss CE: 30.8965, Avg Loss KD: 21647.2892
+
+Epoch 9 Results - Train Acc: 52.83% | Test Acc: 50.25% | Best: 50.25%
+0.0060420149999999995
+Epoch 10: Training...
+
+  Batch 100/782 - Loss CE: 30.9903, Loss KD: 23727.1988
+  Batch 200/782 - Loss CE: 30.0693, Loss KD: 23784.0171
+  Batch 300/782 - Loss CE: 30.0845, Loss KD: 23766.6242
+  Batch 400/782 - Loss CE: 29.6624, Loss KD: 23726.9908
+  Batch 500/782 - Loss CE: 29.4092, Loss KD: 23703.5099
+  Batch 600/782 - Loss CE: 29.3098, Loss KD: 23681.2305
+  Batch 700/782 - Loss CE: 29.2544, Loss KD: 23693.0948
+  Batch 782/782 - Loss CE: 29.2349, Loss KD: 23665.2055
+Epoch 10 Training Complete - Avg Loss CE: 29.2349, Avg Loss KD: 23665.2055
+
+Epoch 10 Results - Train Acc: 54.02% | Test Acc: 48.17% | Best: 50.25%
+0.005943941944444445
+Epoch 11: Training...
+
+  Batch 100/782 - Loss CE: 28.6998, Loss KD: 25595.3747
+  Batch 200/782 - Loss CE: 28.1728, Loss KD: 25687.1834
+  Batch 300/782 - Loss CE: 28.7476, Loss KD: 25727.8437
+  Batch 400/782 - Loss CE: 28.9377, Loss KD: 25776.0676
+  Batch 500/782 - Loss CE: 29.0401, Loss KD: 25743.3828
+  Batch 600/782 - Loss CE: 29.1487, Loss KD: 25743.5257
+  Batch 700/782 - Loss CE: 29.1495, Loss KD: 25750.3846
+  Batch 782/782 - Loss CE: 29.0826, Loss KD: 25717.0220
+Epoch 11 Training Complete - Avg Loss CE: 29.0826, Avg Loss KD: 25717.0220
+
+Epoch 11 Results - Train Acc: 55.26% | Test Acc: 52.02% | Best: 52.02%
+0.006099028888888889
+Epoch 12: Training...
+
+  Batch 100/782 - Loss CE: 27.4256, Loss KD: 27780.1648
+  Batch 200/782 - Loss CE: 27.8152, Loss KD: 27778.6909
+  Batch 300/782 - Loss CE: 27.7820, Loss KD: 27739.9461
+  Batch 400/782 - Loss CE: 27.4356, Loss KD: 27717.5813
+  Batch 500/782 - Loss CE: 27.3106, Loss KD: 27731.2065
+  Batch 600/782 - Loss CE: 27.4055, Loss KD: 27745.4500
+  Batch 700/782 - Loss CE: 27.3338, Loss KD: 27708.7467
+  Batch 782/782 - Loss CE: 27.5327, Loss KD: 27699.4992
+Epoch 12 Training Complete - Avg Loss CE: 27.5327, Avg Loss KD: 27699.4992
+
+Epoch 12 Results - Train Acc: 56.25% | Test Acc: 47.67% | Best: 52.02%
+0.006074475833333334
+Epoch 13: Training...
+
+  Batch 100/782 - Loss CE: 27.3084, Loss KD: 29891.9182
+  Batch 200/782 - Loss CE: 27.0574, Loss KD: 29896.9367
+  Batch 300/782 - Loss CE: 27.0661, Loss KD: 29828.1112
+  Batch 400/782 - Loss CE: 27.0786, Loss KD: 29814.2262
+  Batch 500/782 - Loss CE: 26.9377, Loss KD: 29802.9224
+  Batch 600/782 - Loss CE: 27.0264, Loss KD: 29777.7510
+  Batch 700/782 - Loss CE: 27.0302, Loss KD: 29772.0144
+  Batch 782/782 - Loss CE: 27.0147, Loss KD: 29745.4194
+Epoch 13 Training Complete - Avg Loss CE: 27.0147, Avg Loss KD: 29745.4194
+
+Epoch 13 Results - Train Acc: 56.67% | Test Acc: 52.39% | Best: 52.39%
+0.006264126111111112
+Epoch 14: Training...
+
+  Batch 100/782 - Loss CE: 26.9802, Loss KD: 31663.3483
+  Batch 200/782 - Loss CE: 26.7093, Loss KD: 31699.0570
+  Batch 300/782 - Loss CE: 26.4019, Loss KD: 31737.2687
+  Batch 400/782 - Loss CE: 26.4519, Loss KD: 31769.1754
+  Batch 500/782 - Loss CE: 26.4260, Loss KD: 31845.0515
+  Batch 600/782 - Loss CE: 26.6436, Loss KD: 31873.8985
+  Batch 700/782 - Loss CE: 26.5039, Loss KD: 31861.0321
+  Batch 782/782 - Loss CE: 26.4627, Loss KD: 31798.9307
+Epoch 14 Training Complete - Avg Loss CE: 26.4627, Avg Loss KD: 31798.9307
+
+Epoch 14 Results - Train Acc: 57.47% | Test Acc: 54.17% | Best: 54.17%
+0.006343785277777778
+Epoch 15: Training...
+
+  Batch 100/782 - Loss CE: 25.3722, Loss KD: 33773.0075
+  Batch 200/782 - Loss CE: 25.3006, Loss KD: 33707.2128
+  Batch 300/782 - Loss CE: 25.2658, Loss KD: 33690.2383
+  Batch 400/782 - Loss CE: 25.2133, Loss KD: 33722.8175
+  Batch 500/782 - Loss CE: 25.2393, Loss KD: 33758.9818
+  Batch 600/782 - Loss CE: 25.1456, Loss KD: 33788.0856
+  Batch 700/782 - Loss CE: 25.2564, Loss KD: 33771.8260
+  Batch 782/782 - Loss CE: 25.2112, Loss KD: 33708.9206
+Epoch 15 Training Complete - Avg Loss CE: 25.2112, Avg Loss KD: 33708.9206
+
+Epoch 15 Results - Train Acc: 58.02% | Test Acc: 50.50% | Best: 54.17%
+0.006169321944444444
+Epoch 16: Training...
+
+  Batch 100/782 - Loss CE: 24.2026, Loss KD: 35767.6851
+  Batch 200/782 - Loss CE: 24.5657, Loss KD: 35891.8547
+  Batch 300/782 - Loss CE: 24.9069, Loss KD: 35944.7833
+  Batch 400/782 - Loss CE: 24.7606, Loss KD: 35859.4496
+  Batch 500/782 - Loss CE: 24.8000, Loss KD: 35818.0257
+  Batch 600/782 - Loss CE: 24.9118, Loss KD: 35853.4635
+  Batch 700/782 - Loss CE: 24.9236, Loss KD: 35845.9272
+  Batch 782/782 - Loss CE: 24.9117, Loss KD: 35808.6765
+Epoch 16 Training Complete - Avg Loss CE: 24.9117, Avg Loss KD: 35808.6765
+
+Epoch 16 Results - Train Acc: 58.63% | Test Acc: 52.49% | Best: 54.17%
+0.006071621666666667
+Epoch 17: Training...
+
+  Batch 100/782 - Loss CE: 24.3290, Loss KD: 37722.4977
+  Batch 200/782 - Loss CE: 24.2391, Loss KD: 37751.4420
+  Batch 300/782 - Loss CE: 24.2430, Loss KD: 37837.7391
+  Batch 400/782 - Loss CE: 24.4817, Loss KD: 37882.2053
+  Batch 500/782 - Loss CE: 24.3773, Loss KD: 37878.3140
+  Batch 600/782 - Loss CE: 24.2391, Loss KD: 37877.8905
+  Batch 700/782 - Loss CE: 24.2117, Loss KD: 37840.8707
+  Batch 782/782 - Loss CE: 24.0890, Loss KD: 37795.0669
+Epoch 17 Training Complete - Avg Loss CE: 24.0890, Avg Loss KD: 37795.0669
+
+Epoch 17 Results - Train Acc: 59.13% | Test Acc: 52.63% | Best: 54.17%
+0.006063428055555556
+Epoch 18: Training...
+
+  Batch 100/782 - Loss CE: 22.5753, Loss KD: 39568.6030
+  Batch 200/782 - Loss CE: 23.2125, Loss KD: 39644.7887
+  Batch 300/782 - Loss CE: 22.8365, Loss KD: 39646.5898
+  Batch 400/782 - Loss CE: 22.9404, Loss KD: 39671.2435
+  Batch 500/782 - Loss CE: 23.2020, Loss KD: 39719.5092
+  Batch 600/782 - Loss CE: 23.1664, Loss KD: 39758.3904
+  Batch 700/782 - Loss CE: 23.2888, Loss KD: 39802.6884
+  Batch 782/782 - Loss CE: 23.3674, Loss KD: 39795.3550
+Epoch 18 Training Complete - Avg Loss CE: 23.3674, Avg Loss KD: 39795.3550
+
+Epoch 18 Results - Train Acc: 59.79% | Test Acc: 56.98% | Best: 56.98%
+0.0059121880555555555
+Epoch 19: Training...
+
+  Batch 100/782 - Loss CE: 22.7414, Loss KD: 41743.5853
+  Batch 200/782 - Loss CE: 22.7495, Loss KD: 41789.2103
+  Batch 300/782 - Loss CE: 22.9215, Loss KD: 41903.3897
+  Batch 400/782 - Loss CE: 22.8394, Loss KD: 41841.8926
+  Batch 500/782 - Loss CE: 22.6656, Loss KD: 41876.9994
+  Batch 600/782 - Loss CE: 22.6357, Loss KD: 41828.1245
+  Batch 700/782 - Loss CE: 22.5784, Loss KD: 41776.5800
+  Batch 782/782 - Loss CE: 22.7476, Loss KD: 41788.8674
+Epoch 19 Training Complete - Avg Loss CE: 22.7476, Avg Loss KD: 41788.8674
+
+Epoch 19 Results - Train Acc: 59.72% | Test Acc: 48.25% | Best: 56.98%
+0.005882621944444445
+Epoch 20: Training...
+
+  Batch 100/782 - Loss CE: 21.5918, Loss KD: 43677.5427
+  Batch 200/782 - Loss CE: 21.8974, Loss KD: 43686.6686
+  Batch 300/782 - Loss CE: 22.1185, Loss KD: 43822.0101
+  Batch 400/782 - Loss CE: 22.4443, Loss KD: 43823.8893
+  Batch 500/782 - Loss CE: 22.3960, Loss KD: 43859.4313
+  Batch 600/782 - Loss CE: 22.5911, Loss KD: 43920.9402
+  Batch 700/782 - Loss CE: 22.6606, Loss KD: 43922.0419
+  Batch 782/782 - Loss CE: 22.6338, Loss KD: 43866.6727
+Epoch 20 Training Complete - Avg Loss CE: 22.6338, Avg Loss KD: 43866.6727
+
+Epoch 20 Results - Train Acc: 59.98% | Test Acc: 53.13% | Best: 56.98%
+0.006053115277777778
+Epoch 21: Training...
+
+  Batch 100/782 - Loss CE: 20.9474, Loss KD: 43418.2932
+  Batch 200/782 - Loss CE: 22.0129, Loss KD: 43595.8999
+  Batch 300/782 - Loss CE: 22.3082, Loss KD: 43595.7800
+  Batch 400/782 - Loss CE: 22.0674, Loss KD: 43643.3472
+  Batch 500/782 - Loss CE: 22.1008, Loss KD: 43701.8311
+  Batch 600/782 - Loss CE: 21.9799, Loss KD: 43703.9045
+  Batch 700/782 - Loss CE: 22.0007, Loss KD: 43739.7253
+  Batch 782/782 - Loss CE: 21.9824, Loss KD: 43676.3473
+Epoch 21 Training Complete - Avg Loss CE: 21.9824, Avg Loss KD: 43676.3473
+
+Epoch 21 Results - Train Acc: 60.59% | Test Acc: 51.97% | Best: 56.98%
+0.006207251111111111
+Epoch 22: Training...
+
+  Batch 100/782 - Loss CE: 21.3364, Loss KD: 43287.4802
+  Batch 200/782 - Loss CE: 21.5381, Loss KD: 43256.4470
+  Batch 300/782 - Loss CE: 21.7879, Loss KD: 43319.4393
+  Batch 400/782 - Loss CE: 21.5112, Loss KD: 43293.2430
+  Batch 500/782 - Loss CE: 21.5320, Loss KD: 43369.6703
+  Batch 600/782 - Loss CE: 21.4877, Loss KD: 43380.8575
+  Batch 700/782 - Loss CE: 21.5939, Loss KD: 43439.8080
+  Batch 782/782 - Loss CE: 21.6149, Loss KD: 43405.4162
+Epoch 22 Training Complete - Avg Loss CE: 21.6149, Avg Loss KD: 43405.4162
+
+Epoch 22 Results - Train Acc: 60.86% | Test Acc: 52.56% | Best: 56.98%
+0.006204584722222222
+Epoch 23: Training...
+
+  Batch 100/782 - Loss CE: 21.4126, Loss KD: 43177.3535
+  Batch 200/782 - Loss CE: 21.4409, Loss KD: 43183.0171
+  Batch 300/782 - Loss CE: 21.2321, Loss KD: 43116.2715
+  Batch 400/782 - Loss CE: 21.2572, Loss KD: 43198.5729
+  Batch 500/782 - Loss CE: 21.2927, Loss KD: 43304.7448
+  Batch 600/782 - Loss CE: 21.3120, Loss KD: 43348.6418
+  Batch 700/782 - Loss CE: 21.3087, Loss KD: 43333.0676
+  Batch 782/782 - Loss CE: 21.3247, Loss KD: 43306.1783
+Epoch 23 Training Complete - Avg Loss CE: 21.3247, Avg Loss KD: 43306.1783
+
+Epoch 23 Results - Train Acc: 60.95% | Test Acc: 56.20% | Best: 56.98%
+0.005847349166666667
+Epoch 24: Training...
+
+  Batch 100/782 - Loss CE: 20.9224, Loss KD: 43232.4711
+  Batch 200/782 - Loss CE: 20.8786, Loss KD: 43191.7924
+  Batch 300/782 - Loss CE: 20.6284, Loss KD: 43147.5977
+  Batch 400/782 - Loss CE: 20.6239, Loss KD: 43126.1475
+  Batch 500/782 - Loss CE: 20.6036, Loss KD: 43107.8985
+  Batch 600/782 - Loss CE: 20.5983, Loss KD: 43149.0065
+  Batch 700/782 - Loss CE: 20.8229, Loss KD: 43183.9066
+  Batch 782/782 - Loss CE: 20.8307, Loss KD: 43153.9989
+Epoch 24 Training Complete - Avg Loss CE: 20.8307, Avg Loss KD: 43153.9989
+
+Epoch 24 Results - Train Acc: 61.47% | Test Acc: 52.27% | Best: 56.98%
+0.006225489166666666
+Epoch 25: Training...
+
+  Batch 100/782 - Loss CE: 19.0800, Loss KD: 43045.0450
+  Batch 200/782 - Loss CE: 19.7207, Loss KD: 43083.2720
+  Batch 300/782 - Loss CE: 20.0053, Loss KD: 43032.3620
+  Batch 400/782 - Loss CE: 20.1920, Loss KD: 43124.2706
+  Batch 500/782 - Loss CE: 20.3146, Loss KD: 43146.0305
+  Batch 600/782 - Loss CE: 20.3575, Loss KD: 43093.5938
+  Batch 700/782 - Loss CE: 20.2568, Loss KD: 43094.6572
+  Batch 782/782 - Loss CE: 20.2197, Loss KD: 43067.4012
+Epoch 25 Training Complete - Avg Loss CE: 20.2197, Avg Loss KD: 43067.4012
+
+Epoch 25 Results - Train Acc: 61.60% | Test Acc: 54.76% | Best: 56.98%
+0.006145438611111111
+Epoch 26: Training...
+
+  Batch 100/782 - Loss CE: 19.2647, Loss KD: 42653.2744
+  Batch 200/782 - Loss CE: 19.6667, Loss KD: 42722.5086
+  Batch 300/782 - Loss CE: 19.8325, Loss KD: 42852.0633
+  Batch 400/782 - Loss CE: 19.7541, Loss KD: 42814.8148
+  Batch 500/782 - Loss CE: 19.8220, Loss KD: 42817.1078
+  Batch 600/782 - Loss CE: 19.9337, Loss KD: 42853.5230
+  Batch 700/782 - Loss CE: 20.0817, Loss KD: 42926.3774
+  Batch 782/782 - Loss CE: 20.1787, Loss KD: 42886.1982
+Epoch 26 Training Complete - Avg Loss CE: 20.1787, Avg Loss KD: 42886.1982
+
+Epoch 26 Results - Train Acc: 61.82% | Test Acc: 53.74% | Best: 56.98%
+0.004455281111111111
+Epoch 27: Training...
+
+  Batch 100/782 - Loss CE: 19.4532, Loss KD: 42353.9526
+  Batch 200/782 - Loss CE: 19.4984, Loss KD: 42484.7743
+  Batch 300/782 - Loss CE: 19.5955, Loss KD: 42545.3756
+  Batch 400/782 - Loss CE: 19.5052, Loss KD: 42649.5326
+  Batch 500/782 - Loss CE: 19.4421, Loss KD: 42732.6504
+  Batch 600/782 - Loss CE: 19.5922, Loss KD: 42767.2111
+  Batch 700/782 - Loss CE: 19.7194, Loss KD: 42792.3715
+  Batch 782/782 - Loss CE: 19.6801, Loss KD: 42760.4185
+Epoch 27 Training Complete - Avg Loss CE: 19.6801, Avg Loss KD: 42760.4185
+
+Epoch 27 Results - Train Acc: 62.20% | Test Acc: 54.41% | Best: 56.98%
+0.0038238530555555557
+Epoch 28: Training...
+
+  Batch 100/782 - Loss CE: 18.9968, Loss KD: 42264.2060
+  Batch 200/782 - Loss CE: 19.3037, Loss KD: 42388.3847
+  Batch 300/782 - Loss CE: 19.4673, Loss KD: 42478.0245
+  Batch 400/782 - Loss CE: 19.6282, Loss KD: 42589.3212
+  Batch 500/782 - Loss CE: 19.6198, Loss KD: 42605.2859
+  Batch 600/782 - Loss CE: 19.5976, Loss KD: 42669.4526
+  Batch 700/782 - Loss CE: 19.5833, Loss KD: 42730.7563
+  Batch 782/782 - Loss CE: 19.6269, Loss KD: 42669.6274
+Epoch 28 Training Complete - Avg Loss CE: 19.6269, Avg Loss KD: 42669.6274
+
+Epoch 28 Results - Train Acc: 62.24% | Test Acc: 54.85% | Best: 56.98%
+0.0036962425
+Epoch 29: Training...
+
+  Batch 100/782 - Loss CE: 18.0748, Loss KD: 42069.2511
+  Batch 200/782 - Loss CE: 18.9829, Loss KD: 42405.5253
+  Batch 300/782 - Loss CE: 19.1027, Loss KD: 42516.0178
+  Batch 400/782 - Loss CE: 19.2746, Loss KD: 42582.5786
+  Batch 500/782 - Loss CE: 19.2785, Loss KD: 42586.8814
+  Batch 600/782 - Loss CE: 19.1840, Loss KD: 42583.9650
+  Batch 700/782 - Loss CE: 19.2790, Loss KD: 42597.2341
+  Batch 782/782 - Loss CE: 19.3020, Loss KD: 42536.1168
+Epoch 29 Training Complete - Avg Loss CE: 19.3020, Avg Loss KD: 42536.1168
+
+Epoch 29 Results - Train Acc: 62.48% | Test Acc: 56.81% | Best: 56.98%
+0.006195879166666666
+Epoch 30: Training...
+
+  Batch 100/782 - Loss CE: 19.2271, Loss KD: 42805.2940
+  Batch 200/782 - Loss CE: 19.2642, Loss KD: 42567.4417
+  Batch 300/782 - Loss CE: 19.3329, Loss KD: 42644.8782
+  Batch 400/782 - Loss CE: 19.1952, Loss KD: 42545.4522
+  Batch 500/782 - Loss CE: 19.2377, Loss KD: 42542.0166
+  Batch 600/782 - Loss CE: 19.3034, Loss KD: 42602.5551
+  Batch 700/782 - Loss CE: 19.2646, Loss KD: 42565.7907
+  Batch 782/782 - Loss CE: 19.3419, Loss KD: 42516.4705
+Epoch 30 Training Complete - Avg Loss CE: 19.3419, Avg Loss KD: 42516.4705
+
+Epoch 30 Results - Train Acc: 62.70% | Test Acc: 56.11% | Best: 56.98%
+0.006312486388888889
+Epoch 31: Training...
+
+  Batch 100/782 - Loss CE: 19.6116, Loss KD: 42233.7403
+  Batch 200/782 - Loss CE: 19.1563, Loss KD: 42400.2619
+  Batch 300/782 - Loss CE: 19.1447, Loss KD: 42338.3950
+  Batch 400/782 - Loss CE: 19.1240, Loss KD: 42372.6112
+  Batch 500/782 - Loss CE: 19.2621, Loss KD: 42451.7597
+  Batch 600/782 - Loss CE: 19.3287, Loss KD: 42489.3540
+  Batch 700/782 - Loss CE: 19.1859, Loss KD: 42462.7722
+  Batch 782/782 - Loss CE: 19.1748, Loss KD: 42453.9190
+Epoch 31 Training Complete - Avg Loss CE: 19.1748, Avg Loss KD: 42453.9190
+
+Epoch 31 Results - Train Acc: 62.61% | Test Acc: 56.36% | Best: 56.98%
+0.006157525277777778
+Epoch 32: Training...
+
+  Batch 100/782 - Loss CE: 17.7157, Loss KD: 42022.8087
+  Batch 200/782 - Loss CE: 18.1878, Loss KD: 42225.1946
+  Batch 300/782 - Loss CE: 18.4369, Loss KD: 42304.2798
+  Batch 400/782 - Loss CE: 18.3363, Loss KD: 42372.9266
+  Batch 500/782 - Loss CE: 18.4273, Loss KD: 42336.1678
+  Batch 600/782 - Loss CE: 18.5378, Loss KD: 42338.8190
+  Batch 700/782 - Loss CE: 18.7184, Loss KD: 42396.5484
+  Batch 782/782 - Loss CE: 18.7876, Loss KD: 42367.0538
+Epoch 32 Training Complete - Avg Loss CE: 18.7876, Avg Loss KD: 42367.0538
+
+Epoch 32 Results - Train Acc: 62.88% | Test Acc: 53.62% | Best: 56.98%
+0.006397745555555556
+Epoch 33: Training...
+
+  Batch 100/782 - Loss CE: 17.8939, Loss KD: 41899.0559
+  Batch 200/782 - Loss CE: 17.9582, Loss KD: 42092.1818
+  Batch 300/782 - Loss CE: 18.1642, Loss KD: 42112.0466
+  Batch 400/782 - Loss CE: 18.2277, Loss KD: 42088.8678
+  Batch 500/782 - Loss CE: 18.2995, Loss KD: 42108.4191
+  Batch 600/782 - Loss CE: 18.5152, Loss KD: 42236.5016
+  Batch 700/782 - Loss CE: 18.5299, Loss KD: 42295.0665
+  Batch 782/782 - Loss CE: 18.7025, Loss KD: 42293.9746
+Epoch 33 Training Complete - Avg Loss CE: 18.7025, Avg Loss KD: 42293.9746
+
+Epoch 33 Results - Train Acc: 63.10% | Test Acc: 57.35% | Best: 57.35%
+0.0063159566666666665
+Epoch 34: Training...
+
+  Batch 100/782 - Loss CE: 18.5145, Loss KD: 42219.9319
+  Batch 200/782 - Loss CE: 18.4047, Loss KD: 42179.9628
+  Batch 300/782 - Loss CE: 18.3479, Loss KD: 42087.5220
+  Batch 400/782 - Loss CE: 18.4419, Loss KD: 42156.0090
+  Batch 500/782 - Loss CE: 18.7318, Loss KD: 42176.0040
+  Batch 600/782 - Loss CE: 18.7381, Loss KD: 42209.2274
+  Batch 700/782 - Loss CE: 18.6658, Loss KD: 42228.6794
+  Batch 782/782 - Loss CE: 18.6779, Loss KD: 42242.3757
+Epoch 34 Training Complete - Avg Loss CE: 18.6779, Avg Loss KD: 42242.3757
+
+Epoch 34 Results - Train Acc: 62.96% | Test Acc: 58.09% | Best: 58.09%
+0.006442235
+Epoch 35: Training...
+
+  Batch 100/782 - Loss CE: 18.1182, Loss KD: 41751.3847
+  Batch 200/782 - Loss CE: 18.2225, Loss KD: 42038.1335
+  Batch 300/782 - Loss CE: 18.3584, Loss KD: 42015.4679
+  Batch 400/782 - Loss CE: 18.2743, Loss KD: 42093.9000
+  Batch 500/782 - Loss CE: 18.1460, Loss KD: 42083.9993
+  Batch 600/782 - Loss CE: 18.2115, Loss KD: 42130.8903
+  Batch 700/782 - Loss CE: 18.3094, Loss KD: 42165.8924
+  Batch 782/782 - Loss CE: 18.3592, Loss KD: 42153.6503
+Epoch 35 Training Complete - Avg Loss CE: 18.3592, Avg Loss KD: 42153.6503
+
+Epoch 35 Results - Train Acc: 63.12% | Test Acc: 57.42% | Best: 58.09%
+0.006176718611111112
+Epoch 36: Training...
+
+  Batch 100/782 - Loss CE: 17.2751, Loss KD: 41866.6066
+  Batch 200/782 - Loss CE: 17.8128, Loss KD: 41858.9792
+  Batch 300/782 - Loss CE: 18.0257, Loss KD: 41913.5711
+  Batch 400/782 - Loss CE: 18.0279, Loss KD: 41961.3444
+  Batch 500/782 - Loss CE: 18.0717, Loss KD: 41963.5703
+  Batch 600/782 - Loss CE: 18.1462, Loss KD: 42044.7326
+  Batch 700/782 - Loss CE: 18.2029, Loss KD: 42130.1533
+  Batch 782/782 - Loss CE: 18.1622, Loss KD: 42096.1697
+Epoch 36 Training Complete - Avg Loss CE: 18.1622, Avg Loss KD: 42096.1697
+
+Epoch 36 Results - Train Acc: 63.29% | Test Acc: 54.04% | Best: 58.09%
+0.005171826111111111
+Epoch 37: Training...
+
+  Batch 100/782 - Loss CE: 16.7870, Loss KD: 41727.7959
+  Batch 200/782 - Loss CE: 17.5749, Loss KD: 41821.3804
+  Batch 300/782 - Loss CE: 17.5426, Loss KD: 41854.2861
+  Batch 400/782 - Loss CE: 17.7039, Loss KD: 41971.5123
+  Batch 500/782 - Loss CE: 17.9094, Loss KD: 41994.9123
+  Batch 600/782 - Loss CE: 17.9530, Loss KD: 42064.3791
+  Batch 700/782 - Loss CE: 17.9883, Loss KD: 42079.2369
+  Batch 782/782 - Loss CE: 18.0663, Loss KD: 42080.9975
+Epoch 37 Training Complete - Avg Loss CE: 18.0663, Avg Loss KD: 42080.9975
+
+Epoch 37 Results - Train Acc: 63.29% | Test Acc: 57.81% | Best: 58.09%
+0.006011043888888889
+Epoch 38: Training...
+
+  Batch 100/782 - Loss CE: 17.6351, Loss KD: 41905.1981
+  Batch 200/782 - Loss CE: 17.3705, Loss KD: 41843.7906
+  Batch 300/782 - Loss CE: 17.5280, Loss KD: 41970.8146
+  Batch 400/782 - Loss CE: 17.6576, Loss KD: 41996.6509
+  Batch 500/782 - Loss CE: 17.6838, Loss KD: 41868.7669
+  Batch 600/782 - Loss CE: 17.7077, Loss KD: 41948.0850
+  Batch 700/782 - Loss CE: 17.8012, Loss KD: 41971.4318
+  Batch 782/782 - Loss CE: 17.8466, Loss KD: 41956.0701
+Epoch 38 Training Complete - Avg Loss CE: 17.8466, Avg Loss KD: 41956.0701
+
+Epoch 38 Results - Train Acc: 63.71% | Test Acc: 57.95% | Best: 58.09%
+0.0061744527777777775
+Epoch 39: Training...
+
+  Batch 100/782 - Loss CE: 17.2318, Loss KD: 41435.0066
+  Batch 200/782 - Loss CE: 17.1759, Loss KD: 41501.9321
+  Batch 300/782 - Loss CE: 17.1936, Loss KD: 41656.4582
+  Batch 400/782 - Loss CE: 17.4361, Loss KD: 41820.9556
+  Batch 500/782 - Loss CE: 17.4119, Loss KD: 41824.5195
+  Batch 600/782 - Loss CE: 17.4537, Loss KD: 41872.1900
+  Batch 700/782 - Loss CE: 17.6003, Loss KD: 41943.0588
+  Batch 782/782 - Loss CE: 17.7153, Loss KD: 41916.2917
+Epoch 39 Training Complete - Avg Loss CE: 17.7153, Avg Loss KD: 41916.2917
+
+Epoch 39 Results - Train Acc: 63.54% | Test Acc: 53.66% | Best: 58.09%
+0.006000562500000001
+Epoch 40: Training...
+
+  Batch 100/782 - Loss CE: 16.9633, Loss KD: 41360.2186
+  Batch 200/782 - Loss CE: 17.1703, Loss KD: 41462.7872
+  Batch 300/782 - Loss CE: 17.0122, Loss KD: 41614.2752
+  Batch 400/782 - Loss CE: 16.9930, Loss KD: 41702.2195
+  Batch 500/782 - Loss CE: 17.1441, Loss KD: 41763.7145
+  Batch 600/782 - Loss CE: 17.2730, Loss KD: 41848.4636
+  Batch 700/782 - Loss CE: 17.4439, Loss KD: 41871.7146
+  Batch 782/782 - Loss CE: 17.4549, Loss KD: 41822.2948
+Epoch 40 Training Complete - Avg Loss CE: 17.4549, Avg Loss KD: 41822.2948
+
+Epoch 40 Results - Train Acc: 63.95% | Test Acc: 56.03% | Best: 58.09%
+0.005749596666666666
+Epoch 41: Training...
+
+  Batch 100/782 - Loss CE: 17.1182, Loss KD: 41730.5032
+  Batch 200/782 - Loss CE: 16.9532, Loss KD: 41681.4923
+  Batch 300/782 - Loss CE: 16.9122, Loss KD: 41761.8500
+  Batch 400/782 - Loss CE: 16.9990, Loss KD: 41763.5219
+  Batch 500/782 - Loss CE: 17.1145, Loss KD: 41803.8349
+  Batch 600/782 - Loss CE: 17.2370, Loss KD: 41851.8369
+  Batch 700/782 - Loss CE: 17.4154, Loss KD: 41909.5087
+  Batch 782/782 - Loss CE: 17.3945, Loss KD: 41883.9530
+Epoch 41 Training Complete - Avg Loss CE: 17.3945, Avg Loss KD: 41883.9530
+
+Epoch 41 Results - Train Acc: 63.78% | Test Acc: 55.56% | Best: 58.09%
+0.006083123333333333
+Epoch 42: Training...
+
+  Batch 100/782 - Loss CE: 16.6199, Loss KD: 41566.5413
+  Batch 200/782 - Loss CE: 17.0277, Loss KD: 41679.7223
+  Batch 300/782 - Loss CE: 17.2108, Loss KD: 41826.4302
+  Batch 400/782 - Loss CE: 17.2356, Loss KD: 41773.2216
+  Batch 500/782 - Loss CE: 17.4029, Loss KD: 41820.2403
+  Batch 600/782 - Loss CE: 17.5491, Loss KD: 41890.8401
+  Batch 700/782 - Loss CE: 17.7139, Loss KD: 41886.4651
+  Batch 782/782 - Loss CE: 17.7602, Loss KD: 41841.3770
+Epoch 42 Training Complete - Avg Loss CE: 17.7602, Avg Loss KD: 41841.3770
+
+Epoch 42 Results - Train Acc: 63.80% | Test Acc: 58.62% | Best: 58.62%
+0.006178711388888889
+Epoch 43: Training...
+
+  Batch 100/782 - Loss CE: 17.4968, Loss KD: 41660.2514
+  Batch 200/782 - Loss CE: 17.2579, Loss KD: 41583.1720
+  Batch 300/782 - Loss CE: 17.2369, Loss KD: 41736.1038
+  Batch 400/782 - Loss CE: 17.2297, Loss KD: 41731.7191
+  Batch 500/782 - Loss CE: 17.4530, Loss KD: 41757.9950
+  Batch 600/782 - Loss CE: 17.5003, Loss KD: 41836.7957
+  Batch 700/782 - Loss CE: 17.4977, Loss KD: 41798.4161
+  Batch 782/782 - Loss CE: 17.4247, Loss KD: 41753.8723
+Epoch 43 Training Complete - Avg Loss CE: 17.4247, Avg Loss KD: 41753.8723
+
+Epoch 43 Results - Train Acc: 63.87% | Test Acc: 54.35% | Best: 58.62%
+0.0059506777777777785
+Epoch 44: Training...
+
+  Batch 100/782 - Loss CE: 16.9145, Loss KD: 41372.0637
+  Batch 200/782 - Loss CE: 16.6001, Loss KD: 41364.3202
+  Batch 300/782 - Loss CE: 16.6003, Loss KD: 41502.9462
+  Batch 400/782 - Loss CE: 16.6994, Loss KD: 41525.8142
+  Batch 500/782 - Loss CE: 16.7570, Loss KD: 41559.4390
+  Batch 600/782 - Loss CE: 16.8946, Loss KD: 41651.8972
+  Batch 700/782 - Loss CE: 17.0585, Loss KD: 41724.1626
+  Batch 782/782 - Loss CE: 17.0897, Loss KD: 41717.0710
+Epoch 44 Training Complete - Avg Loss CE: 17.0897, Avg Loss KD: 41717.0710
+
+Epoch 44 Results - Train Acc: 63.94% | Test Acc: 58.41% | Best: 58.62%
+0.006218985277777778
+Epoch 45: Training...
+
+  Batch 100/782 - Loss CE: 17.2526, Loss KD: 41363.9458
+  Batch 200/782 - Loss CE: 16.5700, Loss KD: 41410.0484
+  Batch 300/782 - Loss CE: 16.5240, Loss KD: 41463.9832
+  Batch 400/782 - Loss CE: 16.6509, Loss KD: 41541.9942
+  Batch 500/782 - Loss CE: 16.9007, Loss KD: 41556.3497
+  Batch 600/782 - Loss CE: 17.0514, Loss KD: 41586.6012
+  Batch 700/782 - Loss CE: 17.1667, Loss KD: 41673.6013
+  Batch 782/782 - Loss CE: 17.1390, Loss KD: 41639.8772
+Epoch 45 Training Complete - Avg Loss CE: 17.1390, Avg Loss KD: 41639.8772
+
+Epoch 45 Results - Train Acc: 63.88% | Test Acc: 59.63% | Best: 59.63%
+0.0063895908333333334
+Epoch 46: Training...
+
+  Batch 100/782 - Loss CE: 16.5355, Loss KD: 41311.8116
+  Batch 200/782 - Loss CE: 16.8114, Loss KD: 41514.2500
+  Batch 300/782 - Loss CE: 16.7650, Loss KD: 41483.5835
+  Batch 400/782 - Loss CE: 16.8475, Loss KD: 41512.3747
+  Batch 500/782 - Loss CE: 16.7035, Loss KD: 41540.4985
+  Batch 600/782 - Loss CE: 16.7215, Loss KD: 41591.3432
+  Batch 700/782 - Loss CE: 16.8477, Loss KD: 41678.9982
+  Batch 782/782 - Loss CE: 16.9603, Loss KD: 41640.8616
+Epoch 46 Training Complete - Avg Loss CE: 16.9603, Avg Loss KD: 41640.8616
+
+Epoch 46 Results - Train Acc: 63.86% | Test Acc: 60.76% | Best: 60.76%
+0.006437857222222222
+Epoch 47: Training...
+
+  Batch 100/782 - Loss CE: 16.1489, Loss KD: 41271.8705
+  Batch 200/782 - Loss CE: 16.4249, Loss KD: 41345.3230
+  Batch 300/782 - Loss CE: 16.5036, Loss KD: 41471.4368
+  Batch 400/782 - Loss CE: 16.6982, Loss KD: 41544.6302
+  Batch 500/782 - Loss CE: 16.7360, Loss KD: 41585.5092
+  Batch 600/782 - Loss CE: 16.8505, Loss KD: 41607.6632
+  Batch 700/782 - Loss CE: 16.9748, Loss KD: 41626.5460
+  Batch 782/782 - Loss CE: 17.0697, Loss KD: 41644.2225
+Epoch 47 Training Complete - Avg Loss CE: 17.0697, Avg Loss KD: 41644.2225
+
+Epoch 47 Results - Train Acc: 64.11% | Test Acc: 57.98% | Best: 60.76%
+0.006376641388888889
+Epoch 48: Training...
+
+  Batch 100/782 - Loss CE: 16.9779, Loss KD: 41328.2770
+  Batch 200/782 - Loss CE: 16.7398, Loss KD: 41428.4286
+  Batch 300/782 - Loss CE: 16.6678, Loss KD: 41390.0051
+  Batch 400/782 - Loss CE: 16.8238, Loss KD: 41503.2723
+  Batch 500/782 - Loss CE: 16.9525, Loss KD: 41540.4875
+  Batch 600/782 - Loss CE: 17.0459, Loss KD: 41556.5566
+  Batch 700/782 - Loss CE: 17.1177, Loss KD: 41584.1666
+  Batch 782/782 - Loss CE: 17.1248, Loss KD: 41568.7637
+Epoch 48 Training Complete - Avg Loss CE: 17.1248, Avg Loss KD: 41568.7637
+
+Epoch 48 Results - Train Acc: 64.20% | Test Acc: 56.22% | Best: 60.76%
+0.006275425277777778
+Epoch 49: Training...
+
+  Batch 100/782 - Loss CE: 16.1717, Loss KD: 41134.9279
+  Batch 200/782 - Loss CE: 15.9680, Loss KD: 41372.6309
+  Batch 300/782 - Loss CE: 16.2719, Loss KD: 41483.3123
+  Batch 400/782 - Loss CE: 16.1884, Loss KD: 41520.9554
+  Batch 500/782 - Loss CE: 16.4369, Loss KD: 41588.9803
+  Batch 600/782 - Loss CE: 16.5904, Loss KD: 41610.2569
+  Batch 700/782 - Loss CE: 16.7551, Loss KD: 41613.2834
+  Batch 782/782 - Loss CE: 16.8492, Loss KD: 41600.8954
+Epoch 49 Training Complete - Avg Loss CE: 16.8492, Avg Loss KD: 41600.8954
+
+Epoch 49 Results - Train Acc: 64.35% | Test Acc: 58.56% | Best: 60.76%
+0.005817204722222222
+Epoch 50: Training...
+
+  Batch 100/782 - Loss CE: 16.5101, Loss KD: 41191.3281
+  Batch 200/782 - Loss CE: 16.0740, Loss KD: 41235.3596
+  Batch 300/782 - Loss CE: 16.2571, Loss KD: 41349.1525
+  Batch 400/782 - Loss CE: 16.1568, Loss KD: 41470.3465
+  Batch 500/782 - Loss CE: 16.3735, Loss KD: 41525.2285
+  Batch 600/782 - Loss CE: 16.3947, Loss KD: 41556.8498
+  Batch 700/782 - Loss CE: 16.4459, Loss KD: 41580.4831
+  Batch 782/782 - Loss CE: 16.4571, Loss KD: 41541.4109
+Epoch 50 Training Complete - Avg Loss CE: 16.4571, Avg Loss KD: 41541.4109
+
+Epoch 50 Results - Train Acc: 64.54% | Test Acc: 55.55% | Best: 60.76%
+0.006225530277777778
+Epoch 51: Training...
+
+  Batch 100/782 - Loss CE: 16.4433, Loss KD: 41494.4698
+  Batch 200/782 - Loss CE: 16.4829, Loss KD: 41427.1276
+  Batch 300/782 - Loss CE: 16.3741, Loss KD: 41369.1733
+  Batch 400/782 - Loss CE: 16.3538, Loss KD: 41403.3246
+  Batch 500/782 - Loss CE: 16.3554, Loss KD: 41393.2230
+  Batch 600/782 - Loss CE: 16.3644, Loss KD: 41407.2270
+  Batch 700/782 - Loss CE: 16.3944, Loss KD: 41454.0340
+  Batch 782/782 - Loss CE: 16.4193, Loss KD: 41429.7210
+Epoch 51 Training Complete - Avg Loss CE: 16.4193, Avg Loss KD: 41429.7210
+
+Epoch 51 Results - Train Acc: 64.59% | Test Acc: 55.70% | Best: 60.76%
+0.0058940569444444445
+Epoch 52: Training...
+
+  Batch 100/782 - Loss CE: 16.9211, Loss KD: 41486.3848
+  Batch 200/782 - Loss CE: 16.8258, Loss KD: 41567.6596
+  Batch 300/782 - Loss CE: 16.4308, Loss KD: 41467.3019
+  Batch 400/782 - Loss CE: 16.4337, Loss KD: 41509.9004
+  Batch 500/782 - Loss CE: 16.4860, Loss KD: 41546.4515
+  Batch 600/782 - Loss CE: 16.4050, Loss KD: 41475.6378
+  Batch 700/782 - Loss CE: 16.4275, Loss KD: 41445.6184
+  Batch 782/782 - Loss CE: 16.4703, Loss KD: 41413.0920
+Epoch 52 Training Complete - Avg Loss CE: 16.4703, Avg Loss KD: 41413.0920
+
+Epoch 52 Results - Train Acc: 64.64% | Test Acc: 56.10% | Best: 60.76%
+0.006264912777777777
+Epoch 53: Training...
+
+  Batch 100/782 - Loss CE: 15.5579, Loss KD: 41221.1583
+  Batch 200/782 - Loss CE: 15.6515, Loss KD: 41197.5556
+  Batch 300/782 - Loss CE: 15.6688, Loss KD: 41295.8265
+  Batch 400/782 - Loss CE: 15.7445, Loss KD: 41281.6499
+  Batch 500/782 - Loss CE: 15.8698, Loss KD: 41379.9646
+  Batch 600/782 - Loss CE: 15.9704, Loss KD: 41404.3770
+  Batch 700/782 - Loss CE: 16.1484, Loss KD: 41396.1889
+  Batch 782/782 - Loss CE: 16.1425, Loss KD: 41345.5461
+Epoch 53 Training Complete - Avg Loss CE: 16.1425, Avg Loss KD: 41345.5461
+
+Epoch 53 Results - Train Acc: 64.49% | Test Acc: 58.24% | Best: 60.76%
+0.005495871388888888
+Epoch 54: Training...
+
+  Batch 100/782 - Loss CE: 16.0437, Loss KD: 41375.4259
+  Batch 200/782 - Loss CE: 16.1257, Loss KD: 41217.5600
+  Batch 300/782 - Loss CE: 16.3991, Loss KD: 41474.1303
+  Batch 400/782 - Loss CE: 16.4368, Loss KD: 41446.2271
+  Batch 500/782 - Loss CE: 16.3915, Loss KD: 41437.1249
+  Batch 600/782 - Loss CE: 16.4531, Loss KD: 41439.0620
+  Batch 700/782 - Loss CE: 16.4066, Loss KD: 41396.4379
+  Batch 782/782 - Loss CE: 16.4430, Loss KD: 41357.3536
+Epoch 54 Training Complete - Avg Loss CE: 16.4430, Avg Loss KD: 41357.3536
+
+Epoch 54 Results - Train Acc: 64.65% | Test Acc: 59.13% | Best: 60.76%
+0.006090976388888889
+Epoch 55: Training...
+
+  Batch 100/782 - Loss CE: 15.6951, Loss KD: 41029.3449
+  Batch 200/782 - Loss CE: 15.6338, Loss KD: 41024.0526
+  Batch 300/782 - Loss CE: 15.6530, Loss KD: 41104.5728
+  Batch 400/782 - Loss CE: 15.8355, Loss KD: 41185.4098
+  Batch 500/782 - Loss CE: 16.1009, Loss KD: 41346.4358
+  Batch 600/782 - Loss CE: 16.1799, Loss KD: 41336.4520
+  Batch 700/782 - Loss CE: 16.1261, Loss KD: 41387.4645
+  Batch 782/782 - Loss CE: 16.0372, Loss KD: 41331.7412
+Epoch 55 Training Complete - Avg Loss CE: 16.0372, Avg Loss KD: 41331.7412
+
+Epoch 55 Results - Train Acc: 64.82% | Test Acc: 57.46% | Best: 60.76%
+0.006022357777777778
+Epoch 56: Training...
+
+  Batch 100/782 - Loss CE: 15.7512, Loss KD: 41112.2923
+  Batch 200/782 - Loss CE: 15.7367, Loss KD: 41112.2498
+  Batch 300/782 - Loss CE: 15.9536, Loss KD: 41118.2337
+  Batch 400/782 - Loss CE: 16.2958, Loss KD: 41340.4395
+  Batch 500/782 - Loss CE: 16.3335, Loss KD: 41304.6784
+  Batch 600/782 - Loss CE: 16.3945, Loss KD: 41315.4902
+  Batch 700/782 - Loss CE: 16.3962, Loss KD: 41331.3667
+  Batch 782/782 - Loss CE: 16.4044, Loss KD: 41294.6526
+Epoch 56 Training Complete - Avg Loss CE: 16.4044, Avg Loss KD: 41294.6526
+
+Epoch 56 Results - Train Acc: 64.87% | Test Acc: 56.47% | Best: 60.76%
+0.006411090277777778
+Epoch 57: Training...
+
+  Batch 100/782 - Loss CE: 15.2304, Loss KD: 40633.2408
+  Batch 200/782 - Loss CE: 15.7541, Loss KD: 41217.1950
+  Batch 300/782 - Loss CE: 15.8770, Loss KD: 41270.3534
+  Batch 400/782 - Loss CE: 15.9162, Loss KD: 41306.3440
+  Batch 500/782 - Loss CE: 16.1153, Loss KD: 41389.0658
+  Batch 600/782 - Loss CE: 16.1573, Loss KD: 41365.2113
+  Batch 700/782 - Loss CE: 16.1299, Loss KD: 41378.1550
+  Batch 782/782 - Loss CE: 16.1653, Loss KD: 41345.2801
+Epoch 57 Training Complete - Avg Loss CE: 16.1653, Avg Loss KD: 41345.2801
+
+Epoch 57 Results - Train Acc: 64.70% | Test Acc: 59.66% | Best: 60.76%
+0.004927552777777778
+Epoch 58: Training...
+
+  Batch 100/782 - Loss CE: 15.8085, Loss KD: 41030.4178
+  Batch 200/782 - Loss CE: 15.4898, Loss KD: 41089.9187
+  Batch 300/782 - Loss CE: 15.2859, Loss KD: 41096.1336
+  Batch 400/782 - Loss CE: 15.6801, Loss KD: 41221.1798
+  Batch 500/782 - Loss CE: 15.7141, Loss KD: 41241.1705
+  Batch 600/782 - Loss CE: 15.9021, Loss KD: 41290.4100
+  Batch 700/782 - Loss CE: 15.9784, Loss KD: 41335.4107
+  Batch 782/782 - Loss CE: 16.0959, Loss KD: 41352.7928
+Epoch 58 Training Complete - Avg Loss CE: 16.0959, Avg Loss KD: 41352.7928
+
+Epoch 58 Results - Train Acc: 64.64% | Test Acc: 58.28% | Best: 60.76%
+0.005821998888888889
+Epoch 59: Training...
+
+  Batch 100/782 - Loss CE: 15.6217, Loss KD: 40950.1558
+  Batch 200/782 - Loss CE: 16.1786, Loss KD: 41130.6438
+  Batch 300/782 - Loss CE: 16.1246, Loss KD: 41204.1708
+  Batch 400/782 - Loss CE: 16.1517, Loss KD: 41233.6669
+  Batch 500/782 - Loss CE: 16.0333, Loss KD: 41210.6149
+  Batch 600/782 - Loss CE: 16.1590, Loss KD: 41159.7025
+  Batch 700/782 - Loss CE: 16.1093, Loss KD: 41232.6593
+  Batch 782/782 - Loss CE: 16.1482, Loss KD: 41189.6009
+Epoch 59 Training Complete - Avg Loss CE: 16.1482, Avg Loss KD: 41189.6009
+
+Epoch 59 Results - Train Acc: 64.85% | Test Acc: 59.64% | Best: 60.76%
+0.005957818333333333
+Epoch 60: Training...
+
+  Batch 100/782 - Loss CE: 15.1232, Loss KD: 40729.6140
+  Batch 200/782 - Loss CE: 15.3990, Loss KD: 41058.7861
+  Batch 300/782 - Loss CE: 15.8950, Loss KD: 41092.2418
+  Batch 400/782 - Loss CE: 15.9455, Loss KD: 41118.4063
+  Batch 500/782 - Loss CE: 16.0770, Loss KD: 41155.0124
+  Batch 600/782 - Loss CE: 16.1809, Loss KD: 41199.1518
+  Batch 700/782 - Loss CE: 16.2125, Loss KD: 41254.1113
+  Batch 782/782 - Loss CE: 16.2025, Loss KD: 41215.6173
+Epoch 60 Training Complete - Avg Loss CE: 16.2025, Avg Loss KD: 41215.6173
+
+Epoch 60 Results - Train Acc: 64.72% | Test Acc: 57.31% | Best: 60.76%
+0.006258966944444445
+Epoch 61: Training...
+
+  Batch 100/782 - Loss CE: 15.3237, Loss KD: 40548.5548
+  Batch 200/782 - Loss CE: 15.0192, Loss KD: 40635.0269
+  Batch 300/782 - Loss CE: 15.5607, Loss KD: 40855.0389
+  Batch 400/782 - Loss CE: 15.8688, Loss KD: 40979.3532
+  Batch 500/782 - Loss CE: 15.9354, Loss KD: 41023.5062
+  Batch 600/782 - Loss CE: 16.0187, Loss KD: 41095.9463
+  Batch 700/782 - Loss CE: 16.1272, Loss KD: 41166.0499
+  Batch 782/782 - Loss CE: 16.1366, Loss KD: 41139.6187
+Epoch 61 Training Complete - Avg Loss CE: 16.1366, Avg Loss KD: 41139.6187
+
+Epoch 61 Results - Train Acc: 64.79% | Test Acc: 56.53% | Best: 60.76%
+0.0062383725000000004
+Epoch 62: Training...
+
+  Batch 100/782 - Loss CE: 15.9046, Loss KD: 40820.5764
+  Batch 200/782 - Loss CE: 16.0018, Loss KD: 41015.1142
+  Batch 300/782 - Loss CE: 15.7839, Loss KD: 41037.6904
+  Batch 400/782 - Loss CE: 15.9234, Loss KD: 41128.5670
+  Batch 500/782 - Loss CE: 16.0445, Loss KD: 41237.2687
+  Batch 600/782 - Loss CE: 16.1808, Loss KD: 41240.4408
+  Batch 700/782 - Loss CE: 16.1681, Loss KD: 41228.9710
+  Batch 782/782 - Loss CE: 16.1981, Loss KD: 41247.2379
+Epoch 62 Training Complete - Avg Loss CE: 16.1981, Avg Loss KD: 41247.2379
+
+Epoch 62 Results - Train Acc: 65.11% | Test Acc: 57.23% | Best: 60.76%
+0.006224495277777778
+Epoch 63: Training...
+
+  Batch 100/782 - Loss CE: 15.5137, Loss KD: 40893.4890
+  Batch 200/782 - Loss CE: 16.0192, Loss KD: 41095.8581
+  Batch 300/782 - Loss CE: 15.9843, Loss KD: 41029.4738
+  Batch 400/782 - Loss CE: 16.0585, Loss KD: 41071.3392
+  Batch 500/782 - Loss CE: 16.0608, Loss KD: 41135.6592
+  Batch 600/782 - Loss CE: 16.1055, Loss KD: 41207.9708
+  Batch 700/782 - Loss CE: 16.1759, Loss KD: 41278.2489
+  Batch 782/782 - Loss CE: 16.1244, Loss KD: 41215.1852
+Epoch 63 Training Complete - Avg Loss CE: 16.1244, Avg Loss KD: 41215.1852
+
+Epoch 63 Results - Train Acc: 64.83% | Test Acc: 58.72% | Best: 60.76%
+0.005860748333333333
+Epoch 64: Training...
+
+  Batch 100/782 - Loss CE: 16.4959, Loss KD: 40801.0968
+  Batch 200/782 - Loss CE: 16.0435, Loss KD: 40982.3558
+  Batch 300/782 - Loss CE: 15.7710, Loss KD: 41009.8725
+  Batch 400/782 - Loss CE: 15.8228, Loss KD: 41063.1568
+  Batch 500/782 - Loss CE: 15.8645, Loss KD: 41104.5484
+  Batch 600/782 - Loss CE: 15.9462, Loss KD: 41115.7150
+  Batch 700/782 - Loss CE: 16.0432, Loss KD: 41168.8674
+  Batch 782/782 - Loss CE: 16.0531, Loss KD: 41149.5099
+Epoch 64 Training Complete - Avg Loss CE: 16.0531, Avg Loss KD: 41149.5099
+
+Epoch 64 Results - Train Acc: 65.03% | Test Acc: 57.67% | Best: 60.76%
+0.0059309075
+Epoch 65: Training...
+
+  Batch 100/782 - Loss CE: 15.9591, Loss KD: 40905.9266
+  Batch 200/782 - Loss CE: 15.8644, Loss KD: 41043.8316
+  Batch 300/782 - Loss CE: 15.8260, Loss KD: 41096.8458
+  Batch 400/782 - Loss CE: 15.9118, Loss KD: 41129.8421
+  Batch 500/782 - Loss CE: 15.9878, Loss KD: 41125.2963
+  Batch 600/782 - Loss CE: 16.0438, Loss KD: 41190.2445
+  Batch 700/782 - Loss CE: 15.9439, Loss KD: 41218.6261
+  Batch 782/782 - Loss CE: 16.0703, Loss KD: 41204.9357
+Epoch 65 Training Complete - Avg Loss CE: 16.0703, Avg Loss KD: 41204.9357
+
+Epoch 65 Results - Train Acc: 64.73% | Test Acc: 58.91% | Best: 60.76%
+0.006246086111111111
+Epoch 66: Training...
+
+  Batch 100/782 - Loss CE: 15.8953, Loss KD: 41062.3851
+  Batch 200/782 - Loss CE: 15.9303, Loss KD: 40977.1336
+  Batch 300/782 - Loss CE: 15.9125, Loss KD: 40996.5356
+  Batch 400/782 - Loss CE: 16.0432, Loss KD: 41178.2563
+  Batch 500/782 - Loss CE: 15.9962, Loss KD: 41161.7363
+  Batch 600/782 - Loss CE: 16.1291, Loss KD: 41242.0507
+  Batch 700/782 - Loss CE: 16.2435, Loss KD: 41271.0760
+  Batch 782/782 - Loss CE: 16.3104, Loss KD: 41193.7369
+Epoch 66 Training Complete - Avg Loss CE: 16.3104, Avg Loss KD: 41193.7369
+
+Epoch 66 Results - Train Acc: 64.92% | Test Acc: 55.49% | Best: 60.76%
+0.0057977436111111115
+Epoch 67: Training...
+
+  Batch 100/782 - Loss CE: 15.4334, Loss KD: 40799.0786
+  Batch 200/782 - Loss CE: 15.7767, Loss KD: 41026.4650
+  Batch 300/782 - Loss CE: 15.7830, Loss KD: 41095.7985
+  Batch 400/782 - Loss CE: 15.8432, Loss KD: 41119.2687
+  Batch 500/782 - Loss CE: 16.0084, Loss KD: 41132.8356
+  Batch 600/782 - Loss CE: 15.9804, Loss KD: 41146.4270
+  Batch 700/782 - Loss CE: 16.0772, Loss KD: 41199.4706
+  Batch 782/782 - Loss CE: 16.1299, Loss KD: 41183.2907
+Epoch 67 Training Complete - Avg Loss CE: 16.1299, Avg Loss KD: 41183.2907
+
+Epoch 67 Results - Train Acc: 65.09% | Test Acc: 55.06% | Best: 60.76%
+0.006382612777777777
+Epoch 68: Training...
+
+  Batch 100/782 - Loss CE: 16.3933, Loss KD: 40844.2315
+  Batch 200/782 - Loss CE: 15.8945, Loss KD: 40850.2898
+  Batch 300/782 - Loss CE: 15.9588, Loss KD: 40971.8941
+  Batch 400/782 - Loss CE: 16.0369, Loss KD: 41021.3995
+  Batch 500/782 - Loss CE: 16.1021, Loss KD: 41045.4190
+  Batch 600/782 - Loss CE: 16.2152, Loss KD: 41105.5008
+  Batch 700/782 - Loss CE: 16.2955, Loss KD: 41139.0655
+  Batch 782/782 - Loss CE: 16.2830, Loss KD: 41157.4424
+Epoch 68 Training Complete - Avg Loss CE: 16.2830, Avg Loss KD: 41157.4424
+
+Epoch 68 Results - Train Acc: 64.92% | Test Acc: 55.99% | Best: 60.76%
+0.0064222233333333335
+Epoch 69: Training...
+
+  Batch 100/782 - Loss CE: 15.7733, Loss KD: 40662.4824
+  Batch 200/782 - Loss CE: 15.6180, Loss KD: 40916.9129
+  Batch 300/782 - Loss CE: 15.6719, Loss KD: 40940.7687
+  Batch 400/782 - Loss CE: 15.7637, Loss KD: 40973.4925
+  Batch 500/782 - Loss CE: 15.8588, Loss KD: 41013.9720
+  Batch 600/782 - Loss CE: 15.9005, Loss KD: 41055.2717
+  Batch 700/782 - Loss CE: 15.8564, Loss KD: 41087.9176
+  Batch 782/782 - Loss CE: 15.8225, Loss KD: 41049.6780
+Epoch 69 Training Complete - Avg Loss CE: 15.8225, Avg Loss KD: 41049.6780
+
+Epoch 69 Results - Train Acc: 65.04% | Test Acc: 56.95% | Best: 60.76%
+0.006653311388888888
+Epoch 70: Training...
+
+  Batch 100/782 - Loss CE: 15.7118, Loss KD: 41050.1233
+  Batch 200/782 - Loss CE: 15.8022, Loss KD: 41051.3405
+  Batch 300/782 - Loss CE: 15.8964, Loss KD: 41052.3873
+  Batch 400/782 - Loss CE: 16.0571, Loss KD: 41161.0350
+  Batch 500/782 - Loss CE: 16.1319, Loss KD: 41158.5917
+  Batch 600/782 - Loss CE: 16.3565, Loss KD: 41230.1497
+  Batch 700/782 - Loss CE: 16.5337, Loss KD: 41250.1494
+  Batch 782/782 - Loss CE: 16.5805, Loss KD: 41230.6283
+Epoch 70 Training Complete - Avg Loss CE: 16.5805, Avg Loss KD: 41230.6283
+
+Epoch 70 Results - Train Acc: 64.80% | Test Acc: 58.09% | Best: 60.76%
+0.006416266111111111
+Epoch 71: Training...
+
+  Batch 100/782 - Loss CE: 14.9982, Loss KD: 40896.9186
+  Batch 200/782 - Loss CE: 14.9954, Loss KD: 40821.2617
+  Batch 300/782 - Loss CE: 15.3794, Loss KD: 40925.0699
+  Batch 400/782 - Loss CE: 15.5851, Loss KD: 40890.0636
+  Batch 500/782 - Loss CE: 15.6882, Loss KD: 40968.3522
+  Batch 600/782 - Loss CE: 15.7851, Loss KD: 41022.8708
+  Batch 700/782 - Loss CE: 15.9346, Loss KD: 41093.0261
+  Batch 782/782 - Loss CE: 15.9712, Loss KD: 41032.7285
+Epoch 71 Training Complete - Avg Loss CE: 15.9712, Avg Loss KD: 41032.7285
+
+Epoch 71 Results - Train Acc: 65.23% | Test Acc: 58.69% | Best: 60.76%
+0.006494509722222222
+Epoch 72: Training...
+
+  Batch 100/782 - Loss CE: 15.0841, Loss KD: 40781.0470
+  Batch 200/782 - Loss CE: 15.6218, Loss KD: 40934.2051
+  Batch 300/782 - Loss CE: 15.8489, Loss KD: 41103.9555
+  Batch 400/782 - Loss CE: 15.8452, Loss KD: 41076.3353
+  Batch 500/782 - Loss CE: 16.0908, Loss KD: 41050.6762
+  Batch 600/782 - Loss CE: 16.0685, Loss KD: 41104.2781
+  Batch 700/782 - Loss CE: 16.0113, Loss KD: 41118.2446
+  Batch 782/782 - Loss CE: 16.0293, Loss KD: 41061.4021
+Epoch 72 Training Complete - Avg Loss CE: 16.0293, Avg Loss KD: 41061.4021
+
+Epoch 72 Results - Train Acc: 65.30% | Test Acc: 58.41% | Best: 60.76%
+0.0062963636111111115
+Epoch 73: Training...
+
+  Batch 100/782 - Loss CE: 14.7700, Loss KD: 41105.5144
+  Batch 200/782 - Loss CE: 15.5765, Loss KD: 41122.1969
+  Batch 300/782 - Loss CE: 15.5058, Loss KD: 41120.0204
+  Batch 400/782 - Loss CE: 15.3545, Loss KD: 41070.5443
+  Batch 500/782 - Loss CE: 15.3331, Loss KD: 41024.0496
+  Batch 600/782 - Loss CE: 15.3958, Loss KD: 41042.4841
+  Batch 700/782 - Loss CE: 15.4476, Loss KD: 41043.3247
+  Batch 782/782 - Loss CE: 15.5695, Loss KD: 41060.9603
+Epoch 73 Training Complete - Avg Loss CE: 15.5695, Avg Loss KD: 41060.9603
+
+Epoch 73 Results - Train Acc: 65.24% | Test Acc: 59.35% | Best: 60.76%
+0.006534524166666667
+Epoch 74: Training...
+
+  Batch 100/782 - Loss CE: 14.7258, Loss KD: 40256.0646
+  Batch 200/782 - Loss CE: 15.1281, Loss KD: 40587.6557
+  Batch 300/782 - Loss CE: 15.2739, Loss KD: 40651.6445
+  Batch 400/782 - Loss CE: 15.3255, Loss KD: 40791.6618
+  Batch 500/782 - Loss CE: 15.3180, Loss KD: 40848.6432
+  Batch 600/782 - Loss CE: 15.4758, Loss KD: 40963.5200
+  Batch 700/782 - Loss CE: 15.5444, Loss KD: 40995.0059
+  Batch 782/782 - Loss CE: 15.5424, Loss KD: 40960.0057
+Epoch 74 Training Complete - Avg Loss CE: 15.5424, Avg Loss KD: 40960.0057
+
+Epoch 74 Results - Train Acc: 65.30% | Test Acc: 55.17% | Best: 60.76%
+0.006360890833333334
+Epoch 75: Training...
+
+  Batch 100/782 - Loss CE: 15.7146, Loss KD: 40842.0237
+  Batch 200/782 - Loss CE: 15.6025, Loss KD: 40836.9841
+  Batch 300/782 - Loss CE: 15.5650, Loss KD: 40801.5703
+  Batch 400/782 - Loss CE: 15.5162, Loss KD: 40899.3225
+  Batch 500/782 - Loss CE: 15.6546, Loss KD: 40924.0605
+  Batch 600/782 - Loss CE: 15.6929, Loss KD: 40930.3554
+  Batch 700/782 - Loss CE: 15.6526, Loss KD: 40949.8506
+  Batch 782/782 - Loss CE: 15.6607, Loss KD: 40916.9807
+Epoch 75 Training Complete - Avg Loss CE: 15.6607, Avg Loss KD: 40916.9807
+
+Epoch 75 Results - Train Acc: 65.25% | Test Acc: 60.66% | Best: 60.76%
+0.006573811944444444
+Epoch 76: Training...
+
+  Batch 100/782 - Loss CE: 15.4464, Loss KD: 40969.1716
+  Batch 200/782 - Loss CE: 15.6178, Loss KD: 40905.4842
+  Batch 300/782 - Loss CE: 15.5364, Loss KD: 40885.1811
+  Batch 400/782 - Loss CE: 15.6856, Loss KD: 40985.9033
+  Batch 500/782 - Loss CE: 15.8201, Loss KD: 41033.0226
+  Batch 600/782 - Loss CE: 15.8740, Loss KD: 41042.6035
+  Batch 700/782 - Loss CE: 15.9122, Loss KD: 41102.1297
+  Batch 782/782 - Loss CE: 15.8883, Loss KD: 41070.6575
+Epoch 76 Training Complete - Avg Loss CE: 15.8883, Avg Loss KD: 41070.6575
+
+Epoch 76 Results - Train Acc: 65.09% | Test Acc: 58.37% | Best: 60.76%
+0.0066316472222222225
+Epoch 77: Training...
+
+  Batch 100/782 - Loss CE: 15.0057, Loss KD: 40885.9683
+  Batch 200/782 - Loss CE: 14.8072, Loss KD: 40744.7969
+  Batch 300/782 - Loss CE: 14.9991, Loss KD: 40830.5387
+  Batch 400/782 - Loss CE: 15.2005, Loss KD: 40904.8331
+  Batch 500/782 - Loss CE: 15.4005, Loss KD: 40933.0068
+  Batch 600/782 - Loss CE: 15.4409, Loss KD: 40934.7999
+  Batch 700/782 - Loss CE: 15.5262, Loss KD: 41012.5910
+  Batch 782/782 - Loss CE: 15.5654, Loss KD: 40942.4174
+Epoch 77 Training Complete - Avg Loss CE: 15.5654, Avg Loss KD: 40942.4174
+
+Epoch 77 Results - Train Acc: 65.46% | Test Acc: 57.94% | Best: 60.76%
+0.006604383611111111
+Epoch 78: Training...
+
+  Batch 100/782 - Loss CE: 15.8550, Loss KD: 40622.6172
+  Batch 200/782 - Loss CE: 15.5905, Loss KD: 40548.4532
+  Batch 300/782 - Loss CE: 15.5714, Loss KD: 40758.7394
+  Batch 400/782 - Loss CE: 15.5936, Loss KD: 40853.2443
+  Batch 500/782 - Loss CE: 15.5059, Loss KD: 40937.9989
+  Batch 600/782 - Loss CE: 15.6685, Loss KD: 40965.1410
+  Batch 700/782 - Loss CE: 15.6407, Loss KD: 40991.1761
+  Batch 782/782 - Loss CE: 15.7348, Loss KD: 41010.5148
+Epoch 78 Training Complete - Avg Loss CE: 15.7348, Avg Loss KD: 41010.5148
+
+Epoch 78 Results - Train Acc: 65.15% | Test Acc: 59.81% | Best: 60.76%
+0.006671297222222223
+Epoch 79: Training...
+
+  Batch 100/782 - Loss CE: 15.2253, Loss KD: 40711.4660
+  Batch 200/782 - Loss CE: 15.2419, Loss KD: 40661.6975
+  Batch 300/782 - Loss CE: 15.1621, Loss KD: 40780.2089
+  Batch 400/782 - Loss CE: 15.3303, Loss KD: 40861.8973
+  Batch 500/782 - Loss CE: 15.5745, Loss KD: 40921.8443
+  Batch 600/782 - Loss CE: 15.4498, Loss KD: 40907.6988
+  Batch 700/782 - Loss CE: 15.5932, Loss KD: 40926.8731
+  Batch 782/782 - Loss CE: 15.6322, Loss KD: 40865.4335
+Epoch 79 Training Complete - Avg Loss CE: 15.6322, Avg Loss KD: 40865.4335
+
+Epoch 79 Results - Train Acc: 65.70% | Test Acc: 59.21% | Best: 60.76%
+0.006316245555555555
+Epoch 80: Training...
+
+  Batch 100/782 - Loss CE: 14.7467, Loss KD: 40367.1488
+  Batch 200/782 - Loss CE: 15.6021, Loss KD: 40877.3259
+  Batch 300/782 - Loss CE: 15.5115, Loss KD: 40874.4816
+  Batch 400/782 - Loss CE: 15.5032, Loss KD: 40842.6922
+  Batch 500/782 - Loss CE: 15.4567, Loss KD: 40869.3253
+  Batch 600/782 - Loss CE: 15.5697, Loss KD: 40910.1954
+  Batch 700/782 - Loss CE: 15.6364, Loss KD: 40973.1907
+  Batch 782/782 - Loss CE: 15.6903, Loss KD: 40978.8783
+Epoch 80 Training Complete - Avg Loss CE: 15.6903, Avg Loss KD: 40978.8783
+
+Epoch 80 Results - Train Acc: 65.26% | Test Acc: 57.57% | Best: 60.76%
+0.006696686666666667
+Epoch 81: Training...
+
+  Batch 100/782 - Loss CE: 15.2605, Loss KD: 40622.2804
+  Batch 200/782 - Loss CE: 15.1258, Loss KD: 40697.2342
+  Batch 300/782 - Loss CE: 15.2577, Loss KD: 40842.3238
+  Batch 400/782 - Loss CE: 15.2825, Loss KD: 40778.0512
+  Batch 500/782 - Loss CE: 15.5377, Loss KD: 40918.9842
+  Batch 600/782 - Loss CE: 15.5873, Loss KD: 40979.8786
+  Batch 700/782 - Loss CE: 15.6147, Loss KD: 40984.4716
+  Batch 782/782 - Loss CE: 15.6606, Loss KD: 40929.9547
+Epoch 81 Training Complete - Avg Loss CE: 15.6606, Avg Loss KD: 40929.9547
+
+Epoch 81 Results - Train Acc: 65.62% | Test Acc: 59.63% | Best: 60.76%
+0.006449479722222222
+Epoch 82: Training...
+
+  Batch 100/782 - Loss CE: 15.1551, Loss KD: 40770.8050
+  Batch 200/782 - Loss CE: 14.9767, Loss KD: 40595.7646
+  Batch 300/782 - Loss CE: 15.0964, Loss KD: 40662.8923
+  Batch 400/782 - Loss CE: 15.2962, Loss KD: 40729.2961
+  Batch 500/782 - Loss CE: 15.4281, Loss KD: 40852.0088
+  Batch 600/782 - Loss CE: 15.5070, Loss KD: 40928.4741
+  Batch 700/782 - Loss CE: 15.4817, Loss KD: 40939.0945
+  Batch 782/782 - Loss CE: 15.5153, Loss KD: 40922.2548
+Epoch 82 Training Complete - Avg Loss CE: 15.5153, Avg Loss KD: 40922.2548
+
+Epoch 82 Results - Train Acc: 65.45% | Test Acc: 57.82% | Best: 60.76%
+0.005371838888888888
+Epoch 83: Training...
+
+  Batch 100/782 - Loss CE: 14.5470, Loss KD: 40512.6704
+  Batch 200/782 - Loss CE: 14.8829, Loss KD: 40771.3810
+  Batch 300/782 - Loss CE: 15.0310, Loss KD: 40767.5783
+  Batch 400/782 - Loss CE: 15.0717, Loss KD: 40796.5111
+  Batch 500/782 - Loss CE: 15.3097, Loss KD: 40910.6449
+  Batch 600/782 - Loss CE: 15.3158, Loss KD: 40884.9313
+  Batch 700/782 - Loss CE: 15.3818, Loss KD: 40894.9717
+  Batch 782/782 - Loss CE: 15.4372, Loss KD: 40864.7342
+Epoch 83 Training Complete - Avg Loss CE: 15.4372, Avg Loss KD: 40864.7342
+
+Epoch 83 Results - Train Acc: 65.43% | Test Acc: 57.65% | Best: 60.76%
+0.0067122975
+Epoch 84: Training...
+
+  Batch 100/782 - Loss CE: 14.8288, Loss KD: 40972.6807
+  Batch 200/782 - Loss CE: 15.1180, Loss KD: 41031.3728
+  Batch 300/782 - Loss CE: 15.1724, Loss KD: 41047.2225
+  Batch 400/782 - Loss CE: 15.3033, Loss KD: 40990.3026
+  Batch 500/782 - Loss CE: 15.3971, Loss KD: 40987.8217
+  Batch 600/782 - Loss CE: 15.4014, Loss KD: 40969.3765
+  Batch 700/782 - Loss CE: 15.4429, Loss KD: 41000.3935
+  Batch 782/782 - Loss CE: 15.4540, Loss KD: 40968.9248
+Epoch 84 Training Complete - Avg Loss CE: 15.4540, Avg Loss KD: 40968.9248
+
+Epoch 84 Results - Train Acc: 65.26% | Test Acc: 61.24% | Best: 61.24%
+0.0063719127777777775
+Epoch 85: Training...
+
+  Batch 100/782 - Loss CE: 14.6658, Loss KD: 39932.7105
+  Batch 200/782 - Loss CE: 14.5386, Loss KD: 40398.5654
+  Batch 300/782 - Loss CE: 14.7768, Loss KD: 40489.1948
+  Batch 400/782 - Loss CE: 15.0992, Loss KD: 40696.4439
+  Batch 500/782 - Loss CE: 15.3068, Loss KD: 40745.4935
+  Batch 600/782 - Loss CE: 15.3899, Loss KD: 40828.1206
+  Batch 700/782 - Loss CE: 15.3679, Loss KD: 40861.0729
+  Batch 782/782 - Loss CE: 15.4451, Loss KD: 40868.5808
+Epoch 85 Training Complete - Avg Loss CE: 15.4451, Avg Loss KD: 40868.5808
+
+Epoch 85 Results - Train Acc: 65.38% | Test Acc: 58.57% | Best: 61.24%
+0.006675353888888889
+Epoch 86: Training...
+
+  Batch 100/782 - Loss CE: 15.4057, Loss KD: 40691.7290
+  Batch 200/782 - Loss CE: 15.4441, Loss KD: 40760.1979
+  Batch 300/782 - Loss CE: 15.6037, Loss KD: 40773.4892
+  Batch 400/782 - Loss CE: 15.5819, Loss KD: 40872.1309
+  Batch 500/782 - Loss CE: 15.6226, Loss KD: 40868.8346
+  Batch 600/782 - Loss CE: 15.6324, Loss KD: 40911.6806
+  Batch 700/782 - Loss CE: 15.5891, Loss KD: 40886.6105
+  Batch 782/782 - Loss CE: 15.6427, Loss KD: 40896.8770
+Epoch 86 Training Complete - Avg Loss CE: 15.6427, Avg Loss KD: 40896.8770
+
+Epoch 86 Results - Train Acc: 65.39% | Test Acc: 59.71% | Best: 61.24%
+0.006443257777777778
+Epoch 87: Training...
+
+  Batch 100/782 - Loss CE: 14.9711, Loss KD: 40510.0145
+  Batch 200/782 - Loss CE: 14.8204, Loss KD: 40567.1174
+  Batch 300/782 - Loss CE: 15.0641, Loss KD: 40758.1361
+  Batch 400/782 - Loss CE: 14.9655, Loss KD: 40776.1572
+  Batch 500/782 - Loss CE: 15.1482, Loss KD: 40851.4323
+  Batch 600/782 - Loss CE: 15.2174, Loss KD: 40884.7364
+  Batch 700/782 - Loss CE: 15.3302, Loss KD: 40893.8321
+  Batch 782/782 - Loss CE: 15.3115, Loss KD: 40841.8479
+Epoch 87 Training Complete - Avg Loss CE: 15.3115, Avg Loss KD: 40841.8479
+
+Epoch 87 Results - Train Acc: 65.68% | Test Acc: 59.22% | Best: 61.24%
+0.006377393611111111
+Epoch 88: Training...
+
+  Batch 100/782 - Loss CE: 14.2544, Loss KD: 40524.6041
+  Batch 200/782 - Loss CE: 14.4158, Loss KD: 40422.9647
+  Batch 300/782 - Loss CE: 14.5690, Loss KD: 40574.1304
+  Batch 400/782 - Loss CE: 14.9163, Loss KD: 40694.8035
+  Batch 500/782 - Loss CE: 15.1168, Loss KD: 40753.0750
+  Batch 600/782 - Loss CE: 15.3302, Loss KD: 40790.6023
+  Batch 700/782 - Loss CE: 15.4286, Loss KD: 40857.6078
+  Batch 782/782 - Loss CE: 15.4739, Loss KD: 40841.1896
+Epoch 88 Training Complete - Avg Loss CE: 15.4739, Avg Loss KD: 40841.1896
+
+Epoch 88 Results - Train Acc: 65.48% | Test Acc: 58.50% | Best: 61.24%
+0.006526258888888889
+Epoch 89: Training...
+
+  Batch 100/782 - Loss CE: 15.3526, Loss KD: 40768.6952
+  Batch 200/782 - Loss CE: 15.6203, Loss KD: 40943.7384
+  Batch 300/782 - Loss CE: 15.8515, Loss KD: 40984.1090
+  Batch 400/782 - Loss CE: 15.8009, Loss KD: 40959.4218
+  Batch 500/782 - Loss CE: 15.7623, Loss KD: 40948.6847
+  Batch 600/782 - Loss CE: 15.6791, Loss KD: 40981.2787
+  Batch 700/782 - Loss CE: 15.6899, Loss KD: 40962.2164
+  Batch 782/782 - Loss CE: 15.7349, Loss KD: 40930.6584
+Epoch 89 Training Complete - Avg Loss CE: 15.7349, Avg Loss KD: 40930.6584
+
+Epoch 89 Results - Train Acc: 65.45% | Test Acc: 60.23% | Best: 61.24%
+0.005685083333333334
+Epoch 90: Training...
+
+  Batch 100/782 - Loss CE: 15.0466, Loss KD: 40527.0895
+  Batch 200/782 - Loss CE: 15.2246, Loss KD: 40744.1649
+  Batch 300/782 - Loss CE: 15.1070, Loss KD: 40656.9829
+  Batch 400/782 - Loss CE: 15.3008, Loss KD: 40664.0610
+  Batch 500/782 - Loss CE: 15.3639, Loss KD: 40720.8178
+  Batch 600/782 - Loss CE: 15.3686, Loss KD: 40749.0733
+  Batch 700/782 - Loss CE: 15.4237, Loss KD: 40790.0631
+  Batch 782/782 - Loss CE: 15.4638, Loss KD: 40817.0343
+Epoch 90 Training Complete - Avg Loss CE: 15.4638, Avg Loss KD: 40817.0343
+
+Epoch 90 Results - Train Acc: 65.49% | Test Acc: 59.71% | Best: 61.24%
+0.0065603652777777785
+Epoch 91: Training...
+
+  Batch 100/782 - Loss CE: 14.8511, Loss KD: 40519.0494
+  Batch 200/782 - Loss CE: 14.7861, Loss KD: 40364.8492
+  Batch 300/782 - Loss CE: 14.9475, Loss KD: 40607.7078
+  Batch 400/782 - Loss CE: 14.9734, Loss KD: 40655.1117
+  Batch 500/782 - Loss CE: 14.9360, Loss KD: 40613.8680
+  Batch 600/782 - Loss CE: 14.9977, Loss KD: 40645.9063
+  Batch 700/782 - Loss CE: 15.0883, Loss KD: 40708.8304
+  Batch 782/782 - Loss CE: 15.1349, Loss KD: 40730.2601
+Epoch 91 Training Complete - Avg Loss CE: 15.1349, Avg Loss KD: 40730.2601
+
+Epoch 91 Results - Train Acc: 65.81% | Test Acc: 56.77% | Best: 61.24%
+0.006634321111111111
+Epoch 92: Training...
+
+  Batch 100/782 - Loss CE: 14.8488, Loss KD: 40503.1901
+  Batch 200/782 - Loss CE: 14.9065, Loss KD: 40366.2576
+  Batch 300/782 - Loss CE: 14.9036, Loss KD: 40524.2877
+  Batch 400/782 - Loss CE: 14.9730, Loss KD: 40616.3948
+  Batch 500/782 - Loss CE: 15.0044, Loss KD: 40671.9229
+  Batch 600/782 - Loss CE: 15.0666, Loss KD: 40702.9343
+  Batch 700/782 - Loss CE: 15.1526, Loss KD: 40734.4151
+  Batch 782/782 - Loss CE: 15.1732, Loss KD: 40725.4926
+Epoch 92 Training Complete - Avg Loss CE: 15.1732, Avg Loss KD: 40725.4926
+
+Epoch 92 Results - Train Acc: 65.66% | Test Acc: 59.44% | Best: 61.24%
+0.0068173205555555555
+Epoch 93: Training...
+
+  Batch 100/782 - Loss CE: 15.6336, Loss KD: 40981.3118
+  Batch 200/782 - Loss CE: 15.3817, Loss KD: 40913.2290
+  Batch 300/782 - Loss CE: 15.3766, Loss KD: 40936.9996
+  Batch 400/782 - Loss CE: 15.1364, Loss KD: 40892.4489
+  Batch 500/782 - Loss CE: 15.1799, Loss KD: 40832.4221
+  Batch 600/782 - Loss CE: 15.3025, Loss KD: 40897.2578
+  Batch 700/782 - Loss CE: 15.3118, Loss KD: 40878.7729
+  Batch 782/782 - Loss CE: 15.3397, Loss KD: 40848.5295
+Epoch 93 Training Complete - Avg Loss CE: 15.3397, Avg Loss KD: 40848.5295
+
+Epoch 93 Results - Train Acc: 65.73% | Test Acc: 57.10% | Best: 61.24%
+0.0069025188888888886
+Epoch 94: Training...
+
+  Batch 100/782 - Loss CE: 14.4668, Loss KD: 40407.1964
+  Batch 200/782 - Loss CE: 14.8062, Loss KD: 40578.6589
+  Batch 300/782 - Loss CE: 15.1052, Loss KD: 40684.5429
+  Batch 400/782 - Loss CE: 15.0889, Loss KD: 40779.0545
+  Batch 500/782 - Loss CE: 15.1190, Loss KD: 40853.7160
+  Batch 600/782 - Loss CE: 15.1847, Loss KD: 40802.5600
+  Batch 700/782 - Loss CE: 15.3567, Loss KD: 40860.0006
+  Batch 782/782 - Loss CE: 15.4297, Loss KD: 40846.8633
+Epoch 94 Training Complete - Avg Loss CE: 15.4297, Avg Loss KD: 40846.8633
+
+Epoch 94 Results - Train Acc: 65.88% | Test Acc: 60.35% | Best: 61.24%
+0.006382516666666667
+Epoch 95: Training...
+
+  Batch 100/782 - Loss CE: 14.6688, Loss KD: 40584.6670
+  Batch 200/782 - Loss CE: 15.0245, Loss KD: 40586.2172
+  Batch 300/782 - Loss CE: 15.1927, Loss KD: 40727.2603
+  Batch 400/782 - Loss CE: 15.3650, Loss KD: 40707.9980
+  Batch 500/782 - Loss CE: 15.3344, Loss KD: 40679.0850
+  Batch 600/782 - Loss CE: 15.3821, Loss KD: 40730.2363
+  Batch 700/782 - Loss CE: 15.4819, Loss KD: 40782.6556
+  Batch 782/782 - Loss CE: 15.5718, Loss KD: 40806.1282
+Epoch 95 Training Complete - Avg Loss CE: 15.5718, Avg Loss KD: 40806.1282
+
+Epoch 95 Results - Train Acc: 65.49% | Test Acc: 60.66% | Best: 61.24%
+0.006636556388888889
+Epoch 96: Training...
+
+  Batch 100/782 - Loss CE: 15.5682, Loss KD: 40416.5564
+  Batch 200/782 - Loss CE: 15.2935, Loss KD: 40476.5958
+  Batch 300/782 - Loss CE: 15.2694, Loss KD: 40492.8106
+  Batch 400/782 - Loss CE: 15.3128, Loss KD: 40552.4864
+  Batch 500/782 - Loss CE: 15.2162, Loss KD: 40573.1109
+  Batch 600/782 - Loss CE: 15.2560, Loss KD: 40613.8280
+  Batch 700/782 - Loss CE: 15.2264, Loss KD: 40653.0177
+  Batch 782/782 - Loss CE: 15.2702, Loss KD: 40647.4586
+Epoch 96 Training Complete - Avg Loss CE: 15.2702, Avg Loss KD: 40647.4586
+
+Epoch 96 Results - Train Acc: 65.90% | Test Acc: 58.90% | Best: 61.24%
+0.006461273333333334
+Epoch 97: Training...
+
+  Batch 100/782 - Loss CE: 14.3104, Loss KD: 40343.8029
+  Batch 200/782 - Loss CE: 14.8232, Loss KD: 40491.2926
+  Batch 300/782 - Loss CE: 14.8397, Loss KD: 40550.6306
+  Batch 400/782 - Loss CE: 14.8211, Loss KD: 40638.7661
+  Batch 500/782 - Loss CE: 14.9677, Loss KD: 40650.9499
+  Batch 600/782 - Loss CE: 14.9257, Loss KD: 40680.1463
+  Batch 700/782 - Loss CE: 14.9886, Loss KD: 40732.8530
+  Batch 782/782 - Loss CE: 15.1350, Loss KD: 40759.1329
+Epoch 97 Training Complete - Avg Loss CE: 15.1350, Avg Loss KD: 40759.1329
+
+Epoch 97 Results - Train Acc: 65.75% | Test Acc: 59.04% | Best: 61.24%
+0.006430038055555555
+Epoch 98: Training...
+
+  Batch 100/782 - Loss CE: 14.2993, Loss KD: 40272.4585
+  Batch 200/782 - Loss CE: 14.3859, Loss KD: 40499.6311
+  Batch 300/782 - Loss CE: 14.8283, Loss KD: 40571.6672
+  Batch 400/782 - Loss CE: 14.6376, Loss KD: 40613.8950
+  Batch 500/782 - Loss CE: 14.6811, Loss KD: 40642.3765
+  Batch 600/782 - Loss CE: 14.8237, Loss KD: 40709.1036
+  Batch 700/782 - Loss CE: 14.9648, Loss KD: 40757.4720
+  Batch 782/782 - Loss CE: 15.0437, Loss KD: 40777.4901
+Epoch 98 Training Complete - Avg Loss CE: 15.0437, Avg Loss KD: 40777.4901
+
+Epoch 98 Results - Train Acc: 65.61% | Test Acc: 59.81% | Best: 61.24%
+0.006452319166666667
+Epoch 99: Training...
+
+  Batch 100/782 - Loss CE: 14.9211, Loss KD: 40297.2521
+  Batch 200/782 - Loss CE: 15.0074, Loss KD: 40504.3818
+  Batch 300/782 - Loss CE: 15.2503, Loss KD: 40569.1933
+  Batch 400/782 - Loss CE: 15.2589, Loss KD: 40641.2013
+  Batch 500/782 - Loss CE: 15.2373, Loss KD: 40755.7296
+  Batch 600/782 - Loss CE: 15.2227, Loss KD: 40798.3108
+  Batch 700/782 - Loss CE: 15.2986, Loss KD: 40768.0762
+  Batch 782/782 - Loss CE: 15.3199, Loss KD: 40733.6879
+Epoch 99 Training Complete - Avg Loss CE: 15.3199, Avg Loss KD: 40733.6879
+
+Epoch 99 Results - Train Acc: 65.78% | Test Acc: 58.63% | Best: 61.24%
+0.006631598333333334
+Epoch 100: Training...
+
+  Batch 100/782 - Loss CE: 14.1932, Loss KD: 40504.5256
+  Batch 200/782 - Loss CE: 14.6342, Loss KD: 40459.6388
+  Batch 300/782 - Loss CE: 14.8824, Loss KD: 40568.6223
+  Batch 400/782 - Loss CE: 15.2143, Loss KD: 40609.8902
+  Batch 500/782 - Loss CE: 15.2875, Loss KD: 40628.0658
+  Batch 600/782 - Loss CE: 15.2435, Loss KD: 40673.4359
+  Batch 700/782 - Loss CE: 15.3169, Loss KD: 40675.4117
+  Batch 782/782 - Loss CE: 15.3305, Loss KD: 40633.2933
+Epoch 100 Training Complete - Avg Loss CE: 15.3305, Avg Loss KD: 40633.2933
+
+Epoch 100 Results - Train Acc: 65.66% | Test Acc: 60.51% | Best: 61.24%
+0.006382397222222222
+Epoch 101: Training...
+
+  Batch 100/782 - Loss CE: 14.2624, Loss KD: 40478.8654
+  Batch 200/782 - Loss CE: 14.6686, Loss KD: 40634.7259
+  Batch 300/782 - Loss CE: 14.9902, Loss KD: 40670.1500
+  Batch 400/782 - Loss CE: 15.0677, Loss KD: 40670.5108
+  Batch 500/782 - Loss CE: 15.2003, Loss KD: 40754.0507
+  Batch 600/782 - Loss CE: 15.1860, Loss KD: 40818.7825
+  Batch 700/782 - Loss CE: 15.2408, Loss KD: 40829.4701
+  Batch 782/782 - Loss CE: 15.2944, Loss KD: 40779.5593
+Epoch 101 Training Complete - Avg Loss CE: 15.2944, Avg Loss KD: 40779.5593
+
+Epoch 101 Results - Train Acc: 65.46% | Test Acc: 57.21% | Best: 61.24%
+0.006557398055555555
+Epoch 102: Training...
+
+  Batch 100/782 - Loss CE: 14.2252, Loss KD: 40455.9754
+  Batch 200/782 - Loss CE: 14.4885, Loss KD: 40532.3883
+  Batch 300/782 - Loss CE: 14.7964, Loss KD: 40673.9572
+  Batch 400/782 - Loss CE: 14.9483, Loss KD: 40653.1714
+  Batch 500/782 - Loss CE: 14.9828, Loss KD: 40631.0865
+  Batch 600/782 - Loss CE: 15.0451, Loss KD: 40649.9096
+  Batch 700/782 - Loss CE: 15.0650, Loss KD: 40707.3146
+  Batch 782/782 - Loss CE: 15.0887, Loss KD: 40677.3027
+Epoch 102 Training Complete - Avg Loss CE: 15.0887, Avg Loss KD: 40677.3027
+
+Epoch 102 Results - Train Acc: 65.59% | Test Acc: 58.12% | Best: 61.24%
+0.006550596944444445
+Epoch 103: Training...
+
+  Batch 100/782 - Loss CE: 14.3011, Loss KD: 40193.8524
+  Batch 200/782 - Loss CE: 14.2700, Loss KD: 40338.2219
+  Batch 300/782 - Loss CE: 14.6705, Loss KD: 40411.6095
+  Batch 400/782 - Loss CE: 14.8095, Loss KD: 40553.8024
+  Batch 500/782 - Loss CE: 14.8370, Loss KD: 40617.3026
+  Batch 600/782 - Loss CE: 15.0020, Loss KD: 40690.5630
+  Batch 700/782 - Loss CE: 15.0741, Loss KD: 40703.9494
+  Batch 782/782 - Loss CE: 15.2176, Loss KD: 40688.1437
+Epoch 103 Training Complete - Avg Loss CE: 15.2176, Avg Loss KD: 40688.1437
+
+Epoch 103 Results - Train Acc: 65.52% | Test Acc: 58.09% | Best: 61.24%
+0.006469272222222222
+Epoch 104: Training...
+
+  Batch 100/782 - Loss CE: 14.4211, Loss KD: 40297.1998
+  Batch 200/782 - Loss CE: 14.6579, Loss KD: 40294.7234
+  Batch 300/782 - Loss CE: 14.6095, Loss KD: 40367.6764
+  Batch 400/782 - Loss CE: 14.6915, Loss KD: 40481.2468
+  Batch 500/782 - Loss CE: 14.7999, Loss KD: 40548.9628
+  Batch 600/782 - Loss CE: 14.9406, Loss KD: 40639.4824
+  Batch 700/782 - Loss CE: 15.1457, Loss KD: 40706.1348
+  Batch 782/782 - Loss CE: 15.1456, Loss KD: 40686.3188
+Epoch 104 Training Complete - Avg Loss CE: 15.1456, Avg Loss KD: 40686.3188
+
+Epoch 104 Results - Train Acc: 65.96% | Test Acc: 59.69% | Best: 61.24%
+0.0063596025
+Epoch 105: Training...
+
+  Batch 100/782 - Loss CE: 14.6675, Loss KD: 40412.5112
+  Batch 200/782 - Loss CE: 14.5727, Loss KD: 40548.5296
+  Batch 300/782 - Loss CE: 14.7703, Loss KD: 40618.2737
+  Batch 400/782 - Loss CE: 14.9213, Loss KD: 40716.8348
+  Batch 500/782 - Loss CE: 15.0104, Loss KD: 40773.5771
+  Batch 600/782 - Loss CE: 15.0312, Loss KD: 40751.8899
+  Batch 700/782 - Loss CE: 15.1075, Loss KD: 40756.7618
+  Batch 782/782 - Loss CE: 15.1409, Loss KD: 40715.7531
+Epoch 105 Training Complete - Avg Loss CE: 15.1409, Avg Loss KD: 40715.7531
+
+Epoch 105 Results - Train Acc: 66.02% | Test Acc: 55.95% | Best: 61.24%
+0.006534068611111111
+Epoch 106: Training...
+
+  Batch 100/782 - Loss CE: 14.0895, Loss KD: 40677.4015
+  Batch 200/782 - Loss CE: 14.3691, Loss KD: 40612.7795
+  Batch 300/782 - Loss CE: 14.4058, Loss KD: 40462.1728
+  Batch 400/782 - Loss CE: 14.5736, Loss KD: 40480.3333
+  Batch 500/782 - Loss CE: 14.9218, Loss KD: 40534.1718
+  Batch 600/782 - Loss CE: 15.0418, Loss KD: 40570.1336
+  Batch 700/782 - Loss CE: 14.9993, Loss KD: 40572.1901
+  Batch 782/782 - Loss CE: 15.0611, Loss KD: 40557.1527
+Epoch 106 Training Complete - Avg Loss CE: 15.0611, Avg Loss KD: 40557.1527
+
+Epoch 106 Results - Train Acc: 65.83% | Test Acc: 56.39% | Best: 61.24%
+0.006561813333333333
+Epoch 107: Training...
+
+  Batch 100/782 - Loss CE: 14.1335, Loss KD: 40581.8125
+  Batch 200/782 - Loss CE: 14.3344, Loss KD: 40468.6621
+  Batch 300/782 - Loss CE: 14.3629, Loss KD: 40460.8639
+  Batch 400/782 - Loss CE: 14.5872, Loss KD: 40561.4301
+  Batch 500/782 - Loss CE: 14.6986, Loss KD: 40622.7114
+  Batch 600/782 - Loss CE: 14.7784, Loss KD: 40679.4735
+  Batch 700/782 - Loss CE: 14.8439, Loss KD: 40712.3523
+  Batch 782/782 - Loss CE: 14.8691, Loss KD: 40660.0602
+Epoch 107 Training Complete - Avg Loss CE: 14.8691, Avg Loss KD: 40660.0602
+
+Epoch 107 Results - Train Acc: 65.92% | Test Acc: 57.22% | Best: 61.24%
+0.006710488888888888
+Epoch 108: Training...
+
+  Batch 100/782 - Loss CE: 14.5285, Loss KD: 40418.0400
+  Batch 200/782 - Loss CE: 14.8399, Loss KD: 40463.3694
+  Batch 300/782 - Loss CE: 15.0395, Loss KD: 40521.5708
+  Batch 400/782 - Loss CE: 15.0405, Loss KD: 40640.9521
+  Batch 500/782 - Loss CE: 15.1227, Loss KD: 40685.5261
+  Batch 600/782 - Loss CE: 15.0108, Loss KD: 40659.6070
+  Batch 700/782 - Loss CE: 15.0343, Loss KD: 40682.9250
+  Batch 782/782 - Loss CE: 15.1121, Loss KD: 40705.3202
+Epoch 108 Training Complete - Avg Loss CE: 15.1121, Avg Loss KD: 40705.3202
+
+Epoch 108 Results - Train Acc: 65.78% | Test Acc: 59.05% | Best: 61.24%
+0.0066308124999999996
+Epoch 109: Training...
+
+  Batch 100/782 - Loss CE: 14.9949, Loss KD: 40171.5095
+  Batch 200/782 - Loss CE: 14.5020, Loss KD: 40252.1611
+  Batch 300/782 - Loss CE: 14.6959, Loss KD: 40400.6573
+  Batch 400/782 - Loss CE: 14.7227, Loss KD: 40421.5267
+  Batch 500/782 - Loss CE: 14.6913, Loss KD: 40440.9006
+  Batch 600/782 - Loss CE: 14.9351, Loss KD: 40550.6579
+  Batch 700/782 - Loss CE: 15.0151, Loss KD: 40576.3622
+  Batch 782/782 - Loss CE: 15.0849, Loss KD: 40580.7658
+Epoch 109 Training Complete - Avg Loss CE: 15.0849, Avg Loss KD: 40580.7658
+
+Epoch 109 Results - Train Acc: 65.81% | Test Acc: 53.67% | Best: 61.24%
+0.006426172222222222
+Epoch 110: Training...
+
+  Batch 100/782 - Loss CE: 15.0556, Loss KD: 40312.1519
+  Batch 200/782 - Loss CE: 15.2651, Loss KD: 40495.2254
+  Batch 300/782 - Loss CE: 14.9616, Loss KD: 40525.1130
+  Batch 400/782 - Loss CE: 15.0672, Loss KD: 40619.6717
+  Batch 500/782 - Loss CE: 14.9344, Loss KD: 40579.4692
+  Batch 600/782 - Loss CE: 14.9183, Loss KD: 40605.0150
+  Batch 700/782 - Loss CE: 14.9017, Loss KD: 40607.2332
+  Batch 782/782 - Loss CE: 14.8483, Loss KD: 40576.2164
+Epoch 110 Training Complete - Avg Loss CE: 14.8483, Avg Loss KD: 40576.2164
+
+Epoch 110 Results - Train Acc: 65.81% | Test Acc: 55.35% | Best: 61.24%
+0.006758580555555556
+Epoch 111: Training...
+
+  Batch 100/782 - Loss CE: 14.5437, Loss KD: 40483.6414
+  Batch 200/782 - Loss CE: 14.6234, Loss KD: 40611.5470
+  Batch 300/782 - Loss CE: 14.5194, Loss KD: 40516.3716
+  Batch 400/782 - Loss CE: 14.6845, Loss KD: 40579.2877
+  Batch 500/782 - Loss CE: 14.6271, Loss KD: 40536.5201
+  Batch 600/782 - Loss CE: 14.7249, Loss KD: 40563.3724
+  Batch 700/782 - Loss CE: 14.7532, Loss KD: 40638.3192
+  Batch 782/782 - Loss CE: 14.8431, Loss KD: 40643.7838
+Epoch 111 Training Complete - Avg Loss CE: 14.8431, Avg Loss KD: 40643.7838
+
+Epoch 111 Results - Train Acc: 65.92% | Test Acc: 59.56% | Best: 61.24%
+0.006605106111111111
+Epoch 112: Training...
+
+  Batch 100/782 - Loss CE: 14.7096, Loss KD: 40396.7112
+  Batch 200/782 - Loss CE: 15.0530, Loss KD: 40651.6297
+  Batch 300/782 - Loss CE: 14.9396, Loss KD: 40715.3570
+  Batch 400/782 - Loss CE: 15.0133, Loss KD: 40645.7380
+  Batch 500/782 - Loss CE: 14.9636, Loss KD: 40563.9925
+  Batch 600/782 - Loss CE: 15.0208, Loss KD: 40658.5706
+  Batch 700/782 - Loss CE: 15.0820, Loss KD: 40719.4979
+  Batch 782/782 - Loss CE: 15.1255, Loss KD: 40723.6004
+Epoch 112 Training Complete - Avg Loss CE: 15.1255, Avg Loss KD: 40723.6004
+
+Epoch 112 Results - Train Acc: 65.95% | Test Acc: 58.35% | Best: 61.24%
+0.006505540000000001
+Epoch 113: Training...
+
+  Batch 100/782 - Loss CE: 14.8779, Loss KD: 40415.8757
+  Batch 200/782 - Loss CE: 14.6173, Loss KD: 40599.1091
+  Batch 300/782 - Loss CE: 14.6004, Loss KD: 40549.7728
+  Batch 400/782 - Loss CE: 14.7379, Loss KD: 40560.6552
+  Batch 500/782 - Loss CE: 14.8177, Loss KD: 40558.5278
+  Batch 600/782 - Loss CE: 14.8668, Loss KD: 40599.3946
+  Batch 700/782 - Loss CE: 14.9583, Loss KD: 40656.8153
+  Batch 782/782 - Loss CE: 15.0917, Loss KD: 40657.4637
+Epoch 113 Training Complete - Avg Loss CE: 15.0917, Avg Loss KD: 40657.4637
+
+Epoch 113 Results - Train Acc: 65.99% | Test Acc: 59.28% | Best: 61.24%
+0.006701160833333334
+Epoch 114: Training...
+
+  Batch 100/782 - Loss CE: 13.8243, Loss KD: 40421.3138
+  Batch 200/782 - Loss CE: 14.3751, Loss KD: 40457.2827
+  Batch 300/782 - Loss CE: 14.4624, Loss KD: 40543.1279
+  Batch 400/782 - Loss CE: 14.7814, Loss KD: 40641.4055
+  Batch 500/782 - Loss CE: 14.9820, Loss KD: 40678.4005
+  Batch 600/782 - Loss CE: 14.9518, Loss KD: 40706.1879
+  Batch 700/782 - Loss CE: 14.9198, Loss KD: 40707.1242
+  Batch 782/782 - Loss CE: 14.9869, Loss KD: 40691.5408
+Epoch 114 Training Complete - Avg Loss CE: 14.9869, Avg Loss KD: 40691.5408
+
+Epoch 114 Results - Train Acc: 65.83% | Test Acc: 57.96% | Best: 61.24%
+0.0064951436111111115
+Epoch 115: Training...
+
+  Batch 100/782 - Loss CE: 14.9790, Loss KD: 40367.8261
+  Batch 200/782 - Loss CE: 14.8743, Loss KD: 40465.6975
+  Batch 300/782 - Loss CE: 14.8966, Loss KD: 40477.6346
+  Batch 400/782 - Loss CE: 15.1049, Loss KD: 40514.5610
+  Batch 500/782 - Loss CE: 15.1387, Loss KD: 40564.5809
+  Batch 600/782 - Loss CE: 15.1800, Loss KD: 40546.3812
+  Batch 700/782 - Loss CE: 15.1934, Loss KD: 40566.5556
+  Batch 782/782 - Loss CE: 15.2459, Loss KD: 40570.7700
+Epoch 115 Training Complete - Avg Loss CE: 15.2459, Avg Loss KD: 40570.7700
+
+Epoch 115 Results - Train Acc: 65.82% | Test Acc: 56.97% | Best: 61.24%
+0.006341821666666666
+Epoch 116: Training...
+
+  Batch 100/782 - Loss CE: 14.5629, Loss KD: 40306.5039
+  Batch 200/782 - Loss CE: 14.4252, Loss KD: 40286.2061
+  Batch 300/782 - Loss CE: 14.5265, Loss KD: 40502.4059
+  Batch 400/782 - Loss CE: 14.7581, Loss KD: 40546.7588
+  Batch 500/782 - Loss CE: 14.7580, Loss KD: 40634.3511
+  Batch 600/782 - Loss CE: 14.8853, Loss KD: 40628.3949
+  Batch 700/782 - Loss CE: 14.8529, Loss KD: 40593.8279
+  Batch 782/782 - Loss CE: 14.8919, Loss KD: 40571.0496
+Epoch 116 Training Complete - Avg Loss CE: 14.8919, Avg Loss KD: 40571.0496
+
+Epoch 116 Results - Train Acc: 65.70% | Test Acc: 60.99% | Best: 61.24%
+0.005884025
+Epoch 117: Training...
+
+  Batch 100/782 - Loss CE: 15.0517, Loss KD: 40616.2673
+  Batch 200/782 - Loss CE: 14.7645, Loss KD: 40452.4681
+  Batch 300/782 - Loss CE: 14.6676, Loss KD: 40398.0498
+  Batch 400/782 - Loss CE: 14.6921, Loss KD: 40527.7595
+  Batch 500/782 - Loss CE: 14.9295, Loss KD: 40619.9916
+  Batch 600/782 - Loss CE: 14.8798, Loss KD: 40614.7874
+  Batch 700/782 - Loss CE: 14.9123, Loss KD: 40607.8870
+  Batch 782/782 - Loss CE: 14.9346, Loss KD: 40562.9134
+Epoch 117 Training Complete - Avg Loss CE: 14.9346, Avg Loss KD: 40562.9134
+
+Epoch 117 Results - Train Acc: 65.78% | Test Acc: 56.40% | Best: 61.24%
+0.005266814444444445
+Epoch 118: Training...
+
+  Batch 100/782 - Loss CE: 14.5743, Loss KD: 40522.0123
+  Batch 200/782 - Loss CE: 14.8961, Loss KD: 40470.0704
+  Batch 300/782 - Loss CE: 14.9769, Loss KD: 40504.5089
+  Batch 400/782 - Loss CE: 15.1194, Loss KD: 40626.7792
+  Batch 500/782 - Loss CE: 14.9677, Loss KD: 40669.5224
+  Batch 600/782 - Loss CE: 14.9862, Loss KD: 40647.0539
+  Batch 700/782 - Loss CE: 15.0727, Loss KD: 40715.2670
+  Batch 782/782 - Loss CE: 15.0296, Loss KD: 40676.3930
+Epoch 118 Training Complete - Avg Loss CE: 15.0296, Avg Loss KD: 40676.3930
+
+Epoch 118 Results - Train Acc: 65.72% | Test Acc: 59.82% | Best: 61.24%
+0.006181974166666666
+Epoch 119: Training...
+
+  Batch 100/782 - Loss CE: 15.0032, Loss KD: 40638.0310
+  Batch 200/782 - Loss CE: 14.3774, Loss KD: 40413.3796
+  Batch 300/782 - Loss CE: 14.8825, Loss KD: 40591.3475
+  Batch 400/782 - Loss CE: 15.0466, Loss KD: 40654.4647
+  Batch 500/782 - Loss CE: 15.1114, Loss KD: 40650.8818
+  Batch 600/782 - Loss CE: 15.1212, Loss KD: 40629.7244
+  Batch 700/782 - Loss CE: 15.1452, Loss KD: 40647.1747
+  Batch 782/782 - Loss CE: 15.1605, Loss KD: 40621.9940
+Epoch 119 Training Complete - Avg Loss CE: 15.1605, Avg Loss KD: 40621.9940
+
+Epoch 119 Results - Train Acc: 65.61% | Test Acc: 59.05% | Best: 61.24%
+0.006576574722222222
+Epoch 120: Training...
+
+  Batch 100/782 - Loss CE: 14.8546, Loss KD: 40021.0395
+  Batch 200/782 - Loss CE: 14.6797, Loss KD: 40268.7564
+  Batch 300/782 - Loss CE: 14.8388, Loss KD: 40410.2941
+  Batch 400/782 - Loss CE: 14.6291, Loss KD: 40400.9099
+  Batch 500/782 - Loss CE: 14.7829, Loss KD: 40427.3496
+  Batch 600/782 - Loss CE: 14.8022, Loss KD: 40482.9642
+  Batch 700/782 - Loss CE: 14.7748, Loss KD: 40486.8269
+  Batch 782/782 - Loss CE: 14.8593, Loss KD: 40477.5393
+Epoch 120 Training Complete - Avg Loss CE: 14.8593, Avg Loss KD: 40477.5393
+
+Epoch 120 Results - Train Acc: 66.15% | Test Acc: 60.96% | Best: 61.24%
+0.006718533611111111
+Epoch 121: Training...
+
+  Batch 100/782 - Loss CE: 14.5394, Loss KD: 40325.3539
+  Batch 200/782 - Loss CE: 14.3873, Loss KD: 40308.1806
+  Batch 300/782 - Loss CE: 14.4019, Loss KD: 40466.5882
+  Batch 400/782 - Loss CE: 14.6078, Loss KD: 40526.9428
+  Batch 500/782 - Loss CE: 14.5954, Loss KD: 40552.4193
+  Batch 600/782 - Loss CE: 14.6143, Loss KD: 40580.8444
+  Batch 700/782 - Loss CE: 14.6839, Loss KD: 40616.9274
+  Batch 782/782 - Loss CE: 14.7076, Loss KD: 40545.2023
+Epoch 121 Training Complete - Avg Loss CE: 14.7076, Avg Loss KD: 40545.2023
+
+Epoch 121 Results - Train Acc: 66.13% | Test Acc: 60.70% | Best: 61.24%
+0.006702313611111111
+Epoch 122: Training...
+
+  Batch 100/782 - Loss CE: 14.1900, Loss KD: 40071.3431
+  Batch 200/782 - Loss CE: 14.4742, Loss KD: 40317.2648
+  Batch 300/782 - Loss CE: 14.8418, Loss KD: 40514.1775
+  Batch 400/782 - Loss CE: 14.8141, Loss KD: 40502.7497
+  Batch 500/782 - Loss CE: 14.8644, Loss KD: 40535.1469
+  Batch 600/782 - Loss CE: 14.8955, Loss KD: 40565.0263
+  Batch 700/782 - Loss CE: 14.9648, Loss KD: 40579.8413
+  Batch 782/782 - Loss CE: 14.9699, Loss KD: 40565.4251
+Epoch 122 Training Complete - Avg Loss CE: 14.9699, Avg Loss KD: 40565.4251
+
+Epoch 122 Results - Train Acc: 66.09% | Test Acc: 60.50% | Best: 61.24%
+0.006314946666666666
+Epoch 123: Training...
+
+  Batch 100/782 - Loss CE: 14.1537, Loss KD: 40246.4390
+  Batch 200/782 - Loss CE: 14.0405, Loss KD: 40217.7663
+  Batch 300/782 - Loss CE: 14.2449, Loss KD: 40362.1030
+  Batch 400/782 - Loss CE: 14.2880, Loss KD: 40420.9865
+  Batch 500/782 - Loss CE: 14.5098, Loss KD: 40448.1008
+  Batch 600/782 - Loss CE: 14.5793, Loss KD: 40440.8673
+  Batch 700/782 - Loss CE: 14.6247, Loss KD: 40475.7193
+  Batch 782/782 - Loss CE: 14.6896, Loss KD: 40449.1996
+Epoch 123 Training Complete - Avg Loss CE: 14.6896, Avg Loss KD: 40449.1996
+
+Epoch 123 Results - Train Acc: 66.26% | Test Acc: 56.72% | Best: 61.24%
+0.006286318333333333
+Epoch 124: Training...
+
+  Batch 100/782 - Loss CE: 13.9700, Loss KD: 40287.0262
+  Batch 200/782 - Loss CE: 14.5984, Loss KD: 40532.8565
+  Batch 300/782 - Loss CE: 14.4846, Loss KD: 40466.0056
+  Batch 400/782 - Loss CE: 14.6041, Loss KD: 40496.9371
+  Batch 500/782 - Loss CE: 14.5297, Loss KD: 40477.2295
+  Batch 600/782 - Loss CE: 14.5095, Loss KD: 40495.8760
+  Batch 700/782 - Loss CE: 14.6645, Loss KD: 40540.2321
+  Batch 782/782 - Loss CE: 14.6663, Loss KD: 40525.4659
+Epoch 124 Training Complete - Avg Loss CE: 14.6663, Avg Loss KD: 40525.4659
+
+Epoch 124 Results - Train Acc: 66.19% | Test Acc: 58.20% | Best: 61.24%
+0.005997498611111111
+Epoch 125: Training...
+
+  Batch 100/782 - Loss CE: 14.4881, Loss KD: 40032.1365
+  Batch 200/782 - Loss CE: 14.2669, Loss KD: 40123.6544
+  Batch 300/782 - Loss CE: 14.3977, Loss KD: 40200.1021
+  Batch 400/782 - Loss CE: 14.5161, Loss KD: 40345.3539
+  Batch 500/782 - Loss CE: 14.5895, Loss KD: 40392.3721
+  Batch 600/782 - Loss CE: 14.6843, Loss KD: 40466.7234
+  Batch 700/782 - Loss CE: 14.6818, Loss KD: 40488.8775
+  Batch 782/782 - Loss CE: 14.7677, Loss KD: 40473.9037
+Epoch 125 Training Complete - Avg Loss CE: 14.7677, Avg Loss KD: 40473.9037
+
+Epoch 125 Results - Train Acc: 65.94% | Test Acc: 57.53% | Best: 61.24%
+0.0062356749999999996
+Epoch 126: Training...
+
+  Batch 100/782 - Loss CE: 14.5539, Loss KD: 40391.9648
+  Batch 200/782 - Loss CE: 14.5703, Loss KD: 40460.0647
+  Batch 300/782 - Loss CE: 14.6974, Loss KD: 40642.3698
+  Batch 400/782 - Loss CE: 14.8014, Loss KD: 40660.5418
+  Batch 500/782 - Loss CE: 14.8736, Loss KD: 40623.5731
+  Batch 600/782 - Loss CE: 14.8897, Loss KD: 40557.3204
+  Batch 700/782 - Loss CE: 14.9301, Loss KD: 40613.0079
+  Batch 782/782 - Loss CE: 14.9795, Loss KD: 40577.9793
+Epoch 126 Training Complete - Avg Loss CE: 14.9795, Avg Loss KD: 40577.9793
+
+Epoch 126 Results - Train Acc: 65.87% | Test Acc: 58.78% | Best: 61.24%
+0.006045966944444444
+Epoch 127: Training...
+
+  Batch 100/782 - Loss CE: 15.1806, Loss KD: 40721.8356
+  Batch 200/782 - Loss CE: 15.1218, Loss KD: 40601.0070
+  Batch 300/782 - Loss CE: 15.1683, Loss KD: 40627.6268
+  Batch 400/782 - Loss CE: 15.3390, Loss KD: 40661.7994
+  Batch 500/782 - Loss CE: 15.2567, Loss KD: 40671.3417
+  Batch 600/782 - Loss CE: 15.3020, Loss KD: 40684.4153
+  Batch 700/782 - Loss CE: 15.2455, Loss KD: 40655.0045
+  Batch 782/782 - Loss CE: 15.2136, Loss KD: 40579.1316
+Epoch 127 Training Complete - Avg Loss CE: 15.2136, Avg Loss KD: 40579.1316
+
+Epoch 127 Results - Train Acc: 66.04% | Test Acc: 60.51% | Best: 61.24%
+0.006051963333333334
+Epoch 128: Training...
+
+  Batch 100/782 - Loss CE: 13.7239, Loss KD: 40030.6798
+  Batch 200/782 - Loss CE: 14.1641, Loss KD: 40284.0638
+  Batch 300/782 - Loss CE: 14.5995, Loss KD: 40379.9016
+  Batch 400/782 - Loss CE: 14.9096, Loss KD: 40518.9604
+  Batch 500/782 - Loss CE: 14.8236, Loss KD: 40528.8473
+  Batch 600/782 - Loss CE: 14.9012, Loss KD: 40535.8229
+  Batch 700/782 - Loss CE: 15.0032, Loss KD: 40546.7475
+  Batch 782/782 - Loss CE: 15.0814, Loss KD: 40567.0757
+Epoch 128 Training Complete - Avg Loss CE: 15.0814, Avg Loss KD: 40567.0757
+
+Epoch 128 Results - Train Acc: 65.90% | Test Acc: 60.48% | Best: 61.24%
+0.006585513055555556
+Epoch 129: Training...
+
+  Batch 100/782 - Loss CE: 15.0136, Loss KD: 40354.3238
+  Batch 200/782 - Loss CE: 14.9384, Loss KD: 40372.2114
+  Batch 300/782 - Loss CE: 14.8273, Loss KD: 40345.8411
+  Batch 400/782 - Loss CE: 14.7401, Loss KD: 40414.2359
+  Batch 500/782 - Loss CE: 14.7227, Loss KD: 40474.0976
+  Batch 600/782 - Loss CE: 14.8991, Loss KD: 40611.2124
+  Batch 700/782 - Loss CE: 15.0007, Loss KD: 40599.6272
+  Batch 782/782 - Loss CE: 15.0150, Loss KD: 40559.6842
+Epoch 129 Training Complete - Avg Loss CE: 15.0150, Avg Loss KD: 40559.6842
+
+Epoch 129 Results - Train Acc: 66.09% | Test Acc: 59.45% | Best: 61.24%
+0.0065191561111111115
+Epoch 130: Training...
+
+  Batch 100/782 - Loss CE: 14.2308, Loss KD: 40128.9996
+  Batch 200/782 - Loss CE: 14.6521, Loss KD: 40164.3636
+  Batch 300/782 - Loss CE: 14.4822, Loss KD: 40094.2818
+  Batch 400/782 - Loss CE: 14.6980, Loss KD: 40275.8690
+  Batch 500/782 - Loss CE: 14.7228, Loss KD: 40313.2932
+  Batch 600/782 - Loss CE: 14.7515, Loss KD: 40378.9260
+  Batch 700/782 - Loss CE: 14.8530, Loss KD: 40390.4654
+  Batch 782/782 - Loss CE: 14.9528, Loss KD: 40404.9430
+Epoch 130 Training Complete - Avg Loss CE: 14.9528, Avg Loss KD: 40404.9430
+
+Epoch 130 Results - Train Acc: 65.86% | Test Acc: 59.07% | Best: 61.24%
+0.006304858333333333
+Epoch 131: Training...
+
+  Batch 100/782 - Loss CE: 14.8479, Loss KD: 40178.4617
+  Batch 200/782 - Loss CE: 15.1131, Loss KD: 40430.0731
+  Batch 300/782 - Loss CE: 14.9882, Loss KD: 40462.9958
+  Batch 400/782 - Loss CE: 14.9206, Loss KD: 40531.2952
+  Batch 500/782 - Loss CE: 15.0218, Loss KD: 40574.8528
+  Batch 600/782 - Loss CE: 15.0305, Loss KD: 40548.9867
+  Batch 700/782 - Loss CE: 15.0877, Loss KD: 40537.7741
+  Batch 782/782 - Loss CE: 15.0902, Loss KD: 40523.7984
+Epoch 131 Training Complete - Avg Loss CE: 15.0902, Avg Loss KD: 40523.7984
+
+Epoch 131 Results - Train Acc: 65.98% | Test Acc: 58.66% | Best: 61.24%
+0.006439197777777778
+Epoch 132: Training...
+
+  Batch 100/782 - Loss CE: 14.6916, Loss KD: 40194.9332
+  Batch 200/782 - Loss CE: 14.7628, Loss KD: 40088.0344
+  Batch 300/782 - Loss CE: 14.7586, Loss KD: 40234.5794
+  Batch 400/782 - Loss CE: 14.7693, Loss KD: 40356.5087
+  Batch 500/782 - Loss CE: 14.8575, Loss KD: 40361.2047
+  Batch 600/782 - Loss CE: 14.8831, Loss KD: 40425.5856
+  Batch 700/782 - Loss CE: 14.9452, Loss KD: 40470.2482
+  Batch 782/782 - Loss CE: 14.9954, Loss KD: 40462.2833
+Epoch 132 Training Complete - Avg Loss CE: 14.9954, Avg Loss KD: 40462.2833
+
+Epoch 132 Results - Train Acc: 66.06% | Test Acc: 59.80% | Best: 61.24%
+0.006247634166666667
+Epoch 133: Training...
+
+  Batch 100/782 - Loss CE: 14.5891, Loss KD: 39973.2672
+  Batch 200/782 - Loss CE: 14.6203, Loss KD: 40359.7703
+  Batch 300/782 - Loss CE: 14.6624, Loss KD: 40472.1812
+  Batch 400/782 - Loss CE: 14.5654, Loss KD: 40486.4051
+  Batch 500/782 - Loss CE: 14.5957, Loss KD: 40531.1705
+  Batch 600/782 - Loss CE: 14.6401, Loss KD: 40508.8385
+  Batch 700/782 - Loss CE: 14.6550, Loss KD: 40541.0116
+  Batch 782/782 - Loss CE: 14.7383, Loss KD: 40519.2933
+Epoch 133 Training Complete - Avg Loss CE: 14.7383, Avg Loss KD: 40519.2933
+
+Epoch 133 Results - Train Acc: 66.19% | Test Acc: 60.17% | Best: 61.24%
+0.006281633055555556
+Epoch 134: Training...
+
+  Batch 100/782 - Loss CE: 14.6251, Loss KD: 40485.1669
+  Batch 200/782 - Loss CE: 14.9070, Loss KD: 40526.6106
+  Batch 300/782 - Loss CE: 14.9496, Loss KD: 40483.1667
+  Batch 400/782 - Loss CE: 14.9166, Loss KD: 40501.4887
+  Batch 500/782 - Loss CE: 14.8459, Loss KD: 40555.2817
+  Batch 600/782 - Loss CE: 14.9464, Loss KD: 40564.8367
+  Batch 700/782 - Loss CE: 15.0199, Loss KD: 40600.9229
+  Batch 782/782 - Loss CE: 15.0325, Loss KD: 40559.5839
+Epoch 134 Training Complete - Avg Loss CE: 15.0325, Avg Loss KD: 40559.5839
+
+Epoch 134 Results - Train Acc: 66.05% | Test Acc: 56.67% | Best: 61.24%
+0.0065139502777777775
+Epoch 135: Training...
+
+  Batch 100/782 - Loss CE: 15.2611, Loss KD: 40328.2522
+  Batch 200/782 - Loss CE: 14.7762, Loss KD: 40270.1358
+  Batch 300/782 - Loss CE: 14.8114, Loss KD: 40272.1408
+  Batch 400/782 - Loss CE: 14.8823, Loss KD: 40257.7799
+  Batch 500/782 - Loss CE: 14.9856, Loss KD: 40375.8481
+  Batch 600/782 - Loss CE: 14.9040, Loss KD: 40476.7001
+  Batch 700/782 - Loss CE: 14.8056, Loss KD: 40410.7137
+  Batch 782/782 - Loss CE: 14.8610, Loss KD: 40432.1362
+Epoch 135 Training Complete - Avg Loss CE: 14.8610, Avg Loss KD: 40432.1362
+
+Epoch 135 Results - Train Acc: 66.40% | Test Acc: 57.30% | Best: 61.24%
+0.006456528611111111
+Epoch 136: Training...
+
+  Batch 100/782 - Loss CE: 14.6406, Loss KD: 40343.3048
+  Batch 200/782 - Loss CE: 14.5718, Loss KD: 40497.0320
+  Batch 300/782 - Loss CE: 14.6603, Loss KD: 40503.3675
+  Batch 400/782 - Loss CE: 14.6703, Loss KD: 40512.1937
+  Batch 500/782 - Loss CE: 14.7724, Loss KD: 40581.1931
+  Batch 600/782 - Loss CE: 14.8454, Loss KD: 40598.0376
+  Batch 700/782 - Loss CE: 14.8066, Loss KD: 40582.2120
+  Batch 782/782 - Loss CE: 14.8592, Loss KD: 40561.1272
+Epoch 136 Training Complete - Avg Loss CE: 14.8592, Avg Loss KD: 40561.1272
+
+Epoch 136 Results - Train Acc: 66.08% | Test Acc: 59.10% | Best: 61.24%
+0.006545439166666667
+Epoch 137: Training...
+
+  Batch 100/782 - Loss CE: 15.0521, Loss KD: 40232.9114
+  Batch 200/782 - Loss CE: 15.2025, Loss KD: 40506.5204
+  Batch 300/782 - Loss CE: 15.1570, Loss KD: 40491.5275
+  Batch 400/782 - Loss CE: 15.2245, Loss KD: 40440.6601
+  Batch 500/782 - Loss CE: 15.1775, Loss KD: 40578.5296
+  Batch 600/782 - Loss CE: 15.1514, Loss KD: 40548.1552
+  Batch 700/782 - Loss CE: 15.1395, Loss KD: 40575.8242
+  Batch 782/782 - Loss CE: 15.1468, Loss KD: 40509.1807
+Epoch 137 Training Complete - Avg Loss CE: 15.1468, Avg Loss KD: 40509.1807
+
+Epoch 137 Results - Train Acc: 65.99% | Test Acc: 59.86% | Best: 61.24%
+0.00661043
+Epoch 138: Training...
+
+  Batch 100/782 - Loss CE: 13.9570, Loss KD: 40105.6540
+  Batch 200/782 - Loss CE: 14.5773, Loss KD: 40243.5512
+  Batch 300/782 - Loss CE: 14.6584, Loss KD: 40330.0077
+  Batch 400/782 - Loss CE: 14.7415, Loss KD: 40399.5546
+  Batch 500/782 - Loss CE: 14.8678, Loss KD: 40417.3914
+  Batch 600/782 - Loss CE: 14.8456, Loss KD: 40410.9403
+  Batch 700/782 - Loss CE: 14.8226, Loss KD: 40505.2567
+  Batch 782/782 - Loss CE: 14.8673, Loss KD: 40492.2125
+Epoch 138 Training Complete - Avg Loss CE: 14.8673, Avg Loss KD: 40492.2125
+
+Epoch 138 Results - Train Acc: 66.15% | Test Acc: 58.66% | Best: 61.24%
+0.0064974916666666665
+Epoch 139: Training...
+
+  Batch 100/782 - Loss CE: 15.2487, Loss KD: 40217.3913
+  Batch 200/782 - Loss CE: 14.9790, Loss KD: 40322.1677
+  Batch 300/782 - Loss CE: 15.1130, Loss KD: 40353.8866
+  Batch 400/782 - Loss CE: 15.1934, Loss KD: 40404.5755
+  Batch 500/782 - Loss CE: 15.0705, Loss KD: 40417.0491
+  Batch 600/782 - Loss CE: 15.0058, Loss KD: 40463.0763
+  Batch 700/782 - Loss CE: 15.0256, Loss KD: 40474.8549
+  Batch 782/782 - Loss CE: 15.0464, Loss KD: 40457.0769
+Epoch 139 Training Complete - Avg Loss CE: 15.0464, Avg Loss KD: 40457.0769
+
+Epoch 139 Results - Train Acc: 65.97% | Test Acc: 60.98% | Best: 61.24%
+0.006438596944444444
+Epoch 140: Training...
+
+  Batch 100/782 - Loss CE: 14.4541, Loss KD: 40304.1018
+  Batch 200/782 - Loss CE: 14.1255, Loss KD: 40271.4985
+  Batch 300/782 - Loss CE: 14.4088, Loss KD: 40402.0449
+  Batch 400/782 - Loss CE: 14.7172, Loss KD: 40492.8431
+  Batch 500/782 - Loss CE: 14.8579, Loss KD: 40512.6867
+  Batch 600/782 - Loss CE: 14.8860, Loss KD: 40582.6879
+  Batch 700/782 - Loss CE: 14.9736, Loss KD: 40607.4143
+  Batch 782/782 - Loss CE: 14.9727, Loss KD: 40599.0238
+Epoch 140 Training Complete - Avg Loss CE: 14.9727, Avg Loss KD: 40599.0238
+
+Epoch 140 Results - Train Acc: 65.96% | Test Acc: 56.01% | Best: 61.24%
+0.006720902777777778
+Epoch 141: Training...
+
+  Batch 100/782 - Loss CE: 14.8171, Loss KD: 40203.4010
+  Batch 200/782 - Loss CE: 14.5822, Loss KD: 40292.1502
+  Batch 300/782 - Loss CE: 14.7271, Loss KD: 40465.0292
+  Batch 400/782 - Loss CE: 14.8469, Loss KD: 40399.8119
+  Batch 500/782 - Loss CE: 15.0749, Loss KD: 40467.3017
+  Batch 600/782 - Loss CE: 15.0514, Loss KD: 40542.0931
+  Batch 700/782 - Loss CE: 15.0542, Loss KD: 40547.9338
+  Batch 782/782 - Loss CE: 15.1355, Loss KD: 40535.2957
+Epoch 141 Training Complete - Avg Loss CE: 15.1355, Avg Loss KD: 40535.2957
+
+Epoch 141 Results - Train Acc: 65.98% | Test Acc: 58.17% | Best: 61.24%
+0.006558009722222222
+Epoch 142: Training...
+
+  Batch 100/782 - Loss CE: 14.7014, Loss KD: 40265.9219
+  Batch 200/782 - Loss CE: 14.7047, Loss KD: 40195.8381
+  Batch 300/782 - Loss CE: 14.7475, Loss KD: 40272.6998
+  Batch 400/782 - Loss CE: 14.8406, Loss KD: 40378.7970
+  Batch 500/782 - Loss CE: 14.9779, Loss KD: 40420.9083
+  Batch 600/782 - Loss CE: 15.0819, Loss KD: 40486.2706
+  Batch 700/782 - Loss CE: 15.1517, Loss KD: 40512.9840
+  Batch 782/782 - Loss CE: 15.1172, Loss KD: 40473.3995
+Epoch 142 Training Complete - Avg Loss CE: 15.1172, Avg Loss KD: 40473.3995
+
+Epoch 142 Results - Train Acc: 66.11% | Test Acc: 57.93% | Best: 61.24%
+0.006513530555555555
+Epoch 143: Training...
+
+  Batch 100/782 - Loss CE: 14.0690, Loss KD: 40211.8608
+  Batch 200/782 - Loss CE: 14.3513, Loss KD: 40235.9858
+  Batch 300/782 - Loss CE: 14.4042, Loss KD: 40265.7408
+  Batch 400/782 - Loss CE: 14.6253, Loss KD: 40382.1381
+  Batch 500/782 - Loss CE: 14.8579, Loss KD: 40442.1809
+  Batch 600/782 - Loss CE: 14.9364, Loss KD: 40456.3755
+  Batch 700/782 - Loss CE: 14.9353, Loss KD: 40454.4607
+  Batch 782/782 - Loss CE: 14.9248, Loss KD: 40447.2289
+Epoch 143 Training Complete - Avg Loss CE: 14.9248, Avg Loss KD: 40447.2289
+
+Epoch 143 Results - Train Acc: 66.09% | Test Acc: 60.79% | Best: 61.24%
+0.00670603
+Epoch 144: Training...
+
+  Batch 100/782 - Loss CE: 14.3543, Loss KD: 40409.2861
+  Batch 200/782 - Loss CE: 14.8691, Loss KD: 40398.0403
+  Batch 300/782 - Loss CE: 14.6389, Loss KD: 40357.2040
+  Batch 400/782 - Loss CE: 14.8569, Loss KD: 40440.7512
+  Batch 500/782 - Loss CE: 14.8683, Loss KD: 40436.0871
+  Batch 600/782 - Loss CE: 14.8381, Loss KD: 40426.9944
+  Batch 700/782 - Loss CE: 14.8194, Loss KD: 40475.6363
+  Batch 782/782 - Loss CE: 14.8110, Loss KD: 40441.0335
+Epoch 144 Training Complete - Avg Loss CE: 14.8110, Avg Loss KD: 40441.0335
+
+Epoch 144 Results - Train Acc: 66.18% | Test Acc: 58.67% | Best: 61.24%
+0.006647323333333333
+Epoch 145: Training...
+
+  Batch 100/782 - Loss CE: 14.3167, Loss KD: 40036.0056
+  Batch 200/782 - Loss CE: 14.5101, Loss KD: 40185.3809
+  Batch 300/782 - Loss CE: 14.5497, Loss KD: 40319.3181
+  Batch 400/782 - Loss CE: 14.7619, Loss KD: 40354.6800
+  Batch 500/782 - Loss CE: 14.8928, Loss KD: 40414.4603
+  Batch 600/782 - Loss CE: 14.9011, Loss KD: 40467.5824
+  Batch 700/782 - Loss CE: 14.9422, Loss KD: 40461.6355
+  Batch 782/782 - Loss CE: 15.0057, Loss KD: 40465.9480
+Epoch 145 Training Complete - Avg Loss CE: 15.0057, Avg Loss KD: 40465.9480
+
+Epoch 145 Results - Train Acc: 65.97% | Test Acc: 60.64% | Best: 61.24%
+0.0064516327777777785
+Epoch 146: Training...
+
+  Batch 100/782 - Loss CE: 14.9726, Loss KD: 40234.5591
+  Batch 200/782 - Loss CE: 14.7064, Loss KD: 40375.4977
+  Batch 300/782 - Loss CE: 14.7929, Loss KD: 40459.8572
+  Batch 400/782 - Loss CE: 14.8227, Loss KD: 40487.0219
+  Batch 500/782 - Loss CE: 14.8359, Loss KD: 40440.1088
+  Batch 600/782 - Loss CE: 14.9245, Loss KD: 40491.3319
+  Batch 700/782 - Loss CE: 14.8766, Loss KD: 40520.2912
+  Batch 782/782 - Loss CE: 14.8492, Loss KD: 40509.8984
+Epoch 146 Training Complete - Avg Loss CE: 14.8492, Avg Loss KD: 40509.8984
+
+Epoch 146 Results - Train Acc: 65.94% | Test Acc: 59.30% | Best: 61.24%
+0.006499270555555555
+Epoch 147: Training...
+
+  Batch 100/782 - Loss CE: 14.4820, Loss KD: 40071.5737
+  Batch 200/782 - Loss CE: 14.8723, Loss KD: 40241.2182
+  Batch 300/782 - Loss CE: 15.1365, Loss KD: 40333.6770
+  Batch 400/782 - Loss CE: 14.9506, Loss KD: 40404.3053
+  Batch 500/782 - Loss CE: 14.9702, Loss KD: 40378.0542
+  Batch 600/782 - Loss CE: 14.8994, Loss KD: 40372.5479
+  Batch 700/782 - Loss CE: 14.9124, Loss KD: 40438.7816
+  Batch 782/782 - Loss CE: 14.8947, Loss KD: 40429.6663
+Epoch 147 Training Complete - Avg Loss CE: 14.8947, Avg Loss KD: 40429.6663
+
+Epoch 147 Results - Train Acc: 66.16% | Test Acc: 61.30% | Best: 61.30%
+0.006698150277777777
+Epoch 148: Training...
+
+  Batch 100/782 - Loss CE: 14.7908, Loss KD: 40256.9550
+  Batch 200/782 - Loss CE: 14.8406, Loss KD: 40224.5436
+  Batch 300/782 - Loss CE: 14.5393, Loss KD: 40222.5453
+  Batch 400/782 - Loss CE: 14.6471, Loss KD: 40301.6120
+  Batch 500/782 - Loss CE: 14.6331, Loss KD: 40334.5838
+  Batch 600/782 - Loss CE: 14.7032, Loss KD: 40430.3806
+  Batch 700/782 - Loss CE: 14.7985, Loss KD: 40487.3981
+  Batch 782/782 - Loss CE: 14.8485, Loss KD: 40488.0056
+Epoch 148 Training Complete - Avg Loss CE: 14.8485, Avg Loss KD: 40488.0056
+
+Epoch 148 Results - Train Acc: 66.35% | Test Acc: 54.73% | Best: 61.30%
+0.0063766025
+Epoch 149: Training...
+
+  Batch 100/782 - Loss CE: 14.7182, Loss KD: 40207.3234
+  Batch 200/782 - Loss CE: 14.6201, Loss KD: 40243.6672
+  Batch 300/782 - Loss CE: 14.7428, Loss KD: 40419.5175
+  Batch 400/782 - Loss CE: 14.7799, Loss KD: 40422.4846
+  Batch 500/782 - Loss CE: 14.8080, Loss KD: 40436.7603
+  Batch 600/782 - Loss CE: 14.7124, Loss KD: 40401.7834
+  Batch 700/782 - Loss CE: 14.7720, Loss KD: 40467.6069
+  Batch 782/782 - Loss CE: 14.7199, Loss KD: 40420.8922
+Epoch 149 Training Complete - Avg Loss CE: 14.7199, Avg Loss KD: 40420.8922
+
+Epoch 149 Results - Train Acc: 66.19% | Test Acc: 61.23% | Best: 61.30%
+0.006484436944444444
+Epoch 150: Training...
+
+  Batch 100/782 - Loss CE: 14.5872, Loss KD: 40223.1787
+  Batch 200/782 - Loss CE: 14.1964, Loss KD: 40163.9902
+  Batch 300/782 - Loss CE: 14.2001, Loss KD: 40271.3708
+  Batch 400/782 - Loss CE: 14.3645, Loss KD: 40307.0826
+  Batch 500/782 - Loss CE: 14.3337, Loss KD: 40347.5965
+  Batch 600/782 - Loss CE: 14.4486, Loss KD: 40424.4418
+  Batch 700/782 - Loss CE: 14.6031, Loss KD: 40429.1738
+  Batch 782/782 - Loss CE: 14.6746, Loss KD: 40423.0906
+Epoch 150 Training Complete - Avg Loss CE: 14.6746, Avg Loss KD: 40423.0906
+
+Epoch 150 Results - Train Acc: 66.02% | Test Acc: 57.74% | Best: 61.30%
+0.0063871863888888885
+Epoch 151: Training...
+
+  Batch 100/782 - Loss CE: 11.3529, Loss KD: 37246.7448
+  Batch 200/782 - Loss CE: 10.4538, Loss KD: 36260.7493
+  Batch 300/782 - Loss CE: 10.0504, Loss KD: 35914.3475
+  Batch 400/782 - Loss CE: 9.8060, Loss KD: 35704.4143
+  Batch 500/782 - Loss CE: 9.7111, Loss KD: 35485.7728
+  Batch 600/782 - Loss CE: 9.4752, Loss KD: 35339.0322
+  Batch 700/782 - Loss CE: 9.3214, Loss KD: 35210.4342
+  Batch 782/782 - Loss CE: 9.2146, Loss KD: 35105.1014
+Epoch 151 Training Complete - Avg Loss CE: 9.2146, Avg Loss KD: 35105.1014
+
+Epoch 151 Results - Train Acc: 72.77% | Test Acc: 69.44% | Best: 69.44%
+0.006621504444444445
+Epoch 152: Training...
+
+  Batch 100/782 - Loss CE: 7.7768, Loss KD: 33766.1731
+  Batch 200/782 - Loss CE: 7.9672, Loss KD: 33975.9953
+  Batch 300/782 - Loss CE: 7.9739, Loss KD: 34084.9129
+  Batch 400/782 - Loss CE: 7.9031, Loss KD: 34108.2437
+  Batch 500/782 - Loss CE: 7.7617, Loss KD: 34009.5229
+  Batch 600/782 - Loss CE: 7.7639, Loss KD: 33983.0983
+  Batch 700/782 - Loss CE: 7.6409, Loss KD: 33956.7644
+  Batch 782/782 - Loss CE: 7.6281, Loss KD: 33928.7527
+Epoch 152 Training Complete - Avg Loss CE: 7.6281, Avg Loss KD: 33928.7527
+
+Epoch 152 Results - Train Acc: 73.95% | Test Acc: 69.92% | Best: 69.92%
+0.006357244722222223
+Epoch 153: Training...
+
+  Batch 100/782 - Loss CE: 6.7096, Loss KD: 33228.6845
+  Batch 200/782 - Loss CE: 6.9403, Loss KD: 33333.0260
+  Batch 300/782 - Loss CE: 7.0442, Loss KD: 33468.4062
+  Batch 400/782 - Loss CE: 6.9395, Loss KD: 33459.4636
+  Batch 500/782 - Loss CE: 6.8893, Loss KD: 33489.1154
+  Batch 600/782 - Loss CE: 6.8687, Loss KD: 33497.5318
+  Batch 700/782 - Loss CE: 6.8249, Loss KD: 33496.1920
+  Batch 782/782 - Loss CE: 6.8053, Loss KD: 33491.9719
+Epoch 153 Training Complete - Avg Loss CE: 6.8053, Avg Loss KD: 33491.9719
+
+Epoch 153 Results - Train Acc: 74.71% | Test Acc: 70.40% | Best: 70.40%
+0.006656739722222222
+Epoch 154: Training...
+
+  Batch 100/782 - Loss CE: 6.2120, Loss KD: 33163.8538
+  Batch 200/782 - Loss CE: 6.2830, Loss KD: 33228.8710
+  Batch 300/782 - Loss CE: 6.2341, Loss KD: 33121.3338
+  Batch 400/782 - Loss CE: 6.2676, Loss KD: 33149.1374
+  Batch 500/782 - Loss CE: 6.1869, Loss KD: 33119.9844
+  Batch 600/782 - Loss CE: 6.1917, Loss KD: 33186.5158
+  Batch 700/782 - Loss CE: 6.1929, Loss KD: 33187.7739
+  Batch 782/782 - Loss CE: 6.1913, Loss KD: 33143.3558
+Epoch 154 Training Complete - Avg Loss CE: 6.1913, Avg Loss KD: 33143.3558
+
+Epoch 154 Results - Train Acc: 75.42% | Test Acc: 70.70% | Best: 70.70%
+0.006627916944444444
+Epoch 155: Training...
+
+  Batch 100/782 - Loss CE: 5.9435, Loss KD: 32750.6138
+  Batch 200/782 - Loss CE: 5.7230, Loss KD: 32785.7523
+  Batch 300/782 - Loss CE: 5.7068, Loss KD: 32840.0964
+  Batch 400/782 - Loss CE: 5.7395, Loss KD: 32854.9800
+  Batch 500/782 - Loss CE: 5.7238, Loss KD: 32872.8010
+  Batch 600/782 - Loss CE: 5.7119, Loss KD: 32922.8478
+  Batch 700/782 - Loss CE: 5.6913, Loss KD: 32956.4939
+  Batch 782/782 - Loss CE: 5.6901, Loss KD: 32906.8862
+Epoch 155 Training Complete - Avg Loss CE: 5.6901, Avg Loss KD: 32906.8862
+
+Epoch 155 Results - Train Acc: 75.58% | Test Acc: 70.73% | Best: 70.73%
+0.006636643888888889
+Epoch 156: Training...
+
+  Batch 100/782 - Loss CE: 5.4380, Loss KD: 32890.5891
+  Batch 200/782 - Loss CE: 5.3616, Loss KD: 32752.4951
+  Batch 300/782 - Loss CE: 5.3371, Loss KD: 32670.9190
+  Batch 400/782 - Loss CE: 5.2657, Loss KD: 32601.9527
+  Batch 500/782 - Loss CE: 5.2865, Loss KD: 32634.6617
+  Batch 600/782 - Loss CE: 5.2800, Loss KD: 32673.6939
+  Batch 700/782 - Loss CE: 5.2745, Loss KD: 32738.9608
+  Batch 782/782 - Loss CE: 5.2834, Loss KD: 32740.2534
+Epoch 156 Training Complete - Avg Loss CE: 5.2834, Avg Loss KD: 32740.2534
+
+Epoch 156 Results - Train Acc: 75.88% | Test Acc: 71.19% | Best: 71.19%
+0.0065451611111111115
+Epoch 157: Training...
+
+  Batch 100/782 - Loss CE: 5.0559, Loss KD: 32583.4256
+  Batch 200/782 - Loss CE: 4.9931, Loss KD: 32715.5654
+  Batch 300/782 - Loss CE: 5.0031, Loss KD: 32722.6323
+  Batch 400/782 - Loss CE: 4.9077, Loss KD: 32618.9199
+  Batch 500/782 - Loss CE: 4.9645, Loss KD: 32643.1549
+  Batch 600/782 - Loss CE: 4.9172, Loss KD: 32604.8981
+  Batch 700/782 - Loss CE: 4.9153, Loss KD: 32600.1370
+  Batch 782/782 - Loss CE: 4.8904, Loss KD: 32566.3965
+Epoch 157 Training Complete - Avg Loss CE: 4.8904, Avg Loss KD: 32566.3965
+
+Epoch 157 Results - Train Acc: 76.34% | Test Acc: 70.83% | Best: 71.19%
+0.005895268888888889
+Epoch 158: Training...
+
+  Batch 100/782 - Loss CE: 4.6348, Loss KD: 32313.1860
+  Batch 200/782 - Loss CE: 4.6632, Loss KD: 32418.4051
+  Batch 300/782 - Loss CE: 4.5910, Loss KD: 32417.0705
+  Batch 400/782 - Loss CE: 4.6151, Loss KD: 32492.8407
+  Batch 500/782 - Loss CE: 4.6418, Loss KD: 32443.7026
+  Batch 600/782 - Loss CE: 4.6518, Loss KD: 32516.1358
+  Batch 700/782 - Loss CE: 4.6420, Loss KD: 32492.0863
+  Batch 782/782 - Loss CE: 4.6394, Loss KD: 32495.0332
+Epoch 158 Training Complete - Avg Loss CE: 4.6394, Avg Loss KD: 32495.0332
+
+Epoch 158 Results - Train Acc: 76.39% | Test Acc: 70.73% | Best: 71.19%
+0.006598686388888889
+Epoch 159: Training...
+
+  Batch 100/782 - Loss CE: 4.5123, Loss KD: 32398.2983
+  Batch 200/782 - Loss CE: 4.4261, Loss KD: 32329.9756
+  Batch 300/782 - Loss CE: 4.4442, Loss KD: 32378.9040
+  Batch 400/782 - Loss CE: 4.3704, Loss KD: 32318.4597
+  Batch 500/782 - Loss CE: 4.3403, Loss KD: 32376.8495
+  Batch 600/782 - Loss CE: 4.3093, Loss KD: 32359.4904
+  Batch 700/782 - Loss CE: 4.3083, Loss KD: 32372.0035
+  Batch 782/782 - Loss CE: 4.3045, Loss KD: 32316.8300
+Epoch 159 Training Complete - Avg Loss CE: 4.3045, Avg Loss KD: 32316.8300
+
+Epoch 159 Results - Train Acc: 76.71% | Test Acc: 71.41% | Best: 71.41%
+0.006694684444444445
+Epoch 160: Training...
+
+  Batch 100/782 - Loss CE: 4.1256, Loss KD: 32056.4996
+  Batch 200/782 - Loss CE: 3.9860, Loss KD: 32087.8786
+  Batch 300/782 - Loss CE: 4.0227, Loss KD: 32186.6587
+  Batch 400/782 - Loss CE: 4.0766, Loss KD: 32222.9516
+  Batch 500/782 - Loss CE: 4.1160, Loss KD: 32229.4560
+  Batch 600/782 - Loss CE: 4.0964, Loss KD: 32255.3613
+  Batch 700/782 - Loss CE: 4.1077, Loss KD: 32226.0826
+  Batch 782/782 - Loss CE: 4.0884, Loss KD: 32208.2451
+Epoch 160 Training Complete - Avg Loss CE: 4.0884, Avg Loss KD: 32208.2451
+
+Epoch 160 Results - Train Acc: 76.79% | Test Acc: 71.42% | Best: 71.42%
+0.006665326944444445
+Epoch 161: Training...
+
+  Batch 100/782 - Loss CE: 4.0497, Loss KD: 32211.3665
+  Batch 200/782 - Loss CE: 3.9544, Loss KD: 32200.1613
+  Batch 300/782 - Loss CE: 4.0117, Loss KD: 32206.3180
+  Batch 400/782 - Loss CE: 3.9591, Loss KD: 32235.5558
+  Batch 500/782 - Loss CE: 3.8872, Loss KD: 32218.0572
+  Batch 600/782 - Loss CE: 3.8780, Loss KD: 32180.8572
+  Batch 700/782 - Loss CE: 3.8464, Loss KD: 32168.7765
+  Batch 782/782 - Loss CE: 3.8679, Loss KD: 32156.0378
+Epoch 161 Training Complete - Avg Loss CE: 3.8679, Avg Loss KD: 32156.0378
+
+Epoch 161 Results - Train Acc: 77.07% | Test Acc: 71.34% | Best: 71.42%
+0.006596597777777777
+Epoch 162: Training...
+
+  Batch 100/782 - Loss CE: 3.5761, Loss KD: 32032.8434
+  Batch 200/782 - Loss CE: 3.5687, Loss KD: 31967.5495
+  Batch 300/782 - Loss CE: 3.5909, Loss KD: 32029.6524
+  Batch 400/782 - Loss CE: 3.5980, Loss KD: 32040.3132
+  Batch 500/782 - Loss CE: 3.6147, Loss KD: 32091.7544
+  Batch 600/782 - Loss CE: 3.5891, Loss KD: 32135.6706
+  Batch 700/782 - Loss CE: 3.5696, Loss KD: 32145.3675
+  Batch 782/782 - Loss CE: 3.5950, Loss KD: 32124.6966
+Epoch 162 Training Complete - Avg Loss CE: 3.5950, Avg Loss KD: 32124.6966
+
+Epoch 162 Results - Train Acc: 77.23% | Test Acc: 71.61% | Best: 71.61%
+0.006728285
+Epoch 163: Training...
+
+  Batch 100/782 - Loss CE: 3.5078, Loss KD: 32118.5841
+  Batch 200/782 - Loss CE: 3.4237, Loss KD: 32081.7264
+  Batch 300/782 - Loss CE: 3.4024, Loss KD: 31971.1501
+  Batch 400/782 - Loss CE: 3.3940, Loss KD: 31973.8663
+  Batch 500/782 - Loss CE: 3.4128, Loss KD: 31987.5118
+  Batch 600/782 - Loss CE: 3.4348, Loss KD: 32015.0132
+  Batch 700/782 - Loss CE: 3.4296, Loss KD: 32006.5170
+  Batch 782/782 - Loss CE: 3.4281, Loss KD: 31992.4065
+Epoch 163 Training Complete - Avg Loss CE: 3.4281, Avg Loss KD: 31992.4065
+
+Epoch 163 Results - Train Acc: 77.27% | Test Acc: 71.90% | Best: 71.90%
+0.0066632888888888886
+Epoch 164: Training...
+
+  Batch 100/782 - Loss CE: 3.2222, Loss KD: 31597.4807
+  Batch 200/782 - Loss CE: 3.1555, Loss KD: 31778.1824
+  Batch 300/782 - Loss CE: 3.2670, Loss KD: 31881.4059
+  Batch 400/782 - Loss CE: 3.2559, Loss KD: 31876.3460
+  Batch 500/782 - Loss CE: 3.2855, Loss KD: 31951.8961
+  Batch 600/782 - Loss CE: 3.2760, Loss KD: 31958.9363
+  Batch 700/782 - Loss CE: 3.2781, Loss KD: 31962.8440
+  Batch 782/782 - Loss CE: 3.2776, Loss KD: 31944.8737
+Epoch 164 Training Complete - Avg Loss CE: 3.2776, Avg Loss KD: 31944.8737
+
+Epoch 164 Results - Train Acc: 77.29% | Test Acc: 71.76% | Best: 71.90%
+0.0065757747222222225
+Epoch 165: Training...
+
+  Batch 100/782 - Loss CE: 3.1298, Loss KD: 31489.6919
+  Batch 200/782 - Loss CE: 3.1197, Loss KD: 31810.5905
+  Batch 300/782 - Loss CE: 3.0721, Loss KD: 31724.2831
+  Batch 400/782 - Loss CE: 3.0588, Loss KD: 31720.9485
+  Batch 500/782 - Loss CE: 3.0695, Loss KD: 31778.2604
+  Batch 600/782 - Loss CE: 3.0814, Loss KD: 31826.0897
+  Batch 700/782 - Loss CE: 3.0917, Loss KD: 31868.1391
+  Batch 782/782 - Loss CE: 3.1035, Loss KD: 31885.7674
+Epoch 165 Training Complete - Avg Loss CE: 3.1035, Avg Loss KD: 31885.7674
+
+Epoch 165 Results - Train Acc: 77.54% | Test Acc: 71.72% | Best: 71.90%
+0.006485597777777777
+Epoch 166: Training...
+
+  Batch 100/782 - Loss CE: 2.8246, Loss KD: 31569.1650
+  Batch 200/782 - Loss CE: 2.8612, Loss KD: 31747.4359
+  Batch 300/782 - Loss CE: 2.9550, Loss KD: 31840.9390
+  Batch 400/782 - Loss CE: 2.9537, Loss KD: 31822.4246
+  Batch 500/782 - Loss CE: 2.9454, Loss KD: 31821.7783
+  Batch 600/782 - Loss CE: 2.9517, Loss KD: 31842.2731
+  Batch 700/782 - Loss CE: 2.9711, Loss KD: 31876.5845
+  Batch 782/782 - Loss CE: 2.9719, Loss KD: 31818.2621
+Epoch 166 Training Complete - Avg Loss CE: 2.9719, Avg Loss KD: 31818.2621
+
+Epoch 166 Results - Train Acc: 77.61% | Test Acc: 71.86% | Best: 71.90%
+0.0060787725
+Epoch 167: Training...
+
+  Batch 100/782 - Loss CE: 2.7583, Loss KD: 31745.6407
+  Batch 200/782 - Loss CE: 2.7391, Loss KD: 31602.4139
+  Batch 300/782 - Loss CE: 2.8138, Loss KD: 31670.9936
+  Batch 400/782 - Loss CE: 2.7591, Loss KD: 31643.4378
+  Batch 500/782 - Loss CE: 2.7636, Loss KD: 31629.6167
+  Batch 600/782 - Loss CE: 2.7917, Loss KD: 31676.2536
+  Batch 700/782 - Loss CE: 2.7961, Loss KD: 31729.8413
+  Batch 782/782 - Loss CE: 2.8048, Loss KD: 31747.6839
+Epoch 167 Training Complete - Avg Loss CE: 2.8048, Avg Loss KD: 31747.6839
+
+Epoch 167 Results - Train Acc: 77.88% | Test Acc: 71.84% | Best: 71.90%
+0.006583903333333333
+Epoch 168: Training...
+
+  Batch 100/782 - Loss CE: 2.6690, Loss KD: 31346.4279
+  Batch 200/782 - Loss CE: 2.6724, Loss KD: 31436.8575
+  Batch 300/782 - Loss CE: 2.6673, Loss KD: 31578.2219
+  Batch 400/782 - Loss CE: 2.6819, Loss KD: 31639.2434
+  Batch 500/782 - Loss CE: 2.6999, Loss KD: 31702.4285
+  Batch 600/782 - Loss CE: 2.7045, Loss KD: 31768.2966
+  Batch 700/782 - Loss CE: 2.7027, Loss KD: 31771.4889
+  Batch 782/782 - Loss CE: 2.6965, Loss KD: 31769.4083
+Epoch 168 Training Complete - Avg Loss CE: 2.6965, Avg Loss KD: 31769.4083
+
+Epoch 168 Results - Train Acc: 77.63% | Test Acc: 71.45% | Best: 71.90%
+0.006550148055555555
+Epoch 169: Training...
+
+  Batch 100/782 - Loss CE: 2.6185, Loss KD: 31777.0735
+  Batch 200/782 - Loss CE: 2.6073, Loss KD: 31824.5628
+  Batch 300/782 - Loss CE: 2.5940, Loss KD: 31799.4922
+  Batch 400/782 - Loss CE: 2.5877, Loss KD: 31782.7260
+  Batch 500/782 - Loss CE: 2.6057, Loss KD: 31772.7611
+  Batch 600/782 - Loss CE: 2.5823, Loss KD: 31757.7098
+  Batch 700/782 - Loss CE: 2.5774, Loss KD: 31722.4819
+  Batch 782/782 - Loss CE: 2.5868, Loss KD: 31716.1038
+Epoch 169 Training Complete - Avg Loss CE: 2.5868, Avg Loss KD: 31716.1038
+
+Epoch 169 Results - Train Acc: 77.72% | Test Acc: 71.61% | Best: 71.90%
+0.006716262222222222
+Epoch 170: Training...
+
+  Batch 100/782 - Loss CE: 2.2198, Loss KD: 31577.9087
+  Batch 200/782 - Loss CE: 2.3936, Loss KD: 31630.0071
+  Batch 300/782 - Loss CE: 2.4129, Loss KD: 31605.6496
+  Batch 400/782 - Loss CE: 2.4274, Loss KD: 31673.4193
+  Batch 500/782 - Loss CE: 2.4220, Loss KD: 31650.1490
+  Batch 600/782 - Loss CE: 2.4165, Loss KD: 31676.2199
+  Batch 700/782 - Loss CE: 2.4327, Loss KD: 31690.1738
+  Batch 782/782 - Loss CE: 2.4175, Loss KD: 31642.9026
+Epoch 170 Training Complete - Avg Loss CE: 2.4175, Avg Loss KD: 31642.9026
+
+Epoch 170 Results - Train Acc: 78.13% | Test Acc: 71.59% | Best: 71.90%
+0.00660116
+Epoch 171: Training...
+
+  Batch 100/782 - Loss CE: 2.3397, Loss KD: 31650.3398
+  Batch 200/782 - Loss CE: 2.3292, Loss KD: 31636.0143
+  Batch 300/782 - Loss CE: 2.3402, Loss KD: 31621.2849
+  Batch 400/782 - Loss CE: 2.3145, Loss KD: 31614.7516
+  Batch 500/782 - Loss CE: 2.2923, Loss KD: 31584.1306
+  Batch 600/782 - Loss CE: 2.3086, Loss KD: 31609.8045
+  Batch 700/782 - Loss CE: 2.3131, Loss KD: 31636.2338
+  Batch 782/782 - Loss CE: 2.3309, Loss KD: 31623.3872
+Epoch 171 Training Complete - Avg Loss CE: 2.3309, Avg Loss KD: 31623.3872
+
+Epoch 171 Results - Train Acc: 78.09% | Test Acc: 71.97% | Best: 71.97%
+0.006577974444444444
+Epoch 172: Training...
+
+  Batch 100/782 - Loss CE: 2.1212, Loss KD: 31390.9778
+  Batch 200/782 - Loss CE: 2.2162, Loss KD: 31597.3986
+  Batch 300/782 - Loss CE: 2.2924, Loss KD: 31595.5511
+  Batch 400/782 - Loss CE: 2.2485, Loss KD: 31599.8998
+  Batch 500/782 - Loss CE: 2.2343, Loss KD: 31565.4713
+  Batch 600/782 - Loss CE: 2.2453, Loss KD: 31591.5597
+  Batch 700/782 - Loss CE: 2.2504, Loss KD: 31607.4000
+  Batch 782/782 - Loss CE: 2.2407, Loss KD: 31588.0435
+Epoch 172 Training Complete - Avg Loss CE: 2.2407, Avg Loss KD: 31588.0435
+
+Epoch 172 Results - Train Acc: 78.26% | Test Acc: 71.18% | Best: 71.97%
+0.006298978611111111
+Epoch 173: Training...
+
+  Batch 100/782 - Loss CE: 2.1186, Loss KD: 31332.3500
+  Batch 200/782 - Loss CE: 2.1542, Loss KD: 31502.7423
+  Batch 300/782 - Loss CE: 2.1084, Loss KD: 31475.9199
+  Batch 400/782 - Loss CE: 2.1364, Loss KD: 31519.7080
+  Batch 500/782 - Loss CE: 2.1406, Loss KD: 31576.7315
+  Batch 600/782 - Loss CE: 2.1489, Loss KD: 31569.6836
+  Batch 700/782 - Loss CE: 2.1494, Loss KD: 31547.6615
+  Batch 782/782 - Loss CE: 2.1471, Loss KD: 31561.2579
+Epoch 173 Training Complete - Avg Loss CE: 2.1471, Avg Loss KD: 31561.2579
+
+Epoch 173 Results - Train Acc: 78.22% | Test Acc: 72.02% | Best: 72.02%
+0.006289058888888889
+Epoch 174: Training...
+
+  Batch 100/782 - Loss CE: 2.0483, Loss KD: 31561.3862
+  Batch 200/782 - Loss CE: 2.0936, Loss KD: 31443.4072
+  Batch 300/782 - Loss CE: 2.0420, Loss KD: 31449.7439
+  Batch 400/782 - Loss CE: 2.0244, Loss KD: 31473.2816
+  Batch 500/782 - Loss CE: 2.0218, Loss KD: 31444.5634
+  Batch 600/782 - Loss CE: 2.0227, Loss KD: 31471.9747
+  Batch 700/782 - Loss CE: 2.0375, Loss KD: 31527.4373
+  Batch 782/782 - Loss CE: 2.0528, Loss KD: 31535.7086
+Epoch 174 Training Complete - Avg Loss CE: 2.0528, Avg Loss KD: 31535.7086
+
+Epoch 174 Results - Train Acc: 78.25% | Test Acc: 71.96% | Best: 72.02%
+0.006364093611111112
+Epoch 175: Training...
+
+  Batch 100/782 - Loss CE: 1.9830, Loss KD: 31297.5864
+  Batch 200/782 - Loss CE: 1.9599, Loss KD: 31447.4390
+  Batch 300/782 - Loss CE: 1.9688, Loss KD: 31326.3867
+  Batch 400/782 - Loss CE: 2.0003, Loss KD: 31442.4073
+  Batch 500/782 - Loss CE: 1.9990, Loss KD: 31458.6702
+  Batch 600/782 - Loss CE: 1.9922, Loss KD: 31489.9188
+  Batch 700/782 - Loss CE: 2.0070, Loss KD: 31523.5827
+  Batch 782/782 - Loss CE: 2.0061, Loss KD: 31527.0194
+Epoch 175 Training Complete - Avg Loss CE: 2.0061, Avg Loss KD: 31527.0194
+
+Epoch 175 Results - Train Acc: 78.23% | Test Acc: 71.64% | Best: 72.02%
+0.006157951111111112
+Epoch 176: Training...
+
+  Batch 100/782 - Loss CE: 1.9287, Loss KD: 31553.5755
+  Batch 200/782 - Loss CE: 1.9253, Loss KD: 31378.6215
+  Batch 300/782 - Loss CE: 1.9147, Loss KD: 31534.0943
+  Batch 400/782 - Loss CE: 1.8909, Loss KD: 31562.0550
+  Batch 500/782 - Loss CE: 1.8888, Loss KD: 31549.9486
+  Batch 600/782 - Loss CE: 1.9016, Loss KD: 31517.9955
+  Batch 700/782 - Loss CE: 1.9048, Loss KD: 31535.3667
+  Batch 782/782 - Loss CE: 1.9074, Loss KD: 31503.9185
+Epoch 176 Training Complete - Avg Loss CE: 1.9074, Avg Loss KD: 31503.9185
+
+Epoch 176 Results - Train Acc: 78.60% | Test Acc: 72.08% | Best: 72.08%
+0.006617380833333334
+Epoch 177: Training...
+
+  Batch 100/782 - Loss CE: 1.8165, Loss KD: 31158.1605
+  Batch 200/782 - Loss CE: 1.8353, Loss KD: 31259.0307
+  Batch 300/782 - Loss CE: 1.8259, Loss KD: 31374.2563
+  Batch 400/782 - Loss CE: 1.8471, Loss KD: 31460.0543
+  Batch 500/782 - Loss CE: 1.8422, Loss KD: 31449.2955
+  Batch 600/782 - Loss CE: 1.8400, Loss KD: 31517.0922
+  Batch 700/782 - Loss CE: 1.8469, Loss KD: 31498.8170
+  Batch 782/782 - Loss CE: 1.8480, Loss KD: 31480.2362
+Epoch 177 Training Complete - Avg Loss CE: 1.8480, Avg Loss KD: 31480.2362
+
+Epoch 177 Results - Train Acc: 78.45% | Test Acc: 71.89% | Best: 72.08%
+0.0065578258333333335
+Epoch 178: Training...
+
+  Batch 100/782 - Loss CE: 1.8137, Loss KD: 31308.4540
+  Batch 200/782 - Loss CE: 1.8072, Loss KD: 31517.6367
+  Batch 300/782 - Loss CE: 1.7497, Loss KD: 31391.6402
+  Batch 400/782 - Loss CE: 1.7586, Loss KD: 31417.5412
+  Batch 500/782 - Loss CE: 1.7546, Loss KD: 31407.1411
+  Batch 600/782 - Loss CE: 1.7607, Loss KD: 31489.1607
+  Batch 700/782 - Loss CE: 1.7737, Loss KD: 31484.4089
+  Batch 782/782 - Loss CE: 1.7705, Loss KD: 31478.9467
+Epoch 178 Training Complete - Avg Loss CE: 1.7705, Avg Loss KD: 31478.9467
+
+Epoch 178 Results - Train Acc: 78.56% | Test Acc: 71.92% | Best: 72.08%
+0.006512822777777778
+Epoch 179: Training...
+
+  Batch 100/782 - Loss CE: 1.7352, Loss KD: 31151.4705
+  Batch 200/782 - Loss CE: 1.7343, Loss KD: 31245.3343
+  Batch 300/782 - Loss CE: 1.7260, Loss KD: 31344.4148
+  Batch 400/782 - Loss CE: 1.7119, Loss KD: 31416.1631
+  Batch 500/782 - Loss CE: 1.7109, Loss KD: 31449.6004
+  Batch 600/782 - Loss CE: 1.7218, Loss KD: 31536.5988
+  Batch 700/782 - Loss CE: 1.7220, Loss KD: 31530.7014
+  Batch 782/782 - Loss CE: 1.7103, Loss KD: 31481.9552
+Epoch 179 Training Complete - Avg Loss CE: 1.7103, Avg Loss KD: 31481.9552
+
+Epoch 179 Results - Train Acc: 78.47% | Test Acc: 72.04% | Best: 72.08%
+0.006633131388888889
+Epoch 180: Training...
+
+  Batch 100/782 - Loss CE: 1.7368, Loss KD: 31444.4037
+  Batch 200/782 - Loss CE: 1.7203, Loss KD: 31377.2019
+  Batch 300/782 - Loss CE: 1.6970, Loss KD: 31402.6267
+  Batch 400/782 - Loss CE: 1.6936, Loss KD: 31442.1382
+  Batch 500/782 - Loss CE: 1.6776, Loss KD: 31492.5061
+  Batch 600/782 - Loss CE: 1.6733, Loss KD: 31466.4762
+  Batch 700/782 - Loss CE: 1.6601, Loss KD: 31443.4918
+  Batch 782/782 - Loss CE: 1.6520, Loss KD: 31436.2556
+Epoch 180 Training Complete - Avg Loss CE: 1.6520, Avg Loss KD: 31436.2556
+
+Epoch 180 Results - Train Acc: 78.75% | Test Acc: 72.02% | Best: 72.08%
+0.006745223888888889
+Epoch 181: Training...
+
+  Batch 100/782 - Loss CE: 1.4875, Loss KD: 30697.8312
+  Batch 200/782 - Loss CE: 1.4548, Loss KD: 30457.7642
+  Batch 300/782 - Loss CE: 1.4464, Loss KD: 30370.8405
+  Batch 400/782 - Loss CE: 1.4500, Loss KD: 30395.4632
+  Batch 500/782 - Loss CE: 1.4374, Loss KD: 30412.4119
+  Batch 600/782 - Loss CE: 1.4292, Loss KD: 30404.9830
+  Batch 700/782 - Loss CE: 1.4284, Loss KD: 30335.1082
+  Batch 782/782 - Loss CE: 1.4276, Loss KD: 30304.5037
+Epoch 181 Training Complete - Avg Loss CE: 1.4276, Avg Loss KD: 30304.5037
+
+Epoch 181 Results - Train Acc: 80.08% | Test Acc: 72.99% | Best: 72.99%
+0.0066316602777777775
+Epoch 182: Training...
+
+  Batch 100/782 - Loss CE: 1.3350, Loss KD: 29857.2028
+  Batch 200/782 - Loss CE: 1.3352, Loss KD: 29863.8302
+  Batch 300/782 - Loss CE: 1.3841, Loss KD: 29993.3401
+  Batch 400/782 - Loss CE: 1.3804, Loss KD: 30032.1304
+  Batch 500/782 - Loss CE: 1.3709, Loss KD: 30010.2110
+  Batch 600/782 - Loss CE: 1.3699, Loss KD: 30043.4392
+  Batch 700/782 - Loss CE: 1.3805, Loss KD: 30057.3181
+  Batch 782/782 - Loss CE: 1.3826, Loss KD: 30044.0919
+Epoch 182 Training Complete - Avg Loss CE: 1.3826, Avg Loss KD: 30044.0919
+
+Epoch 182 Results - Train Acc: 80.16% | Test Acc: 73.29% | Best: 73.29%
+0.006525545277777777
+Epoch 183: Training...
+
+  Batch 100/782 - Loss CE: 1.3797, Loss KD: 30211.5218
+  Batch 200/782 - Loss CE: 1.3509, Loss KD: 30068.7807
+  Batch 300/782 - Loss CE: 1.3450, Loss KD: 30082.0393
+  Batch 400/782 - Loss CE: 1.3319, Loss KD: 30044.5373
+  Batch 500/782 - Loss CE: 1.3437, Loss KD: 30117.9562
+  Batch 600/782 - Loss CE: 1.3391, Loss KD: 30107.5114
+  Batch 700/782 - Loss CE: 1.3482, Loss KD: 30084.1901
+  Batch 782/782 - Loss CE: 1.3421, Loss KD: 30075.8986
+Epoch 183 Training Complete - Avg Loss CE: 1.3421, Avg Loss KD: 30075.8986
+
+Epoch 183 Results - Train Acc: 80.60% | Test Acc: 73.48% | Best: 73.48%
+0.006693213888888889
+Epoch 184: Training...
+
+  Batch 100/782 - Loss CE: 1.3701, Loss KD: 29918.4538
+  Batch 200/782 - Loss CE: 1.3444, Loss KD: 30030.5136
+  Batch 300/782 - Loss CE: 1.3259, Loss KD: 29944.3618
+  Batch 400/782 - Loss CE: 1.3261, Loss KD: 29983.0228
+  Batch 500/782 - Loss CE: 1.3235, Loss KD: 29997.7445
+  Batch 600/782 - Loss CE: 1.3292, Loss KD: 30034.6664
+  Batch 700/782 - Loss CE: 1.3308, Loss KD: 30014.1842
+  Batch 782/782 - Loss CE: 1.3389, Loss KD: 29989.3355
+Epoch 184 Training Complete - Avg Loss CE: 1.3389, Avg Loss KD: 29989.3355
+
+Epoch 184 Results - Train Acc: 80.68% | Test Acc: 73.16% | Best: 73.48%
+0.0065021758333333336
+Epoch 185: Training...
+
+  Batch 100/782 - Loss CE: 1.2985, Loss KD: 29906.1782
+  Batch 200/782 - Loss CE: 1.3143, Loss KD: 29907.9038
+  Batch 300/782 - Loss CE: 1.3095, Loss KD: 29849.9373
+  Batch 400/782 - Loss CE: 1.3099, Loss KD: 29888.1741
+  Batch 500/782 - Loss CE: 1.2991, Loss KD: 29906.9276
+  Batch 600/782 - Loss CE: 1.3029, Loss KD: 29901.2879
+  Batch 700/782 - Loss CE: 1.3149, Loss KD: 29930.5139
+  Batch 782/782 - Loss CE: 1.3169, Loss KD: 29912.9869
+Epoch 185 Training Complete - Avg Loss CE: 1.3169, Avg Loss KD: 29912.9869
+
+Epoch 185 Results - Train Acc: 80.58% | Test Acc: 73.22% | Best: 73.48%
+0.0067438172222222224
+Epoch 186: Training...
+
+  Batch 100/782 - Loss CE: 1.2946, Loss KD: 29801.7529
+  Batch 200/782 - Loss CE: 1.2792, Loss KD: 29846.1334
+  Batch 300/782 - Loss CE: 1.2858, Loss KD: 29960.6539
+  Batch 400/782 - Loss CE: 1.3030, Loss KD: 29941.3974
+  Batch 500/782 - Loss CE: 1.2950, Loss KD: 29937.3240
+  Batch 600/782 - Loss CE: 1.2900, Loss KD: 29898.4685
+  Batch 700/782 - Loss CE: 1.2895, Loss KD: 29927.1134
+  Batch 782/782 - Loss CE: 1.3033, Loss KD: 29935.1881
+Epoch 186 Training Complete - Avg Loss CE: 1.3033, Avg Loss KD: 29935.1881
+
+Epoch 186 Results - Train Acc: 80.62% | Test Acc: 73.47% | Best: 73.48%
+0.006685111944444445
+Epoch 187: Training...
+
+  Batch 100/782 - Loss CE: 1.1603, Loss KD: 29610.6357
+  Batch 200/782 - Loss CE: 1.2034, Loss KD: 29820.6930
+  Batch 300/782 - Loss CE: 1.2233, Loss KD: 29799.2237
+  Batch 400/782 - Loss CE: 1.2501, Loss KD: 29932.4147
+  Batch 500/782 - Loss CE: 1.2638, Loss KD: 29885.0085
+  Batch 600/782 - Loss CE: 1.2705, Loss KD: 29887.9463
+  Batch 700/782 - Loss CE: 1.2770, Loss KD: 29912.7392
+  Batch 782/782 - Loss CE: 1.2903, Loss KD: 29900.8226
+Epoch 187 Training Complete - Avg Loss CE: 1.2903, Avg Loss KD: 29900.8226
+
+Epoch 187 Results - Train Acc: 80.69% | Test Acc: 73.40% | Best: 73.48%
+0.006636988611111111
+Epoch 188: Training...
+
+  Batch 100/782 - Loss CE: 1.2284, Loss KD: 29629.2693
+  Batch 200/782 - Loss CE: 1.2462, Loss KD: 29794.6193
+  Batch 300/782 - Loss CE: 1.2338, Loss KD: 29732.2159
+  Batch 400/782 - Loss CE: 1.2529, Loss KD: 29831.4801
+  Batch 500/782 - Loss CE: 1.2579, Loss KD: 29821.9383
+  Batch 600/782 - Loss CE: 1.2676, Loss KD: 29850.4451
+  Batch 700/782 - Loss CE: 1.2791, Loss KD: 29893.8195
+  Batch 782/782 - Loss CE: 1.2809, Loss KD: 29854.2022
+Epoch 188 Training Complete - Avg Loss CE: 1.2809, Avg Loss KD: 29854.2022
+
+Epoch 188 Results - Train Acc: 80.63% | Test Acc: 73.38% | Best: 73.48%
+0.0066854900000000005
+Epoch 189: Training...
+
+  Batch 100/782 - Loss CE: 1.2181, Loss KD: 29777.0798
+  Batch 200/782 - Loss CE: 1.2356, Loss KD: 29795.0149
+  Batch 300/782 - Loss CE: 1.2525, Loss KD: 29828.2491
+  Batch 400/782 - Loss CE: 1.2476, Loss KD: 29781.7341
+  Batch 500/782 - Loss CE: 1.2586, Loss KD: 29816.4459
+  Batch 600/782 - Loss CE: 1.2554, Loss KD: 29839.0733
+  Batch 700/782 - Loss CE: 1.2615, Loss KD: 29862.2102
+  Batch 782/782 - Loss CE: 1.2630, Loss KD: 29857.6354
+Epoch 189 Training Complete - Avg Loss CE: 1.2630, Avg Loss KD: 29857.6354
+
+Epoch 189 Results - Train Acc: 80.81% | Test Acc: 73.53% | Best: 73.53%
+0.0066501972222222224
+Epoch 190: Training...
+
+  Batch 100/782 - Loss CE: 1.2689, Loss KD: 29989.6671
+  Batch 200/782 - Loss CE: 1.2546, Loss KD: 29941.3724
+  Batch 300/782 - Loss CE: 1.2425, Loss KD: 29933.0186
+  Batch 400/782 - Loss CE: 1.2479, Loss KD: 29948.1421
+  Batch 500/782 - Loss CE: 1.2493, Loss KD: 29889.3077
+  Batch 600/782 - Loss CE: 1.2473, Loss KD: 29888.4155
+  Batch 700/782 - Loss CE: 1.2582, Loss KD: 29895.2343
+  Batch 782/782 - Loss CE: 1.2579, Loss KD: 29851.7937
+Epoch 190 Training Complete - Avg Loss CE: 1.2579, Avg Loss KD: 29851.7937
+
+Epoch 190 Results - Train Acc: 80.84% | Test Acc: 73.46% | Best: 73.53%
+0.006663197777777777
+Epoch 191: Training...
+
+  Batch 100/782 - Loss CE: 1.2477, Loss KD: 29433.1551
+  Batch 200/782 - Loss CE: 1.2833, Loss KD: 29711.5345
+  Batch 300/782 - Loss CE: 1.2767, Loss KD: 29772.3036
+  Batch 400/782 - Loss CE: 1.2632, Loss KD: 29792.3151
+  Batch 500/782 - Loss CE: 1.2487, Loss KD: 29820.4048
+  Batch 600/782 - Loss CE: 1.2405, Loss KD: 29839.2361
+  Batch 700/782 - Loss CE: 1.2411, Loss KD: 29837.4826
+  Batch 782/782 - Loss CE: 1.2452, Loss KD: 29851.5420
+Epoch 191 Training Complete - Avg Loss CE: 1.2452, Avg Loss KD: 29851.5420
+
+Epoch 191 Results - Train Acc: 80.86% | Test Acc: 73.51% | Best: 73.53%
+0.006153371666666667
+Epoch 192: Training...
+
+  Batch 100/782 - Loss CE: 1.1898, Loss KD: 29549.4006
+  Batch 200/782 - Loss CE: 1.1949, Loss KD: 29755.9864
+  Batch 300/782 - Loss CE: 1.2093, Loss KD: 29791.7818
+  Batch 400/782 - Loss CE: 1.2107, Loss KD: 29794.1500
+  Batch 500/782 - Loss CE: 1.2204, Loss KD: 29815.7436
+  Batch 600/782 - Loss CE: 1.2149, Loss KD: 29784.0300
+  Batch 700/782 - Loss CE: 1.2325, Loss KD: 29845.3083
+  Batch 782/782 - Loss CE: 1.2254, Loss KD: 29797.4387
+Epoch 192 Training Complete - Avg Loss CE: 1.2254, Avg Loss KD: 29797.4387
+
+Epoch 192 Results - Train Acc: 80.96% | Test Acc: 73.69% | Best: 73.69%
+0.00656462
+Epoch 193: Training...
+
+  Batch 100/782 - Loss CE: 1.1833, Loss KD: 29817.6636
+  Batch 200/782 - Loss CE: 1.1933, Loss KD: 29801.8144
+  Batch 300/782 - Loss CE: 1.2065, Loss KD: 29848.6140
+  Batch 400/782 - Loss CE: 1.2074, Loss KD: 29855.0925
+  Batch 500/782 - Loss CE: 1.2165, Loss KD: 29900.6518
+  Batch 600/782 - Loss CE: 1.2134, Loss KD: 29888.4889
+  Batch 700/782 - Loss CE: 1.2139, Loss KD: 29873.7129
+  Batch 782/782 - Loss CE: 1.2063, Loss KD: 29811.8146
+Epoch 193 Training Complete - Avg Loss CE: 1.2063, Avg Loss KD: 29811.8146
+
+Epoch 193 Results - Train Acc: 81.10% | Test Acc: 73.57% | Best: 73.69%
+0.006274320277777778
+Epoch 194: Training...
+
+  Batch 100/782 - Loss CE: 1.1655, Loss KD: 29860.2166
+  Batch 200/782 - Loss CE: 1.1884, Loss KD: 29764.1940
+  Batch 300/782 - Loss CE: 1.1927, Loss KD: 29759.3117
+  Batch 400/782 - Loss CE: 1.1844, Loss KD: 29729.6658
+  Batch 500/782 - Loss CE: 1.1989, Loss KD: 29761.3544
+  Batch 600/782 - Loss CE: 1.2105, Loss KD: 29812.5142
+  Batch 700/782 - Loss CE: 1.2107, Loss KD: 29765.9852
+  Batch 782/782 - Loss CE: 1.2127, Loss KD: 29738.3956
+Epoch 194 Training Complete - Avg Loss CE: 1.2127, Avg Loss KD: 29738.3956
+
+Epoch 194 Results - Train Acc: 80.86% | Test Acc: 73.56% | Best: 73.69%
+0.006579786388888889
+Epoch 195: Training...
+
+  Batch 100/782 - Loss CE: 1.2433, Loss KD: 29850.6420
+  Batch 200/782 - Loss CE: 1.2049, Loss KD: 29784.5731
+  Batch 300/782 - Loss CE: 1.2022, Loss KD: 29739.1050
+  Batch 400/782 - Loss CE: 1.2035, Loss KD: 29756.6475
+  Batch 500/782 - Loss CE: 1.2175, Loss KD: 29782.8254
+  Batch 600/782 - Loss CE: 1.2108, Loss KD: 29769.3539
+  Batch 700/782 - Loss CE: 1.2068, Loss KD: 29790.9234
+  Batch 782/782 - Loss CE: 1.2082, Loss KD: 29747.8792
+Epoch 195 Training Complete - Avg Loss CE: 1.2082, Avg Loss KD: 29747.8792
+
+Epoch 195 Results - Train Acc: 80.89% | Test Acc: 73.40% | Best: 73.69%
+0.006640971666666667
+Epoch 196: Training...
+
+  Batch 100/782 - Loss CE: 1.1759, Loss KD: 29587.4991
+  Batch 200/782 - Loss CE: 1.1610, Loss KD: 29729.5217
+  Batch 300/782 - Loss CE: 1.1741, Loss KD: 29751.4785
+  Batch 400/782 - Loss CE: 1.1690, Loss KD: 29757.4317
+  Batch 500/782 - Loss CE: 1.1680, Loss KD: 29770.7688
+  Batch 600/782 - Loss CE: 1.1686, Loss KD: 29753.8305
+  Batch 700/782 - Loss CE: 1.1729, Loss KD: 29793.3755
+  Batch 782/782 - Loss CE: 1.1841, Loss KD: 29777.8060
+Epoch 196 Training Complete - Avg Loss CE: 1.1841, Avg Loss KD: 29777.8060
+
+Epoch 196 Results - Train Acc: 81.04% | Test Acc: 73.70% | Best: 73.70%
+0.006406540277777778
+Epoch 197: Training...
+
+  Batch 100/782 - Loss CE: 1.1469, Loss KD: 29654.2330
+  Batch 200/782 - Loss CE: 1.1824, Loss KD: 29722.5703
+  Batch 300/782 - Loss CE: 1.1670, Loss KD: 29694.1726
+  Batch 400/782 - Loss CE: 1.1587, Loss KD: 29725.2882
+  Batch 500/782 - Loss CE: 1.1579, Loss KD: 29752.4015
+  Batch 600/782 - Loss CE: 1.1534, Loss KD: 29728.5561
+  Batch 700/782 - Loss CE: 1.1599, Loss KD: 29743.4241
+  Batch 782/782 - Loss CE: 1.1662, Loss KD: 29728.3140
+Epoch 197 Training Complete - Avg Loss CE: 1.1662, Avg Loss KD: 29728.3140
+
+Epoch 197 Results - Train Acc: 81.02% | Test Acc: 73.80% | Best: 73.80%
+0.0067295908333333335
+Epoch 198: Training...
+
+  Batch 100/782 - Loss CE: 1.1994, Loss KD: 29703.4435
+  Batch 200/782 - Loss CE: 1.1694, Loss KD: 29626.8142
+  Batch 300/782 - Loss CE: 1.1651, Loss KD: 29702.1742
+  Batch 400/782 - Loss CE: 1.1562, Loss KD: 29710.6492
+  Batch 500/782 - Loss CE: 1.1698, Loss KD: 29700.7023
+  Batch 600/782 - Loss CE: 1.1722, Loss KD: 29716.3009
+  Batch 700/782 - Loss CE: 1.1708, Loss KD: 29705.6199
+  Batch 782/782 - Loss CE: 1.1738, Loss KD: 29677.7348
+Epoch 198 Training Complete - Avg Loss CE: 1.1738, Avg Loss KD: 29677.7348
+
+Epoch 198 Results - Train Acc: 81.02% | Test Acc: 73.51% | Best: 73.80%
+0.006606284444444444
+Epoch 199: Training...
+
+  Batch 100/782 - Loss CE: 1.1143, Loss KD: 29765.4345
+  Batch 200/782 - Loss CE: 1.1534, Loss KD: 29784.3078
+  Batch 300/782 - Loss CE: 1.1691, Loss KD: 29872.6894
+  Batch 400/782 - Loss CE: 1.1820, Loss KD: 29825.2956
+  Batch 500/782 - Loss CE: 1.1660, Loss KD: 29759.1877
+  Batch 600/782 - Loss CE: 1.1519, Loss KD: 29784.0066
+  Batch 700/782 - Loss CE: 1.1528, Loss KD: 29772.7250
+  Batch 782/782 - Loss CE: 1.1512, Loss KD: 29748.9557
+Epoch 199 Training Complete - Avg Loss CE: 1.1512, Avg Loss KD: 29748.9557
+
+Epoch 199 Results - Train Acc: 80.96% | Test Acc: 73.62% | Best: 73.80%
+0.0062237141666666666
+Epoch 200: Training...
+
+  Batch 100/782 - Loss CE: 1.0875, Loss KD: 29866.3042
+  Batch 200/782 - Loss CE: 1.0807, Loss KD: 29625.3932
+  Batch 300/782 - Loss CE: 1.1257, Loss KD: 29733.2102
+  Batch 400/782 - Loss CE: 1.1387, Loss KD: 29776.9406
+  Batch 500/782 - Loss CE: 1.1470, Loss KD: 29781.1465
+  Batch 600/782 - Loss CE: 1.1430, Loss KD: 29724.0193
+  Batch 700/782 - Loss CE: 1.1405, Loss KD: 29727.0928
+  Batch 782/782 - Loss CE: 1.1460, Loss KD: 29729.3013
+Epoch 200 Training Complete - Avg Loss CE: 1.1460, Avg Loss KD: 29729.3013
+
+Epoch 200 Results - Train Acc: 81.03% | Test Acc: 73.55% | Best: 73.80%
+0.005785397222222222
+Epoch 201: Training...
+
+  Batch 100/782 - Loss CE: 1.1355, Loss KD: 29692.9670
+  Batch 200/782 - Loss CE: 1.0953, Loss KD: 29711.5401
+  Batch 300/782 - Loss CE: 1.1347, Loss KD: 29745.0760
+  Batch 400/782 - Loss CE: 1.1372, Loss KD: 29747.1585
+  Batch 500/782 - Loss CE: 1.1342, Loss KD: 29760.8994
+  Batch 600/782 - Loss CE: 1.1476, Loss KD: 29776.3947
+  Batch 700/782 - Loss CE: 1.1412, Loss KD: 29768.0429
+  Batch 782/782 - Loss CE: 1.1464, Loss KD: 29739.5284
+Epoch 201 Training Complete - Avg Loss CE: 1.1464, Avg Loss KD: 29739.5284
+
+Epoch 201 Results - Train Acc: 80.93% | Test Acc: 73.49% | Best: 73.80%
+0.0063218575
+Epoch 202: Training...
+
+  Batch 100/782 - Loss CE: 1.1016, Loss KD: 29504.8570
+  Batch 200/782 - Loss CE: 1.1526, Loss KD: 29700.6604
+  Batch 300/782 - Loss CE: 1.1238, Loss KD: 29723.8425
+  Batch 400/782 - Loss CE: 1.1135, Loss KD: 29701.3176
+  Batch 500/782 - Loss CE: 1.1256, Loss KD: 29715.8004
+  Batch 600/782 - Loss CE: 1.1214, Loss KD: 29694.7581
+  Batch 700/782 - Loss CE: 1.1222, Loss KD: 29712.3546
+  Batch 782/782 - Loss CE: 1.1288, Loss KD: 29695.4470
+Epoch 202 Training Complete - Avg Loss CE: 1.1288, Avg Loss KD: 29695.4470
+
+Epoch 202 Results - Train Acc: 81.17% | Test Acc: 73.44% | Best: 73.80%
+0.006443946388888889
+Epoch 203: Training...
+
+  Batch 100/782 - Loss CE: 1.1369, Loss KD: 29690.0287
+  Batch 200/782 - Loss CE: 1.1206, Loss KD: 29705.6363
+  Batch 300/782 - Loss CE: 1.1230, Loss KD: 29739.5525
+  Batch 400/782 - Loss CE: 1.1253, Loss KD: 29672.7869
+  Batch 500/782 - Loss CE: 1.1159, Loss KD: 29633.5868
+  Batch 600/782 - Loss CE: 1.1252, Loss KD: 29682.3005
+  Batch 700/782 - Loss CE: 1.1190, Loss KD: 29678.7986
+  Batch 782/782 - Loss CE: 1.1213, Loss KD: 29666.8606
+Epoch 203 Training Complete - Avg Loss CE: 1.1213, Avg Loss KD: 29666.8606
+
+Epoch 203 Results - Train Acc: 81.00% | Test Acc: 73.26% | Best: 73.80%
+0.005163289722222222
+Epoch 204: Training...
+
+  Batch 100/782 - Loss CE: 1.0392, Loss KD: 29435.1936
+  Batch 200/782 - Loss CE: 1.0849, Loss KD: 29544.1833
+  Batch 300/782 - Loss CE: 1.1016, Loss KD: 29621.0987
+  Batch 400/782 - Loss CE: 1.0947, Loss KD: 29686.8945
+  Batch 500/782 - Loss CE: 1.1037, Loss KD: 29745.6564
+  Batch 600/782 - Loss CE: 1.1114, Loss KD: 29731.9435
+  Batch 700/782 - Loss CE: 1.1044, Loss KD: 29714.5934
+  Batch 782/782 - Loss CE: 1.1111, Loss KD: 29680.0858
+Epoch 204 Training Complete - Avg Loss CE: 1.1111, Avg Loss KD: 29680.0858
+
+Epoch 204 Results - Train Acc: 81.12% | Test Acc: 73.47% | Best: 73.80%
+0.005703651111111111
+Epoch 205: Training...
+
+  Batch 100/782 - Loss CE: 1.1480, Loss KD: 29662.5775
+  Batch 200/782 - Loss CE: 1.1135, Loss KD: 29666.4754
+  Batch 300/782 - Loss CE: 1.1133, Loss KD: 29684.4429
+  Batch 400/782 - Loss CE: 1.1131, Loss KD: 29675.8242
+  Batch 500/782 - Loss CE: 1.1151, Loss KD: 29625.2664
+  Batch 600/782 - Loss CE: 1.1153, Loss KD: 29654.2237
+  Batch 700/782 - Loss CE: 1.1130, Loss KD: 29677.0046
+  Batch 782/782 - Loss CE: 1.1132, Loss KD: 29662.4185
+Epoch 205 Training Complete - Avg Loss CE: 1.1132, Avg Loss KD: 29662.4185
+
+Epoch 205 Results - Train Acc: 81.07% | Test Acc: 73.72% | Best: 73.80%
+0.006032635555555555
+Epoch 206: Training...
+
+  Batch 100/782 - Loss CE: 1.1613, Loss KD: 29548.9361
+  Batch 200/782 - Loss CE: 1.1075, Loss KD: 29601.3298
+  Batch 300/782 - Loss CE: 1.1189, Loss KD: 29572.2900
+  Batch 400/782 - Loss CE: 1.1165, Loss KD: 29652.0524
+  Batch 500/782 - Loss CE: 1.1143, Loss KD: 29689.6791
+  Batch 600/782 - Loss CE: 1.1067, Loss KD: 29661.4023
+  Batch 700/782 - Loss CE: 1.1001, Loss KD: 29686.3954
+  Batch 782/782 - Loss CE: 1.1022, Loss KD: 29654.6648
+Epoch 206 Training Complete - Avg Loss CE: 1.1022, Avg Loss KD: 29654.6648
+
+Epoch 206 Results - Train Acc: 81.19% | Test Acc: 73.56% | Best: 73.80%
+0.0064238141666666665
+Epoch 207: Training...
+
+  Batch 100/782 - Loss CE: 1.1864, Loss KD: 29617.2756
+  Batch 200/782 - Loss CE: 1.1274, Loss KD: 29647.6283
+  Batch 300/782 - Loss CE: 1.1013, Loss KD: 29608.9658
+  Batch 400/782 - Loss CE: 1.1066, Loss KD: 29606.5523
+  Batch 500/782 - Loss CE: 1.1041, Loss KD: 29655.6266
+  Batch 600/782 - Loss CE: 1.0967, Loss KD: 29629.4271
+  Batch 700/782 - Loss CE: 1.0957, Loss KD: 29652.3263
+  Batch 782/782 - Loss CE: 1.0982, Loss KD: 29617.9781
+Epoch 207 Training Complete - Avg Loss CE: 1.0982, Avg Loss KD: 29617.9781
+
+Epoch 207 Results - Train Acc: 81.10% | Test Acc: 73.56% | Best: 73.80%
+0.0049971408333333335
+Epoch 208: Training...
+
+  Batch 100/782 - Loss CE: 1.0624, Loss KD: 29545.8192
+  Batch 200/782 - Loss CE: 1.0837, Loss KD: 29575.5614
+  Batch 300/782 - Loss CE: 1.0613, Loss KD: 29601.2073
+  Batch 400/782 - Loss CE: 1.0717, Loss KD: 29589.2040
+  Batch 500/782 - Loss CE: 1.0762, Loss KD: 29627.4547
+  Batch 600/782 - Loss CE: 1.0747, Loss KD: 29629.4064
+  Batch 700/782 - Loss CE: 1.0793, Loss KD: 29634.8655
+  Batch 782/782 - Loss CE: 1.0818, Loss KD: 29618.7482
+Epoch 208 Training Complete - Avg Loss CE: 1.0818, Avg Loss KD: 29618.7482
+
+Epoch 208 Results - Train Acc: 81.35% | Test Acc: 73.82% | Best: 73.82%
+0.006439410277777778
+Epoch 209: Training...
+
+  Batch 100/782 - Loss CE: 1.1089, Loss KD: 29467.1312
+  Batch 200/782 - Loss CE: 1.0814, Loss KD: 29419.7101
+  Batch 300/782 - Loss CE: 1.0603, Loss KD: 29542.2733
+  Batch 400/782 - Loss CE: 1.0613, Loss KD: 29570.6486
+  Batch 500/782 - Loss CE: 1.0714, Loss KD: 29600.3487
+  Batch 600/782 - Loss CE: 1.0720, Loss KD: 29605.5867
+  Batch 700/782 - Loss CE: 1.0737, Loss KD: 29593.4846
+  Batch 782/782 - Loss CE: 1.0740, Loss KD: 29566.3752
+Epoch 209 Training Complete - Avg Loss CE: 1.0740, Avg Loss KD: 29566.3752
+
+Epoch 209 Results - Train Acc: 81.32% | Test Acc: 73.85% | Best: 73.85%
+0.006528248888888888
+Epoch 210: Training...
+
+  Batch 100/782 - Loss CE: 1.0995, Loss KD: 29913.5574
+  Batch 200/782 - Loss CE: 1.1144, Loss KD: 29713.2584
+  Batch 300/782 - Loss CE: 1.0931, Loss KD: 29678.5594
+  Batch 400/782 - Loss CE: 1.0740, Loss KD: 29662.4159
+  Batch 500/782 - Loss CE: 1.0788, Loss KD: 29706.4629
+  Batch 600/782 - Loss CE: 1.0715, Loss KD: 29682.4229
+  Batch 700/782 - Loss CE: 1.0724, Loss KD: 29656.0459
+  Batch 782/782 - Loss CE: 1.0684, Loss KD: 29622.0481
+Epoch 210 Training Complete - Avg Loss CE: 1.0684, Avg Loss KD: 29622.0481
+
+Epoch 210 Results - Train Acc: 81.24% | Test Acc: 73.82% | Best: 73.85%
+0.0065060683333333326
+Epoch 211: Training...
+
+  Batch 100/782 - Loss CE: 1.0056, Loss KD: 29439.2676
+  Batch 200/782 - Loss CE: 1.0269, Loss KD: 29365.0734
+  Batch 300/782 - Loss CE: 1.0069, Loss KD: 29439.2166
+  Batch 400/782 - Loss CE: 1.0244, Loss KD: 29431.5677
+  Batch 500/782 - Loss CE: 1.0320, Loss KD: 29484.9847
+  Batch 600/782 - Loss CE: 1.0399, Loss KD: 29500.5299
+  Batch 700/782 - Loss CE: 1.0398, Loss KD: 29453.2693
+  Batch 782/782 - Loss CE: 1.0467, Loss KD: 29436.0886
+Epoch 211 Training Complete - Avg Loss CE: 1.0467, Avg Loss KD: 29436.0886
+
+Epoch 211 Results - Train Acc: 81.57% | Test Acc: 73.68% | Best: 73.85%
+0.006587908888888889
+Epoch 212: Training...
+
+  Batch 100/782 - Loss CE: 1.0579, Loss KD: 29638.7153
+  Batch 200/782 - Loss CE: 1.0755, Loss KD: 29604.4435
+  Batch 300/782 - Loss CE: 1.0658, Loss KD: 29551.8112
+  Batch 400/782 - Loss CE: 1.0591, Loss KD: 29541.0134
+  Batch 500/782 - Loss CE: 1.0437, Loss KD: 29497.1399
+  Batch 600/782 - Loss CE: 1.0395, Loss KD: 29488.8517
+  Batch 700/782 - Loss CE: 1.0449, Loss KD: 29495.1532
+  Batch 782/782 - Loss CE: 1.0463, Loss KD: 29468.2153
+Epoch 212 Training Complete - Avg Loss CE: 1.0463, Avg Loss KD: 29468.2153
+
+Epoch 212 Results - Train Acc: 81.48% | Test Acc: 73.53% | Best: 73.85%
+0.006509135
+Epoch 213: Training...
+
+  Batch 100/782 - Loss CE: 1.0012, Loss KD: 29300.6773
+  Batch 200/782 - Loss CE: 1.0280, Loss KD: 29396.9232
+  Batch 300/782 - Loss CE: 1.0557, Loss KD: 29408.8222
+  Batch 400/782 - Loss CE: 1.0538, Loss KD: 29443.3409
+  Batch 500/782 - Loss CE: 1.0574, Loss KD: 29407.5842
+  Batch 600/782 - Loss CE: 1.0602, Loss KD: 29441.7961
+  Batch 700/782 - Loss CE: 1.0556, Loss KD: 29464.2331
+  Batch 782/782 - Loss CE: 1.0496, Loss KD: 29441.9409
+Epoch 213 Training Complete - Avg Loss CE: 1.0496, Avg Loss KD: 29441.9409
+
+Epoch 213 Results - Train Acc: 81.40% | Test Acc: 73.81% | Best: 73.85%
+0.006781635277777778
+Epoch 214: Training...
+
+  Batch 100/782 - Loss CE: 1.0396, Loss KD: 29271.0648
+  Batch 200/782 - Loss CE: 1.0649, Loss KD: 29366.4966
+  Batch 300/782 - Loss CE: 1.0603, Loss KD: 29480.9871
+  Batch 400/782 - Loss CE: 1.0560, Loss KD: 29466.0794
+  Batch 500/782 - Loss CE: 1.0559, Loss KD: 29544.3800
+  Batch 600/782 - Loss CE: 1.0443, Loss KD: 29532.1624
+  Batch 700/782 - Loss CE: 1.0461, Loss KD: 29505.6485
+  Batch 782/782 - Loss CE: 1.0430, Loss KD: 29468.2822
+Epoch 214 Training Complete - Avg Loss CE: 1.0430, Avg Loss KD: 29468.2822
+
+Epoch 214 Results - Train Acc: 81.50% | Test Acc: 73.68% | Best: 73.85%
+0.006225940277777778
+Epoch 215: Training...
+
+  Batch 100/782 - Loss CE: 1.0945, Loss KD: 29630.9708
+  Batch 200/782 - Loss CE: 1.0760, Loss KD: 29486.9898
+  Batch 300/782 - Loss CE: 1.0702, Loss KD: 29378.8915
+  Batch 400/782 - Loss CE: 1.0618, Loss KD: 29462.4878
+  Batch 500/782 - Loss CE: 1.0474, Loss KD: 29489.2876
+  Batch 600/782 - Loss CE: 1.0513, Loss KD: 29500.9355
+  Batch 700/782 - Loss CE: 1.0452, Loss KD: 29431.8416
+  Batch 782/782 - Loss CE: 1.0448, Loss KD: 29429.3254
+Epoch 215 Training Complete - Avg Loss CE: 1.0448, Avg Loss KD: 29429.3254
+
+Epoch 215 Results - Train Acc: 81.61% | Test Acc: 73.82% | Best: 73.85%
+0.0065210933333333335
+Epoch 216: Training...
+
+  Batch 100/782 - Loss CE: 0.9620, Loss KD: 29340.4930
+  Batch 200/782 - Loss CE: 0.9964, Loss KD: 29309.1793
+  Batch 300/782 - Loss CE: 1.0337, Loss KD: 29270.3310
+  Batch 400/782 - Loss CE: 1.0376, Loss KD: 29329.0295
+  Batch 500/782 - Loss CE: 1.0360, Loss KD: 29364.1493
+  Batch 600/782 - Loss CE: 1.0394, Loss KD: 29409.2369
+  Batch 700/782 - Loss CE: 1.0398, Loss KD: 29418.6738
+  Batch 782/782 - Loss CE: 1.0374, Loss KD: 29403.6942
+Epoch 216 Training Complete - Avg Loss CE: 1.0374, Avg Loss KD: 29403.6942
+
+Epoch 216 Results - Train Acc: 81.43% | Test Acc: 73.70% | Best: 73.85%
+0.006449344166666666
+Epoch 217: Training...
+
+  Batch 100/782 - Loss CE: 1.0741, Loss KD: 29261.0739
+  Batch 200/782 - Loss CE: 1.0416, Loss KD: 29337.2290
+  Batch 300/782 - Loss CE: 1.0246, Loss KD: 29319.2930
+  Batch 400/782 - Loss CE: 1.0274, Loss KD: 29379.5748
+  Batch 500/782 - Loss CE: 1.0204, Loss KD: 29437.4991
+  Batch 600/782 - Loss CE: 1.0303, Loss KD: 29502.3746
+  Batch 700/782 - Loss CE: 1.0384, Loss KD: 29471.8868
+  Batch 782/782 - Loss CE: 1.0335, Loss KD: 29439.5099
+Epoch 217 Training Complete - Avg Loss CE: 1.0335, Avg Loss KD: 29439.5099
+
+Epoch 217 Results - Train Acc: 81.42% | Test Acc: 73.70% | Best: 73.85%
+0.006636404722222222
+Epoch 218: Training...
+
+  Batch 100/782 - Loss CE: 0.9928, Loss KD: 29475.7044
+  Batch 200/782 - Loss CE: 1.0291, Loss KD: 29489.4381
+  Batch 300/782 - Loss CE: 1.0373, Loss KD: 29448.7897
+  Batch 400/782 - Loss CE: 1.0243, Loss KD: 29409.0659
+  Batch 500/782 - Loss CE: 1.0210, Loss KD: 29390.2379
+  Batch 600/782 - Loss CE: 1.0243, Loss KD: 29407.5533
+  Batch 700/782 - Loss CE: 1.0227, Loss KD: 29408.6062
+  Batch 782/782 - Loss CE: 1.0248, Loss KD: 29415.0162
+Epoch 218 Training Complete - Avg Loss CE: 1.0248, Avg Loss KD: 29415.0162
+
+Epoch 218 Results - Train Acc: 81.60% | Test Acc: 73.59% | Best: 73.85%
+0.006600802777777777
+Epoch 219: Training...
+
+  Batch 100/782 - Loss CE: 1.0618, Loss KD: 29394.8758
+  Batch 200/782 - Loss CE: 1.0499, Loss KD: 29420.4140
+  Batch 300/782 - Loss CE: 1.0185, Loss KD: 29400.8516
+  Batch 400/782 - Loss CE: 1.0291, Loss KD: 29402.8531
+  Batch 500/782 - Loss CE: 1.0322, Loss KD: 29426.7951
+  Batch 600/782 - Loss CE: 1.0357, Loss KD: 29410.1552
+  Batch 700/782 - Loss CE: 1.0417, Loss KD: 29455.7475
+  Batch 782/782 - Loss CE: 1.0455, Loss KD: 29422.8308
+Epoch 219 Training Complete - Avg Loss CE: 1.0455, Avg Loss KD: 29422.8308
+
+Epoch 219 Results - Train Acc: 81.46% | Test Acc: 73.72% | Best: 73.85%
+0.006669869166666667
+Epoch 220: Training...
+
+  Batch 100/782 - Loss CE: 1.0358, Loss KD: 29356.4787
+  Batch 200/782 - Loss CE: 1.0336, Loss KD: 29452.1970
+  Batch 300/782 - Loss CE: 1.0370, Loss KD: 29576.4269
+  Batch 400/782 - Loss CE: 1.0318, Loss KD: 29421.6391
+  Batch 500/782 - Loss CE: 1.0262, Loss KD: 29439.3447
+  Batch 600/782 - Loss CE: 1.0410, Loss KD: 29500.3073
+  Batch 700/782 - Loss CE: 1.0402, Loss KD: 29470.7310
+  Batch 782/782 - Loss CE: 1.0392, Loss KD: 29450.5252
+Epoch 220 Training Complete - Avg Loss CE: 1.0392, Avg Loss KD: 29450.5252
+
+Epoch 220 Results - Train Acc: 81.58% | Test Acc: 74.00% | Best: 74.00%
+0.006586706944444444
+Epoch 221: Training...
+
+  Batch 100/782 - Loss CE: 1.0908, Loss KD: 29587.0218
+  Batch 200/782 - Loss CE: 1.0701, Loss KD: 29568.8725
+  Batch 300/782 - Loss CE: 1.0569, Loss KD: 29537.0802
+  Batch 400/782 - Loss CE: 1.0400, Loss KD: 29579.4320
+  Batch 500/782 - Loss CE: 1.0431, Loss KD: 29523.9167
+  Batch 600/782 - Loss CE: 1.0382, Loss KD: 29529.6621
+  Batch 700/782 - Loss CE: 1.0396, Loss KD: 29463.5659
+  Batch 782/782 - Loss CE: 1.0382, Loss KD: 29440.1710
+Epoch 221 Training Complete - Avg Loss CE: 1.0382, Avg Loss KD: 29440.1710
+
+Epoch 221 Results - Train Acc: 81.36% | Test Acc: 73.74% | Best: 74.00%
+0.006613696111111111
+Epoch 222: Training...
+
+  Batch 100/782 - Loss CE: 0.9924, Loss KD: 29348.1436
+  Batch 200/782 - Loss CE: 1.0236, Loss KD: 29402.7058
+  Batch 300/782 - Loss CE: 1.0471, Loss KD: 29525.8145
+  Batch 400/782 - Loss CE: 1.0430, Loss KD: 29566.4270
+  Batch 500/782 - Loss CE: 1.0321, Loss KD: 29495.0726
+  Batch 600/782 - Loss CE: 1.0289, Loss KD: 29499.0665
+  Batch 700/782 - Loss CE: 1.0256, Loss KD: 29469.6127
+  Batch 782/782 - Loss CE: 1.0257, Loss KD: 29423.5857
+Epoch 222 Training Complete - Avg Loss CE: 1.0257, Avg Loss KD: 29423.5857
+
+Epoch 222 Results - Train Acc: 81.72% | Test Acc: 73.77% | Best: 74.00%
+0.005478191388888888
+Epoch 223: Training...
+
+  Batch 100/782 - Loss CE: 1.0272, Loss KD: 29258.0941
+  Batch 200/782 - Loss CE: 1.0323, Loss KD: 29398.4033
+  Batch 300/782 - Loss CE: 1.0426, Loss KD: 29382.5191
+  Batch 400/782 - Loss CE: 1.0462, Loss KD: 29467.0958
+  Batch 500/782 - Loss CE: 1.0404, Loss KD: 29461.0139
+  Batch 600/782 - Loss CE: 1.0479, Loss KD: 29464.1316
+  Batch 700/782 - Loss CE: 1.0368, Loss KD: 29447.3677
+  Batch 782/782 - Loss CE: 1.0400, Loss KD: 29414.2569
+Epoch 223 Training Complete - Avg Loss CE: 1.0400, Avg Loss KD: 29414.2569
+
+Epoch 223 Results - Train Acc: 81.55% | Test Acc: 73.81% | Best: 74.00%
+0.006279276388888889
+Epoch 224: Training...
+
+  Batch 100/782 - Loss CE: 1.0022, Loss KD: 29443.3518
+  Batch 200/782 - Loss CE: 1.0163, Loss KD: 29394.9037
+  Batch 300/782 - Loss CE: 1.0224, Loss KD: 29414.1610
+  Batch 400/782 - Loss CE: 1.0192, Loss KD: 29417.7641
+  Batch 500/782 - Loss CE: 1.0290, Loss KD: 29450.2473
+  Batch 600/782 - Loss CE: 1.0267, Loss KD: 29449.4934
+  Batch 700/782 - Loss CE: 1.0269, Loss KD: 29432.8600
+  Batch 782/782 - Loss CE: 1.0260, Loss KD: 29384.3807
+Epoch 224 Training Complete - Avg Loss CE: 1.0260, Avg Loss KD: 29384.3807
+
+Epoch 224 Results - Train Acc: 81.66% | Test Acc: 73.73% | Best: 74.00%
+0.006623176388888889
+Epoch 225: Training...
+
+  Batch 100/782 - Loss CE: 1.0885, Loss KD: 29381.9603
+  Batch 200/782 - Loss CE: 1.0613, Loss KD: 29422.1566
+  Batch 300/782 - Loss CE: 1.0317, Loss KD: 29442.2113
+  Batch 400/782 - Loss CE: 1.0204, Loss KD: 29395.3014
+  Batch 500/782 - Loss CE: 1.0242, Loss KD: 29415.2295
+  Batch 600/782 - Loss CE: 1.0218, Loss KD: 29436.2233
+  Batch 700/782 - Loss CE: 1.0274, Loss KD: 29436.5695
+  Batch 782/782 - Loss CE: 1.0345, Loss KD: 29410.1459
+Epoch 225 Training Complete - Avg Loss CE: 1.0345, Avg Loss KD: 29410.1459
+
+Epoch 225 Results - Train Acc: 81.50% | Test Acc: 73.86% | Best: 74.00%
+0.006563937222222222
+Epoch 226: Training...
+
+  Batch 100/782 - Loss CE: 1.0245, Loss KD: 29709.6563
+  Batch 200/782 - Loss CE: 1.0303, Loss KD: 29377.8888
+  Batch 300/782 - Loss CE: 1.0331, Loss KD: 29378.7508
+  Batch 400/782 - Loss CE: 1.0261, Loss KD: 29364.0978
+  Batch 500/782 - Loss CE: 1.0321, Loss KD: 29413.2997
+  Batch 600/782 - Loss CE: 1.0370, Loss KD: 29431.3472
+  Batch 700/782 - Loss CE: 1.0370, Loss KD: 29424.5453
+  Batch 782/782 - Loss CE: 1.0326, Loss KD: 29404.0314
+Epoch 226 Training Complete - Avg Loss CE: 1.0326, Avg Loss KD: 29404.0314
+
+Epoch 226 Results - Train Acc: 81.61% | Test Acc: 73.73% | Best: 74.00%
+0.006481161666666666
+Epoch 227: Training...
+
+  Batch 100/782 - Loss CE: 1.0471, Loss KD: 29344.1010
+  Batch 200/782 - Loss CE: 1.0372, Loss KD: 29531.5999
+  Batch 300/782 - Loss CE: 1.0482, Loss KD: 29568.8651
+  Batch 400/782 - Loss CE: 1.0232, Loss KD: 29482.3476
+  Batch 500/782 - Loss CE: 1.0239, Loss KD: 29483.6524
+  Batch 600/782 - Loss CE: 1.0312, Loss KD: 29487.7051
+  Batch 700/782 - Loss CE: 1.0254, Loss KD: 29475.0304
+  Batch 782/782 - Loss CE: 1.0254, Loss KD: 29429.4226
+Epoch 227 Training Complete - Avg Loss CE: 1.0254, Avg Loss KD: 29429.4226
+
+Epoch 227 Results - Train Acc: 81.60% | Test Acc: 73.80% | Best: 74.00%
+0.006660121944444444
+Epoch 228: Training...
+
+  Batch 100/782 - Loss CE: 1.0211, Loss KD: 29542.4206
+  Batch 200/782 - Loss CE: 1.0165, Loss KD: 29403.7691
+  Batch 300/782 - Loss CE: 1.0152, Loss KD: 29409.4786
+  Batch 400/782 - Loss CE: 1.0242, Loss KD: 29389.1948
+  Batch 500/782 - Loss CE: 1.0255, Loss KD: 29398.2025
+  Batch 600/782 - Loss CE: 1.0323, Loss KD: 29393.4569
+  Batch 700/782 - Loss CE: 1.0250, Loss KD: 29416.5654
+  Batch 782/782 - Loss CE: 1.0240, Loss KD: 29403.9199
+Epoch 228 Training Complete - Avg Loss CE: 1.0240, Avg Loss KD: 29403.9199
+
+Epoch 228 Results - Train Acc: 81.54% | Test Acc: 73.73% | Best: 74.00%
+0.006505565277777778
+Epoch 229: Training...
+
+  Batch 100/782 - Loss CE: 1.0610, Loss KD: 29447.0306
+  Batch 200/782 - Loss CE: 1.0510, Loss KD: 29423.3941
+  Batch 300/782 - Loss CE: 1.0248, Loss KD: 29362.9395
+  Batch 400/782 - Loss CE: 1.0285, Loss KD: 29386.1921
+  Batch 500/782 - Loss CE: 1.0274, Loss KD: 29406.4058
+  Batch 600/782 - Loss CE: 1.0324, Loss KD: 29458.7659
+  Batch 700/782 - Loss CE: 1.0232, Loss KD: 29494.0014
+  Batch 782/782 - Loss CE: 1.0212, Loss KD: 29460.6268
+Epoch 229 Training Complete - Avg Loss CE: 1.0212, Avg Loss KD: 29460.6268
+
+Epoch 229 Results - Train Acc: 81.68% | Test Acc: 73.79% | Best: 74.00%
+0.006206809999999999
+Epoch 230: Training...
+
+  Batch 100/782 - Loss CE: 1.0026, Loss KD: 29580.2728
+  Batch 200/782 - Loss CE: 1.0231, Loss KD: 29593.9465
+  Batch 300/782 - Loss CE: 1.0292, Loss KD: 29574.9566
+  Batch 400/782 - Loss CE: 1.0355, Loss KD: 29534.0175
+  Batch 500/782 - Loss CE: 1.0278, Loss KD: 29545.9456
+  Batch 600/782 - Loss CE: 1.0273, Loss KD: 29533.3006
+  Batch 700/782 - Loss CE: 1.0227, Loss KD: 29455.2530
+  Batch 782/782 - Loss CE: 1.0253, Loss KD: 29408.7985
+Epoch 230 Training Complete - Avg Loss CE: 1.0253, Avg Loss KD: 29408.7985
+
+Epoch 230 Results - Train Acc: 81.64% | Test Acc: 73.77% | Best: 74.00%
+0.005966999166666667
+Epoch 231: Training...
+
+  Batch 100/782 - Loss CE: 1.0248, Loss KD: 29661.5613
+  Batch 200/782 - Loss CE: 1.0255, Loss KD: 29616.1748
+  Batch 300/782 - Loss CE: 1.0118, Loss KD: 29536.9727
+  Batch 400/782 - Loss CE: 0.9987, Loss KD: 29429.8535
+  Batch 500/782 - Loss CE: 1.0095, Loss KD: 29447.8113
+  Batch 600/782 - Loss CE: 1.0152, Loss KD: 29438.7645
+  Batch 700/782 - Loss CE: 1.0206, Loss KD: 29430.7585
+  Batch 782/782 - Loss CE: 1.0222, Loss KD: 29408.2770
+Epoch 231 Training Complete - Avg Loss CE: 1.0222, Avg Loss KD: 29408.2770
+
+Epoch 231 Results - Train Acc: 81.55% | Test Acc: 73.77% | Best: 74.00%
+0.005975028888888888
+Epoch 232: Training...
+
+  Batch 100/782 - Loss CE: 1.0379, Loss KD: 29507.9396
+  Batch 200/782 - Loss CE: 1.0063, Loss KD: 29441.9341
+  Batch 300/782 - Loss CE: 1.0166, Loss KD: 29458.8534
+  Batch 400/782 - Loss CE: 1.0188, Loss KD: 29421.5756
+  Batch 500/782 - Loss CE: 1.0204, Loss KD: 29382.9285
+  Batch 600/782 - Loss CE: 1.0184, Loss KD: 29366.6483
+  Batch 700/782 - Loss CE: 1.0259, Loss KD: 29403.3313
+  Batch 782/782 - Loss CE: 1.0216, Loss KD: 29371.8890
+Epoch 232 Training Complete - Avg Loss CE: 1.0216, Avg Loss KD: 29371.8890
+
+Epoch 232 Results - Train Acc: 81.58% | Test Acc: 73.87% | Best: 74.00%
+0.0065834125
+Epoch 233: Training...
+
+  Batch 100/782 - Loss CE: 1.0182, Loss KD: 29394.3048
+  Batch 200/782 - Loss CE: 1.0235, Loss KD: 29498.6035
+  Batch 300/782 - Loss CE: 1.0204, Loss KD: 29358.8002
+  Batch 400/782 - Loss CE: 1.0303, Loss KD: 29380.6559
+  Batch 500/782 - Loss CE: 1.0271, Loss KD: 29385.2859
+  Batch 600/782 - Loss CE: 1.0263, Loss KD: 29375.6120
+  Batch 700/782 - Loss CE: 1.0302, Loss KD: 29392.0398
+  Batch 782/782 - Loss CE: 1.0283, Loss KD: 29384.9845
+Epoch 233 Training Complete - Avg Loss CE: 1.0283, Avg Loss KD: 29384.9845
+
+Epoch 233 Results - Train Acc: 81.58% | Test Acc: 73.64% | Best: 74.00%
+0.006558030277777778
+Epoch 234: Training...
+
+  Batch 100/782 - Loss CE: 1.0340, Loss KD: 29584.9494
+  Batch 200/782 - Loss CE: 1.0165, Loss KD: 29542.0819
+  Batch 300/782 - Loss CE: 1.0176, Loss KD: 29532.3176
+  Batch 400/782 - Loss CE: 1.0196, Loss KD: 29471.3203
+  Batch 500/782 - Loss CE: 1.0176, Loss KD: 29445.3994
+  Batch 600/782 - Loss CE: 1.0237, Loss KD: 29453.9328
+  Batch 700/782 - Loss CE: 1.0225, Loss KD: 29479.9721
+  Batch 782/782 - Loss CE: 1.0171, Loss KD: 29455.1076
+Epoch 234 Training Complete - Avg Loss CE: 1.0171, Avg Loss KD: 29455.1076
+
+Epoch 234 Results - Train Acc: 81.64% | Test Acc: 73.61% | Best: 74.00%
+0.006476828888888888
+Epoch 235: Training...
+
+  Batch 100/782 - Loss CE: 1.0630, Loss KD: 29395.9904
+  Batch 200/782 - Loss CE: 1.0651, Loss KD: 29500.9161
+  Batch 300/782 - Loss CE: 1.0474, Loss KD: 29447.4126
+  Batch 400/782 - Loss CE: 1.0345, Loss KD: 29442.7818
+  Batch 500/782 - Loss CE: 1.0367, Loss KD: 29398.6157
+  Batch 600/782 - Loss CE: 1.0316, Loss KD: 29430.6706
+  Batch 700/782 - Loss CE: 1.0243, Loss KD: 29431.4184
+  Batch 782/782 - Loss CE: 1.0207, Loss KD: 29407.1071
+Epoch 235 Training Complete - Avg Loss CE: 1.0207, Avg Loss KD: 29407.1071
+
+Epoch 235 Results - Train Acc: 81.47% | Test Acc: 73.82% | Best: 74.00%
+0.0066525713888888885
+Epoch 236: Training...
+
+  Batch 100/782 - Loss CE: 1.0170, Loss KD: 29393.2966
+  Batch 200/782 - Loss CE: 1.0578, Loss KD: 29475.7383
+  Batch 300/782 - Loss CE: 1.0328, Loss KD: 29433.2470
+  Batch 400/782 - Loss CE: 1.0289, Loss KD: 29438.7398
+  Batch 500/782 - Loss CE: 1.0276, Loss KD: 29416.4205
+  Batch 600/782 - Loss CE: 1.0280, Loss KD: 29381.0624
+  Batch 700/782 - Loss CE: 1.0314, Loss KD: 29379.1499
+  Batch 782/782 - Loss CE: 1.0263, Loss KD: 29377.2775
+Epoch 236 Training Complete - Avg Loss CE: 1.0263, Avg Loss KD: 29377.2775
+
+Epoch 236 Results - Train Acc: 81.63% | Test Acc: 73.68% | Best: 74.00%
+0.0067036794444444445
+Epoch 237: Training...
+
+  Batch 100/782 - Loss CE: 1.0176, Loss KD: 29683.8307
+  Batch 200/782 - Loss CE: 1.0268, Loss KD: 29600.2948
+  Batch 300/782 - Loss CE: 1.0155, Loss KD: 29464.6627
+  Batch 400/782 - Loss CE: 1.0344, Loss KD: 29500.3654
+  Batch 500/782 - Loss CE: 1.0355, Loss KD: 29517.5634
+  Batch 600/782 - Loss CE: 1.0437, Loss KD: 29552.6453
+  Batch 700/782 - Loss CE: 1.0408, Loss KD: 29532.4713
+  Batch 782/782 - Loss CE: 1.0308, Loss KD: 29442.1421
+Epoch 237 Training Complete - Avg Loss CE: 1.0308, Avg Loss KD: 29442.1421
+
+Epoch 237 Results - Train Acc: 81.46% | Test Acc: 73.78% | Best: 74.00%
+0.006541126944444444
+Epoch 238: Training...
+
+  Batch 100/782 - Loss CE: 0.9807, Loss KD: 29238.4552
+  Batch 200/782 - Loss CE: 0.9904, Loss KD: 29289.6727
+  Batch 300/782 - Loss CE: 1.0009, Loss KD: 29308.3673
+  Batch 400/782 - Loss CE: 1.0107, Loss KD: 29393.8127
+  Batch 500/782 - Loss CE: 1.0186, Loss KD: 29368.4434
+  Batch 600/782 - Loss CE: 1.0264, Loss KD: 29418.3984
+  Batch 700/782 - Loss CE: 1.0239, Loss KD: 29398.6548
+  Batch 782/782 - Loss CE: 1.0245, Loss KD: 29381.6458
+Epoch 238 Training Complete - Avg Loss CE: 1.0245, Avg Loss KD: 29381.6458
+
+Epoch 238 Results - Train Acc: 81.60% | Test Acc: 73.79% | Best: 74.00%
+0.006155711666666667
+Epoch 239: Training...
+
+  Batch 100/782 - Loss CE: 1.0153, Loss KD: 29478.9096
+  Batch 200/782 - Loss CE: 1.0096, Loss KD: 29500.9821
+  Batch 300/782 - Loss CE: 1.0286, Loss KD: 29504.3585
+  Batch 400/782 - Loss CE: 1.0327, Loss KD: 29532.4499
+  Batch 500/782 - Loss CE: 1.0225, Loss KD: 29465.4208
+  Batch 600/782 - Loss CE: 1.0244, Loss KD: 29437.8215
+  Batch 700/782 - Loss CE: 1.0228, Loss KD: 29441.1651
+  Batch 782/782 - Loss CE: 1.0187, Loss KD: 29413.3733
+Epoch 239 Training Complete - Avg Loss CE: 1.0187, Avg Loss KD: 29413.3733
+
+Epoch 239 Results - Train Acc: 81.58% | Test Acc: 73.85% | Best: 74.00%
+0.005912286666666666
+Epoch 240: Training...
+
+  Batch 100/782 - Loss CE: 1.0251, Loss KD: 29576.9008
+  Batch 200/782 - Loss CE: 1.0393, Loss KD: 29451.4529
+  Batch 300/782 - Loss CE: 1.0377, Loss KD: 29529.2337
+  Batch 400/782 - Loss CE: 1.0412, Loss KD: 29512.5716
+  Batch 500/782 - Loss CE: 1.0376, Loss KD: 29501.7139
+  Batch 600/782 - Loss CE: 1.0279, Loss KD: 29466.1514
+  Batch 700/782 - Loss CE: 1.0228, Loss KD: 29453.7519
+  Batch 782/782 - Loss CE: 1.0180, Loss KD: 29412.8221
+Epoch 240 Training Complete - Avg Loss CE: 1.0180, Avg Loss KD: 29412.8221
+
+64
+Epoch 240 Results - Train Acc: 81.63% | Test Acc: 73.82% | Best: 74.00%
+0.006366925
+[31m[EVAL] Best accuracy:74.0[0m
+=========================================
+End time: Wed Jun 11 21:32:03 CST 2025
+Training completed for: res32x4_res8x4_threescale (M=[1,2,4])

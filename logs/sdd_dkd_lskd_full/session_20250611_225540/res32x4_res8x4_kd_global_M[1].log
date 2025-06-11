@@ -1,0 +1,1685 @@
+Start time: Wed Jun 11 22:55:40 CST 2025
+Configuration: configs/cifar100/sdd_kd_lskd/res32x4_res8x4.yaml
+M setting: [1]
+=========================================
+<class 'str'>
+[36m[INFO] CONFIG:
+DATASET:
+  NUM_WORKERS: 2
+  TEST:
+    BATCH_SIZE: 64
+  TYPE: cifar100
+DISTILLER:
+  STUDENT: resnet8x4_sdd
+  TEACHER: resnet32x4_sdd
+  TYPE: SDD_KD_LSKD
+EXPERIMENT:
+  NAME: ''
+  PROJECT: cifar100_baselines
+  TAG: sdd_kd_lskd,res32x4,res8x4
+LOG:
+  PREFIX: ./output
+  SAVE_CHECKPOINT_FREQ: 40
+  TENSORBOARD_FREQ: 500
+  WANDB: false
+SOLVER:
+  BATCH_SIZE: 64
+  EPOCHS: 240
+  LR: 0.05
+  LR_DECAY_RATE: 0.1
+  LR_DECAY_STAGES:
+  - 150
+  - 180
+  - 210
+  MOMENTUM: 0.9
+  TRAINER: base
+  TYPE: SGD
+  WEIGHT_DECAY: 0.0005
+[0m
+Files already downloaded and verified
+Files already downloaded and verified
+[36m[INFO] Loading teacher model[0m
+[1]
+[1]
+[36m[INFO] Extra parameters of SDD_KD_LSKD: 0[0m[0m
+Epoch 1: Training...
+/root/repos/SDD-LSKD-Fusion/mdistiller/engine/utils.py:107: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  return torch.load(f, map_location="cpu")
+  Batch 100/782 - Loss CE: 4.6349, Loss KD: 17.8944
+  Batch 200/782 - Loss CE: 4.3620, Loss KD: 17.1072
+  Batch 300/782 - Loss CE: 4.2203, Loss KD: 16.6560
+  Batch 400/782 - Loss CE: 4.1255, Loss KD: 16.3335
+  Batch 500/782 - Loss CE: 4.0507, Loss KD: 16.0802
+  Batch 600/782 - Loss CE: 3.9800, Loss KD: 15.8468
+  Batch 700/782 - Loss CE: 3.9181, Loss KD: 15.6293
+  Batch 782/782 - Loss CE: 3.8695, Loss KD: 15.4490
+Epoch 1 Training Complete - Avg Loss CE: 3.8695, Avg Loss KD: 15.4490
+
+Epoch 1 Results - Train Acc: 11.24% | Test Acc: 17.16% | Best: 17.16%
+0.005394726944444444
+Epoch 2: Training...
+
+  Batch 100/782 - Loss CE: 3.3758, Loss KD: 13.7143
+  Batch 200/782 - Loss CE: 3.3142, Loss KD: 13.4700
+  Batch 300/782 - Loss CE: 3.2579, Loss KD: 13.2588
+  Batch 400/782 - Loss CE: 3.2148, Loss KD: 13.0699
+  Batch 500/782 - Loss CE: 3.1635, Loss KD: 12.8578
+  Batch 600/782 - Loss CE: 3.1225, Loss KD: 12.7050
+  Batch 700/782 - Loss CE: 3.0743, Loss KD: 12.5255
+  Batch 782/782 - Loss CE: 3.0427, Loss KD: 12.3961
+Epoch 2 Training Complete - Avg Loss CE: 3.0427, Avg Loss KD: 12.3961
+
+Epoch 2 Results - Train Acc: 25.20% | Test Acc: 30.92% | Best: 30.92%
+0.0054058602777777775
+Epoch 3: Training...
+
+  Batch 100/782 - Loss CE: 2.6692, Loss KD: 10.8829
+  Batch 200/782 - Loss CE: 2.6561, Loss KD: 10.8430
+  Batch 300/782 - Loss CE: 2.6181, Loss KD: 10.7029
+  Batch 400/782 - Loss CE: 2.5904, Loss KD: 10.5799
+  Batch 500/782 - Loss CE: 2.5702, Loss KD: 10.4962
+  Batch 600/782 - Loss CE: 2.5411, Loss KD: 10.3853
+  Batch 700/782 - Loss CE: 2.5161, Loss KD: 10.2883
+  Batch 782/782 - Loss CE: 2.4955, Loss KD: 10.2044
+Epoch 3 Training Complete - Avg Loss CE: 2.4955, Avg Loss KD: 10.2044
+
+Epoch 3 Results - Train Acc: 36.43% | Test Acc: 25.58% | Best: 30.92%
+0.005412706944444445
+Epoch 4: Training...
+
+  Batch 100/782 - Loss CE: 2.2451, Loss KD: 9.2221
+  Batch 200/782 - Loss CE: 2.2319, Loss KD: 9.1358
+  Batch 300/782 - Loss CE: 2.2251, Loss KD: 9.1072
+  Batch 400/782 - Loss CE: 2.2170, Loss KD: 9.0495
+  Batch 500/782 - Loss CE: 2.2076, Loss KD: 8.9953
+  Batch 600/782 - Loss CE: 2.2026, Loss KD: 8.9519
+  Batch 700/782 - Loss CE: 2.1946, Loss KD: 8.9002
+  Batch 782/782 - Loss CE: 2.1850, Loss KD: 8.8504
+Epoch 4 Training Complete - Avg Loss CE: 2.1850, Avg Loss KD: 8.8504
+
+Epoch 4 Results - Train Acc: 43.94% | Test Acc: 36.90% | Best: 36.90%
+0.005759898055555555
+Epoch 5: Training...
+
+  Batch 100/782 - Loss CE: 2.0328, Loss KD: 8.2153
+  Batch 200/782 - Loss CE: 2.0235, Loss KD: 8.1567
+  Batch 300/782 - Loss CE: 2.0115, Loss KD: 8.1106
+  Batch 400/782 - Loss CE: 2.0031, Loss KD: 8.0686
+  Batch 500/782 - Loss CE: 1.9932, Loss KD: 8.0137
+  Batch 600/782 - Loss CE: 1.9863, Loss KD: 7.9722
+  Batch 700/782 - Loss CE: 1.9809, Loss KD: 7.9404
+  Batch 782/782 - Loss CE: 1.9771, Loss KD: 7.9206
+Epoch 5 Training Complete - Avg Loss CE: 1.9771, Avg Loss KD: 7.9206
+
+Epoch 5 Results - Train Acc: 49.19% | Test Acc: 40.23% | Best: 40.23%
+0.0054113802777777786
+Epoch 6: Training...
+
+  Batch 100/782 - Loss CE: 1.8726, Loss KD: 7.4834
+  Batch 200/782 - Loss CE: 1.8704, Loss KD: 7.4510
+  Batch 300/782 - Loss CE: 1.8534, Loss KD: 7.3902
+  Batch 400/782 - Loss CE: 1.8565, Loss KD: 7.3964
+  Batch 500/782 - Loss CE: 1.8515, Loss KD: 7.3521
+  Batch 600/782 - Loss CE: 1.8433, Loss KD: 7.3211
+  Batch 700/782 - Loss CE: 1.8402, Loss KD: 7.2953
+  Batch 782/782 - Loss CE: 1.8383, Loss KD: 7.2811
+Epoch 6 Training Complete - Avg Loss CE: 1.8383, Avg Loss KD: 7.2811
+
+Epoch 6 Results - Train Acc: 52.88% | Test Acc: 43.75% | Best: 43.75%
+0.005658221388888889
+Epoch 7: Training...
+
+  Batch 100/782 - Loss CE: 1.7176, Loss KD: 6.8258
+  Batch 200/782 - Loss CE: 1.7156, Loss KD: 6.8088
+  Batch 300/782 - Loss CE: 1.7163, Loss KD: 6.8107
+  Batch 400/782 - Loss CE: 1.7235, Loss KD: 6.8213
+  Batch 500/782 - Loss CE: 1.7304, Loss KD: 6.8140
+  Batch 600/782 - Loss CE: 1.7345, Loss KD: 6.8252
+  Batch 700/782 - Loss CE: 1.7305, Loss KD: 6.8127
+  Batch 782/782 - Loss CE: 1.7315, Loss KD: 6.8058
+Epoch 7 Training Complete - Avg Loss CE: 1.7315, Avg Loss KD: 6.8058
+
+Epoch 7 Results - Train Acc: 55.88% | Test Acc: 47.06% | Best: 47.06%
+0.005924535
+Epoch 8: Training...
+
+  Batch 100/782 - Loss CE: 1.6344, Loss KD: 6.4417
+  Batch 200/782 - Loss CE: 1.6341, Loss KD: 6.4467
+  Batch 300/782 - Loss CE: 1.6331, Loss KD: 6.4181
+  Batch 400/782 - Loss CE: 1.6365, Loss KD: 6.4127
+  Batch 500/782 - Loss CE: 1.6357, Loss KD: 6.4034
+  Batch 600/782 - Loss CE: 1.6418, Loss KD: 6.4098
+  Batch 700/782 - Loss CE: 1.6413, Loss KD: 6.4120
+  Batch 782/782 - Loss CE: 1.6406, Loss KD: 6.4051
+Epoch 8 Training Complete - Avg Loss CE: 1.6406, Avg Loss KD: 6.4051
+
+Epoch 8 Results - Train Acc: 58.29% | Test Acc: 53.41% | Best: 53.41%
+0.006209032777777778
+Epoch 9: Training...
+
+  Batch 100/782 - Loss CE: 1.5698, Loss KD: 6.1550
+  Batch 200/782 - Loss CE: 1.5822, Loss KD: 6.1747
+  Batch 300/782 - Loss CE: 1.5791, Loss KD: 6.1497
+  Batch 400/782 - Loss CE: 1.5823, Loss KD: 6.1489
+  Batch 500/782 - Loss CE: 1.5767, Loss KD: 6.1233
+  Batch 600/782 - Loss CE: 1.5798, Loss KD: 6.1337
+  Batch 700/782 - Loss CE: 1.5905, Loss KD: 6.1599
+  Batch 782/782 - Loss CE: 1.5922, Loss KD: 6.1643
+Epoch 9 Training Complete - Avg Loss CE: 1.5922, Avg Loss KD: 6.1643
+
+Epoch 9 Results - Train Acc: 59.43% | Test Acc: 51.57% | Best: 53.41%
+0.0059220083333333335
+Epoch 10: Training...
+
+  Batch 100/782 - Loss CE: 1.5019, Loss KD: 5.8851
+  Batch 200/782 - Loss CE: 1.5107, Loss KD: 5.8567
+  Batch 300/782 - Loss CE: 1.5218, Loss KD: 5.8742
+  Batch 400/782 - Loss CE: 1.5206, Loss KD: 5.8725
+  Batch 500/782 - Loss CE: 1.5213, Loss KD: 5.8762
+  Batch 600/782 - Loss CE: 1.5307, Loss KD: 5.8956
+  Batch 700/782 - Loss CE: 1.5299, Loss KD: 5.8886
+  Batch 782/782 - Loss CE: 1.5365, Loss KD: 5.9039
+Epoch 10 Training Complete - Avg Loss CE: 1.5365, Avg Loss KD: 5.9039
+
+Epoch 10 Results - Train Acc: 61.07% | Test Acc: 52.42% | Best: 53.41%
+0.00592713
+Epoch 11: Training...
+
+  Batch 100/782 - Loss CE: 1.4667, Loss KD: 5.6139
+  Batch 200/782 - Loss CE: 1.4694, Loss KD: 5.6379
+  Batch 300/782 - Loss CE: 1.4730, Loss KD: 5.6450
+  Batch 400/782 - Loss CE: 1.4783, Loss KD: 5.6732
+  Batch 500/782 - Loss CE: 1.4880, Loss KD: 5.7042
+  Batch 600/782 - Loss CE: 1.4905, Loss KD: 5.7151
+  Batch 700/782 - Loss CE: 1.4965, Loss KD: 5.7278
+  Batch 782/782 - Loss CE: 1.5040, Loss KD: 5.7386
+Epoch 11 Training Complete - Avg Loss CE: 1.5040, Avg Loss KD: 5.7386
+
+Epoch 11 Results - Train Acc: 62.00% | Test Acc: 52.39% | Best: 53.41%
+0.006040236666666667
+Epoch 12: Training...
+
+  Batch 100/782 - Loss CE: 1.4571, Loss KD: 5.5676
+  Batch 200/782 - Loss CE: 1.4450, Loss KD: 5.4866
+  Batch 300/782 - Loss CE: 1.4559, Loss KD: 5.5217
+  Batch 400/782 - Loss CE: 1.4546, Loss KD: 5.5304
+  Batch 500/782 - Loss CE: 1.4638, Loss KD: 5.5639
+  Batch 600/782 - Loss CE: 1.4711, Loss KD: 5.5813
+  Batch 700/782 - Loss CE: 1.4736, Loss KD: 5.5852
+  Batch 782/782 - Loss CE: 1.4747, Loss KD: 5.5901
+Epoch 12 Training Complete - Avg Loss CE: 1.4747, Avg Loss KD: 5.5901
+
+Epoch 12 Results - Train Acc: 62.62% | Test Acc: 53.03% | Best: 53.41%
+0.005889273611111111
+Epoch 13: Training...
+
+  Batch 100/782 - Loss CE: 1.4540, Loss KD: 5.5186
+  Batch 200/782 - Loss CE: 1.4554, Loss KD: 5.5171
+  Batch 300/782 - Loss CE: 1.4446, Loss KD: 5.4872
+  Batch 400/782 - Loss CE: 1.4464, Loss KD: 5.4890
+  Batch 500/782 - Loss CE: 1.4401, Loss KD: 5.4707
+  Batch 600/782 - Loss CE: 1.4398, Loss KD: 5.4677
+  Batch 700/782 - Loss CE: 1.4435, Loss KD: 5.4758
+  Batch 782/782 - Loss CE: 1.4459, Loss KD: 5.4818
+Epoch 13 Training Complete - Avg Loss CE: 1.4459, Avg Loss KD: 5.4818
+
+Epoch 13 Results - Train Acc: 63.59% | Test Acc: 51.61% | Best: 53.41%
+0.005835374999999999
+Epoch 14: Training...
+
+  Batch 100/782 - Loss CE: 1.4043, Loss KD: 5.3180
+  Batch 200/782 - Loss CE: 1.4086, Loss KD: 5.3450
+  Batch 300/782 - Loss CE: 1.4204, Loss KD: 5.3653
+  Batch 400/782 - Loss CE: 1.4198, Loss KD: 5.3645
+  Batch 500/782 - Loss CE: 1.4237, Loss KD: 5.3741
+  Batch 600/782 - Loss CE: 1.4278, Loss KD: 5.3831
+  Batch 700/782 - Loss CE: 1.4352, Loss KD: 5.3985
+  Batch 782/782 - Loss CE: 1.4355, Loss KD: 5.4051
+Epoch 14 Training Complete - Avg Loss CE: 1.4355, Avg Loss KD: 5.4051
+
+Epoch 14 Results - Train Acc: 64.08% | Test Acc: 56.89% | Best: 56.89%
+0.005924419722222222
+Epoch 15: Training...
+
+  Batch 100/782 - Loss CE: 1.3941, Loss KD: 5.2680
+  Batch 200/782 - Loss CE: 1.3936, Loss KD: 5.2602
+  Batch 300/782 - Loss CE: 1.4017, Loss KD: 5.2982
+  Batch 400/782 - Loss CE: 1.3942, Loss KD: 5.2813
+  Batch 500/782 - Loss CE: 1.4027, Loss KD: 5.3009
+  Batch 600/782 - Loss CE: 1.4069, Loss KD: 5.3085
+  Batch 700/782 - Loss CE: 1.4089, Loss KD: 5.3109
+  Batch 782/782 - Loss CE: 1.4098, Loss KD: 5.3139
+Epoch 15 Training Complete - Avg Loss CE: 1.4098, Avg Loss KD: 5.3139
+
+Epoch 15 Results - Train Acc: 64.55% | Test Acc: 56.34% | Best: 56.89%
+0.005840263888888889
+Epoch 16: Training...
+
+  Batch 100/782 - Loss CE: 1.3362, Loss KD: 5.0690
+  Batch 200/782 - Loss CE: 1.3625, Loss KD: 5.1598
+  Batch 300/782 - Loss CE: 1.3780, Loss KD: 5.2079
+  Batch 400/782 - Loss CE: 1.3926, Loss KD: 5.2398
+  Batch 500/782 - Loss CE: 1.3886, Loss KD: 5.2210
+  Batch 600/782 - Loss CE: 1.3934, Loss KD: 5.2350
+  Batch 700/782 - Loss CE: 1.3970, Loss KD: 5.2432
+  Batch 782/782 - Loss CE: 1.3999, Loss KD: 5.2559
+Epoch 16 Training Complete - Avg Loss CE: 1.3999, Avg Loss KD: 5.2559
+
+Epoch 16 Results - Train Acc: 65.11% | Test Acc: 58.95% | Best: 58.95%
+0.005944489722222222
+Epoch 17: Training...
+
+  Batch 100/782 - Loss CE: 1.3590, Loss KD: 5.0910
+  Batch 200/782 - Loss CE: 1.3361, Loss KD: 5.0187
+  Batch 300/782 - Loss CE: 1.3451, Loss KD: 5.0301
+  Batch 400/782 - Loss CE: 1.3514, Loss KD: 5.0669
+  Batch 500/782 - Loss CE: 1.3599, Loss KD: 5.0948
+  Batch 600/782 - Loss CE: 1.3701, Loss KD: 5.1296
+  Batch 700/782 - Loss CE: 1.3736, Loss KD: 5.1506
+  Batch 782/782 - Loss CE: 1.3795, Loss KD: 5.1687
+Epoch 17 Training Complete - Avg Loss CE: 1.3795, Avg Loss KD: 5.1687
+
+Epoch 17 Results - Train Acc: 65.74% | Test Acc: 55.71% | Best: 58.95%
+0.005728865277777778
+Epoch 18: Training...
+
+  Batch 100/782 - Loss CE: 1.3560, Loss KD: 5.0608
+  Batch 200/782 - Loss CE: 1.3440, Loss KD: 5.0209
+  Batch 300/782 - Loss CE: 1.3470, Loss KD: 5.0303
+  Batch 400/782 - Loss CE: 1.3493, Loss KD: 5.0413
+  Batch 500/782 - Loss CE: 1.3566, Loss KD: 5.0744
+  Batch 600/782 - Loss CE: 1.3629, Loss KD: 5.0923
+  Batch 700/782 - Loss CE: 1.3687, Loss KD: 5.1107
+  Batch 782/782 - Loss CE: 1.3695, Loss KD: 5.1157
+Epoch 18 Training Complete - Avg Loss CE: 1.3695, Avg Loss KD: 5.1157
+
+Epoch 18 Results - Train Acc: 65.80% | Test Acc: 58.36% | Best: 58.95%
+0.005821641944444444
+Epoch 19: Training...
+
+  Batch 100/782 - Loss CE: 1.3331, Loss KD: 4.9923
+  Batch 200/782 - Loss CE: 1.3395, Loss KD: 5.0066
+  Batch 300/782 - Loss CE: 1.3452, Loss KD: 5.0243
+  Batch 400/782 - Loss CE: 1.3368, Loss KD: 5.0051
+  Batch 500/782 - Loss CE: 1.3366, Loss KD: 5.0080
+  Batch 600/782 - Loss CE: 1.3463, Loss KD: 5.0327
+  Batch 700/782 - Loss CE: 1.3542, Loss KD: 5.0538
+  Batch 782/782 - Loss CE: 1.3599, Loss KD: 5.0709
+Epoch 19 Training Complete - Avg Loss CE: 1.3599, Avg Loss KD: 5.0709
+
+Epoch 19 Results - Train Acc: 66.20% | Test Acc: 57.65% | Best: 58.95%
+0.005483361111111112
+Epoch 20: Training...
+
+  Batch 100/782 - Loss CE: 1.3385, Loss KD: 5.0275
+  Batch 200/782 - Loss CE: 1.3249, Loss KD: 4.9774
+  Batch 300/782 - Loss CE: 1.3287, Loss KD: 4.9592
+  Batch 400/782 - Loss CE: 1.3317, Loss KD: 4.9786
+  Batch 500/782 - Loss CE: 1.3413, Loss KD: 4.9997
+  Batch 600/782 - Loss CE: 1.3489, Loss KD: 5.0247
+  Batch 700/782 - Loss CE: 1.3486, Loss KD: 5.0229
+  Batch 782/782 - Loss CE: 1.3526, Loss KD: 5.0345
+Epoch 20 Training Complete - Avg Loss CE: 1.3526, Avg Loss KD: 5.0345
+
+Epoch 20 Results - Train Acc: 66.27% | Test Acc: 56.45% | Best: 58.95%
+0.00603001
+Epoch 21: Training...
+
+  Batch 100/782 - Loss CE: 1.2699, Loss KD: 4.8041
+  Batch 200/782 - Loss CE: 1.3085, Loss KD: 4.9149
+  Batch 300/782 - Loss CE: 1.3235, Loss KD: 4.9219
+  Batch 400/782 - Loss CE: 1.3214, Loss KD: 4.9069
+  Batch 500/782 - Loss CE: 1.3239, Loss KD: 4.9196
+  Batch 600/782 - Loss CE: 1.3315, Loss KD: 4.9490
+  Batch 700/782 - Loss CE: 1.3353, Loss KD: 4.9641
+  Batch 782/782 - Loss CE: 1.3398, Loss KD: 4.9758
+Epoch 21 Training Complete - Avg Loss CE: 1.3398, Avg Loss KD: 4.9758
+
+Epoch 21 Results - Train Acc: 66.71% | Test Acc: 57.63% | Best: 58.95%
+0.005820351666666667
+Epoch 22: Training...
+
+  Batch 100/782 - Loss CE: 1.3356, Loss KD: 4.9096
+  Batch 200/782 - Loss CE: 1.3269, Loss KD: 4.8867
+  Batch 300/782 - Loss CE: 1.3289, Loss KD: 4.9157
+  Batch 400/782 - Loss CE: 1.3289, Loss KD: 4.9292
+  Batch 500/782 - Loss CE: 1.3300, Loss KD: 4.9491
+  Batch 600/782 - Loss CE: 1.3377, Loss KD: 4.9667
+  Batch 700/782 - Loss CE: 1.3399, Loss KD: 4.9751
+  Batch 782/782 - Loss CE: 1.3394, Loss KD: 4.9665
+Epoch 22 Training Complete - Avg Loss CE: 1.3394, Avg Loss KD: 4.9665
+
+Epoch 22 Results - Train Acc: 66.63% | Test Acc: 58.03% | Best: 58.95%
+0.005424856111111111
+Epoch 23: Training...
+
+  Batch 100/782 - Loss CE: 1.2877, Loss KD: 4.7913
+  Batch 200/782 - Loss CE: 1.2968, Loss KD: 4.8208
+  Batch 300/782 - Loss CE: 1.3047, Loss KD: 4.8588
+  Batch 400/782 - Loss CE: 1.3118, Loss KD: 4.8843
+  Batch 500/782 - Loss CE: 1.3178, Loss KD: 4.9036
+  Batch 600/782 - Loss CE: 1.3235, Loss KD: 4.9180
+  Batch 700/782 - Loss CE: 1.3232, Loss KD: 4.9207
+  Batch 782/782 - Loss CE: 1.3268, Loss KD: 4.9352
+Epoch 23 Training Complete - Avg Loss CE: 1.3268, Avg Loss KD: 4.9352
+
+Epoch 23 Results - Train Acc: 66.94% | Test Acc: 55.77% | Best: 58.95%
+0.005836216666666667
+Epoch 24: Training...
+
+  Batch 100/782 - Loss CE: 1.2689, Loss KD: 4.7609
+  Batch 200/782 - Loss CE: 1.2904, Loss KD: 4.8079
+  Batch 300/782 - Loss CE: 1.3010, Loss KD: 4.8344
+  Batch 400/782 - Loss CE: 1.2979, Loss KD: 4.8346
+  Batch 500/782 - Loss CE: 1.2996, Loss KD: 4.8304
+  Batch 600/782 - Loss CE: 1.3048, Loss KD: 4.8464
+  Batch 700/782 - Loss CE: 1.3122, Loss KD: 4.8724
+  Batch 782/782 - Loss CE: 1.3168, Loss KD: 4.8829
+Epoch 24 Training Complete - Avg Loss CE: 1.3168, Avg Loss KD: 4.8829
+
+Epoch 24 Results - Train Acc: 67.36% | Test Acc: 55.12% | Best: 58.95%
+0.005900978333333333
+Epoch 25: Training...
+
+  Batch 100/782 - Loss CE: 1.2748, Loss KD: 4.7836
+  Batch 200/782 - Loss CE: 1.2798, Loss KD: 4.7623
+  Batch 300/782 - Loss CE: 1.2711, Loss KD: 4.7483
+  Batch 400/782 - Loss CE: 1.2870, Loss KD: 4.7898
+  Batch 500/782 - Loss CE: 1.2935, Loss KD: 4.8039
+  Batch 600/782 - Loss CE: 1.2990, Loss KD: 4.8150
+  Batch 700/782 - Loss CE: 1.3040, Loss KD: 4.8311
+  Batch 782/782 - Loss CE: 1.3084, Loss KD: 4.8449
+Epoch 25 Training Complete - Avg Loss CE: 1.3084, Avg Loss KD: 4.8449
+
+Epoch 25 Results - Train Acc: 67.56% | Test Acc: 59.00% | Best: 59.00%
+0.0059577380555555556
+Epoch 26: Training...
+
+  Batch 100/782 - Loss CE: 1.2561, Loss KD: 4.6342
+  Batch 200/782 - Loss CE: 1.2798, Loss KD: 4.7067
+  Batch 300/782 - Loss CE: 1.2844, Loss KD: 4.7310
+  Batch 400/782 - Loss CE: 1.3040, Loss KD: 4.8014
+  Batch 500/782 - Loss CE: 1.3067, Loss KD: 4.8178
+  Batch 600/782 - Loss CE: 1.3124, Loss KD: 4.8351
+  Batch 700/782 - Loss CE: 1.3114, Loss KD: 4.8297
+  Batch 782/782 - Loss CE: 1.3134, Loss KD: 4.8375
+Epoch 26 Training Complete - Avg Loss CE: 1.3134, Avg Loss KD: 4.8375
+
+Epoch 26 Results - Train Acc: 67.60% | Test Acc: 60.17% | Best: 60.17%
+0.005883648888888889
+Epoch 27: Training...
+
+  Batch 100/782 - Loss CE: 1.2244, Loss KD: 4.5303
+  Batch 200/782 - Loss CE: 1.2532, Loss KD: 4.6329
+  Batch 300/782 - Loss CE: 1.2702, Loss KD: 4.6952
+  Batch 400/782 - Loss CE: 1.2750, Loss KD: 4.7116
+  Batch 500/782 - Loss CE: 1.2780, Loss KD: 4.7347
+  Batch 600/782 - Loss CE: 1.2852, Loss KD: 4.7539
+  Batch 700/782 - Loss CE: 1.2923, Loss KD: 4.7805
+  Batch 782/782 - Loss CE: 1.2975, Loss KD: 4.7983
+Epoch 27 Training Complete - Avg Loss CE: 1.2975, Avg Loss KD: 4.7983
+
+Epoch 27 Results - Train Acc: 68.01% | Test Acc: 58.00% | Best: 60.17%
+0.005971245555555556
+Epoch 28: Training...
+
+  Batch 100/782 - Loss CE: 1.2618, Loss KD: 4.6181
+  Batch 200/782 - Loss CE: 1.2570, Loss KD: 4.6069
+  Batch 300/782 - Loss CE: 1.2766, Loss KD: 4.6660
+  Batch 400/782 - Loss CE: 1.2771, Loss KD: 4.6838
+  Batch 500/782 - Loss CE: 1.2801, Loss KD: 4.7101
+  Batch 600/782 - Loss CE: 1.2811, Loss KD: 4.7237
+  Batch 700/782 - Loss CE: 1.2857, Loss KD: 4.7450
+  Batch 782/782 - Loss CE: 1.2934, Loss KD: 4.7700
+Epoch 28 Training Complete - Avg Loss CE: 1.2934, Avg Loss KD: 4.7700
+
+Epoch 28 Results - Train Acc: 68.02% | Test Acc: 58.78% | Best: 60.17%
+0.005916329999999999
+Epoch 29: Training...
+
+  Batch 100/782 - Loss CE: 1.2445, Loss KD: 4.6253
+  Batch 200/782 - Loss CE: 1.2465, Loss KD: 4.6184
+  Batch 300/782 - Loss CE: 1.2497, Loss KD: 4.6359
+  Batch 400/782 - Loss CE: 1.2641, Loss KD: 4.6757
+  Batch 500/782 - Loss CE: 1.2758, Loss KD: 4.7080
+  Batch 600/782 - Loss CE: 1.2833, Loss KD: 4.7284
+  Batch 700/782 - Loss CE: 1.2917, Loss KD: 4.7525
+  Batch 782/782 - Loss CE: 1.2961, Loss KD: 4.7717
+Epoch 29 Training Complete - Avg Loss CE: 1.2961, Avg Loss KD: 4.7717
+
+Epoch 29 Results - Train Acc: 67.94% | Test Acc: 56.38% | Best: 60.17%
+0.005913234999999999
+Epoch 30: Training...
+
+  Batch 100/782 - Loss CE: 1.2438, Loss KD: 4.6849
+  Batch 200/782 - Loss CE: 1.2560, Loss KD: 4.6766
+  Batch 300/782 - Loss CE: 1.2515, Loss KD: 4.6522
+  Batch 400/782 - Loss CE: 1.2630, Loss KD: 4.7016
+  Batch 500/782 - Loss CE: 1.2727, Loss KD: 4.7234
+  Batch 600/782 - Loss CE: 1.2830, Loss KD: 4.7451
+  Batch 700/782 - Loss CE: 1.2839, Loss KD: 4.7557
+  Batch 782/782 - Loss CE: 1.2874, Loss KD: 4.7653
+Epoch 30 Training Complete - Avg Loss CE: 1.2874, Avg Loss KD: 4.7653
+
+Epoch 30 Results - Train Acc: 67.98% | Test Acc: 59.88% | Best: 60.17%
+0.0058749572222222225
+Epoch 31: Training...
+
+  Batch 100/782 - Loss CE: 1.2184, Loss KD: 4.5444
+  Batch 200/782 - Loss CE: 1.2341, Loss KD: 4.5863
+  Batch 300/782 - Loss CE: 1.2498, Loss KD: 4.6374
+  Batch 400/782 - Loss CE: 1.2570, Loss KD: 4.6514
+  Batch 500/782 - Loss CE: 1.2631, Loss KD: 4.6777
+  Batch 600/782 - Loss CE: 1.2688, Loss KD: 4.6970
+  Batch 700/782 - Loss CE: 1.2753, Loss KD: 4.7145
+  Batch 782/782 - Loss CE: 1.2792, Loss KD: 4.7306
+Epoch 31 Training Complete - Avg Loss CE: 1.2792, Avg Loss KD: 4.7306
+
+Epoch 31 Results - Train Acc: 68.24% | Test Acc: 58.87% | Best: 60.17%
+0.005631342777777778
+Epoch 32: Training...
+
+  Batch 100/782 - Loss CE: 1.2531, Loss KD: 4.6004
+  Batch 200/782 - Loss CE: 1.2496, Loss KD: 4.5952
+  Batch 300/782 - Loss CE: 1.2675, Loss KD: 4.6528
+  Batch 400/782 - Loss CE: 1.2667, Loss KD: 4.6667
+  Batch 500/782 - Loss CE: 1.2674, Loss KD: 4.6709
+  Batch 600/782 - Loss CE: 1.2736, Loss KD: 4.7017
+  Batch 700/782 - Loss CE: 1.2768, Loss KD: 4.7147
+  Batch 782/782 - Loss CE: 1.2830, Loss KD: 4.7315
+Epoch 32 Training Complete - Avg Loss CE: 1.2830, Avg Loss KD: 4.7315
+
+Epoch 32 Results - Train Acc: 68.19% | Test Acc: 58.32% | Best: 60.17%
+0.005890592500000001
+Epoch 33: Training...
+
+  Batch 100/782 - Loss CE: 1.2224, Loss KD: 4.5502
+  Batch 200/782 - Loss CE: 1.2263, Loss KD: 4.5570
+  Batch 300/782 - Loss CE: 1.2431, Loss KD: 4.6063
+  Batch 400/782 - Loss CE: 1.2597, Loss KD: 4.6476
+  Batch 500/782 - Loss CE: 1.2628, Loss KD: 4.6643
+  Batch 600/782 - Loss CE: 1.2708, Loss KD: 4.6822
+  Batch 700/782 - Loss CE: 1.2764, Loss KD: 4.6937
+  Batch 782/782 - Loss CE: 1.2792, Loss KD: 4.7026
+Epoch 33 Training Complete - Avg Loss CE: 1.2792, Avg Loss KD: 4.7026
+
+Epoch 33 Results - Train Acc: 68.32% | Test Acc: 58.91% | Best: 60.17%
+0.005946775555555555
+Epoch 34: Training...
+
+  Batch 100/782 - Loss CE: 1.1796, Loss KD: 4.4314
+  Batch 200/782 - Loss CE: 1.2070, Loss KD: 4.5026
+  Batch 300/782 - Loss CE: 1.2166, Loss KD: 4.5389
+  Batch 400/782 - Loss CE: 1.2355, Loss KD: 4.5964
+  Batch 500/782 - Loss CE: 1.2456, Loss KD: 4.6282
+  Batch 600/782 - Loss CE: 1.2583, Loss KD: 4.6648
+  Batch 700/782 - Loss CE: 1.2663, Loss KD: 4.6878
+  Batch 782/782 - Loss CE: 1.2724, Loss KD: 4.7011
+Epoch 34 Training Complete - Avg Loss CE: 1.2724, Avg Loss KD: 4.7011
+
+Epoch 34 Results - Train Acc: 68.25% | Test Acc: 56.88% | Best: 60.17%
+0.005930544444444444
+Epoch 35: Training...
+
+  Batch 100/782 - Loss CE: 1.2290, Loss KD: 4.5186
+  Batch 200/782 - Loss CE: 1.2244, Loss KD: 4.5323
+  Batch 300/782 - Loss CE: 1.2350, Loss KD: 4.5710
+  Batch 400/782 - Loss CE: 1.2474, Loss KD: 4.6013
+  Batch 500/782 - Loss CE: 1.2558, Loss KD: 4.6222
+  Batch 600/782 - Loss CE: 1.2625, Loss KD: 4.6486
+  Batch 700/782 - Loss CE: 1.2657, Loss KD: 4.6619
+  Batch 782/782 - Loss CE: 1.2715, Loss KD: 4.6779
+Epoch 35 Training Complete - Avg Loss CE: 1.2715, Avg Loss KD: 4.6779
+
+Epoch 35 Results - Train Acc: 68.66% | Test Acc: 57.29% | Best: 60.17%
+0.005965130277777777
+Epoch 36: Training...
+
+  Batch 100/782 - Loss CE: 1.2176, Loss KD: 4.4802
+  Batch 200/782 - Loss CE: 1.2180, Loss KD: 4.4898
+  Batch 300/782 - Loss CE: 1.2227, Loss KD: 4.4895
+  Batch 400/782 - Loss CE: 1.2367, Loss KD: 4.5329
+  Batch 500/782 - Loss CE: 1.2457, Loss KD: 4.5743
+  Batch 600/782 - Loss CE: 1.2545, Loss KD: 4.6079
+  Batch 700/782 - Loss CE: 1.2603, Loss KD: 4.6279
+  Batch 782/782 - Loss CE: 1.2660, Loss KD: 4.6508
+Epoch 36 Training Complete - Avg Loss CE: 1.2660, Avg Loss KD: 4.6508
+
+Epoch 36 Results - Train Acc: 68.68% | Test Acc: 58.17% | Best: 60.17%
+0.0052040133333333335
+Epoch 37: Training...
+
+  Batch 100/782 - Loss CE: 1.2081, Loss KD: 4.4810
+  Batch 200/782 - Loss CE: 1.2164, Loss KD: 4.4981
+  Batch 300/782 - Loss CE: 1.2228, Loss KD: 4.5130
+  Batch 400/782 - Loss CE: 1.2335, Loss KD: 4.5567
+  Batch 500/782 - Loss CE: 1.2442, Loss KD: 4.5912
+  Batch 600/782 - Loss CE: 1.2520, Loss KD: 4.6091
+  Batch 700/782 - Loss CE: 1.2552, Loss KD: 4.6226
+  Batch 782/782 - Loss CE: 1.2629, Loss KD: 4.6451
+Epoch 37 Training Complete - Avg Loss CE: 1.2629, Avg Loss KD: 4.6451
+
+Epoch 37 Results - Train Acc: 68.77% | Test Acc: 58.35% | Best: 60.17%
+0.0056176444444444446
+Epoch 38: Training...
+
+  Batch 100/782 - Loss CE: 1.1989, Loss KD: 4.4067
+  Batch 200/782 - Loss CE: 1.2139, Loss KD: 4.4746
+  Batch 300/782 - Loss CE: 1.2300, Loss KD: 4.5256
+  Batch 400/782 - Loss CE: 1.2410, Loss KD: 4.5617
+  Batch 500/782 - Loss CE: 1.2447, Loss KD: 4.5722
+  Batch 600/782 - Loss CE: 1.2531, Loss KD: 4.6023
+  Batch 700/782 - Loss CE: 1.2610, Loss KD: 4.6309
+  Batch 782/782 - Loss CE: 1.2664, Loss KD: 4.6529
+Epoch 38 Training Complete - Avg Loss CE: 1.2664, Avg Loss KD: 4.6529
+
+Epoch 38 Results - Train Acc: 68.73% | Test Acc: 59.20% | Best: 60.17%
+0.005291944722222222
+Epoch 39: Training...
+
+  Batch 100/782 - Loss CE: 1.1862, Loss KD: 4.3867
+  Batch 200/782 - Loss CE: 1.2158, Loss KD: 4.4696
+  Batch 300/782 - Loss CE: 1.2235, Loss KD: 4.5030
+  Batch 400/782 - Loss CE: 1.2362, Loss KD: 4.5311
+  Batch 500/782 - Loss CE: 1.2440, Loss KD: 4.5656
+  Batch 600/782 - Loss CE: 1.2484, Loss KD: 4.5851
+  Batch 700/782 - Loss CE: 1.2540, Loss KD: 4.6105
+  Batch 782/782 - Loss CE: 1.2612, Loss KD: 4.6301
+Epoch 39 Training Complete - Avg Loss CE: 1.2612, Avg Loss KD: 4.6301
+
+Epoch 39 Results - Train Acc: 68.90% | Test Acc: 54.61% | Best: 60.17%
+0.005984720277777778
+Epoch 40: Training...
+
+  Batch 100/782 - Loss CE: 1.2101, Loss KD: 4.4731
+  Batch 200/782 - Loss CE: 1.2186, Loss KD: 4.4889
+  Batch 300/782 - Loss CE: 1.2378, Loss KD: 4.5370
+  Batch 400/782 - Loss CE: 1.2379, Loss KD: 4.5490
+  Batch 500/782 - Loss CE: 1.2373, Loss KD: 4.5517
+  Batch 600/782 - Loss CE: 1.2430, Loss KD: 4.5807
+  Batch 700/782 - Loss CE: 1.2453, Loss KD: 4.5903
+  Batch 782/782 - Loss CE: 1.2498, Loss KD: 4.5998
+Epoch 40 Training Complete - Avg Loss CE: 1.2498, Avg Loss KD: 4.5998
+
+Epoch 40 Results - Train Acc: 68.96% | Test Acc: 59.88% | Best: 60.17%
+0.005981931111111111
+Epoch 41: Training...
+
+  Batch 100/782 - Loss CE: 1.2039, Loss KD: 4.4208
+  Batch 200/782 - Loss CE: 1.2055, Loss KD: 4.4493
+  Batch 300/782 - Loss CE: 1.2133, Loss KD: 4.4762
+  Batch 400/782 - Loss CE: 1.2168, Loss KD: 4.4959
+  Batch 500/782 - Loss CE: 1.2203, Loss KD: 4.5024
+  Batch 600/782 - Loss CE: 1.2309, Loss KD: 4.5360
+  Batch 700/782 - Loss CE: 1.2407, Loss KD: 4.5659
+  Batch 782/782 - Loss CE: 1.2475, Loss KD: 4.5952
+Epoch 41 Training Complete - Avg Loss CE: 1.2475, Avg Loss KD: 4.5952
+
+Epoch 41 Results - Train Acc: 69.15% | Test Acc: 58.30% | Best: 60.17%
+0.005894923055555556
+Epoch 42: Training...
+
+  Batch 100/782 - Loss CE: 1.1816, Loss KD: 4.3754
+  Batch 200/782 - Loss CE: 1.2005, Loss KD: 4.4352
+  Batch 300/782 - Loss CE: 1.2178, Loss KD: 4.4983
+  Batch 400/782 - Loss CE: 1.2300, Loss KD: 4.5391
+  Batch 500/782 - Loss CE: 1.2373, Loss KD: 4.5669
+  Batch 600/782 - Loss CE: 1.2448, Loss KD: 4.5930
+  Batch 700/782 - Loss CE: 1.2502, Loss KD: 4.6078
+  Batch 782/782 - Loss CE: 1.2578, Loss KD: 4.6294
+Epoch 42 Training Complete - Avg Loss CE: 1.2578, Avg Loss KD: 4.6294
+
+Epoch 42 Results - Train Acc: 68.96% | Test Acc: 59.71% | Best: 60.17%
+0.005747278611111111
+Epoch 43: Training...
+
+  Batch 100/782 - Loss CE: 1.1956, Loss KD: 4.4224
+  Batch 200/782 - Loss CE: 1.2008, Loss KD: 4.4385
+  Batch 300/782 - Loss CE: 1.2154, Loss KD: 4.4796
+  Batch 400/782 - Loss CE: 1.2241, Loss KD: 4.4993
+  Batch 500/782 - Loss CE: 1.2366, Loss KD: 4.5381
+  Batch 600/782 - Loss CE: 1.2450, Loss KD: 4.5596
+  Batch 700/782 - Loss CE: 1.2464, Loss KD: 4.5738
+  Batch 782/782 - Loss CE: 1.2490, Loss KD: 4.5850
+Epoch 43 Training Complete - Avg Loss CE: 1.2490, Avg Loss KD: 4.5850
+
+Epoch 43 Results - Train Acc: 68.85% | Test Acc: 57.48% | Best: 60.17%
+0.005755820555555556
+Epoch 44: Training...
+
+  Batch 100/782 - Loss CE: 1.1970, Loss KD: 4.3997
+  Batch 200/782 - Loss CE: 1.2157, Loss KD: 4.4712
+  Batch 300/782 - Loss CE: 1.2339, Loss KD: 4.5231
+  Batch 400/782 - Loss CE: 1.2360, Loss KD: 4.5307
+  Batch 500/782 - Loss CE: 1.2313, Loss KD: 4.5179
+  Batch 600/782 - Loss CE: 1.2389, Loss KD: 4.5475
+  Batch 700/782 - Loss CE: 1.2408, Loss KD: 4.5546
+  Batch 782/782 - Loss CE: 1.2449, Loss KD: 4.5742
+Epoch 44 Training Complete - Avg Loss CE: 1.2449, Avg Loss KD: 4.5742
+
+Epoch 44 Results - Train Acc: 69.33% | Test Acc: 54.91% | Best: 60.17%
+0.005759669166666666
+Epoch 45: Training...
+
+  Batch 100/782 - Loss CE: 1.1852, Loss KD: 4.3966
+  Batch 200/782 - Loss CE: 1.1994, Loss KD: 4.4169
+  Batch 300/782 - Loss CE: 1.2153, Loss KD: 4.4649
+  Batch 400/782 - Loss CE: 1.2264, Loss KD: 4.5041
+  Batch 500/782 - Loss CE: 1.2342, Loss KD: 4.5325
+  Batch 600/782 - Loss CE: 1.2354, Loss KD: 4.5469
+  Batch 700/782 - Loss CE: 1.2363, Loss KD: 4.5499
+  Batch 782/782 - Loss CE: 1.2433, Loss KD: 4.5693
+Epoch 45 Training Complete - Avg Loss CE: 1.2433, Avg Loss KD: 4.5693
+
+Epoch 45 Results - Train Acc: 69.18% | Test Acc: 57.55% | Best: 60.17%
+0.005851301388888889
+Epoch 46: Training...
+
+  Batch 100/782 - Loss CE: 1.2052, Loss KD: 4.4273
+  Batch 200/782 - Loss CE: 1.2074, Loss KD: 4.4271
+  Batch 300/782 - Loss CE: 1.2256, Loss KD: 4.4894
+  Batch 400/782 - Loss CE: 1.2336, Loss KD: 4.5201
+  Batch 500/782 - Loss CE: 1.2353, Loss KD: 4.5294
+  Batch 600/782 - Loss CE: 1.2434, Loss KD: 4.5588
+  Batch 700/782 - Loss CE: 1.2436, Loss KD: 4.5666
+  Batch 782/782 - Loss CE: 1.2445, Loss KD: 4.5746
+Epoch 46 Training Complete - Avg Loss CE: 1.2445, Avg Loss KD: 4.5746
+
+Epoch 46 Results - Train Acc: 69.31% | Test Acc: 56.63% | Best: 60.17%
+0.005945339722222222
+Epoch 47: Training...
+
+  Batch 100/782 - Loss CE: 1.2154, Loss KD: 4.4751
+  Batch 200/782 - Loss CE: 1.2163, Loss KD: 4.4606
+  Batch 300/782 - Loss CE: 1.2154, Loss KD: 4.4569
+  Batch 400/782 - Loss CE: 1.2227, Loss KD: 4.4851
+  Batch 500/782 - Loss CE: 1.2251, Loss KD: 4.4955
+  Batch 600/782 - Loss CE: 1.2295, Loss KD: 4.5071
+  Batch 700/782 - Loss CE: 1.2353, Loss KD: 4.5299
+  Batch 782/782 - Loss CE: 1.2420, Loss KD: 4.5542
+Epoch 47 Training Complete - Avg Loss CE: 1.2420, Avg Loss KD: 4.5542
+
+Epoch 47 Results - Train Acc: 69.63% | Test Acc: 58.38% | Best: 60.17%
+0.005298878888888889
+Epoch 48: Training...
+
+  Batch 100/782 - Loss CE: 1.1853, Loss KD: 4.3443
+  Batch 200/782 - Loss CE: 1.2152, Loss KD: 4.4694
+  Batch 300/782 - Loss CE: 1.2151, Loss KD: 4.4685
+  Batch 400/782 - Loss CE: 1.2232, Loss KD: 4.4933
+  Batch 500/782 - Loss CE: 1.2293, Loss KD: 4.5182
+  Batch 600/782 - Loss CE: 1.2341, Loss KD: 4.5347
+  Batch 700/782 - Loss CE: 1.2401, Loss KD: 4.5588
+  Batch 782/782 - Loss CE: 1.2451, Loss KD: 4.5739
+Epoch 48 Training Complete - Avg Loss CE: 1.2451, Avg Loss KD: 4.5739
+
+Epoch 48 Results - Train Acc: 69.16% | Test Acc: 55.11% | Best: 60.17%
+0.005469502222222222
+Epoch 49: Training...
+
+  Batch 100/782 - Loss CE: 1.1865, Loss KD: 4.4105
+  Batch 200/782 - Loss CE: 1.1912, Loss KD: 4.3897
+  Batch 300/782 - Loss CE: 1.1964, Loss KD: 4.4193
+  Batch 400/782 - Loss CE: 1.2063, Loss KD: 4.4477
+  Batch 500/782 - Loss CE: 1.2102, Loss KD: 4.4662
+  Batch 600/782 - Loss CE: 1.2174, Loss KD: 4.4831
+  Batch 700/782 - Loss CE: 1.2287, Loss KD: 4.5133
+  Batch 782/782 - Loss CE: 1.2304, Loss KD: 4.5187
+Epoch 49 Training Complete - Avg Loss CE: 1.2304, Avg Loss KD: 4.5187
+
+Epoch 49 Results - Train Acc: 69.78% | Test Acc: 60.38% | Best: 60.38%
+0.005797046666666667
+Epoch 50: Training...
+
+  Batch 100/782 - Loss CE: 1.2084, Loss KD: 4.4150
+  Batch 200/782 - Loss CE: 1.2058, Loss KD: 4.4267
+  Batch 300/782 - Loss CE: 1.2229, Loss KD: 4.4646
+  Batch 400/782 - Loss CE: 1.2319, Loss KD: 4.4939
+  Batch 500/782 - Loss CE: 1.2345, Loss KD: 4.5174
+  Batch 600/782 - Loss CE: 1.2405, Loss KD: 4.5391
+  Batch 700/782 - Loss CE: 1.2435, Loss KD: 4.5506
+  Batch 782/782 - Loss CE: 1.2448, Loss KD: 4.5638
+Epoch 50 Training Complete - Avg Loss CE: 1.2448, Avg Loss KD: 4.5638
+
+Epoch 50 Results - Train Acc: 69.43% | Test Acc: 54.87% | Best: 60.38%
+0.005715100833333334
+Epoch 51: Training...
+
+  Batch 100/782 - Loss CE: 1.1981, Loss KD: 4.4717
+  Batch 200/782 - Loss CE: 1.1991, Loss KD: 4.4335
+  Batch 300/782 - Loss CE: 1.2060, Loss KD: 4.4635
+  Batch 400/782 - Loss CE: 1.2107, Loss KD: 4.4611
+  Batch 500/782 - Loss CE: 1.2116, Loss KD: 4.4647
+  Batch 600/782 - Loss CE: 1.2211, Loss KD: 4.4908
+  Batch 700/782 - Loss CE: 1.2279, Loss KD: 4.5134
+  Batch 782/782 - Loss CE: 1.2350, Loss KD: 4.5299
+Epoch 51 Training Complete - Avg Loss CE: 1.2350, Avg Loss KD: 4.5299
+
+Epoch 51 Results - Train Acc: 69.62% | Test Acc: 58.88% | Best: 60.38%
+0.005746121388888889
+Epoch 52: Training...
+
+  Batch 100/782 - Loss CE: 1.2082, Loss KD: 4.4717
+  Batch 200/782 - Loss CE: 1.2094, Loss KD: 4.4664
+  Batch 300/782 - Loss CE: 1.2149, Loss KD: 4.4791
+  Batch 400/782 - Loss CE: 1.2171, Loss KD: 4.4829
+  Batch 500/782 - Loss CE: 1.2232, Loss KD: 4.5005
+  Batch 600/782 - Loss CE: 1.2285, Loss KD: 4.5154
+  Batch 700/782 - Loss CE: 1.2320, Loss KD: 4.5212
+  Batch 782/782 - Loss CE: 1.2300, Loss KD: 4.5167
+Epoch 52 Training Complete - Avg Loss CE: 1.2300, Avg Loss KD: 4.5167
+
+Epoch 52 Results - Train Acc: 69.74% | Test Acc: 54.76% | Best: 60.38%
+0.005819849166666667
+Epoch 53: Training...
+
+  Batch 100/782 - Loss CE: 1.2044, Loss KD: 4.3755
+  Batch 200/782 - Loss CE: 1.1931, Loss KD: 4.3600
+  Batch 300/782 - Loss CE: 1.1992, Loss KD: 4.4017
+  Batch 400/782 - Loss CE: 1.2077, Loss KD: 4.4317
+  Batch 500/782 - Loss CE: 1.2140, Loss KD: 4.4482
+  Batch 600/782 - Loss CE: 1.2175, Loss KD: 4.4569
+  Batch 700/782 - Loss CE: 1.2226, Loss KD: 4.4788
+  Batch 782/782 - Loss CE: 1.2255, Loss KD: 4.4933
+Epoch 53 Training Complete - Avg Loss CE: 1.2255, Avg Loss KD: 4.4933
+
+Epoch 53 Results - Train Acc: 69.93% | Test Acc: 54.92% | Best: 60.38%
+0.005493720833333333
+Epoch 54: Training...
+
+  Batch 100/782 - Loss CE: 1.2255, Loss KD: 4.5065
+  Batch 200/782 - Loss CE: 1.2188, Loss KD: 4.4791
+  Batch 300/782 - Loss CE: 1.2223, Loss KD: 4.4785
+  Batch 400/782 - Loss CE: 1.2246, Loss KD: 4.4889
+  Batch 500/782 - Loss CE: 1.2241, Loss KD: 4.5001
+  Batch 600/782 - Loss CE: 1.2296, Loss KD: 4.5181
+  Batch 700/782 - Loss CE: 1.2365, Loss KD: 4.5400
+  Batch 782/782 - Loss CE: 1.2348, Loss KD: 4.5429
+Epoch 54 Training Complete - Avg Loss CE: 1.2348, Avg Loss KD: 4.5429
+
+Epoch 54 Results - Train Acc: 69.42% | Test Acc: 58.35% | Best: 60.38%
+0.005905711388888888
+Epoch 55: Training...
+
+  Batch 100/782 - Loss CE: 1.1891, Loss KD: 4.4070
+  Batch 200/782 - Loss CE: 1.1876, Loss KD: 4.4025
+  Batch 300/782 - Loss CE: 1.1902, Loss KD: 4.4338
+  Batch 400/782 - Loss CE: 1.2027, Loss KD: 4.4513
+  Batch 500/782 - Loss CE: 1.2036, Loss KD: 4.4535
+  Batch 600/782 - Loss CE: 1.2070, Loss KD: 4.4650
+  Batch 700/782 - Loss CE: 1.2112, Loss KD: 4.4745
+  Batch 782/782 - Loss CE: 1.2176, Loss KD: 4.4973
+Epoch 55 Training Complete - Avg Loss CE: 1.2176, Avg Loss KD: 4.4973
+
+Epoch 55 Results - Train Acc: 69.86% | Test Acc: 59.79% | Best: 60.38%
+0.005827173888888889
+Epoch 56: Training...
+
+  Batch 100/782 - Loss CE: 1.1993, Loss KD: 4.3849
+  Batch 200/782 - Loss CE: 1.1974, Loss KD: 4.3858
+  Batch 300/782 - Loss CE: 1.1978, Loss KD: 4.4027
+  Batch 400/782 - Loss CE: 1.2087, Loss KD: 4.4278
+  Batch 500/782 - Loss CE: 1.2149, Loss KD: 4.4436
+  Batch 600/782 - Loss CE: 1.2177, Loss KD: 4.4617
+  Batch 700/782 - Loss CE: 1.2258, Loss KD: 4.4971
+  Batch 782/782 - Loss CE: 1.2309, Loss KD: 4.5222
+Epoch 56 Training Complete - Avg Loss CE: 1.2309, Avg Loss KD: 4.5222
+
+Epoch 56 Results - Train Acc: 69.68% | Test Acc: 59.88% | Best: 60.38%
+0.0057487338888888885
+Epoch 57: Training...
+
+  Batch 100/782 - Loss CE: 1.1772, Loss KD: 4.3320
+  Batch 200/782 - Loss CE: 1.1901, Loss KD: 4.3568
+  Batch 300/782 - Loss CE: 1.2009, Loss KD: 4.4035
+  Batch 400/782 - Loss CE: 1.2026, Loss KD: 4.4143
+  Batch 500/782 - Loss CE: 1.2074, Loss KD: 4.4329
+  Batch 600/782 - Loss CE: 1.2206, Loss KD: 4.4674
+  Batch 700/782 - Loss CE: 1.2248, Loss KD: 4.4807
+  Batch 782/782 - Loss CE: 1.2269, Loss KD: 4.4914
+Epoch 57 Training Complete - Avg Loss CE: 1.2269, Avg Loss KD: 4.4914
+
+Epoch 57 Results - Train Acc: 69.66% | Test Acc: 58.58% | Best: 60.38%
+0.005868143611111111
+Epoch 58: Training...
+
+  Batch 100/782 - Loss CE: 1.1773, Loss KD: 4.3575
+  Batch 200/782 - Loss CE: 1.1857, Loss KD: 4.3575
+  Batch 300/782 - Loss CE: 1.1935, Loss KD: 4.3847
+  Batch 400/782 - Loss CE: 1.2006, Loss KD: 4.4077
+  Batch 500/782 - Loss CE: 1.2067, Loss KD: 4.4287
+  Batch 600/782 - Loss CE: 1.2114, Loss KD: 4.4461
+  Batch 700/782 - Loss CE: 1.2165, Loss KD: 4.4600
+  Batch 782/782 - Loss CE: 1.2209, Loss KD: 4.4686
+Epoch 58 Training Complete - Avg Loss CE: 1.2209, Avg Loss KD: 4.4686
+
+Epoch 58 Results - Train Acc: 69.85% | Test Acc: 52.68% | Best: 60.38%
+0.005660851388888889
+Epoch 59: Training...
+
+  Batch 100/782 - Loss CE: 1.1820, Loss KD: 4.3138
+  Batch 200/782 - Loss CE: 1.1886, Loss KD: 4.3201
+  Batch 300/782 - Loss CE: 1.1995, Loss KD: 4.3767
+  Batch 400/782 - Loss CE: 1.2052, Loss KD: 4.4090
+  Batch 500/782 - Loss CE: 1.2086, Loss KD: 4.4276
+  Batch 600/782 - Loss CE: 1.2156, Loss KD: 4.4594
+  Batch 700/782 - Loss CE: 1.2229, Loss KD: 4.4858
+  Batch 782/782 - Loss CE: 1.2268, Loss KD: 4.5041
+Epoch 59 Training Complete - Avg Loss CE: 1.2268, Avg Loss KD: 4.5041
+
+Epoch 59 Results - Train Acc: 69.69% | Test Acc: 58.98% | Best: 60.38%
+0.005845076944444444
+Epoch 60: Training...
+
+  Batch 100/782 - Loss CE: 1.1787, Loss KD: 4.3833
+  Batch 200/782 - Loss CE: 1.1885, Loss KD: 4.3964
+  Batch 300/782 - Loss CE: 1.2059, Loss KD: 4.4418
+  Batch 400/782 - Loss CE: 1.2119, Loss KD: 4.4490
+  Batch 500/782 - Loss CE: 1.2145, Loss KD: 4.4661
+  Batch 600/782 - Loss CE: 1.2162, Loss KD: 4.4764
+  Batch 700/782 - Loss CE: 1.2198, Loss KD: 4.4854
+  Batch 782/782 - Loss CE: 1.2283, Loss KD: 4.5091
+Epoch 60 Training Complete - Avg Loss CE: 1.2283, Avg Loss KD: 4.5091
+
+Epoch 60 Results - Train Acc: 69.92% | Test Acc: 59.25% | Best: 60.38%
+0.005309081666666667
+Epoch 61: Training...
+
+  Batch 100/782 - Loss CE: 1.1537, Loss KD: 4.2304
+  Batch 200/782 - Loss CE: 1.1643, Loss KD: 4.2930
+  Batch 300/782 - Loss CE: 1.1789, Loss KD: 4.3540
+  Batch 400/782 - Loss CE: 1.1860, Loss KD: 4.3689
+  Batch 500/782 - Loss CE: 1.1946, Loss KD: 4.3882
+  Batch 600/782 - Loss CE: 1.2009, Loss KD: 4.4045
+  Batch 700/782 - Loss CE: 1.2062, Loss KD: 4.4197
+  Batch 782/782 - Loss CE: 1.2136, Loss KD: 4.4494
+Epoch 61 Training Complete - Avg Loss CE: 1.2136, Avg Loss KD: 4.4494
+
+Epoch 61 Results - Train Acc: 70.09% | Test Acc: 58.28% | Best: 60.38%
+0.005881841388888889
+Epoch 62: Training...
+
+  Batch 100/782 - Loss CE: 1.1816, Loss KD: 4.3782
+  Batch 200/782 - Loss CE: 1.1770, Loss KD: 4.3597
+  Batch 300/782 - Loss CE: 1.1770, Loss KD: 4.3489
+  Batch 400/782 - Loss CE: 1.1981, Loss KD: 4.3992
+  Batch 500/782 - Loss CE: 1.2069, Loss KD: 4.4164
+  Batch 600/782 - Loss CE: 1.2166, Loss KD: 4.4449
+  Batch 700/782 - Loss CE: 1.2182, Loss KD: 4.4576
+  Batch 782/782 - Loss CE: 1.2226, Loss KD: 4.4706
+Epoch 62 Training Complete - Avg Loss CE: 1.2226, Avg Loss KD: 4.4706
+
+Epoch 62 Results - Train Acc: 69.91% | Test Acc: 59.90% | Best: 60.38%
+0.005892175555555556
+Epoch 63: Training...
+
+  Batch 100/782 - Loss CE: 1.1532, Loss KD: 4.2845
+  Batch 200/782 - Loss CE: 1.1711, Loss KD: 4.3259
+  Batch 300/782 - Loss CE: 1.1854, Loss KD: 4.3804
+  Batch 400/782 - Loss CE: 1.1914, Loss KD: 4.4069
+  Batch 500/782 - Loss CE: 1.1935, Loss KD: 4.4087
+  Batch 600/782 - Loss CE: 1.2024, Loss KD: 4.4246
+  Batch 700/782 - Loss CE: 1.2073, Loss KD: 4.4378
+  Batch 782/782 - Loss CE: 1.2146, Loss KD: 4.4581
+Epoch 63 Training Complete - Avg Loss CE: 1.2146, Avg Loss KD: 4.4581
+
+Epoch 63 Results - Train Acc: 69.85% | Test Acc: 59.78% | Best: 60.38%
+0.005679406944444445
+Epoch 64: Training...
+
+  Batch 100/782 - Loss CE: 1.1490, Loss KD: 4.3177
+  Batch 200/782 - Loss CE: 1.1683, Loss KD: 4.3355
+  Batch 300/782 - Loss CE: 1.1828, Loss KD: 4.3712
+  Batch 400/782 - Loss CE: 1.1926, Loss KD: 4.4016
+  Batch 500/782 - Loss CE: 1.2016, Loss KD: 4.4251
+  Batch 600/782 - Loss CE: 1.2031, Loss KD: 4.4292
+  Batch 700/782 - Loss CE: 1.2080, Loss KD: 4.4372
+  Batch 782/782 - Loss CE: 1.2130, Loss KD: 4.4492
+Epoch 64 Training Complete - Avg Loss CE: 1.2130, Avg Loss KD: 4.4492
+
+Epoch 64 Results - Train Acc: 70.14% | Test Acc: 59.82% | Best: 60.38%
+0.005637390555555556
+Epoch 65: Training...
+
+  Batch 100/782 - Loss CE: 1.1817, Loss KD: 4.3097
+  Batch 200/782 - Loss CE: 1.1925, Loss KD: 4.3774
+  Batch 300/782 - Loss CE: 1.1936, Loss KD: 4.3779
+  Batch 400/782 - Loss CE: 1.2022, Loss KD: 4.4056
+  Batch 500/782 - Loss CE: 1.2072, Loss KD: 4.4237
+  Batch 600/782 - Loss CE: 1.2103, Loss KD: 4.4286
+  Batch 700/782 - Loss CE: 1.2140, Loss KD: 4.4454
+  Batch 782/782 - Loss CE: 1.2176, Loss KD: 4.4567
+Epoch 65 Training Complete - Avg Loss CE: 1.2176, Avg Loss KD: 4.4567
+
+Epoch 65 Results - Train Acc: 69.87% | Test Acc: 57.64% | Best: 60.38%
+0.005205129166666667
+Epoch 66: Training...
+
+  Batch 100/782 - Loss CE: 1.1923, Loss KD: 4.3779
+  Batch 200/782 - Loss CE: 1.1703, Loss KD: 4.3146
+  Batch 300/782 - Loss CE: 1.1889, Loss KD: 4.3664
+  Batch 400/782 - Loss CE: 1.1961, Loss KD: 4.3903
+  Batch 500/782 - Loss CE: 1.2047, Loss KD: 4.4220
+  Batch 600/782 - Loss CE: 1.2110, Loss KD: 4.4443
+  Batch 700/782 - Loss CE: 1.2172, Loss KD: 4.4632
+  Batch 782/782 - Loss CE: 1.2223, Loss KD: 4.4791
+Epoch 66 Training Complete - Avg Loss CE: 1.2223, Avg Loss KD: 4.4791
+
+Epoch 66 Results - Train Acc: 69.83% | Test Acc: 57.67% | Best: 60.38%
+0.005325536111111111
+Epoch 67: Training...
+
+  Batch 100/782 - Loss CE: 1.1501, Loss KD: 4.2726
+  Batch 200/782 - Loss CE: 1.1571, Loss KD: 4.2784
+  Batch 300/782 - Loss CE: 1.1659, Loss KD: 4.3027
+  Batch 400/782 - Loss CE: 1.1823, Loss KD: 4.3553
+  Batch 500/782 - Loss CE: 1.1910, Loss KD: 4.3767
+  Batch 600/782 - Loss CE: 1.1990, Loss KD: 4.3991
+  Batch 700/782 - Loss CE: 1.2088, Loss KD: 4.4328
+  Batch 782/782 - Loss CE: 1.2148, Loss KD: 4.4532
+Epoch 67 Training Complete - Avg Loss CE: 1.2148, Avg Loss KD: 4.4532
+
+Epoch 67 Results - Train Acc: 70.17% | Test Acc: 57.76% | Best: 60.38%
+0.004627238333333334
+Epoch 68: Training...
+
+  Batch 100/782 - Loss CE: 1.1251, Loss KD: 4.1477
+  Batch 200/782 - Loss CE: 1.1339, Loss KD: 4.1681
+  Batch 300/782 - Loss CE: 1.1501, Loss KD: 4.2418
+  Batch 400/782 - Loss CE: 1.1685, Loss KD: 4.2999
+  Batch 500/782 - Loss CE: 1.1836, Loss KD: 4.3563
+  Batch 600/782 - Loss CE: 1.1911, Loss KD: 4.3780
+  Batch 700/782 - Loss CE: 1.2050, Loss KD: 4.4246
+  Batch 782/782 - Loss CE: 1.2080, Loss KD: 4.4416
+Epoch 68 Training Complete - Avg Loss CE: 1.2080, Avg Loss KD: 4.4416
+
+Epoch 68 Results - Train Acc: 70.20% | Test Acc: 56.76% | Best: 60.38%
+0.005960994722222222
+Epoch 69: Training...
+
+  Batch 100/782 - Loss CE: 1.1835, Loss KD: 4.3168
+  Batch 200/782 - Loss CE: 1.1788, Loss KD: 4.3189
+  Batch 300/782 - Loss CE: 1.1852, Loss KD: 4.3478
+  Batch 400/782 - Loss CE: 1.1966, Loss KD: 4.3838
+  Batch 500/782 - Loss CE: 1.2012, Loss KD: 4.4024
+  Batch 600/782 - Loss CE: 1.2080, Loss KD: 4.4253
+  Batch 700/782 - Loss CE: 1.2105, Loss KD: 4.4330
+  Batch 782/782 - Loss CE: 1.2138, Loss KD: 4.4419
+Epoch 69 Training Complete - Avg Loss CE: 1.2138, Avg Loss KD: 4.4419
+
+Epoch 69 Results - Train Acc: 69.95% | Test Acc: 61.20% | Best: 61.20%
+0.0058965025
+Epoch 70: Training...
+
+  Batch 100/782 - Loss CE: 1.1222, Loss KD: 4.1867
+  Batch 200/782 - Loss CE: 1.1586, Loss KD: 4.2568
+  Batch 300/782 - Loss CE: 1.1672, Loss KD: 4.3009
+  Batch 400/782 - Loss CE: 1.1818, Loss KD: 4.3418
+  Batch 500/782 - Loss CE: 1.1886, Loss KD: 4.3671
+  Batch 600/782 - Loss CE: 1.1922, Loss KD: 4.3807
+  Batch 700/782 - Loss CE: 1.1998, Loss KD: 4.4113
+  Batch 782/782 - Loss CE: 1.2060, Loss KD: 4.4332
+Epoch 70 Training Complete - Avg Loss CE: 1.2060, Avg Loss KD: 4.4332
+
+Epoch 70 Results - Train Acc: 70.28% | Test Acc: 59.08% | Best: 61.20%
+0.005765643888888889
+Epoch 71: Training...
+
+  Batch 100/782 - Loss CE: 1.1451, Loss KD: 4.2299
+  Batch 200/782 - Loss CE: 1.1672, Loss KD: 4.2851
+  Batch 300/782 - Loss CE: 1.1767, Loss KD: 4.3233
+  Batch 400/782 - Loss CE: 1.1768, Loss KD: 4.3228
+  Batch 500/782 - Loss CE: 1.1859, Loss KD: 4.3514
+  Batch 600/782 - Loss CE: 1.1968, Loss KD: 4.3923
+  Batch 700/782 - Loss CE: 1.2044, Loss KD: 4.4208
+  Batch 782/782 - Loss CE: 1.2085, Loss KD: 4.4337
+Epoch 71 Training Complete - Avg Loss CE: 1.2085, Avg Loss KD: 4.4337
+
+Epoch 71 Results - Train Acc: 70.12% | Test Acc: 59.55% | Best: 61.20%
+0.005431138055555555
+Epoch 72: Training...
+
+  Batch 100/782 - Loss CE: 1.1862, Loss KD: 4.2975
+  Batch 200/782 - Loss CE: 1.1953, Loss KD: 4.3550
+  Batch 300/782 - Loss CE: 1.2002, Loss KD: 4.3662
+  Batch 400/782 - Loss CE: 1.1959, Loss KD: 4.3569
+  Batch 500/782 - Loss CE: 1.2009, Loss KD: 4.3772
+  Batch 600/782 - Loss CE: 1.1996, Loss KD: 4.3785
+  Batch 700/782 - Loss CE: 1.2036, Loss KD: 4.3957
+  Batch 782/782 - Loss CE: 1.2065, Loss KD: 4.4119
+Epoch 72 Training Complete - Avg Loss CE: 1.2065, Avg Loss KD: 4.4119
+
+Epoch 72 Results - Train Acc: 70.43% | Test Acc: 60.71% | Best: 61.20%
+0.004977262777777778
+Epoch 73: Training...
+
+  Batch 100/782 - Loss CE: 1.1513, Loss KD: 4.2737
+  Batch 200/782 - Loss CE: 1.1715, Loss KD: 4.3275
+  Batch 300/782 - Loss CE: 1.1844, Loss KD: 4.3791
+  Batch 400/782 - Loss CE: 1.1838, Loss KD: 4.3781
+  Batch 500/782 - Loss CE: 1.1943, Loss KD: 4.4093
+  Batch 600/782 - Loss CE: 1.2005, Loss KD: 4.4308
+  Batch 700/782 - Loss CE: 1.2091, Loss KD: 4.4442
+  Batch 782/782 - Loss CE: 1.2131, Loss KD: 4.4518
+Epoch 73 Training Complete - Avg Loss CE: 1.2131, Avg Loss KD: 4.4518
+
+Epoch 73 Results - Train Acc: 70.04% | Test Acc: 60.14% | Best: 61.20%
+0.005132548333333334
+Epoch 74: Training...
+
+  Batch 100/782 - Loss CE: 1.1478, Loss KD: 4.2253
+  Batch 200/782 - Loss CE: 1.1568, Loss KD: 4.2586
+  Batch 300/782 - Loss CE: 1.1708, Loss KD: 4.3030
+  Batch 400/782 - Loss CE: 1.1782, Loss KD: 4.3365
+  Batch 500/782 - Loss CE: 1.1882, Loss KD: 4.3702
+  Batch 600/782 - Loss CE: 1.1968, Loss KD: 4.3926
+  Batch 700/782 - Loss CE: 1.2028, Loss KD: 4.4104
+  Batch 782/782 - Loss CE: 1.2101, Loss KD: 4.4315
+Epoch 74 Training Complete - Avg Loss CE: 1.2101, Avg Loss KD: 4.4315
+
+Epoch 74 Results - Train Acc: 70.03% | Test Acc: 58.08% | Best: 61.20%
+0.004506043888888889
+Epoch 75: Training...
+
+  Batch 100/782 - Loss CE: 1.1510, Loss KD: 4.2541
+  Batch 200/782 - Loss CE: 1.1760, Loss KD: 4.3251
+  Batch 300/782 - Loss CE: 1.1781, Loss KD: 4.3287
+  Batch 400/782 - Loss CE: 1.1801, Loss KD: 4.3452
+  Batch 500/782 - Loss CE: 1.1892, Loss KD: 4.3768
+  Batch 600/782 - Loss CE: 1.1929, Loss KD: 4.3907
+  Batch 700/782 - Loss CE: 1.2002, Loss KD: 4.4134
+  Batch 782/782 - Loss CE: 1.2059, Loss KD: 4.4358
+Epoch 75 Training Complete - Avg Loss CE: 1.2059, Avg Loss KD: 4.4358
+
+Epoch 75 Results - Train Acc: 70.30% | Test Acc: 60.82% | Best: 61.20%
+0.004170326388888889
+Epoch 76: Training...
+
+  Batch 100/782 - Loss CE: 1.1597, Loss KD: 4.2899
+  Batch 200/782 - Loss CE: 1.1582, Loss KD: 4.2807
+  Batch 300/782 - Loss CE: 1.1690, Loss KD: 4.3010
+  Batch 400/782 - Loss CE: 1.1877, Loss KD: 4.3524
+  Batch 500/782 - Loss CE: 1.1882, Loss KD: 4.3534
+  Batch 600/782 - Loss CE: 1.1965, Loss KD: 4.3687
+  Batch 700/782 - Loss CE: 1.2052, Loss KD: 4.3972
+  Batch 782/782 - Loss CE: 1.2118, Loss KD: 4.4211
+Epoch 76 Training Complete - Avg Loss CE: 1.2118, Avg Loss KD: 4.4211
+
+Epoch 76 Results - Train Acc: 70.22% | Test Acc: 57.85% | Best: 61.20%
+0.0030709344444444448
+Epoch 77: Training...
+
+  Batch 100/782 - Loss CE: 1.1594, Loss KD: 4.2996
+  Batch 200/782 - Loss CE: 1.1628, Loss KD: 4.3092
+  Batch 300/782 - Loss CE: 1.1832, Loss KD: 4.3603
+  Batch 400/782 - Loss CE: 1.1869, Loss KD: 4.3616
+  Batch 500/782 - Loss CE: 1.1910, Loss KD: 4.3683
+  Batch 600/782 - Loss CE: 1.2006, Loss KD: 4.3921
+  Batch 700/782 - Loss CE: 1.2055, Loss KD: 4.4105
+  Batch 782/782 - Loss CE: 1.2061, Loss KD: 4.4181
+Epoch 77 Training Complete - Avg Loss CE: 1.2061, Avg Loss KD: 4.4181
+
+Epoch 77 Results - Train Acc: 70.25% | Test Acc: 60.12% | Best: 61.20%
+0.004985235277777778
+Epoch 78: Training...
+
+  Batch 100/782 - Loss CE: 1.1716, Loss KD: 4.3195
+  Batch 200/782 - Loss CE: 1.1701, Loss KD: 4.3089
+  Batch 300/782 - Loss CE: 1.1795, Loss KD: 4.3318
+  Batch 400/782 - Loss CE: 1.1961, Loss KD: 4.3864
+  Batch 500/782 - Loss CE: 1.1973, Loss KD: 4.3891
+  Batch 600/782 - Loss CE: 1.2013, Loss KD: 4.4047
+  Batch 700/782 - Loss CE: 1.2041, Loss KD: 4.4132
+  Batch 782/782 - Loss CE: 1.2081, Loss KD: 4.4323
+Epoch 78 Training Complete - Avg Loss CE: 1.2081, Avg Loss KD: 4.4323
+
+Epoch 78 Results - Train Acc: 70.20% | Test Acc: 61.12% | Best: 61.20%
+0.005654352777777778
+Epoch 79: Training...
+
+  Batch 100/782 - Loss CE: 1.1672, Loss KD: 4.2783
+  Batch 200/782 - Loss CE: 1.1525, Loss KD: 4.2440
+  Batch 300/782 - Loss CE: 1.1576, Loss KD: 4.2739
+  Batch 400/782 - Loss CE: 1.1742, Loss KD: 4.3163
+  Batch 500/782 - Loss CE: 1.1772, Loss KD: 4.3375
+  Batch 600/782 - Loss CE: 1.1819, Loss KD: 4.3584
+  Batch 700/782 - Loss CE: 1.1917, Loss KD: 4.3806
+  Batch 782/782 - Loss CE: 1.1991, Loss KD: 4.4061
+Epoch 79 Training Complete - Avg Loss CE: 1.1991, Avg Loss KD: 4.4061
+
+Epoch 79 Results - Train Acc: 70.40% | Test Acc: 61.55% | Best: 61.55%
+0.005177224166666667
+Epoch 80: Training...
+
+  Batch 100/782 - Loss CE: 1.1535, Loss KD: 4.2582
+  Batch 200/782 - Loss CE: 1.1638, Loss KD: 4.2927
+  Batch 300/782 - Loss CE: 1.1790, Loss KD: 4.3359
+  Batch 400/782 - Loss CE: 1.1863, Loss KD: 4.3613
+  Batch 500/782 - Loss CE: 1.1926, Loss KD: 4.3809
+  Batch 600/782 - Loss CE: 1.1976, Loss KD: 4.3993
+  Batch 700/782 - Loss CE: 1.2051, Loss KD: 4.4289
+  Batch 782/782 - Loss CE: 1.2090, Loss KD: 4.4360
+Epoch 80 Training Complete - Avg Loss CE: 1.2090, Avg Loss KD: 4.4360
+
+Epoch 80 Results - Train Acc: 70.03% | Test Acc: 59.54% | Best: 61.55%
+0.00535266
+Epoch 81: Training...
+
+  Batch 100/782 - Loss CE: 1.1991, Loss KD: 4.3885
+  Batch 200/782 - Loss CE: 1.1673, Loss KD: 4.3202
+  Batch 300/782 - Loss CE: 1.1750, Loss KD: 4.3308
+  Batch 400/782 - Loss CE: 1.1833, Loss KD: 4.3556
+  Batch 500/782 - Loss CE: 1.1918, Loss KD: 4.3805
+  Batch 600/782 - Loss CE: 1.2001, Loss KD: 4.4066
+  Batch 700/782 - Loss CE: 1.2027, Loss KD: 4.4107
+  Batch 782/782 - Loss CE: 1.2039, Loss KD: 4.4160
+Epoch 81 Training Complete - Avg Loss CE: 1.2039, Avg Loss KD: 4.4160
+
+Epoch 81 Results - Train Acc: 70.45% | Test Acc: 54.35% | Best: 61.55%
+0.005539039999999999
+Epoch 82: Training...
+
+  Batch 100/782 - Loss CE: 1.1585, Loss KD: 4.2346
+  Batch 200/782 - Loss CE: 1.1544, Loss KD: 4.2325
+  Batch 300/782 - Loss CE: 1.1607, Loss KD: 4.2680
+  Batch 400/782 - Loss CE: 1.1708, Loss KD: 4.3036
+  Batch 500/782 - Loss CE: 1.1803, Loss KD: 4.3323
+  Batch 600/782 - Loss CE: 1.1886, Loss KD: 4.3637
+  Batch 700/782 - Loss CE: 1.1987, Loss KD: 4.3971
+  Batch 782/782 - Loss CE: 1.2016, Loss KD: 4.4006
+Epoch 82 Training Complete - Avg Loss CE: 1.2016, Avg Loss KD: 4.4006
+
+Epoch 82 Results - Train Acc: 70.50% | Test Acc: 56.99% | Best: 61.55%
+0.005665592499999999
+Epoch 83: Training...
+
+  Batch 100/782 - Loss CE: 1.1466, Loss KD: 4.2612
+  Batch 200/782 - Loss CE: 1.1444, Loss KD: 4.2579
+  Batch 300/782 - Loss CE: 1.1584, Loss KD: 4.2748
+  Batch 400/782 - Loss CE: 1.1680, Loss KD: 4.3135
+  Batch 500/782 - Loss CE: 1.1738, Loss KD: 4.3290
+  Batch 600/782 - Loss CE: 1.1882, Loss KD: 4.3751
+  Batch 700/782 - Loss CE: 1.1915, Loss KD: 4.3876
+  Batch 782/782 - Loss CE: 1.1968, Loss KD: 4.3993
+Epoch 83 Training Complete - Avg Loss CE: 1.1968, Avg Loss KD: 4.3993
+
+Epoch 83 Results - Train Acc: 70.50% | Test Acc: 60.16% | Best: 61.55%
+0.005943738888888888
+Epoch 84: Training...
+
+  Batch 100/782 - Loss CE: 1.1482, Loss KD: 4.2477
+  Batch 200/782 - Loss CE: 1.1841, Loss KD: 4.3409
+  Batch 300/782 - Loss CE: 1.1820, Loss KD: 4.3439
+  Batch 400/782 - Loss CE: 1.1833, Loss KD: 4.3441
+  Batch 500/782 - Loss CE: 1.1880, Loss KD: 4.3698
+  Batch 600/782 - Loss CE: 1.1889, Loss KD: 4.3864
+  Batch 700/782 - Loss CE: 1.1961, Loss KD: 4.3993
+  Batch 782/782 - Loss CE: 1.2003, Loss KD: 4.4110
+Epoch 84 Training Complete - Avg Loss CE: 1.2003, Avg Loss KD: 4.4110
+
+Epoch 84 Results - Train Acc: 70.30% | Test Acc: 58.75% | Best: 61.55%
+0.005488930277777778
+Epoch 85: Training...
+
+  Batch 100/782 - Loss CE: 1.1686, Loss KD: 4.3039
+  Batch 200/782 - Loss CE: 1.1567, Loss KD: 4.2624
+  Batch 300/782 - Loss CE: 1.1602, Loss KD: 4.2848
+  Batch 400/782 - Loss CE: 1.1668, Loss KD: 4.2972
+  Batch 500/782 - Loss CE: 1.1752, Loss KD: 4.3187
+  Batch 600/782 - Loss CE: 1.1852, Loss KD: 4.3488
+  Batch 700/782 - Loss CE: 1.1920, Loss KD: 4.3695
+  Batch 782/782 - Loss CE: 1.1999, Loss KD: 4.3926
+Epoch 85 Training Complete - Avg Loss CE: 1.1999, Avg Loss KD: 4.3926
+
+Epoch 85 Results - Train Acc: 70.48% | Test Acc: 56.48% | Best: 61.55%
+0.005947520277777777
+Epoch 86: Training...
+
+  Batch 100/782 - Loss CE: 1.1233, Loss KD: 4.1541
+  Batch 200/782 - Loss CE: 1.1374, Loss KD: 4.1989
+  Batch 300/782 - Loss CE: 1.1573, Loss KD: 4.2500
+  Batch 400/782 - Loss CE: 1.1546, Loss KD: 4.2497
+  Batch 500/782 - Loss CE: 1.1697, Loss KD: 4.2951
+  Batch 600/782 - Loss CE: 1.1798, Loss KD: 4.3218
+  Batch 700/782 - Loss CE: 1.1843, Loss KD: 4.3425
+  Batch 782/782 - Loss CE: 1.1900, Loss KD: 4.3603
+Epoch 86 Training Complete - Avg Loss CE: 1.1900, Avg Loss KD: 4.3603
+
+Epoch 86 Results - Train Acc: 70.64% | Test Acc: 60.30% | Best: 61.55%
+0.005916713888888889
+Epoch 87: Training...
+
+  Batch 100/782 - Loss CE: 1.1408, Loss KD: 4.2147
+  Batch 200/782 - Loss CE: 1.1565, Loss KD: 4.2563
+  Batch 300/782 - Loss CE: 1.1643, Loss KD: 4.2844
+  Batch 400/782 - Loss CE: 1.1716, Loss KD: 4.3210
+  Batch 500/782 - Loss CE: 1.1745, Loss KD: 4.3322
+  Batch 600/782 - Loss CE: 1.1866, Loss KD: 4.3640
+  Batch 700/782 - Loss CE: 1.1924, Loss KD: 4.3785
+  Batch 782/782 - Loss CE: 1.1977, Loss KD: 4.3954
+Epoch 87 Training Complete - Avg Loss CE: 1.1977, Avg Loss KD: 4.3954
+
+Epoch 87 Results - Train Acc: 70.35% | Test Acc: 61.62% | Best: 61.62%
+0.005884792777777778
+Epoch 88: Training...
+
+  Batch 100/782 - Loss CE: 1.1644, Loss KD: 4.2760
+  Batch 200/782 - Loss CE: 1.1515, Loss KD: 4.2412
+  Batch 300/782 - Loss CE: 1.1702, Loss KD: 4.2953
+  Batch 400/782 - Loss CE: 1.1771, Loss KD: 4.3309
+  Batch 500/782 - Loss CE: 1.1836, Loss KD: 4.3517
+  Batch 600/782 - Loss CE: 1.1873, Loss KD: 4.3608
+  Batch 700/782 - Loss CE: 1.1917, Loss KD: 4.3754
+  Batch 782/782 - Loss CE: 1.1972, Loss KD: 4.3923
+Epoch 88 Training Complete - Avg Loss CE: 1.1972, Avg Loss KD: 4.3923
+
+Epoch 88 Results - Train Acc: 70.53% | Test Acc: 61.56% | Best: 61.62%
+0.005784602222222222
+Epoch 89: Training...
+
+  Batch 100/782 - Loss CE: 1.1462, Loss KD: 4.2348
+  Batch 200/782 - Loss CE: 1.1422, Loss KD: 4.2145
+  Batch 300/782 - Loss CE: 1.1510, Loss KD: 4.2541
+  Batch 400/782 - Loss CE: 1.1630, Loss KD: 4.2890
+  Batch 500/782 - Loss CE: 1.1757, Loss KD: 4.3236
+  Batch 600/782 - Loss CE: 1.1882, Loss KD: 4.3559
+  Batch 700/782 - Loss CE: 1.1951, Loss KD: 4.3820
+  Batch 782/782 - Loss CE: 1.1991, Loss KD: 4.3953
+Epoch 89 Training Complete - Avg Loss CE: 1.1991, Avg Loss KD: 4.3953
+
+Epoch 89 Results - Train Acc: 70.54% | Test Acc: 59.91% | Best: 61.62%
+0.005879534722222223
+Epoch 90: Training...
+
+  Batch 100/782 - Loss CE: 1.1202, Loss KD: 4.1269
+  Batch 200/782 - Loss CE: 1.1421, Loss KD: 4.1994
+  Batch 300/782 - Loss CE: 1.1490, Loss KD: 4.2216
+  Batch 400/782 - Loss CE: 1.1593, Loss KD: 4.2641
+  Batch 500/782 - Loss CE: 1.1691, Loss KD: 4.2939
+  Batch 600/782 - Loss CE: 1.1785, Loss KD: 4.3194
+  Batch 700/782 - Loss CE: 1.1854, Loss KD: 4.3394
+  Batch 782/782 - Loss CE: 1.1957, Loss KD: 4.3758
+Epoch 90 Training Complete - Avg Loss CE: 1.1957, Avg Loss KD: 4.3758
+
+Epoch 90 Results - Train Acc: 70.30% | Test Acc: 61.38% | Best: 61.62%
+0.005118015833333333
+Epoch 91: Training...
+
+  Batch 100/782 - Loss CE: 1.1805, Loss KD: 4.2885
+  Batch 200/782 - Loss CE: 1.1767, Loss KD: 4.3147
+  Batch 300/782 - Loss CE: 1.1681, Loss KD: 4.2945
+  Batch 400/782 - Loss CE: 1.1795, Loss KD: 4.3356
+  Batch 500/782 - Loss CE: 1.1890, Loss KD: 4.3591
+  Batch 600/782 - Loss CE: 1.1905, Loss KD: 4.3626
+  Batch 700/782 - Loss CE: 1.1951, Loss KD: 4.3801
+  Batch 782/782 - Loss CE: 1.1966, Loss KD: 4.3890
+Epoch 91 Training Complete - Avg Loss CE: 1.1966, Avg Loss KD: 4.3890
+
+Epoch 91 Results - Train Acc: 70.60% | Test Acc: 60.71% | Best: 61.62%
+0.005091144722222222
+Epoch 92: Training...
+
+  Batch 100/782 - Loss CE: 1.1273, Loss KD: 4.1953
+  Batch 200/782 - Loss CE: 1.1374, Loss KD: 4.2106
+  Batch 300/782 - Loss CE: 1.1674, Loss KD: 4.2894
+  Batch 400/782 - Loss CE: 1.1715, Loss KD: 4.2948
+  Batch 500/782 - Loss CE: 1.1794, Loss KD: 4.3251
+  Batch 600/782 - Loss CE: 1.1854, Loss KD: 4.3439
+  Batch 700/782 - Loss CE: 1.1912, Loss KD: 4.3591
+  Batch 782/782 - Loss CE: 1.1959, Loss KD: 4.3714
+Epoch 92 Training Complete - Avg Loss CE: 1.1959, Avg Loss KD: 4.3714
+
+Epoch 92 Results - Train Acc: 70.61% | Test Acc: 58.32% | Best: 61.62%
+0.0056522322222222225
+Epoch 93: Training...
+
+  Batch 100/782 - Loss CE: 1.1488, Loss KD: 4.2207
+  Batch 200/782 - Loss CE: 1.1448, Loss KD: 4.2113
+  Batch 300/782 - Loss CE: 1.1672, Loss KD: 4.2884
+  Batch 400/782 - Loss CE: 1.1681, Loss KD: 4.2967
+  Batch 500/782 - Loss CE: 1.1806, Loss KD: 4.3320
+  Batch 600/782 - Loss CE: 1.1833, Loss KD: 4.3396
+  Batch 700/782 - Loss CE: 1.1865, Loss KD: 4.3536
+  Batch 782/782 - Loss CE: 1.1952, Loss KD: 4.3740
+Epoch 93 Training Complete - Avg Loss CE: 1.1952, Avg Loss KD: 4.3740
+
+Epoch 93 Results - Train Acc: 70.58% | Test Acc: 61.89% | Best: 61.89%
+0.0056775133333333335
+Epoch 94: Training...
+
+  Batch 100/782 - Loss CE: 1.1386, Loss KD: 4.2093
+  Batch 200/782 - Loss CE: 1.1470, Loss KD: 4.2270
+  Batch 300/782 - Loss CE: 1.1750, Loss KD: 4.2983
+  Batch 400/782 - Loss CE: 1.1773, Loss KD: 4.3108
+  Batch 500/782 - Loss CE: 1.1894, Loss KD: 4.3510
+  Batch 600/782 - Loss CE: 1.1922, Loss KD: 4.3645
+  Batch 700/782 - Loss CE: 1.1941, Loss KD: 4.3701
+  Batch 782/782 - Loss CE: 1.1960, Loss KD: 4.3747
+Epoch 94 Training Complete - Avg Loss CE: 1.1960, Avg Loss KD: 4.3747
+
+Epoch 94 Results - Train Acc: 70.52% | Test Acc: 61.51% | Best: 61.89%
+0.005572009444444444
+Epoch 95: Training...
+
+  Batch 100/782 - Loss CE: 1.1359, Loss KD: 4.1856
+  Batch 200/782 - Loss CE: 1.1485, Loss KD: 4.2104
+  Batch 300/782 - Loss CE: 1.1474, Loss KD: 4.2087
+  Batch 400/782 - Loss CE: 1.1689, Loss KD: 4.2852
+  Batch 500/782 - Loss CE: 1.1846, Loss KD: 4.3396
+  Batch 600/782 - Loss CE: 1.1853, Loss KD: 4.3363
+  Batch 700/782 - Loss CE: 1.1876, Loss KD: 4.3452
+  Batch 782/782 - Loss CE: 1.1900, Loss KD: 4.3586
+Epoch 95 Training Complete - Avg Loss CE: 1.1900, Avg Loss KD: 4.3586
+
+Epoch 95 Results - Train Acc: 70.63% | Test Acc: 60.92% | Best: 61.89%
+0.005554247777777778
+Epoch 96: Training...
+
+  Batch 100/782 - Loss CE: 1.1325, Loss KD: 4.2106
+  Batch 200/782 - Loss CE: 1.1302, Loss KD: 4.1901
+  Batch 300/782 - Loss CE: 1.1419, Loss KD: 4.2145
+  Batch 400/782 - Loss CE: 1.1582, Loss KD: 4.2685
+  Batch 500/782 - Loss CE: 1.1725, Loss KD: 4.3052
+  Batch 600/782 - Loss CE: 1.1799, Loss KD: 4.3250
+  Batch 700/782 - Loss CE: 1.1882, Loss KD: 4.3470
+  Batch 782/782 - Loss CE: 1.1911, Loss KD: 4.3564
+Epoch 96 Training Complete - Avg Loss CE: 1.1911, Avg Loss KD: 4.3564
+
+Epoch 96 Results - Train Acc: 70.70% | Test Acc: 57.48% | Best: 61.89%
+0.005941914444444444
+Epoch 97: Training...
+
+  Batch 100/782 - Loss CE: 1.1611, Loss KD: 4.2183
+  Batch 200/782 - Loss CE: 1.1664, Loss KD: 4.2531
+  Batch 300/782 - Loss CE: 1.1624, Loss KD: 4.2554
+  Batch 400/782 - Loss CE: 1.1606, Loss KD: 4.2510
+  Batch 500/782 - Loss CE: 1.1663, Loss KD: 4.2709
+  Batch 600/782 - Loss CE: 1.1738, Loss KD: 4.2946
+  Batch 700/782 - Loss CE: 1.1771, Loss KD: 4.3109
+  Batch 782/782 - Loss CE: 1.1852, Loss KD: 4.3329
+Epoch 97 Training Complete - Avg Loss CE: 1.1852, Avg Loss KD: 4.3329
+
+Epoch 97 Results - Train Acc: 71.03% | Test Acc: 58.79% | Best: 61.89%
+0.005706341111111111
+Epoch 98: Training...
+
+  Batch 100/782 - Loss CE: 1.1476, Loss KD: 4.1908
+  Batch 200/782 - Loss CE: 1.1524, Loss KD: 4.2316
+  Batch 300/782 - Loss CE: 1.1639, Loss KD: 4.2759
+  Batch 400/782 - Loss CE: 1.1623, Loss KD: 4.2755
+  Batch 500/782 - Loss CE: 1.1667, Loss KD: 4.2942
+  Batch 600/782 - Loss CE: 1.1745, Loss KD: 4.3289
+  Batch 700/782 - Loss CE: 1.1836, Loss KD: 4.3530
+  Batch 782/782 - Loss CE: 1.1903, Loss KD: 4.3729
+Epoch 98 Training Complete - Avg Loss CE: 1.1903, Avg Loss KD: 4.3729
+
+Epoch 98 Results - Train Acc: 70.83% | Test Acc: 60.77% | Best: 61.89%
+0.005035509166666666
+Epoch 99: Training...
+
+  Batch 100/782 - Loss CE: 1.1192, Loss KD: 4.1264
+  Batch 200/782 - Loss CE: 1.1451, Loss KD: 4.1804
+  Batch 300/782 - Loss CE: 1.1540, Loss KD: 4.2193
+  Batch 400/782 - Loss CE: 1.1576, Loss KD: 4.2434
+  Batch 500/782 - Loss CE: 1.1657, Loss KD: 4.2800
+  Batch 600/782 - Loss CE: 1.1775, Loss KD: 4.3150
+  Batch 700/782 - Loss CE: 1.1877, Loss KD: 4.3510
+  Batch 782/782 - Loss CE: 1.1900, Loss KD: 4.3621
+Epoch 99 Training Complete - Avg Loss CE: 1.1900, Avg Loss KD: 4.3621
+
+Epoch 99 Results - Train Acc: 70.71% | Test Acc: 59.63% | Best: 61.89%
+0.005788381388888889
+Epoch 100: Training...
+
+  Batch 100/782 - Loss CE: 1.1308, Loss KD: 4.2051
+  Batch 200/782 - Loss CE: 1.1506, Loss KD: 4.2291
+  Batch 300/782 - Loss CE: 1.1544, Loss KD: 4.2384
+  Batch 400/782 - Loss CE: 1.1668, Loss KD: 4.2875
+  Batch 500/782 - Loss CE: 1.1730, Loss KD: 4.3040
+  Batch 600/782 - Loss CE: 1.1770, Loss KD: 4.3189
+  Batch 700/782 - Loss CE: 1.1861, Loss KD: 4.3462
+  Batch 782/782 - Loss CE: 1.1901, Loss KD: 4.3620
+Epoch 100 Training Complete - Avg Loss CE: 1.1901, Avg Loss KD: 4.3620
+
+Epoch 100 Results - Train Acc: 70.64% | Test Acc: 59.18% | Best: 61.89%
+0.005369546388888888
+Epoch 101: Training...
+
+  Batch 100/782 - Loss CE: 1.1246, Loss KD: 4.1578
+  Batch 200/782 - Loss CE: 1.1259, Loss KD: 4.1626
+  Batch 300/782 - Loss CE: 1.1466, Loss KD: 4.2349
+  Batch 400/782 - Loss CE: 1.1627, Loss KD: 4.2854
+  Batch 500/782 - Loss CE: 1.1694, Loss KD: 4.3036
+  Batch 600/782 - Loss CE: 1.1778, Loss KD: 4.3328
+  Batch 700/782 - Loss CE: 1.1882, Loss KD: 4.3601
+  Batch 782/782 - Loss CE: 1.1928, Loss KD: 4.3770
+Epoch 101 Training Complete - Avg Loss CE: 1.1928, Avg Loss KD: 4.3770
+
+Epoch 101 Results - Train Acc: 70.56% | Test Acc: 61.46% | Best: 61.89%
+0.005634861944444444
+Epoch 102: Training...
+
+  Batch 100/782 - Loss CE: 1.1422, Loss KD: 4.2098
+  Batch 200/782 - Loss CE: 1.1619, Loss KD: 4.2515
+  Batch 300/782 - Loss CE: 1.1709, Loss KD: 4.2815
+  Batch 400/782 - Loss CE: 1.1732, Loss KD: 4.2925
+  Batch 500/782 - Loss CE: 1.1798, Loss KD: 4.3132
+  Batch 600/782 - Loss CE: 1.1797, Loss KD: 4.3185
+  Batch 700/782 - Loss CE: 1.1795, Loss KD: 4.3170
+  Batch 782/782 - Loss CE: 1.1859, Loss KD: 4.3388
+Epoch 102 Training Complete - Avg Loss CE: 1.1859, Avg Loss KD: 4.3388
+
+Epoch 102 Results - Train Acc: 70.68% | Test Acc: 58.38% | Best: 61.89%
+0.005618610555555555
+Epoch 103: Training...
+
+  Batch 100/782 - Loss CE: 1.1516, Loss KD: 4.2361
+  Batch 200/782 - Loss CE: 1.1649, Loss KD: 4.2871
+  Batch 300/782 - Loss CE: 1.1650, Loss KD: 4.2922
+  Batch 400/782 - Loss CE: 1.1736, Loss KD: 4.3096
+  Batch 500/782 - Loss CE: 1.1796, Loss KD: 4.3373
+  Batch 600/782 - Loss CE: 1.1862, Loss KD: 4.3599
+  Batch 700/782 - Loss CE: 1.1912, Loss KD: 4.3739
+  Batch 782/782 - Loss CE: 1.1936, Loss KD: 4.3765
+Epoch 103 Training Complete - Avg Loss CE: 1.1936, Avg Loss KD: 4.3765
+
+Epoch 103 Results - Train Acc: 70.44% | Test Acc: 62.44% | Best: 62.44%
+0.005829541666666667
+Epoch 104: Training...
+
+  Batch 100/782 - Loss CE: 1.1303, Loss KD: 4.1605
+  Batch 200/782 - Loss CE: 1.1466, Loss KD: 4.2212
+  Batch 300/782 - Loss CE: 1.1483, Loss KD: 4.2525
+  Batch 400/782 - Loss CE: 1.1610, Loss KD: 4.2869
+  Batch 500/782 - Loss CE: 1.1725, Loss KD: 4.3147
+  Batch 600/782 - Loss CE: 1.1734, Loss KD: 4.3219
+  Batch 700/782 - Loss CE: 1.1806, Loss KD: 4.3416
+  Batch 782/782 - Loss CE: 1.1840, Loss KD: 4.3513
+Epoch 104 Training Complete - Avg Loss CE: 1.1840, Avg Loss KD: 4.3513
+
+Epoch 104 Results - Train Acc: 71.08% | Test Acc: 56.62% | Best: 62.44%
+0.0057728833333333335
+Epoch 105: Training...
+
+  Batch 100/782 - Loss CE: 1.1787, Loss KD: 4.3540
+  Batch 200/782 - Loss CE: 1.1581, Loss KD: 4.2809
+  Batch 300/782 - Loss CE: 1.1717, Loss KD: 4.3165
+  Batch 400/782 - Loss CE: 1.1704, Loss KD: 4.3211
+  Batch 500/782 - Loss CE: 1.1791, Loss KD: 4.3401
+  Batch 600/782 - Loss CE: 1.1860, Loss KD: 4.3628
+  Batch 700/782 - Loss CE: 1.1930, Loss KD: 4.3806
+  Batch 782/782 - Loss CE: 1.1931, Loss KD: 4.3837
+Epoch 105 Training Complete - Avg Loss CE: 1.1931, Avg Loss KD: 4.3837
+
+Epoch 105 Results - Train Acc: 70.40% | Test Acc: 58.87% | Best: 62.44%
+0.005941771111111111
+Epoch 106: Training...
+
+  Batch 100/782 - Loss CE: 1.1637, Loss KD: 4.2830
+  Batch 200/782 - Loss CE: 1.1576, Loss KD: 4.2549
+  Batch 300/782 - Loss CE: 1.1647, Loss KD: 4.2761
+  Batch 400/782 - Loss CE: 1.1636, Loss KD: 4.2768
+  Batch 500/782 - Loss CE: 1.1747, Loss KD: 4.3103
+  Batch 600/782 - Loss CE: 1.1797, Loss KD: 4.3362
+  Batch 700/782 - Loss CE: 1.1825, Loss KD: 4.3493
+  Batch 782/782 - Loss CE: 1.1886, Loss KD: 4.3688
+Epoch 106 Training Complete - Avg Loss CE: 1.1886, Avg Loss KD: 4.3688
+
+Epoch 106 Results - Train Acc: 70.55% | Test Acc: 60.97% | Best: 62.44%
+0.005917484999999999
+Epoch 107: Training...
+
+  Batch 100/782 - Loss CE: 1.1371, Loss KD: 4.2077
+  Batch 200/782 - Loss CE: 1.1485, Loss KD: 4.2281
+  Batch 300/782 - Loss CE: 1.1573, Loss KD: 4.2480
+  Batch 400/782 - Loss CE: 1.1629, Loss KD: 4.2609
+  Batch 500/782 - Loss CE: 1.1732, Loss KD: 4.2963
+  Batch 600/782 - Loss CE: 1.1722, Loss KD: 4.2999
+  Batch 700/782 - Loss CE: 1.1798, Loss KD: 4.3217
+  Batch 782/782 - Loss CE: 1.1817, Loss KD: 4.3337
+Epoch 107 Training Complete - Avg Loss CE: 1.1817, Avg Loss KD: 4.3337
+
+Epoch 107 Results - Train Acc: 71.13% | Test Acc: 61.61% | Best: 62.44%
+0.005959468055555556
+Epoch 108: Training...
+
+  Batch 100/782 - Loss CE: 1.1578, Loss KD: 4.2028
+  Batch 200/782 - Loss CE: 1.1452, Loss KD: 4.1977
+  Batch 300/782 - Loss CE: 1.1673, Loss KD: 4.2732
+  Batch 400/782 - Loss CE: 1.1627, Loss KD: 4.2704
+  Batch 500/782 - Loss CE: 1.1691, Loss KD: 4.2884
+  Batch 600/782 - Loss CE: 1.1747, Loss KD: 4.3123
+  Batch 700/782 - Loss CE: 1.1834, Loss KD: 4.3396
+  Batch 782/782 - Loss CE: 1.1858, Loss KD: 4.3504
+Epoch 108 Training Complete - Avg Loss CE: 1.1858, Avg Loss KD: 4.3504
+
+Epoch 108 Results - Train Acc: 70.92% | Test Acc: 62.67% | Best: 62.67%
+0.0057633822222222224
+Epoch 109: Training...
+
+  Batch 100/782 - Loss CE: 1.1271, Loss KD: 4.1997
+  Batch 200/782 - Loss CE: 1.1414, Loss KD: 4.2153
+  Batch 300/782 - Loss CE: 1.1572, Loss KD: 4.2419
+  Batch 400/782 - Loss CE: 1.1649, Loss KD: 4.2713
+  Batch 500/782 - Loss CE: 1.1677, Loss KD: 4.2820
+  Batch 600/782 - Loss CE: 1.1796, Loss KD: 4.3180
+  Batch 700/782 - Loss CE: 1.1850, Loss KD: 4.3426
+  Batch 782/782 - Loss CE: 1.1894, Loss KD: 4.3590
+Epoch 109 Training Complete - Avg Loss CE: 1.1894, Avg Loss KD: 4.3590
+
+Epoch 109 Results - Train Acc: 70.83% | Test Acc: 58.00% | Best: 62.67%
+0.005871309722222222
+Epoch 110: Training...
+
+  Batch 100/782 - Loss CE: 1.1427, Loss KD: 4.2504
+  Batch 200/782 - Loss CE: 1.1587, Loss KD: 4.2737
+  Batch 300/782 - Loss CE: 1.1697, Loss KD: 4.2956
+  Batch 400/782 - Loss CE: 1.1786, Loss KD: 4.3114
+  Batch 500/782 - Loss CE: 1.1853, Loss KD: 4.3280
+  Batch 600/782 - Loss CE: 1.1876, Loss KD: 4.3367
+  Batch 700/782 - Loss CE: 1.1909, Loss KD: 4.3515
+  Batch 782/782 - Loss CE: 1.1917, Loss KD: 4.3591
+Epoch 110 Training Complete - Avg Loss CE: 1.1917, Avg Loss KD: 4.3591
+
+Epoch 110 Results - Train Acc: 70.68% | Test Acc: 62.80% | Best: 62.80%
+0.005957123055555556
+Epoch 111: Training...
+
+  Batch 100/782 - Loss CE: 1.1236, Loss KD: 4.1604
+  Batch 200/782 - Loss CE: 1.1318, Loss KD: 4.1811
+  Batch 300/782 - Loss CE: 1.1391, Loss KD: 4.1915
+  Batch 400/782 - Loss CE: 1.1527, Loss KD: 4.2396
+  Batch 500/782 - Loss CE: 1.1611, Loss KD: 4.2699
+  Batch 600/782 - Loss CE: 1.1675, Loss KD: 4.2839
+  Batch 700/782 - Loss CE: 1.1750, Loss KD: 4.3111
+  Batch 782/782 - Loss CE: 1.1807, Loss KD: 4.3279
+Epoch 111 Training Complete - Avg Loss CE: 1.1807, Avg Loss KD: 4.3279
+[31m[EVAL] Top-1:60.018| Top-5:85.406[0m:  97%|█████████▋| 152/157 [00:02<00:00, 80.90it/s][31m[EVAL] Top-1:60.018| Top-5:85.406[0m:  97%|█████████▋| 153/157 [00:02<00:00, 79.00it/s][31m[EVAL] Top-1:60.065| Top-5:85.400[0m:  97%|█████████▋| 153/157 [00:02<00:00, 79.00it/s][31m[EVAL] Top-1:60.050| Top-5:85.403[0m:  98%|█████████▊| 154/157 [00:02<00:00, 79.00it/s][31m[EVAL] Top-1:60.056| Top-5:85.427[0m:  99%|█████████▊| 155/157 [00:02<00:00, 79.00it/s][31m[EVAL] Top-1:60.060| Top-5:85.440[0m:  99%|█████████▉| 156/157 [00:02<00:00, 79.00it/s][31m[EVAL] Top-1:60.060| Top-5:85.440[0m: 100%|██████████| 157/157 [00:02<00:00, 73.72it/s]64
+Epoch 111 Results - Train Acc: 70.98% | Test Acc: 60.06% | Best: 62.80%
+0.00564824
+Epoch 112: Training...
+
+  Batch 100/782 - Loss CE: 1.1053, Loss KD: 4.1040
+  Batch 200/782 - Loss CE: 1.1278, Loss KD: 4.1760
+  Batch 300/782 - Loss CE: 1.1448, Loss KD: 4.2191
+  Batch 400/782 - Loss CE: 1.1668, Loss KD: 4.2827
+  Batch 500/782 - Loss CE: 1.1750, Loss KD: 4.3180
+  Batch 600/782 - Loss CE: 1.1798, Loss KD: 4.3209
+  Batch 700/782 - Loss CE: 1.1823, Loss KD: 4.3307
+  Batch 782/782 - Loss CE: 1.1889, Loss KD: 4.3502
+Epoch 112 Training Complete - Avg Loss CE: 1.1889, Avg Loss KD: 4.3502
+  0%|          | 0/157 [00:00<?, ?it/s][31m[EVAL] Top-1:60.938| Top-5:84.375[0m:   0%|          | 0/157 [00:00<?, ?it/s][31m[EVAL] Top-1:60.938| Top-5:84.375[0m:   1%|          | 1/157 [00:00<00:19,  7.92it/s][31m[EVAL] Top-1:61.719| Top-5:86.719[0m:   1%|          | 1/157 [00:00<00:19,  7.92it/s][31m[EVAL] Top-1:63.542| Top-5:84.896[0m:   1%|▏         | 2/157 [00:00<00:19,  7.92it/s][31m[EVAL] Top-1:62.891| Top-5:85.938[0m:   2%|▏         | 3/157 [00:00<00:19,  7.92it/s][31m[EVAL] Top-1:63.750| Top-5:85.938[0m:   3%|▎         | 4/157 [00:00<00:19,  7.92it/s][31m[EVAL] Top-1:63.802| Top-5:87.240[0m:   3%|▎         | 5/157 [00:00<00:19,  7.92it/s][31m[EVAL] Top-1:61.830| Top-5:87.054[0m:   4%|▍         | 6/157 [00:00<00:19,  7.92it/s][31m[EVAL] Top-1:61.523| Top-5:87.109[0m:   4%|▍         | 7/157 [00:00<00:18,  7.92it/s][31m[EVAL] Top-1:60.069| Top-5:85.938[0m:   5%|▌         | 8/157 [00:00<00:18,  7.92it/s][31m[EVAL] Top-1:60.156| Top-5:85.938[0m:   6%|▌         | 9/157 [00:00<00:18,  7.92it/s][31m[EVAL] Top-1:60.156| Top-5:85.938[0m:   6%|▋         | 10/157 [00:00<00:02, 50.06it/s][31m[EVAL] Top-1:61.080| Top-5:86.222[0m:   6%|▋         | 10/157 [00:00<00:02, 50.06it/s][31m[EVAL] Top-1:61.328| Top-5:86.719[0m:   7%|▋         | 11/157 [00:00<00:02, 50.06it/s][31m[EVAL] Top-1:61.899| Top-5:86.659[0m:   8%|▊         | 12/157 [00:00<00:02, 50.06it/s][31m[EVAL] Top-1:61.719| Top-5:86.384[0m:   8%|▊         | 13/157 [00:00<00:02, 50.06it/s][31m[EVAL] Top-1:61.146| Top-5:86.354[0m:   9%|▉         | 14/157 [00:00<00:02, 50.06it/s][31m[EVAL] Top-1:60.742| Top-5:86.621[0m:  10%|▉         | 15/157 [00:00<00:02, 50.06it/s][31m[EVAL] Top-1:60.938| Top-5:86.857[0m:  10%|█         | 16/157 [00:00<00:02, 50.06it/s][31m[EVAL] Top-1:60.677| Top-5:86.719[0m:  11%|█         | 17/157 [00:00<00:02, 50.06it/s][31m[EVAL] Top-1:61.431| Top-5:86.924[0m:  11%|█▏        | 18/157 [00:00<00:02, 50.06it/s][31m[EVAL] Top-1:61.431| Top-5:86.924[0m:  12%|█▏        | 19/157 [00:00<00:02, 64.53it/s][31m[EVAL] Top-1:61.875| Top-5:87.188[0m:  12%|█▏        | 19/157 [00:00<00:02, 64.53it/s][31m[EVAL] Top-1:61.458| Top-5:87.054[0m:  13%|█▎        | 20/157 [00:00<00:02, 64.53it/s][31m[EVAL] Top-1:61.293| Top-5:87.145[0m:  13%|█▎        | 21/157 [00:00<00:02, 64.53it/s][31m[EVAL] Top-1:61.005| Top-5:86.957[0m:  14%|█▍        | 22/157 [00:00<00:02, 64.53it/s][31m[EVAL] Top-1:60.807| Top-5:86.849[0m:  15%|█▍        | 23/157 [00:00<00:02, 64.53it/s][31m[EVAL] Top-1:60.312| Top-5:87.188[0m:  15%|█▌        | 24/157 [00:00<00:02, 64.53it/s][31m[EVAL] Top-1:60.276| Top-5:87.320[0m:  16%|█▌        | 25/157 [00:00<00:02, 64.53it/s][31m[EVAL] Top-1:60.185| Top-5:87.211[0m:  17%|█▋        | 26/157 [00:00<00:02, 64.53it/s][31m[EVAL] Top-1:59.933| Top-5:87.165[0m:  17%|█▋        | 27/157 [00:00<00:02, 64.53it/s][31m[EVAL] Top-1:59.933| Top-5:87.165[0m:  18%|█▊        | 28/157 [00:00<00:01, 71.49it/s][31m[EVAL] Top-1:59.968| Top-5:87.177[0m:  18%|█▊        | 28/157 [00:00<00:01, 71.49it/s][31m[EVAL] Top-1:59.948| Top-5:87.240[0m:  18%|█▊        | 29/157 [00:00<00:01, 71.49it/s][31m[EVAL] Top-1:60.081| Top-5:87.147[0m:  19%|█▉        | 30/157 [00:00<00:01, 71.49it/s][31m[EVAL] Top-1:60.352| Top-5:87.305[0m:  20%|█▉        | 31/157 [00:00<00:01, 71.49it/s][31m[EVAL] Top-1:60.369| Top-5:87.311[0m:  20%|██        | 32/157 [00:00<00:01, 71.49it/s][31m[EVAL] Top-1:60.294| Top-5:87.178[0m:  21%|██        | 33/157 [00:00<00:01, 71.49it/s][31m[EVAL] Top-1:60.268| Top-5:86.964[0m:  22%|██▏       | 34/157 [00:00<00:01, 71.49it/s][31m[EVAL] Top-1:60.373| Top-5:87.153[0m:  22%|██▏       | 35/157 [00:00<00:01, 71.49it/s][31m[EVAL] Top-1:60.093| Top-5:87.078[0m:  23%|██▎       | 36/157 [00:00<00:01, 71.49it/s][31m[EVAL] Top-1:60.093| Top-5:87.078[0m:  24%|██▎       | 37/157 [00:00<00:01, 75.93it/s][31m[EVAL] Top-1:59.868| Top-5:87.089[0m:  24%|██▎       | 37/157 [00:00<00:01, 75.93it/s][31m[EVAL] Top-1:60.016| Top-5:87.179[0m:  24%|██▍       | 38/157 [00:00<00:01, 75.93it/s][31m[EVAL] Top-1:59.961| Top-5:87.227[0m:  25%|██▍       | 39/157 [00:00<00:01, 75.93it/s][31m[EVAL] Top-1:60.061| Top-5:87.195[0m:  25%|██▌       | 40/157 [00:00<00:01, 75.93it/s][31m[EVAL] Top-1:59.933| Top-5:87.128[0m:  26%|██▌       | 41/157 [00:00<00:01, 75.93it/s][31m[EVAL] Top-1:59.920| Top-5:87.137[0m:  27%|██▋       | 42/157 [00:00<00:01, 75.93it/s][31m[EVAL] Top-1:59.872| Top-5:87.074[0m:  27%|██▋       | 43/157 [00:00<00:01, 75.93it/s][31m[EVAL] Top-1:59.722| Top-5:86.840[0m:  28%|██▊       | 44/157 [00:00<00:01, 75.93it/s][31m[EVAL] Top-1:59.681| Top-5:86.821[0m:  29%|██▊       | 45/157 [00:00<00:01, 75.93it/s][31m[EVAL] Top-1:59.681| Top-5:86.821[0m:  29%|██▉       | 46/157 [00:00<00:01, 78.45it/s][31m[EVAL] Top-1:59.674| Top-5:86.835[0m:  29%|██▉       | 46/157 [00:00<00:01, 78.45it/s][31m[EVAL] Top-1:59.603| Top-5:86.849[0m:  30%|██▉       | 47/157 [00:00<00:01, 78.45it/s][31m[EVAL] Top-1:59.503| Top-5:86.958[0m:  31%|███       | 48/157 [00:00<00:01, 78.45it/s][31m[EVAL] Top-1:59.625| Top-5:87.062[0m:  31%|███       | 49/157 [00:00<00:01, 78.45it/s][31m[EVAL] Top-1:59.252| Top-5:87.071[0m:  32%|███▏      | 50/157 [00:00<00:01, 78.45it/s][31m[EVAL] Top-1:59.225| Top-5:87.079[0m:  32%|███▏      | 51/157 [00:00<00:01, 78.45it/s][31m[EVAL] Top-1:59.198| Top-5:87.028[0m:  33%|███▎      | 52/157 [00:00<00:01, 78.45it/s][31m[EVAL] Top-1:59.317| Top-5:87.037[0m:  34%|███▍      | 53/157 [00:00<00:01, 78.45it/s][31m[EVAL] Top-1:59.148| Top-5:86.960[0m:  34%|███▍      | 54/157 [00:00<00:01, 78.45it/s][31m[EVAL] Top-1:59.148| Top-5:86.960[0m:  35%|███▌      | 55/157 [00:00<00:01, 80.12it/s][31m[EVAL] Top-1:59.208| Top-5:86.998[0m:  35%|███▌      | 55/157 [00:00<00:01, 80.12it/s][31m[EVAL] Top-1:59.265| Top-5:87.116[0m:  36%|███▌      | 56/157 [00:00<00:01, 80.12it/s][31m[EVAL] Top-1:59.240| Top-5:87.177[0m:  36%|███▋      | 57/157 [00:00<00:01, 80.12it/s][31m[EVAL] Top-1:59.481| Top-5:87.209[0m:  37%|███▋      | 58/157 [00:00<00:01, 80.12it/s][31m[EVAL] Top-1:59.583| Top-5:87.266[0m:  38%|███▊      | 59/157 [00:00<00:01, 80.12it/s][31m[EVAL] Top-1:59.375| Top-5:87.167[0m:  38%|███▊      | 60/157 [00:00<00:01, 80.12it/s][31m[EVAL] Top-1:59.325| Top-5:87.097[0m:  39%|███▉      | 61/157 [00:00<00:01, 80.12it/s][31m[EVAL] Top-1:59.325| Top-5:87.078[0m:  39%|███▉      | 62/157 [00:00<00:01, 80.12it/s][31m[EVAL] Top-1:59.326| Top-5:87.012[0m:  40%|████      | 63/157 [00:00<00:01, 80.12it/s][31m[EVAL] Top-1:59.326| Top-5:87.012[0m:  41%|████      | 64/157 [00:00<00:01, 81.15it/s][31m[EVAL] Top-1:59.375| Top-5:87.043[0m:  41%|████      | 64/157 [00:00<00:01, 81.15it/s][31m[EVAL] Top-1:59.422| Top-5:87.003[0m:  41%|████▏     | 65/157 [00:00<00:01, 81.15it/s][31m[EVAL] Top-1:59.445| Top-5:87.057[0m:  42%|████▏     | 66/157 [00:00<00:01, 81.15it/s][31m[EVAL] Top-1:59.375| Top-5:86.972[0m:  43%|████▎     | 67/157 [00:00<00:01, 81.15it/s][31m[EVAL] Top-1:59.443| Top-5:87.024[0m:  43%|████▎     | 68/157 [00:00<00:01, 81.15it/s][31m[EVAL] Top-1:59.487| Top-5:87.054[0m:  44%|████▍     | 69/157 [00:00<00:01, 81.15it/s][31m[EVAL] Top-1:59.397| Top-5:87.016[0m:  45%|████▍     | 70/157 [00:00<00:01, 81.15it/s][31m[EVAL] Top-1:59.440| Top-5:86.936[0m:  45%|████▌     | 71/157 [00:00<00:01, 81.15it/s][31m[EVAL] Top-1:59.439| Top-5:86.943[0m:  46%|████▌     | 72/157 [00:00<00:01, 81.15it/s][31m[EVAL] Top-1:59.439| Top-5:86.943[0m:  46%|████▋     | 73/157 [00:00<00:01, 81.78it/s][31m[EVAL] Top-1:59.459| Top-5:86.951[0m:  46%|████▋     | 73/157 [00:01<00:01, 81.78it/s][31m[EVAL] Top-1:59.438| Top-5:86.958[0m:  47%|████▋     | 74/157 [00:01<00:01, 81.78it/s][31m[EVAL] Top-1:59.293| Top-5:86.863[0m:  48%|████▊     | 75/157 [00:01<00:01, 81.78it/s][31m[EVAL] Top-1:59.233| Top-5:86.830[0m:  48%|████▊     | 76/157 [00:01<00:00, 81.78it/s][31m[EVAL] Top-1:59.355| Top-5:86.859[0m:  49%|████▉     | 77/157 [00:01<00:00, 81.78it/s][31m[EVAL] Top-1:59.395| Top-5:86.788[0m:  50%|████▉     | 78/157 [00:01<00:00, 81.78it/s][31m[EVAL] Top-1:59.355| Top-5:86.758[0m:  50%|█████     | 79/157 [00:01<00:00, 81.78it/s][31m[EVAL] Top-1:59.259| Top-5:86.767[0m:  51%|█████     | 80/157 [00:01<00:00, 81.78it/s][31m[EVAL] Top-1:59.337| Top-5:86.852[0m:  52%|█████▏    | 81/157 [00:01<00:00, 81.78it/s][31m[EVAL] Top-1:59.337| Top-5:86.852[0m:  52%|█████▏    | 82/157 [00:01<00:00, 82.44it/s][31m[EVAL] Top-1:59.281| Top-5:86.803[0m:  52%|█████▏    | 82/157 [00:01<00:00, 82.44it/s][31m[EVAL] Top-1:59.245| Top-5:86.756[0m:  53%|█████▎    | 83/157 [00:01<00:00, 82.44it/s][31m[EVAL] Top-1:59.191| Top-5:86.783[0m:  54%|█████▎    | 84/157 [00:01<00:00, 82.44it/s][31m[EVAL] Top-1:59.266| Top-5:86.791[0m:  54%|█████▍    | 85/157 [00:01<00:00, 82.44it/s][31m[EVAL] Top-1:59.303| Top-5:86.871[0m:  55%|█████▍    | 86/157 [00:01<00:00, 82.44it/s][31m[EVAL] Top-1:59.322| Top-5:86.914[0m:  55%|█████▌    | 87/157 [00:01<00:00, 82.44it/s][31m[EVAL] Top-1:59.410| Top-5:86.938[0m:  56%|█████▌    | 88/157 [00:01<00:00, 82.44it/s][31m[EVAL] Top-1:59.375| Top-5:86.944[0m:  57%|█████▋    | 89/157 [00:01<00:00, 82.44it/s][31m[EVAL] Top-1:59.392| Top-5:86.985[0m:  57%|█████▋    | 90/157 [00:01<00:00, 82.44it/s][31m[EVAL] Top-1:59.392| Top-5:86.985[0m:  58%|█████▊    | 91/157 [00:01<00:00, 82.60it/s][31m[EVAL] Top-1:59.443| Top-5:87.024[0m:  58%|█████▊    | 91/157 [00:01<00:00, 82.60it/s][31m[EVAL] Top-1:59.493| Top-5:87.097[0m:  59%|█████▊    | 92/157 [00:01<00:00, 82.60it/s][31m[EVAL] Top-1:59.441| Top-5:87.068[0m:  59%|█████▉    | 93/157 [00:01<00:00, 82.60it/s][31m[EVAL] Top-1:59.408| Top-5:87.072[0m:  60%|█████▉    | 94/157 [00:01<00:00, 82.60it/s][31m[EVAL] Top-1:59.391| Top-5:87.044[0m:  61%|██████    | 95/157 [00:01<00:00, 82.60it/s][31m[EVAL] Top-1:59.230| Top-5:86.968[0m:  61%|██████    | 96/157 [00:01<00:00, 82.60it/s][31m[EVAL] Top-1:59.279| Top-5:86.926[0m:  62%|██████▏   | 97/157 [00:01<00:00, 82.60it/s][31m[EVAL] Top-1:59.328| Top-5:86.963[0m:  62%|██████▏   | 98/157 [00:01<00:00, 82.60it/s][31m[EVAL] Top-1:59.359| Top-5:87.000[0m:  63%|██████▎   | 99/157 [00:01<00:00, 82.60it/s][31m[EVAL] Top-1:59.359| Top-5:87.000[0m:  64%|██████▎   | 100/157 [00:01<00:00, 80.76it/s][31m[EVAL] Top-1:59.313| Top-5:86.943[0m:  64%|██████▎   | 100/157 [00:01<00:00, 80.76it/s][31m[EVAL] Top-1:59.283| Top-5:86.887[0m:  64%|██████▍   | 101/157 [00:01<00:00, 80.76it/s][31m[EVAL] Top-1:59.208| Top-5:86.802[0m:  65%|██████▍   | 102/157 [00:01<00:00, 80.76it/s][31m[EVAL] Top-1:59.180| Top-5:86.824[0m:  66%|██████▌   | 103/157 [00:01<00:00, 80.76it/s][31m[EVAL] Top-1:59.330| Top-5:86.875[0m:  66%|██████▌   | 104/157 [00:01<00:00, 80.76it/s][31m[EVAL] Top-1:59.390| Top-5:86.778[0m:  67%|██████▋   | 105/157 [00:01<00:00, 80.76it/s][31m[EVAL] Top-1:59.390| Top-5:86.784[0m:  68%|██████▊   | 106/157 [00:01<00:00, 80.76it/s][31m[EVAL] Top-1:59.462| Top-5:86.777[0m:  68%|██████▊   | 107/157 [00:01<00:00, 80.76it/s][31m[EVAL] Top-1:59.475| Top-5:86.826[0m:  69%|██████▉   | 108/157 [00:01<00:00, 80.76it/s][31m[EVAL] Top-1:59.475| Top-5:86.826[0m:  69%|██████▉   | 109/157 [00:01<00:00, 81.62it/s][31m[EVAL] Top-1:59.432| Top-5:86.804[0m:  69%|██████▉   | 109/157 [00:01<00:00, 81.62it/s][31m[EVAL] Top-1:59.333| Top-5:86.768[0m:  70%|███████   | 110/157 [00:01<00:00, 81.62it/s][31m[EVAL] Top-1:59.361| Top-5:86.830[0m:  71%|███████   | 111/157 [00:01<00:00, 81.62it/s][31m[EVAL] Top-1:59.416| Top-5:86.864[0m:  71%|███████▏  | 112/157 [00:01<00:00, 81.62it/s][31m[EVAL] Top-1:59.498| Top-5:86.870[0m:  72%|███████▏  | 113/157 [00:01<00:00, 81.62it/s][31m[EVAL] Top-1:59.457| Top-5:86.875[0m:  73%|███████▎  | 114/157 [00:01<00:00, 81.62it/s][31m[EVAL] Top-1:59.429| Top-5:86.786[0m:  73%|███████▎  | 115/157 [00:01<00:00, 81.62it/s][31m[EVAL] Top-1:59.388| Top-5:86.685[0m:  74%|███████▍  | 116/157 [00:01<00:00, 81.62it/s][31m[EVAL] Top-1:59.547| Top-5:86.772[0m:  75%|███████▍  | 117/157 [00:01<00:00, 81.62it/s][31m[EVAL] Top-1:59.547| Top-5:86.772[0m:  75%|███████▌  | 118/157 [00:01<00:00, 82.09it/s][31m[EVAL] Top-1:59.493| Top-5:86.673[0m:  75%|███████▌  | 118/157 [00:01<00:00, 82.09it/s][31m[EVAL] Top-1:59.492| Top-5:86.706[0m:  76%|███████▌  | 119/157 [00:01<00:00, 82.09it/s][31m[EVAL] Top-1:59.491| Top-5:86.648[0m:  76%|███████▋  | 120/157 [00:01<00:00, 82.09it/s][31m[EVAL] Top-1:59.439| Top-5:86.642[0m:  77%|███████▋  | 121/157 [00:01<00:00, 82.09it/s][31m[EVAL] Top-1:59.464| Top-5:86.636[0m:  78%|███████▊  | 122/157 [00:01<00:00, 82.09it/s][31m[EVAL] Top-1:59.438| Top-5:86.618[0m:  78%|███████▊  | 123/157 [00:01<00:00, 82.09it/s][31m[EVAL] Top-1:59.488| Top-5:86.600[0m:  79%|███████▉  | 124/157 [00:01<00:00, 82.09it/s][31m[EVAL] Top-1:59.524| Top-5:86.620[0m:  80%|███████▉  | 125/157 [00:01<00:00, 82.09it/s][31m[EVAL] Top-1:59.547| Top-5:86.565[0m:  80%|████████  | 126/157 [00:01<00:00, 82.09it/s][31m[EVAL] Top-1:59.547| Top-5:86.565[0m:  81%|████████  | 127/157 [00:01<00:00, 82.36it/s][31m[EVAL] Top-1:59.595| Top-5:86.536[0m:  81%|████████  | 127/157 [00:01<00:00, 82.36it/s][31m[EVAL] Top-1:59.605| Top-5:86.543[0m:  82%|████████▏ | 128/157 [00:01<00:00, 82.36it/s][31m[EVAL] Top-1:59.615| Top-5:86.575[0m:  82%|████████▏ | 129/157 [00:01<00:00, 82.36it/s][31m[EVAL] Top-1:59.673| Top-5:86.617[0m:  83%|████████▎ | 130/157 [00:01<00:00, 82.36it/s][31m[EVAL] Top-1:59.730| Top-5:86.648[0m:  83%|████████▎ | 131/157 [00:01<00:00, 82.36it/s][31m[EVAL] Top-1:59.716| Top-5:86.689[0m:  84%|████████▍ | 132/157 [00:01<00:00, 82.36it/s][31m[EVAL] Top-1:59.725| Top-5:86.730[0m:  85%|████████▍ | 133/157 [00:01<00:00, 82.36it/s][31m[EVAL] Top-1:59.711| Top-5:86.759[0m:  85%|████████▌ | 134/157 [00:01<00:00, 82.36it/s][31m[EVAL] Top-1:59.708| Top-5:86.788[0m:  86%|████████▌ | 135/157 [00:01<00:00, 82.36it/s][31m[EVAL] Top-1:59.708| Top-5:86.788[0m:  87%|████████▋ | 136/157 [00:01<00:00, 82.77it/s][31m[EVAL] Top-1:59.820| Top-5:86.839[0m:  87%|████████▋ | 136/157 [00:01<00:00, 82.77it/s][31m[EVAL] Top-1:59.805| Top-5:86.877[0m:  87%|████████▋ | 137/157 [00:01<00:00, 82.77it/s][31m[EVAL] Top-1:59.836| Top-5:86.859[0m:  88%|████████▊ | 138/157 [00:01<00:00, 82.77it/s][31m[EVAL] Top-1:59.877| Top-5:86.875[0m:  89%|████████▊ | 139/157 [00:01<00:00, 82.77it/s][31m[EVAL] Top-1:59.918| Top-5:86.824[0m:  89%|████████▉ | 140/157 [00:01<00:00, 82.77it/s][31m[EVAL] Top-1:59.936| Top-5:86.873[0m:  90%|████████▉ | 141/157 [00:01<00:00, 82.77it/s][31m[EVAL] Top-1:59.889| Top-5:86.812[0m:  90%|█████████ | 142/157 [00:01<00:00, 82.77it/s][31m[EVAL] Top-1:59.950| Top-5:86.838[0m:  91%|█████████ | 143/157 [00:01<00:00, 82.77it/s][31m[EVAL] Top-1:59.989| Top-5:86.853[0m:  92%|█████████▏| 144/157 [00:01<00:00, 82.77it/s][31m[EVAL] Top-1:59.989| Top-5:86.853[0m:  92%|█████████▏| 145/157 [00:01<00:00, 83.07it/s][31m[EVAL] Top-1:60.028| Top-5:86.869[0m:  92%|█████████▏| 145/157 [00:01<00:00, 83.07it/s][31m[EVAL] Top-1:60.055| Top-5:86.883[0m:  93%|█████████▎| 146/157 [00:01<00:00, 83.07it/s][31m[EVAL] Top-1:60.051| Top-5:86.877[0m:  94%|█████████▎| 147/157 [00:01<00:00, 83.07it/s][31m[EVAL] Top-1:60.120| Top-5:86.892[0m:  94%|█████████▍| 148/157 [00:01<00:00, 83.07it/s][31m[EVAL] Top-1:60.198| Top-5:86.896[0m:  95%|█████████▍| 149/157 [00:01<00:00, 83.07it/s][31m[EVAL] Top-1:60.224| Top-5:86.910[0m:  96%|█████████▌| 150/157 [00:01<00:00, 83.07it/s][31m[EVAL] Top-1:60.238| Top-5:86.914[0m:  96%|█████████▌| 151/157 [00:01<00:00, 83.07it/s][31m[EVAL] Top-1:60.212| Top-5:86.897[0m:  97%|█████████▋| 152/157 [00:01<00:00, 83.07it/s][31m[EVAL] Top-1:60.227| Top-5:86.901[0m:  97%|█████████▋| 153/157 [00:01<00:00, 83.07it/s][31m[EVAL] Top-1:60.227| Top-5:86.901[0m:  98%|█████████▊| 154/157 [00:01<00:00, 82.43it/s][31m[EVAL] Top-1:60.151| Top-5:86.895[0m:  98%|█████████▊| 154/157 [00:01<00:00, 82.43it/s][31m[EVAL] Top-1:60.176| Top-5:86.909[0m:  99%|█████████▊| 155/157 [00:01<00:00, 82.43it/s][31m[EVAL] Top-1:60.150| Top-5:86.890[0m:  99%|█████████▉| 156/157 [00:02<00:00, 82.43it/s][31m[EVAL] Top-1:60.150| Top-5:86.890[0m: 100%|██████████| 157/157 [00:02<00:00, 75.46it/s]64
+Epoch 112 Results - Train Acc: 70.74% | Test Acc: 60.15% | Best: 62.80%
+0.005639651944444444
+Epoch 113: Training...
+
+  Batch 100/782 - Loss CE: 1.1265, Loss KD: 4.1133
+  Batch 200/782 - Loss CE: 1.1386, Loss KD: 4.1682
+  Batch 300/782 - Loss CE: 1.1400, Loss KD: 4.1913
+  Batch 400/782 - Loss CE: 1.1553, Loss KD: 4.2492
+  Batch 500/782 - Loss CE: 1.1635, Loss KD: 4.2799
+  Batch 600/782 - Loss CE: 1.1742, Loss KD: 4.3201
+  Batch 700/782 - Loss CE: 1.1831, Loss KD: 4.3404
+  Batch 782/782 - Loss CE: 1.1869, Loss KD: 4.3506
+Epoch 113 Training Complete - Avg Loss CE: 1.1869, Avg Loss KD: 4.3506
+  0%|          | 0/157 [00:00<?, ?it/s][31m[EVAL] Top-1:67.188| Top-5:79.688[0m:   0%|          | 0/157 [00:00<?, ?it/s][31m[EVAL] Top-1:67.188| Top-5:79.688[0m:   1%|          | 1/157 [00:00<00:20,  7.61it/s][31m[EVAL] Top-1:67.188| Top-5:84.375[0m:   1%|          | 1/157 [00:00<00:20,  7.61it/s][31m[EVAL] Top-1:64.062| Top-5:84.896[0m:   1%|▏         | 2/157 [00:00<00:20,  7.61it/s][31m[EVAL] Top-1:65.234| Top-5:87.109[0m:   2%|▏         | 3/157 [00:00<00:20,  7.61it/s][31m[EVAL] Top-1:64.375| Top-5:86.875[0m:   3%|▎         | 4/157 [00:00<00:20,  7.61it/s][31m[EVAL] Top-1:63.802| Top-5:86.719[0m:   3%|▎         | 5/157 [00:00<00:19,  7.61it/s][31m[EVAL] Top-1:62.946| Top-5:87.054[0m:   4%|▍         | 6/157 [00:00<00:19,  7.61it/s][31m[EVAL] Top-1:63.086| Top-5:87.109[0m:   4%|▍         | 7/157 [00:00<00:19,  7.61it/s][31m[EVAL] Top-1:61.632| Top-5:86.458[0m:   5%|▌         | 8/157 [00:00<00:19,  7.61it/s][31m[EVAL] Top-1:62.344| Top-5:86.719[0m:   6%|▌         | 9/157 [00:00<00:19,  7.61it/s][31m[EVAL] Top-1:62.344| Top-5:86.719[0m:   6%|▋         | 10/157 [00:00<00:03, 48.61it/s][31m[EVAL] Top-1:62.074| Top-5:86.364[0m:   6%|▋         | 10/157 [00:00<00:03, 48.61it/s][31m[EVAL] Top-1:62.109| Top-5:86.849[0m:   7%|▋         | 11/157 [00:00<00:03, 48.61it/s][31m[EVAL] Top-1:62.380| Top-5:86.899[0m:   8%|▊         | 12/157 [00:00<00:02, 48.61it/s][31m[EVAL] Top-1:61.830| Top-5:86.607[0m:   8%|▊         | 13/157 [00:00<00:02, 48.61it/s][31m[EVAL] Top-1:61.563| Top-5:86.667[0m:   9%|▉         | 14/157 [00:00<00:02, 48.61it/s][31m[EVAL] Top-1:61.719| Top-5:86.719[0m:  10%|▉         | 15/157 [00:00<00:02, 48.61it/s][31m[EVAL] Top-1:61.765| Top-5:86.765[0m:  10%|█         | 16/157 [00:00<00:02, 48.61it/s][31m[EVAL] Top-1:62.066| Top-5:86.806[0m:  11%|█         | 17/157 [00:00<00:02, 48.61it/s][31m[EVAL] Top-1:62.253| Top-5:86.760[0m:  11%|█▏        | 18/157 [00:00<00:02, 48.61it/s][31m[EVAL] Top-1:62.253| Top-5:86.760[0m:  12%|█▏        | 19/157 [00:00<00:02, 63.13it/s][31m[EVAL] Top-1:62.656| Top-5:87.109[0m:  12%|█▏        | 19/157 [00:00<00:02, 63.13it/s][31m[EVAL] Top-1:62.351| Top-5:87.202[0m:  13%|█▎        | 20/157 [00:00<00:02, 63.13it/s][31m[EVAL] Top-1:62.500| Top-5:87.571[0m:  13%|█▎        | 21/157 [00:00<00:02, 63.13it/s][31m[EVAL] Top-1:62.568| Top-5:87.704[0m:  14%|█▍        | 22/157 [00:00<00:02, 63.13it/s][31m[EVAL] Top-1:62.435| Top-5:87.305[0m:  15%|█▍        | 23/157 [00:00<00:02, 63.13it/s][31m[EVAL] Top-1:62.062| Top-5:87.438[0m:  15%|█▌        | 24/157 [00:00<00:02, 63.13it/s][31m[EVAL] Top-1:62.380| Top-5:87.500[0m:  16%|█▌        | 25/157 [00:00<00:02, 63.13it/s][31m[EVAL] Top-1:61.921| Top-5:87.442[0m:  17%|█▋        | 26/157 [00:00<00:02, 63.13it/s][31m[EVAL] Top-1:61.775| Top-5:87.388[0m:  17%|█▋        | 27/157 [00:00<00:02, 63.13it/s][31m[EVAL] Top-1:61.775| Top-5:87.388[0m:  18%|█▊        | 28/157 [00:00<00:01, 69.66it/s][31m[EVAL] Top-1:61.853| Top-5:87.392[0m:  18%|█▊        | 28/157 [00:00<00:01, 69.66it/s][31m[EVAL] Top-1:62.240| Top-5:87.344[0m:  18%|█▊        | 29/157 [00:00<00:01, 69.66it/s][31m[EVAL] Top-1:62.147| Top-5:87.248[0m:  19%|█▉        | 30/157 [00:00<00:01, 69.66it/s][31m[EVAL] Top-1:62.695| Top-5:87.598[0m:  20%|█▉        | 31/157 [00:00<00:01, 69.66it/s][31m[EVAL] Top-1:62.642| Top-5:87.500[0m:  20%|██        | 32/157 [00:00<00:01, 69.66it/s][31m[EVAL] Top-1:62.868| Top-5:87.408[0m:  21%|██        | 33/157 [00:00<00:01, 69.66it/s][31m[EVAL] Top-1:62.946| Top-5:87.321[0m:  22%|██▏       | 34/157 [00:00<00:01, 69.66it/s][31m[EVAL] Top-1:62.891| Top-5:87.326[0m:  22%|██▏       | 35/157 [00:00<00:01, 69.66it/s][31m[EVAL] Top-1:62.711| Top-5:87.331[0m:  23%|██▎       | 36/157 [00:00<00:01, 69.66it/s][31m[EVAL] Top-1:62.711| Top-5:87.331[0m:  24%|██▎       | 37/157 [00:00<00:01, 73.49it/s][31m[EVAL] Top-1:62.541| Top-5:87.459[0m:  24%|██▎       | 37/157 [00:00<00:01, 73.49it/s][31m[EVAL] Top-1:62.420| Top-5:87.620[0m:  24%|██▍       | 38/157 [00:00<00:01, 73.49it/s][31m[EVAL] Top-1:62.383| Top-5:87.617[0m:  25%|██▍       | 39/157 [00:00<00:01, 73.49it/s][31m[EVAL] Top-1:62.348| Top-5:87.424[0m:  25%|██▌       | 40/157 [00:00<00:01, 73.49it/s][31m[EVAL] Top-1:62.240| Top-5:87.351[0m:  26%|██▌       | 41/157 [00:00<00:01, 73.49it/s][31m[EVAL] Top-1:62.282| Top-5:87.391[0m:  27%|██▋       | 42/157 [00:00<00:01, 73.49it/s][31m[EVAL] Top-1:62.109| Top-5:87.358[0m:  27%|██▋       | 43/157 [00:00<00:01, 73.49it/s][31m[EVAL] Top-1:62.014| Top-5:87.361[0m:  28%|██▊       | 44/157 [00:00<00:01, 73.49it/s][31m[EVAL] Top-1:62.014| Top-5:87.361[0m:  29%|██▊       | 45/157 [00:00<00:01, 75.34it/s][31m[EVAL] Top-1:62.092| Top-5:87.364[0m:  29%|██▊       | 45/157 [00:00<00:01, 75.34it/s][31m[EVAL] Top-1:62.035| Top-5:87.400[0m:  29%|██▉       | 46/157 [00:00<00:01, 75.34it/s][31m[EVAL] Top-1:61.947| Top-5:87.370[0m:  30%|██▉       | 47/157 [00:00<00:01, 75.34it/s][31m[EVAL] Top-1:61.990| Top-5:87.309[0m:  31%|███       | 48/157 [00:00<00:01, 75.34it/s][31m[EVAL] Top-1:61.938| Top-5:87.375[0m:  31%|███       | 49/157 [00:00<00:01, 75.34it/s][31m[EVAL] Top-1:61.826| Top-5:87.408[0m:  32%|███▏      | 50/157 [00:00<00:01, 75.34it/s][31m[EVAL] Top-1:61.869| Top-5:87.380[0m:  32%|███▏      | 51/157 [00:00<00:01, 75.34it/s][31m[EVAL] Top-1:61.704| Top-5:87.353[0m:  33%|███▎      | 52/157 [00:00<00:01, 75.34it/s][31m[EVAL] Top-1:61.704| Top-5:87.353[0m:  34%|███▍      | 53/157 [00:00<00:01, 76.46it/s][31m[EVAL] Top-1:61.661| Top-5:87.355[0m:  34%|███▍      | 53/157 [00:00<00:01, 76.46it/s][31m[EVAL] Top-1:61.477| Top-5:87.301[0m:  34%|███▍      | 54/157 [00:00<00:01, 76.46it/s][31m[EVAL] Top-1:61.663| Top-5:87.360[0m:  35%|███▌      | 55/157 [00:00<00:01, 76.46it/s][31m[EVAL] Top-1:61.595| Top-5:87.473[0m:  36%|███▌      | 56/157 [00:00<00:01, 76.46it/s][31m[EVAL] Top-1:61.584| Top-5:87.473[0m:  36%|███▋      | 57/157 [00:00<00:01, 76.46it/s][31m[EVAL] Top-1:61.706| Top-5:87.474[0m:  37%|███▋      | 58/157 [00:00<00:01, 76.46it/s][31m[EVAL] Top-1:61.693| Top-5:87.474[0m:  38%|███▊      | 59/157 [00:00<00:01, 76.46it/s][31m[EVAL] Top-1:61.603| Top-5:87.474[0m:  38%|███▊      | 60/157 [00:00<00:01, 76.46it/s][31m[EVAL] Top-1:61.618| Top-5:87.500[0m:  39%|███▉      | 61/157 [00:00<00:01, 76.46it/s][31m[EVAL] Top-1:61.618| Top-5:87.500[0m:  39%|███▉      | 62/157 [00:00<00:01, 77.84it/s][31m[EVAL] Top-1:61.582| Top-5:87.525[0m:  39%|███▉      | 62/157 [00:00<00:01, 77.84it/s][31m[EVAL] Top-1:61.646| Top-5:87.549[0m:  40%|████      | 63/157 [00:00<00:01, 77.84it/s][31m[EVAL] Top-1:61.635| Top-5:87.476[0m:  41%|████      | 64/157 [00:00<00:01, 77.84it/s][31m[EVAL] Top-1:61.553| Top-5:87.405[0m:  41%|████▏     | 65/157 [00:00<00:01, 77.84it/s][31m[EVAL] Top-1:61.590| Top-5:87.430[0m:  42%|████▏     | 66/157 [00:00<00:01, 77.84it/s][31m[EVAL] Top-1:61.512| Top-5:87.408[0m:  43%|████▎     | 67/157 [00:00<00:01, 77.84it/s][31m[EVAL] Top-1:61.368| Top-5:87.387[0m:  43%|████▎     | 68/157 [00:00<00:01, 77.84it/s][31m[EVAL] Top-1:61.496| Top-5:87.478[0m:  44%|████▍     | 69/157 [00:00<00:01, 77.84it/s][31m[EVAL] Top-1:61.496| Top-5:87.478[0m:  45%|████▍     | 70/157 [00:00<00:01, 77.64it/s][31m[EVAL] Top-1:61.422| Top-5:87.544[0m:  45%|████▍     | 70/157 [00:01<00:01, 77.64it/s][31m[EVAL] Top-1:61.350| Top-5:87.522[0m:  45%|████▌     | 71/157 [00:01<00:01, 77.64it/s][31m[EVAL] Top-1:61.344| Top-5:87.564[0m:  46%|████▌     | 72/157 [00:01<00:01, 77.64it/s][31m[EVAL] Top-1:61.296| Top-5:87.521[0m:  46%|████▋     | 73/157 [00:01<00:01, 77.64it/s][31m[EVAL] Top-1:61.271| Top-5:87.479[0m:  47%|████▋     | 74/157 [00:01<00:01, 77.64it/s][31m[EVAL] Top-1:61.123| Top-5:87.377[0m:  48%|████▊     | 75/157 [00:01<00:01, 77.64it/s][31m[EVAL] Top-1:61.120| Top-5:87.358[0m:  48%|████▊     | 76/157 [00:01<00:01, 77.64it/s][31m[EVAL] Top-1:61.158| Top-5:87.360[0m:  49%|████▉     | 77/157 [00:01<00:01, 77.64it/s][31m[EVAL] Top-1:61.158| Top-5:87.360[0m:  50%|████▉     | 78/157 [00:01<00:01, 77.79it/s][31m[EVAL] Top-1:61.135| Top-5:87.302[0m:  50%|████▉     | 78/157 [00:01<00:01, 77.79it/s][31m[EVAL] Top-1:61.113| Top-5:87.227[0m:  50%|█████     | 79/157 [00:01<00:01, 77.79it/s][31m[EVAL] Top-1:61.053| Top-5:87.249[0m:  51%|█████     | 80/157 [00:01<00:00, 77.79it/s][31m[EVAL] Top-1:61.185| Top-5:87.329[0m:  52%|█████▏    | 81/157 [00:01<00:00, 77.79it/s][31m[EVAL] Top-1:61.220| Top-5:87.387[0m:  52%|█████▏    | 82/157 [00:01<00:00, 77.79it/s][31m[EVAL] Top-1:61.310| Top-5:87.370[0m:  53%|█████▎    | 83/157 [00:01<00:00, 77.79it/s][31m[EVAL] Top-1:61.305| Top-5:87.316[0m:  54%|█████▎    | 84/157 [00:01<00:00, 77.79it/s][31m[EVAL] Top-1:61.301| Top-5:87.209[0m:  54%|█████▍    | 85/157 [00:01<00:00, 77.79it/s][31m[EVAL] Top-1:61.404| Top-5:87.249[0m:  55%|█████▍    | 86/157 [00:01<00:00, 77.79it/s][31m[EVAL] Top-1:61.404| Top-5:87.249[0m:  55%|█████▌    | 87/157 [00:01<00:00, 79.35it/s][31m[EVAL] Top-1:61.488| Top-5:87.340[0m:  55%|█████▌    | 87/157 [00:01<00:00, 79.35it/s][31m[EVAL] Top-1:61.622| Top-5:87.395[0m:  56%|█████▌    | 88/157 [00:01<00:00, 79.35it/s][31m[EVAL] Top-1:61.701| Top-5:87.413[0m:  57%|█████▋    | 89/157 [00:01<00:00, 79.35it/s][31m[EVAL] Top-1:61.762| Top-5:87.483[0m:  57%|█████▋    | 90/157 [00:01<00:00, 79.35it/s][31m[EVAL] Top-1:61.753| Top-5:87.432[0m:  58%|█████▊    | 91/157 [00:01<00:00, 79.35it/s][31m[EVAL] Top-1:61.828| Top-5:87.517[0m:  59%|█████▊    | 92/157 [00:01<00:00, 79.35it/s][31m[EVAL] Top-1:61.769| Top-5:87.483[0m:  59%|█████▉    | 93/157 [00:01<00:00, 79.35it/s][31m[EVAL] Top-1:61.760| Top-5:87.500[0m:  60%|█████▉    | 94/157 [00:01<00:00, 79.35it/s][31m[EVAL] Top-1:61.816| Top-5:87.467[0m:  61%|██████    | 95/157 [00:01<00:00, 79.35it/s][31m[EVAL] Top-1:61.816| Top-5:87.467[0m:  61%|██████    | 96/157 [00:01<00:00, 80.33it/s][31m[EVAL] Top-1:61.646| Top-5:87.387[0m:  61%|██████    | 96/157 [00:01<00:00, 80.33it/s][31m[EVAL] Top-1:61.687| Top-5:87.452[0m:  62%|██████▏   | 97/157 [00:01<00:00, 80.33it/s][31m[EVAL] Top-1:61.679| Top-5:87.468[0m:  62%|██████▏   | 98/157 [00:01<00:00, 80.33it/s][31m[EVAL] Top-1:61.750| Top-5:87.516[0m:  63%|██████▎   | 99/157 [00:01<00:00, 80.33it/s][31m[EVAL] Top-1:61.742| Top-5:87.485[0m:  64%|██████▎   | 100/157 [00:01<00:00, 80.33it/s][31m[EVAL] Top-1:61.673| Top-5:87.377[0m:  64%|██████▍   | 101/157 [00:01<00:00, 80.33it/s][31m[EVAL] Top-1:61.590| Top-5:87.303[0m:  65%|██████▍   | 102/157 [00:01<00:00, 80.33it/s][31m[EVAL] Top-1:61.553| Top-5:87.320[0m:  66%|██████▌   | 103/157 [00:01<00:00, 80.33it/s][31m[EVAL] Top-1:61.667| Top-5:87.351[0m:  66%|██████▌   | 104/157 [00:01<00:00, 80.33it/s][31m[EVAL] Top-1:61.667| Top-5:87.351[0m:  67%|██████▋   | 105/157 [00:01<00:00, 79.80it/s][31m[EVAL] Top-1:61.630| Top-5:87.323[0m:  67%|██████▋   | 105/157 [00:01<00:00, 79.80it/s][31m[EVAL] Top-1:61.595| Top-5:87.281[0m:  68%|██████▊   | 106/157 [00:01<00:00, 79.80it/s][31m[EVAL] Top-1:61.632| Top-5:87.355[0m:  68%|██████▊   | 107/157 [00:01<00:00, 79.80it/s][31m[EVAL] Top-1:61.597| Top-5:87.443[0m:  69%|██████▉   | 108/157 [00:01<00:00, 79.80it/s][31m[EVAL] Top-1:61.534| Top-5:87.429[0m:  69%|██████▉   | 109/157 [00:01<00:00, 79.80it/s][31m[EVAL] Top-1:61.543| Top-5:87.444[0m:  70%|███████   | 110/157 [00:01<00:00, 79.80it/s][31m[EVAL] Top-1:61.579| Top-5:87.444[0m:  71%|███████   | 111/157 [00:01<00:00, 79.80it/s][31m[EVAL] Top-1:61.643| Top-5:87.500[0m:  71%|███████▏  | 112/157 [00:01<00:00, 79.80it/s][31m[EVAL] Top-1:61.643| Top-5:87.500[0m:  72%|███████▏  | 113/157 [00:01<00:00, 79.71it/s][31m[EVAL] Top-1:61.746| Top-5:87.486[0m:  72%|███████▏  | 113/157 [00:01<00:00, 79.71it/s][31m[EVAL] Top-1:61.739| Top-5:87.514[0m:  73%|███████▎  | 114/157 [00:01<00:00, 79.71it/s][31m[EVAL] Top-1:61.678| Top-5:87.419[0m:  73%|███████▎  | 115/157 [00:01<00:00, 79.71it/s][31m[EVAL] Top-1:61.685| Top-5:87.340[0m:  74%|███████▍  | 116/157 [00:01<00:00, 79.71it/s][31m[EVAL] Top-1:61.772| Top-5:87.407[0m:  75%|███████▍  | 117/157 [00:01<00:00, 79.71it/s][31m[EVAL] Top-1:61.686| Top-5:87.382[0m:  75%|███████▌  | 118/157 [00:01<00:00, 79.71it/s][31m[EVAL] Top-1:61.654| Top-5:87.396[0m:  76%|███████▌  | 119/157 [00:01<00:00, 79.71it/s][31m[EVAL] Top-1:61.532| Top-5:87.332[0m:  76%|███████▋  | 120/157 [00:01<00:00, 79.71it/s][31m[EVAL] Top-1:61.532| Top-5:87.332[0m:  77%|███████▋  | 121/157 [00:01<00:00, 78.77it/s][31m[EVAL] Top-1:61.475| Top-5:87.282[0m:  77%|███████▋  | 121/157 [00:01<00:00, 78.77it/s][31m[EVAL] Top-1:61.433| Top-5:87.271[0m:  78%|███████▊  | 122/157 [00:01<00:00, 78.77it/s][31m[EVAL] Top-1:61.379| Top-5:87.286[0m:  78%|███████▊  | 123/157 [00:01<00:00, 78.77it/s][31m[EVAL] Top-1:61.425| Top-5:87.263[0m:  79%|███████▉  | 124/157 [00:01<00:00, 78.77it/s][31m[EVAL] Top-1:61.458| Top-5:87.289[0m:  80%|███████▉  | 125/157 [00:01<00:00, 78.77it/s][31m[EVAL] Top-1:61.479| Top-5:87.254[0m:  80%|████████  | 126/157 [00:01<00:00, 78.77it/s][31m[EVAL] Top-1:61.475| Top-5:87.219[0m:  81%|████████  | 127/157 [00:01<00:00, 78.77it/s][31m[EVAL] Top-1:61.483| Top-5:87.221[0m:  82%|████████▏ | 128/157 [00:01<00:00, 78.77it/s][31m[EVAL] Top-1:61.454| Top-5:87.248[0m:  82%|████████▏ | 129/157 [00:01<00:00, 78.77it/s][31m[EVAL] Top-1:61.454| Top-5:87.248[0m:  83%|████████▎ | 130/157 [00:01<00:00, 79.10it/s][31m[EVAL] Top-1:61.510| Top-5:87.285[0m:  83%|████████▎ | 130/157 [00:01<00:00, 79.10it/s][31m[EVAL] Top-1:61.518| Top-5:87.275[0m:  83%|████████▎ | 131/157 [00:01<00:00, 79.10it/s][31m[EVAL] Top-1:61.501| Top-5:87.300[0m:  84%|████████▍ | 132/157 [00:01<00:00, 79.10it/s][31m[EVAL] Top-1:61.567| Top-5:87.337[0m:  85%|████████▍ | 133/157 [00:01<00:00, 79.10it/s][31m[EVAL] Top-1:61.574| Top-5:87.350[0m:  85%|████████▌ | 134/157 [00:01<00:00, 79.10it/s][31m[EVAL] Top-1:61.535| Top-5:87.339[0m:  86%|████████▌ | 135/157 [00:01<00:00, 79.10it/s][31m[EVAL] Top-1:61.667| Top-5:87.386[0m:  87%|████████▋ | 136/157 [00:01<00:00, 79.10it/s][31m[EVAL] Top-1:61.594| Top-5:87.409[0m:  87%|████████▋ | 137/157 [00:01<00:00, 79.10it/s][31m[EVAL] Top-1:61.594| Top-5:87.409[0m:  88%|████████▊ | 138/157 [00:01<00:00, 79.34it/s][31m[EVAL] Top-1:61.601| Top-5:87.410[0m:  88%|████████▊ | 138/157 [00:01<00:00, 79.34it/s][31m[EVAL] Top-1:61.629| Top-5:87.400[0m:  89%|████████▊ | 139/157 [00:01<00:00, 79.34it/s][31m[EVAL] Top-1:61.658| Top-5:87.400[0m:  89%|████████▉ | 140/157 [00:01<00:00, 79.34it/s][31m[EVAL] Top-1:61.697| Top-5:87.445[0m:  90%|████████▉ | 141/157 [00:01<00:00, 79.34it/s][31m[EVAL] Top-1:61.615| Top-5:87.380[0m:  90%|█████████ | 142/157 [00:01<00:00, 79.34it/s][31m[EVAL] Top-1:61.686| Top-5:87.391[0m:  91%|█████████ | 143/157 [00:01<00:00, 79.34it/s][31m[EVAL] Top-1:61.670| Top-5:87.381[0m:  92%|█████████▏| 144/157 [00:01<00:00, 79.34it/s][31m[EVAL] Top-1:61.655| Top-5:87.436[0m:  92%|█████████▏| 145/157 [00:01<00:00, 79.34it/s][31m[EVAL] Top-1:61.655| Top-5:87.436[0m:  93%|█████████▎| 146/157 [00:01<00:00, 78.93it/s][31m[EVAL] Top-1:61.618| Top-5:87.457[0m:  93%|█████████▎| 146/157 [00:01<00:00, 78.93it/s][31m[EVAL] Top-1:61.582| Top-5:87.479[0m:  94%|█████████▎| 147/157 [00:01<00:00, 78.93it/s][31m[EVAL] Top-1:61.651| Top-5:87.510[0m:  94%|█████████▍| 148/157 [00:01<00:00, 78.93it/s][31m[EVAL] Top-1:61.708| Top-5:87.521[0m:  95%|█████████▍| 149/157 [00:01<00:00, 78.93it/s][31m[EVAL] Top-1:61.745| Top-5:87.541[0m:  96%|█████████▌| 150/157 [00:02<00:00, 78.93it/s][31m[EVAL] Top-1:61.780| Top-5:87.582[0m:  96%|█████████▌| 151/157 [00:02<00:00, 78.93it/s][31m[EVAL] Top-1:61.734| Top-5:87.571[0m:  97%|█████████▋| 152/157 [00:02<00:00, 78.93it/s][31m[EVAL] Top-1:61.709| Top-5:87.571[0m:  97%|█████████▋| 153/157 [00:02<00:00, 78.93it/s][31m[EVAL] Top-1:61.709| Top-5:87.571[0m:  98%|█████████▊| 154/157 [00:02<00:00, 78.79it/s][31m[EVAL] Top-1:61.694| Top-5:87.571[0m:  98%|█████████▊| 154/157 [00:02<00:00, 78.79it/s][31m[EVAL] Top-1:61.709| Top-5:87.590[0m:  99%|█████████▊| 155/157 [00:02<00:00, 78.79it/s][31m[EVAL] Top-1:61.740| Top-5:87.600[0m:  99%|█████████▉| 156/157 [00:02<00:00, 78.79it/s][31m[EVAL] Top-1:61.740| Top-5:87.600[0m: 100%|██████████| 157/157 [00:02<00:00, 72.76it/s]64
+Epoch 113 Results - Train Acc: 70.81% | Test Acc: 61.74% | Best: 62.80%
+0.005188511944444444
+Epoch 114: Training...
+
+  Batch 100/782 - Loss CE: 1.1238, Loss KD: 4.1616
+  Batch 200/782 - Loss CE: 1.1251, Loss KD: 4.1672
+  Batch 300/782 - Loss CE: 1.1331, Loss KD: 4.1938
+  Batch 400/782 - Loss CE: 1.1487, Loss KD: 4.2261
+  Batch 500/782 - Loss CE: 1.1609, Loss KD: 4.2630
+  Batch 600/782 - Loss CE: 1.1703, Loss KD: 4.2948
+  Batch 700/782 - Loss CE: 1.1778, Loss KD: 4.3266
+  Batch 782/782 - Loss CE: 1.1823, Loss KD: 4.3353
+Epoch 114 Training Complete - Avg Loss CE: 1.1823, Avg Loss KD: 4.3353
+  0%|          | 0/157 [00:00<?, ?it/s][31m[EVAL] Top-1:67.188| Top-5:85.938[0m:   0%|          | 0/157 [00:00<?, ?it/s][31m[EVAL] Top-1:67.188| Top-5:85.938[0m:   1%|          | 1/157 [00:00<00:20,  7.52it/s][31m[EVAL] Top-1:66.406| Top-5:89.844[0m:   1%|          | 1/157 [00:00<00:20,  7.52it/s][31m[EVAL] Top-1:64.583| Top-5:88.021[0m:   1%|▏         | 2/157 [00:00<00:20,  7.52it/s][31m[EVAL] Top-1:64.453| Top-5:87.891[0m:   2%|▏         | 3/157 [00:00<00:20,  7.52it/s][31m[EVAL] Top-1:63.438| Top-5:87.188[0m:   3%|▎         | 4/157 [00:00<00:20,  7.52it/s][31m[EVAL] Top-1:63.802| Top-5:88.281[0m:   3%|▎         | 5/157 [00:00<00:20,  7.52it/s][31m[EVAL] Top-1:61.161| Top-5:87.054[0m:   4%|▍         | 6/157 [00:00<00:20,  7.52it/s][31m[EVAL] Top-1:60.742| Top-5:86.719[0m:   4%|▍         | 7/157 [00:00<00:19,  7.52it/s][31m[EVAL] Top-1:58.854| Top-5:86.111[0m:   5%|▌         | 8/157 [00:00<00:19,  7.52it/s][31m[EVAL] Top-1:58.854| Top-5:86.111[0m:   6%|▌         | 9/157 [00:00<00:03, 43.61it/s][31m[EVAL] Top-1:59.062| Top-5:86.250[0m:   6%|▌         | 9/157 [00:00<00:03, 43.61it/s][31m[EVAL] Top-1:59.233| Top-5:85.938[0m:   6%|▋         | 10/157 [00:00<00:03, 43.61it/s][31m[EVAL] Top-1:59.375| Top-5:86.068[0m:   7%|▋         | 11/157 [00:00<00:03, 43.61it/s][31m[EVAL] Top-1:59.976| Top-5:86.178[0m:   8%|▊         | 12/157 [00:00<00:03, 43.61it/s][31m[EVAL] Top-1:59.598| Top-5:86.384[0m:   8%|▊         | 13/157 [00:00<00:03, 43.61it/s][31m[EVAL] Top-1:59.479| Top-5:86.250[0m:   9%|▉         | 14/157 [00:00<00:03, 43.61it/s][31m[EVAL] Top-1:59.473| Top-5:86.230[0m:  10%|▉         | 15/157 [00:00<00:03, 43.61it/s][31m[EVAL] Top-1:59.651| Top-5:86.121[0m:  10%|█         | 16/157 [00:00<00:03, 43.61it/s][31m[EVAL] Top-1:59.651| Top-5:86.121[0m:  11%|█         | 17/157 [00:00<00:02, 58.63it/s][31m[EVAL] Top-1:60.156| Top-5:86.372[0m:  11%|█         | 17/157 [00:00<00:02, 58.63it/s][31m[EVAL] Top-1:60.280| Top-5:86.513[0m:  11%|█▏        | 18/157 [00:00<00:02, 58.63it/s][31m[EVAL] Top-1:60.703| Top-5:86.562[0m:  12%|█▏        | 19/157 [00:00<00:02, 58.63it/s][31m[EVAL] Top-1:60.342| Top-5:86.607[0m:  13%|█▎        | 20/157 [00:00<00:02, 58.63it/s][31m[EVAL] Top-1:60.085| Top-5:86.861[0m:  13%|█▎        | 21/157 [00:00<00:02, 58.63it/s][31m[EVAL] Top-1:60.122| Top-5:86.617[0m:  14%|█▍        | 22/157 [00:00<00:02, 58.63it/s][31m[EVAL] Top-1:59.831| Top-5:86.198[0m:  15%|█▍        | 23/157 [00:00<00:02, 58.63it/s][31m[EVAL] Top-1:59.812| Top-5:86.500[0m:  15%|█▌        | 24/157 [00:00<00:02, 58.63it/s][31m[EVAL] Top-1:59.916| Top-5:86.599[0m:  16%|█▌        | 25/157 [00:00<00:02, 58.63it/s][31m[EVAL] Top-1:59.916| Top-5:86.599[0m:  17%|█▋        | 26/157 [00:00<00:01, 67.97it/s][31m[EVAL] Top-1:59.664| Top-5:86.343[0m:  17%|█▋        | 26/157 [00:00<00:01, 67.97it/s][31m[EVAL] Top-1:59.654| Top-5:86.440[0m:  17%|█▋        | 27/157 [00:00<00:01, 67.97it/s][31m[EVAL] Top-1:59.806| Top-5:86.638[0m:  18%|█▊        | 28/157 [00:00<00:01, 67.97it/s][31m[EVAL] Top-1:60.052| Top-5:86.563[0m:  18%|█▊        | 29/157 [00:00<00:01, 67.97it/s][31m[EVAL] Top-1:60.232| Top-5:86.694[0m:  19%|█▉        | 30/157 [00:00<00:01, 67.97it/s][31m[EVAL] Top-1:60.352| Top-5:86.914[0m:  20%|█▉        | 31/157 [00:00<00:01, 67.97it/s][31m[EVAL] Top-1:60.227| Top-5:86.884[0m:  20%|██        | 32/157 [00:00<00:01, 67.97it/s][31m[EVAL] Top-1:60.432| Top-5:86.949[0m:  21%|██        | 33/157 [00:00<00:01, 67.97it/s][31m[EVAL] Top-1:60.446| Top-5:87.098[0m:  22%|██▏       | 34/157 [00:00<00:01, 67.97it/s][31m[EVAL] Top-1:60.446| Top-5:87.098[0m:  22%|██▏       | 35/157 [00:00<00:01, 72.68it/s][31m[EVAL] Top-1:60.634| Top-5:87.109[0m:  22%|██▏       | 35/157 [00:00<00:01, 72.68it/s][31m[EVAL] Top-1:60.515| Top-5:86.909[0m:  23%|██▎       | 36/157 [00:00<00:01, 72.68it/s][31m[EVAL] Top-1:60.280| Top-5:87.007[0m:  24%|██▎       | 37/157 [00:00<00:01, 72.68it/s][31m[EVAL] Top-1:60.497| Top-5:87.139[0m:  24%|██▍       | 38/157 [00:00<00:01, 72.68it/s][31m[EVAL] Top-1:60.469| Top-5:87.188[0m:  25%|██▍       | 39/157 [00:00<00:01, 72.68it/s][31m[EVAL] Top-1:60.366| Top-5:87.157[0m:  25%|██▌       | 40/157 [00:00<00:01, 72.68it/s][31m[EVAL] Top-1:60.342| Top-5:87.016[0m:  26%|██▌       | 41/157 [00:00<00:01, 72.68it/s][31m[EVAL] Top-1:60.138| Top-5:86.955[0m:  27%|██▋       | 42/157 [00:00<00:01, 72.68it/s][31m[EVAL] Top-1:60.227| Top-5:86.790[0m:  27%|██▋       | 43/157 [00:00<00:01, 72.68it/s][31m[EVAL] Top-1:60.227| Top-5:86.790[0m:  28%|██▊       | 44/157 [00:00<00:01, 76.14it/s][31m[EVAL] Top-1:60.208| Top-5:86.528[0m:  28%|██▊       | 44/157 [00:00<00:01, 76.14it/s][31m[EVAL] Top-1:60.224| Top-5:86.549[0m:  29%|██▊       | 45/157 [00:00<00:01, 76.14it/s][31m[EVAL] Top-1:60.007| Top-5:86.636[0m:  29%|██▉       | 46/157 [00:00<00:01, 76.14it/s][31m[EVAL] Top-1:59.896| Top-5:86.556[0m:  30%|██▉       | 47/157 [00:00<00:01, 76.14it/s][31m[EVAL] Top-1:59.981| Top-5:86.543[0m:  31%|███       | 48/157 [00:00<00:01, 76.14it/s][31m[EVAL] Top-1:59.969| Top-5:86.656[0m:  31%|███       | 49/157 [00:00<00:01, 76.14it/s][31m[EVAL] Top-1:59.835| Top-5:86.550[0m:  32%|███▏      | 50/157 [00:00<00:01, 76.14it/s][31m[EVAL] Top-1:59.826| Top-5:86.599[0m:  32%|███▏      | 51/157 [00:00<00:01, 76.14it/s][31m[EVAL] Top-1:59.906| Top-5:86.557[0m:  33%|███▎      | 52/157 [00:00<00:01, 76.14it/s][31m[EVAL] Top-1:59.906| Top-5:86.557[0m:  34%|███▍      | 53/157 [00:00<00:01, 78.50it/s][31m[EVAL] Top-1:59.809| Top-5:86.458[0m:  34%|███▍      | 53/157 [00:00<00:01, 78.50it/s][31m[EVAL] Top-1:59.688| Top-5:86.392[0m:  34%|███▍      | 54/157 [00:00<00:01, 78.50it/s][31m[EVAL] Top-1:59.654| Top-5:86.523[0m:  35%|███▌      | 55/157 [00:00<00:01, 78.50it/s][31m[EVAL] Top-1:59.622| Top-5:86.595[0m:  36%|███▌      | 56/157 [00:00<00:01, 78.50it/s][31m[EVAL] Top-1:59.860| Top-5:86.665[0m:  36%|███▋      | 57/157 [00:00<00:01, 78.50it/s][31m[EVAL] Top-1:59.984| Top-5:86.758[0m:  37%|███▋      | 58/157 [00:00<00:01, 78.50it/s][31m[EVAL] Top-1:60.078| Top-5:86.719[0m:  38%|███▊      | 59/157 [00:00<00:01, 78.50it/s][31m[EVAL] Top-1:59.990| Top-5:86.732[0m:  38%|███▊      | 60/157 [00:00<00:01, 78.50it/s][31m[EVAL] Top-1:60.106| Top-5:86.794[0m:  39%|███▉      | 61/157 [00:00<00:01, 78.50it/s][31m[EVAL] Top-1:60.106| Top-5:86.794[0m:  39%|███▉      | 62/157 [00:00<00:01, 80.15it/s][31m[EVAL] Top-1:59.995| Top-5:86.830[0m:  39%|███▉      | 62/157 [00:00<00:01, 80.15it/s][31m[EVAL] Top-1:60.034| Top-5:86.914[0m:  40%|████      | 63/157 [00:00<00:01, 80.15it/s][31m[EVAL] Top-1:60.192| Top-5:86.923[0m:  41%|████      | 64/157 [00:00<00:01, 80.15it/s][31m[EVAL] Top-1:60.156| Top-5:86.861[0m:  41%|████▏     | 65/157 [00:00<00:01, 80.15it/s][31m[EVAL] Top-1:60.215| Top-5:86.894[0m:  42%|████▏     | 66/157 [00:00<00:01, 80.15it/s][31m[EVAL] Top-1:60.225| Top-5:86.949[0m:  43%|████▎     | 67/157 [00:00<00:01, 80.15it/s][31m[EVAL] Top-1:60.258| Top-5:86.979[0m:  43%|████▎     | 68/157 [00:00<00:01, 80.15it/s][31m[EVAL] Top-1:60.469| Top-5:86.964[0m:  44%|████▍     | 69/157 [00:00<00:01, 80.15it/s][31m[EVAL] Top-1:60.475| Top-5:86.928[0m:  45%|████▍     | 70/157 [00:00<00:01, 80.15it/s][31m[EVAL] Top-1:60.475| Top-5:86.928[0m:  45%|████▌     | 71/157 [00:00<00:01, 81.29it/s][31m[EVAL] Top-1:60.612| Top-5:86.871[0m:  45%|████▌     | 71/157 [00:01<00:01, 81.29it/s][31m[EVAL] Top-1:60.595| Top-5:86.986[0m:  46%|████▌     | 72/157 [00:01<00:01, 81.29it/s][31m[EVAL] Top-1:60.621| Top-5:86.972[0m:  46%|████▋     | 73/157 [00:01<00:01, 81.29it/s][31m[EVAL] Top-1:60.562| Top-5:86.958[0m:  47%|████▋     | 74/157 [00:01<00:01, 81.29it/s][31m[EVAL] Top-1:60.506| Top-5:86.842[0m:  48%|████▊     | 75/157 [00:01<00:01, 81.29it/s][31m[EVAL] Top-1:60.410| Top-5:86.790[0m:  48%|████▊     | 76/157 [00:01<00:00, 81.29it/s][31m[EVAL] Top-1:60.317| Top-5:86.819[0m:  49%|████▉     | 77/157 [00:01<00:00, 81.29it/s][31m[EVAL] Top-1:60.344| Top-5:86.768[0m:  50%|████▉     | 78/157 [00:01<00:00, 81.29it/s][31m[EVAL] Top-1:60.391| Top-5:86.777[0m:  50%|█████     | 79/157 [00:01<00:00, 81.29it/s][31m[EVAL] Top-1:60.391| Top-5:86.777[0m:  51%|█████     | 80/157 [00:01<00:00, 81.78it/s][31m[EVAL] Top-1:60.417| Top-5:86.825[0m:  51%|█████     | 80/157 [00:01<00:00, 81.78it/s][31m[EVAL] Top-1:60.480| Top-5:86.833[0m:  52%|█████▏    | 81/157 [00:01<00:00, 81.78it/s][31m[EVAL] Top-1:60.392| Top-5:86.803[0m:  52%|█████▏    | 82/157 [00:01<00:00, 81.78it/s][31m[EVAL] Top-1:60.435| Top-5:86.775[0m:  53%|█████▎    | 83/157 [00:01<00:00, 81.78it/s][31m[EVAL] Top-1:60.368| Top-5:86.746[0m:  54%|█████▎    | 84/157 [00:01<00:00, 81.78it/s][31m[EVAL] Top-1:60.356| Top-5:86.628[0m:  54%|█████▍    | 85/157 [00:01<00:00, 81.78it/s][31m[EVAL] Top-1:60.327| Top-5:86.656[0m:  55%|█████▍    | 86/157 [00:01<00:00, 81.78it/s][31m[EVAL] Top-1:60.334| Top-5:86.683[0m:  55%|█████▌    | 87/157 [00:01<00:00, 81.78it/s][31m[EVAL] Top-1:60.376| Top-5:86.657[0m:  56%|█████▌    | 88/157 [00:01<00:00, 81.78it/s][31m[EVAL] Top-1:60.376| Top-5:86.657[0m:  57%|█████▋    | 89/157 [00:01<00:00, 81.81it/s][31m[EVAL] Top-1:60.330| Top-5:86.649[0m:  57%|█████▋    | 89/157 [00:01<00:00, 81.81it/s][31m[EVAL] Top-1:60.457| Top-5:86.745[0m:  57%|█████▋    | 90/157 [00:01<00:00, 81.81it/s][31m[EVAL] Top-1:60.462| Top-5:86.804[0m:  58%|█████▊    | 91/157 [00:01<00:00, 81.81it/s][31m[EVAL] Top-1:60.517| Top-5:86.878[0m:  59%|█████▊    | 92/157 [00:01<00:00, 81.81it/s][31m[EVAL] Top-1:60.422| Top-5:86.835[0m:  59%|█████▉    | 93/157 [00:01<00:00, 81.81it/s][31m[EVAL] Top-1:60.395| Top-5:86.859[0m:  60%|█████▉    | 94/157 [00:01<00:00, 81.81it/s][31m[EVAL] Top-1:60.368| Top-5:86.865[0m:  61%|██████    | 95/157 [00:01<00:00, 81.81it/s][31m[EVAL] Top-1:60.229| Top-5:86.872[0m:  61%|██████    | 96/157 [00:01<00:00, 81.81it/s][31m[EVAL] Top-1:60.268| Top-5:86.942[0m:  62%|██████▏   | 97/157 [00:01<00:00, 81.81it/s][31m[EVAL] Top-1:60.268| Top-5:86.942[0m:  62%|██████▏   | 98/157 [00:01<00:00, 81.68it/s][31m[EVAL] Top-1:60.306| Top-5:86.932[0m:  62%|██████▏   | 98/157 [00:01<00:00, 81.68it/s][31m[EVAL] Top-1:60.281| Top-5:86.938[0m:  63%|██████▎   | 99/157 [00:01<00:00, 81.68it/s][31m[EVAL] Top-1:60.319| Top-5:86.928[0m:  64%|██████▎   | 100/157 [00:01<00:00, 81.68it/s][31m[EVAL] Top-1:60.248| Top-5:86.857[0m:  64%|██████▍   | 101/157 [00:01<00:00, 81.68it/s][31m[EVAL] Top-1:60.179| Top-5:86.817[0m:  65%|██████▍   | 102/157 [00:01<00:00, 81.68it/s][31m[EVAL] Top-1:60.171| Top-5:86.869[0m:  66%|██████▌   | 103/157 [00:01<00:00, 81.68it/s][31m[EVAL] Top-1:60.179| Top-5:86.860[0m:  66%|██████▌   | 104/157 [00:01<00:00, 81.68it/s][31m[EVAL] Top-1:60.156| Top-5:86.763[0m:  67%|██████▋   | 105/157 [00:01<00:00, 81.68it/s][31m[EVAL] Top-1:60.061| Top-5:86.726[0m:  68%|██████▊   | 106/157 [00:01<00:00, 81.68it/s][31m[EVAL] Top-1:60.061| Top-5:86.726[0m:  68%|██████▊   | 107/157 [00:01<00:00, 81.87it/s][31m[EVAL] Top-1:60.156| Top-5:86.762[0m:  68%|██████▊   | 107/157 [00:01<00:00, 81.87it/s][31m[EVAL] Top-1:60.221| Top-5:86.826[0m:  69%|██████▉   | 108/157 [00:01<00:00, 81.87it/s][31m[EVAL] Top-1:60.170| Top-5:86.875[0m:  69%|██████▉   | 109/157 [00:01<00:00, 81.87it/s][31m[EVAL] Top-1:60.177| Top-5:86.867[0m:  70%|███████   | 110/157 [00:01<00:00, 81.87it/s][31m[EVAL] Top-1:60.212| Top-5:86.886[0m:  71%|███████   | 111/157 [00:01<00:00, 81.87it/s][31m[EVAL] Top-1:60.274| Top-5:86.933[0m:  71%|███████▏  | 112/157 [00:01<00:00, 81.87it/s][31m[EVAL] Top-1:60.321| Top-5:86.952[0m:  72%|███████▏  | 113/157 [00:01<00:00, 81.87it/s][31m[EVAL] Top-1:60.340| Top-5:86.970[0m:  73%|███████▎  | 114/157 [00:01<00:00, 81.87it/s][31m[EVAL] Top-1:60.358| Top-5:86.907[0m:  73%|███████▎  | 115/157 [00:01<00:00, 81.87it/s][31m[EVAL] Top-1:60.358| Top-5:86.907[0m:  74%|███████▍  | 116/157 [00:01<00:00, 82.55it/s][31m[EVAL] Top-1:60.403| Top-5:86.886[0m:  74%|███████▍  | 116/157 [00:01<00:00, 82.55it/s][31m[EVAL] Top-1:60.487| Top-5:86.957[0m:  75%|███████▍  | 117/157 [00:01<00:00, 82.55it/s][31m[EVAL] Top-1:60.478| Top-5:86.975[0m:  75%|███████▌  | 118/157 [00:01<00:00, 82.55it/s][31m[EVAL] Top-1:60.456| Top-5:86.953[0m:  76%|███████▌  | 119/157 [00:01<00:00, 82.55it/s][31m[EVAL] Top-1:60.408| Top-5:86.958[0m:  76%|███████▋  | 120/157 [00:01<00:00, 82.55it/s][31m[EVAL] Top-1:60.374| Top-5:86.898[0m:  77%|███████▋  | 121/157 [00:01<00:00, 82.55it/s][31m[EVAL] Top-1:60.404| Top-5:86.928[0m:  78%|███████▊  | 122/157 [00:01<00:00, 82.55it/s][31m[EVAL] Top-1:60.383| Top-5:86.908[0m:  78%|███████▊  | 123/157 [00:01<00:00, 82.55it/s][31m[EVAL] Top-1:60.425| Top-5:86.888[0m:  79%|███████▉  | 124/157 [00:01<00:00, 82.55it/s][31m[EVAL] Top-1:60.425| Top-5:86.888[0m:  80%|███████▉  | 125/157 [00:01<00:00, 81.97it/s][31m[EVAL] Top-1:60.367| Top-5:86.855[0m:  80%|███████▉  | 125/157 [00:01<00:00, 81.97it/s][31m[EVAL] Top-1:60.322| Top-5:86.860[0m:  80%|████████  | 126/157 [00:01<00:00, 81.97it/s][31m[EVAL] Top-1:60.327| Top-5:86.853[0m:  81%|████████  | 127/157 [00:01<00:00, 81.97it/s][31m[EVAL] Top-1:60.283| Top-5:86.858[0m:  82%|████████▏ | 128/157 [00:01<00:00, 81.97it/s][31m[EVAL] Top-1:60.312| Top-5:86.911[0m:  82%|████████▏ | 129/157 [00:01<00:00, 81.97it/s][31m[EVAL] Top-1:60.365| Top-5:86.904[0m:  83%|████████▎ | 130/157 [00:01<00:00, 81.97it/s][31m[EVAL] Top-1:60.405| Top-5:86.955[0m:  83%|████████▎ | 131/157 [00:01<00:00, 81.97it/s][31m[EVAL] Top-1:60.479| Top-5:86.971[0m:  84%|████████▍ | 132/157 [00:01<00:00, 81.97it/s][31m[EVAL] Top-1:60.529| Top-5:86.999[0m:  85%|████████▍ | 133/157 [00:01<00:00, 81.97it/s][31m[EVAL] Top-1:60.529| Top-5:86.999[0m:  85%|████████▌ | 134/157 [00:01<00:00, 81.49it/s][31m[EVAL] Top-1:60.532| Top-5:87.025[0m:  85%|████████▌ | 134/157 [00:01<00:00, 81.49it/s][31m[EVAL] Top-1:60.478| Top-5:86.972[0m:  86%|████████▌ | 135/157 [00:01<00:00, 81.49it/s][31m[EVAL] Top-1:60.641| Top-5:87.010[0m:  87%|████████▋ | 136/157 [00:01<00:00, 81.49it/s][31m[EVAL] Top-1:60.654| Top-5:87.024[0m:  87%|████████▋ | 137/157 [00:01<00:00, 81.49it/s][31m[EVAL] Top-1:60.656| Top-5:86.983[0m:  88%|████████▊ | 138/157 [00:01<00:00, 81.49it/s][31m[EVAL] Top-1:60.647| Top-5:86.987[0m:  89%|████████▊ | 139/157 [00:01<00:00, 81.49it/s][31m[EVAL] Top-1:60.660| Top-5:86.924[0m:  89%|████████▉ | 140/157 [00:01<00:00, 81.49it/s][31m[EVAL] Top-1:60.695| Top-5:86.939[0m:  90%|████████▉ | 141/157 [00:01<00:00, 81.49it/s][31m[EVAL] Top-1:60.642| Top-5:86.899[0m:  90%|█████████ | 142/157 [00:01<00:00, 81.49it/s][31m[EVAL] Top-1:60.642| Top-5:86.899[0m:  91%|█████████ | 143/157 [00:01<00:00, 81.69it/s][31m[EVAL] Top-1:60.731| Top-5:86.936[0m:  91%|█████████ | 143/157 [00:01<00:00, 81.69it/s][31m[EVAL] Top-1:60.765| Top-5:86.961[0m:  92%|█████████▏| 144/157 [00:01<00:00, 81.69it/s][31m[EVAL] Top-1:60.766| Top-5:86.954[0m:  92%|█████████▏| 145/157 [00:01<00:00, 81.69it/s][31m[EVAL] Top-1:60.767| Top-5:86.969[0m:  93%|█████████▎| 146/157 [00:01<00:00, 81.69it/s][31m[EVAL] Top-1:60.800| Top-5:86.972[0m:  94%|█████████▎| 147/157 [00:01<00:00, 81.69it/s][31m[EVAL] Top-1:60.822| Top-5:86.976[0m:  94%|█████████▍| 148/157 [00:01<00:00, 81.69it/s][31m[EVAL] Top-1:60.875| Top-5:87.010[0m:  95%|█████████▍| 149/157 [00:01<00:00, 81.69it/s][31m[EVAL] Top-1:60.844| Top-5:87.034[0m:  96%|█████████▌| 150/157 [00:01<00:00, 81.69it/s][31m[EVAL] Top-1:60.896| Top-5:87.048[0m:  96%|█████████▌| 151/157 [00:01<00:00, 81.69it/s][31m[EVAL] Top-1:60.896| Top-5:87.048[0m:  97%|█████████▋| 152/157 [00:01<00:00, 81.25it/s][31m[EVAL] Top-1:60.876| Top-5:87.020[0m:  97%|█████████▋| 152/157 [00:01<00:00, 81.25it/s][31m[EVAL] Top-1:60.856| Top-5:86.983[0m:  97%|█████████▋| 153/157 [00:02<00:00, 81.25it/s][31m[EVAL] Top-1:60.867| Top-5:86.986[0m:  98%|█████████▊| 154/157 [00:02<00:00, 81.25it/s][31m[EVAL] Top-1:60.877| Top-5:87.039[0m:  99%|█████████▊| 155/157 [00:02<00:00, 81.25it/s][31m[EVAL] Top-1:60.880| Top-5:87.030[0m:  99%|█████████▉| 156/157 [00:02<00:00, 81.25it/s][31m[EVAL] Top-1:60.880| Top-5:87.030[0m: 100%|██████████| 157/157 [00:02<00:00, 73.85it/s]64
+Epoch 114 Results - Train Acc: 70.77% | Test Acc: 60.88% | Best: 62.80%
+0.005799026388888889
+Epoch 115: Training...
+
+  Batch 100/782 - Loss CE: 1.1238, Loss KD: 4.1868
+  Batch 200/782 - Loss CE: 1.1382, Loss KD: 4.1906
+  Batch 300/782 - Loss CE: 1.1458, Loss KD: 4.2222
+  Batch 400/782 - Loss CE: 1.1561, Loss KD: 4.2381
+  Batch 500/782 - Loss CE: 1.1637, Loss KD: 4.2605
+  Batch 600/782 - Loss CE: 1.1661, Loss KD: 4.2729
+  Batch 700/782 - Loss CE: 1.1744, Loss KD: 4.2980
+  Batch 782/782 - Loss CE: 1.1786, Loss KD: 4.3138
+Epoch 115 Training Complete - Avg Loss CE: 1.1786, Avg Loss KD: 4.3138
+  0%|          | 0/157 [00:00<?, ?it/s][31m[EVAL] Top-1:59.375| Top-5:89.062[0m:   0%|          | 0/157 [00:00<?, ?it/s][31m[EVAL] Top-1:59.375| Top-5:89.062[0m:   1%|          | 1/157 [00:00<00:20,  7.44it/s][31m[EVAL] Top-1:62.500| Top-5:89.844[0m:   1%|          | 1/157 [00:00<00:20,  7.44it/s][31m[EVAL] Top-1:63.021| Top-5:86.979[0m:   1%|▏         | 2/157 [00:00<00:20,  7.44it/s][31m[EVAL] Top-1:64.844| Top-5:88.281[0m:   2%|▏         | 3/157 [00:00<00:20,  7.44it/s][31m[EVAL] Top-1:64.062| Top-5:88.438[0m:   3%|▎         | 4/157 [00:00<00:20,  7.44it/s][31m[EVAL] Top-1:64.323| Top-5:88.021[0m:   3%|▎         | 5/157 [00:00<00:20,  7.44it/s][31m[EVAL] Top-1:62.946| Top-5:87.277[0m:   4%|▍         | 6/157 [00:00<00:20,  7.44it/s][31m[EVAL] Top-1:62.305| Top-5:86.523[0m:   4%|▍         | 7/157 [00:00<00:20,  7.44it/s][31m[EVAL] Top-1:61.632| Top-5:86.111[0m:   5%|▌         | 8/157 [00:00<00:20,  7.44it/s][31m[EVAL] Top-1:61.632| Top-5:86.111[0m:   6%|▌         | 9/157 [00:00<00:03, 43.98it/s][31m[EVAL] Top-1:62.344| Top-5:86.406[0m:   6%|▌         | 9/157 [00:00<00:03, 43.98it/s][31m[EVAL] Top-1:62.500| Top-5:86.648[0m:   6%|▋         | 10/157 [00:00<00:03, 43.98it/s][31m[EVAL] Top-1:62.891| Top-5:87.109[0m:   7%|▋         | 11/157 [00:00<00:03, 43.98it/s][31m[EVAL] Top-1:62.620| Top-5:86.899[0m:   8%|▊         | 12/157 [00:00<00:03, 43.98it/s][31m[EVAL] Top-1:62.500| Top-5:86.830[0m:   8%|▊         | 13/157 [00:00<00:03, 43.98it/s][31m[EVAL] Top-1:62.917| Top-5:86.563[0m:   9%|▉         | 14/157 [00:00<00:03, 43.98it/s][31m[EVAL] Top-1:62.695| Top-5:86.523[0m:  10%|▉         | 15/157 [00:00<00:03, 43.98it/s][31m[EVAL] Top-1:62.868| Top-5:86.673[0m:  10%|█         | 16/157 [00:00<00:03, 43.98it/s][31m[EVAL] Top-1:62.868| Top-5:86.673[0m:  11%|█         | 17/157 [00:00<00:02, 59.02it/s][31m[EVAL] Top-1:62.847| Top-5:86.892[0m:  11%|█         | 17/157 [00:00<00:02, 59.02it/s][31m[EVAL] Top-1:62.747| Top-5:87.171[0m:  11%|█▏        | 18/157 [00:00<00:02, 59.02it/s][31m[EVAL] Top-1:62.812| Top-5:87.344[0m:  12%|█▏        | 19/157 [00:00<00:02, 59.02it/s][31m[EVAL] Top-1:62.277| Top-5:87.202[0m:  13%|█▎        | 20/157 [00:00<00:02, 59.02it/s][31m[EVAL] Top-1:62.429| Top-5:87.429[0m:  13%|█▎        | 21/157 [00:00<00:02, 59.02it/s][31m[EVAL] Top-1:62.500| Top-5:87.500[0m:  14%|█▍        | 22/157 [00:00<00:02, 59.02it/s][31m[EVAL] Top-1:62.435| Top-5:87.174[0m:  15%|█▍        | 23/157 [00:00<00:02, 59.02it/s][31m[EVAL] Top-1:62.125| Top-5:87.500[0m:  15%|█▌        | 24/157 [00:00<00:02, 59.02it/s][31m[EVAL] Top-1:61.959| Top-5:87.440[0m:  16%|█▌        | 25/157 [00:00<00:02, 59.02it/s][31m[EVAL] Top-1:61.959| Top-5:87.440[0m:  17%|█▋        | 26/157 [00:00<00:01, 67.93it/s][31m[EVAL] Top-1:61.632| Top-5:87.384[0m:  17%|█▋        | 26/157 [00:00<00:01, 67.93it/s][31m[EVAL] Top-1:61.551| Top-5:87.221[0m:  17%|█▋        | 27/157 [00:00<00:01, 67.93it/s][31m[EVAL] Top-1:61.530| Top-5:87.284[0m:  18%|█▊        | 28/157 [00:00<00:01, 67.93it/s][31m[EVAL] Top-1:61.719| Top-5:87.396[0m:  18%|█▊        | 29/157 [00:00<00:01, 67.93it/s][31m[EVAL] Top-1:61.744| Top-5:87.349[0m:  19%|█▉        | 30/157 [00:00<00:01, 67.93it/s][31m[EVAL] Top-1:62.158| Top-5:87.549[0m:  20%|█▉        | 31/157 [00:00<00:01, 67.93it/s][31m[EVAL] Top-1:62.074| Top-5:87.453[0m:  20%|██        | 32/157 [00:00<00:01, 67.93it/s][31m[EVAL] Top-1:62.040| Top-5:87.454[0m:  21%|██        | 33/157 [00:00<00:01, 67.93it/s][31m[EVAL] Top-1:61.964| Top-5:87.455[0m:  22%|██▏       | 34/157 [00:00<00:01, 67.93it/s][31m[EVAL] Top-1:61.964| Top-5:87.455[0m:  22%|██▏       | 35/157 [00:00<00:01, 72.78it/s][31m[EVAL] Top-1:61.892| Top-5:87.500[0m:  22%|██▏       | 35/157 [00:00<00:01, 72.78it/s][31m[EVAL] Top-1:61.571| Top-5:87.500[0m:  23%|██▎       | 36/157 [00:00<00:01, 72.78it/s][31m[EVAL] Top-1:61.678| Top-5:87.500[0m:  24%|██▎       | 37/157 [00:00<00:01, 72.78it/s][31m[EVAL] Top-1:62.019| Top-5:87.700[0m:  24%|██▍       | 38/157 [00:00<00:01, 72.78it/s][31m[EVAL] Top-1:62.148| Top-5:87.656[0m:  25%|██▍       | 39/157 [00:00<00:01, 72.78it/s][31m[EVAL] Top-1:62.157| Top-5:87.652[0m:  25%|██▌       | 40/157 [00:00<00:01, 72.78it/s][31m[EVAL] Top-1:62.091| Top-5:87.649[0m:  26%|██▌       | 41/157 [00:00<00:01, 72.78it/s][31m[EVAL] Top-1:61.955| Top-5:87.573[0m:  27%|██▋       | 42/157 [00:00<00:01, 72.78it/s][31m[EVAL] Top-1:62.003| Top-5:87.536[0m:  27%|██▋       | 43/157 [00:00<00:01, 72.78it/s][31m[EVAL] Top-1:62.003| Top-5:87.536[0m:  28%|██▊       | 44/157 [00:00<00:01, 75.33it/s][31m[EVAL] Top-1:61.806| Top-5:87.500[0m:  28%|██▊       | 44/157 [00:00<00:01, 75.33it/s][31m[EVAL] Top-1:61.855| Top-5:87.432[0m:  29%|██▊       | 45/157 [00:00<00:01, 75.33it/s][31m[EVAL] Top-1:61.868| Top-5:87.400[0m:  29%|██▉       | 46/157 [00:00<00:01, 75.33it/s][31m[EVAL] Top-1:61.914| Top-5:87.370[0m:  30%|██▉       | 47/157 [00:00<00:01, 75.33it/s][31m[EVAL] Top-1:61.894| Top-5:87.404[0m:  31%|███       | 48/157 [00:00<00:01, 75.33it/s][31m[EVAL] Top-1:61.906| Top-5:87.500[0m:  31%|███       | 49/157 [00:00<00:01, 75.33it/s][31m[EVAL] Top-1:61.765| Top-5:87.316[0m:  32%|███▏      | 50/157 [00:00<00:01, 75.33it/s][31m[EVAL] Top-1:61.689| Top-5:87.200[0m:  32%|███▏      | 51/157 [00:00<00:01, 75.33it/s][31m[EVAL] Top-1:61.645| Top-5:87.205[0m:  33%|███▎      | 52/157 [00:00<00:01, 75.33it/s][31m[EVAL] Top-1:61.645| Top-5:87.205[0m:  34%|███▍      | 53/157 [00:00<00:01, 77.25it/s][31m[EVAL] Top-1:61.545| Top-5:87.182[0m:  34%|███▍      | 53/157 [00:00<00:01, 77.25it/s][31m[EVAL] Top-1:61.420| Top-5:87.131[0m:  34%|███▍      | 54/157 [00:00<00:01, 77.25it/s][31m[EVAL] Top-1:61.440| Top-5:87.305[0m:  35%|███▌      | 55/157 [00:00<00:01, 77.25it/s][31m[EVAL] Top-1:61.513| Top-5:87.445[0m:  36%|███▌      | 56/157 [00:00<00:01, 77.25it/s][31m[EVAL] Top-1:61.476| Top-5:87.446[0m:  36%|███▋      | 57/157 [00:00<00:01, 77.25it/s][31m[EVAL] Top-1:61.547| Top-5:87.474[0m:  37%|███▋      | 58/157 [00:00<00:01, 77.25it/s][31m[EVAL] Top-1:61.589| Top-5:87.552[0m:  38%|███▊      | 59/157 [00:00<00:01, 77.25it/s][31m[EVAL] Top-1:61.501| Top-5:87.602[0m:  38%|███▊      | 60/157 [00:00<00:01, 77.25it/s][31m[EVAL] Top-1:61.568| Top-5:87.601[0m:  39%|███▉      | 61/157 [00:00<00:01, 77.25it/s][31m[EVAL] Top-1:61.568| Top-5:87.601[0m:  39%|███▉      | 62/157 [00:00<00:01, 79.08it/s][31m[EVAL] Top-1:61.607| Top-5:87.599[0m:  39%|███▉      | 62/157 [00:00<00:01, 79.08it/s][31m[EVAL] Top-1:61.621| Top-5:87.573[0m:  40%|████      | 63/157 [00:00<00:01, 79.08it/s][31m[EVAL] Top-1:61.755| Top-5:87.548[0m:  41%|████      | 64/157 [00:00<00:01, 79.08it/s][31m[EVAL] Top-1:61.813| Top-5:87.429[0m:  41%|████▏     | 65/157 [00:00<00:01, 79.08it/s][31m[EVAL] Top-1:62.010| Top-5:87.477[0m:  42%|████▏     | 66/157 [00:00<00:01, 79.08it/s][31m[EVAL] Top-1:61.949| Top-5:87.546[0m:  43%|████▎     | 67/157 [00:00<00:01, 79.08it/s][31m[EVAL] Top-1:61.934| Top-5:87.545[0m:  43%|████▎     | 68/157 [00:00<00:01, 79.08it/s][31m[EVAL] Top-1:61.987| Top-5:87.589[0m:  44%|████▍     | 69/157 [00:00<00:01, 79.08it/s][31m[EVAL] Top-1:61.884| Top-5:87.566[0m:  45%|████▍     | 70/157 [00:01<00:01, 79.08it/s][31m[EVAL] Top-1:61.884| Top-5:87.566[0m:  45%|████▌     | 71/157 [00:01<00:01, 80.07it/s][31m[EVAL] Top-1:62.001| Top-5:87.543[0m:  45%|████▌     | 71/157 [00:01<00:01, 80.07it/s][31m[EVAL] Top-1:61.943| Top-5:87.564[0m:  46%|████▌     | 72/157 [00:01<00:01, 80.07it/s][31m[EVAL] Top-1:61.867| Top-5:87.584[0m:  46%|████▋     | 73/157 [00:01<00:01, 80.07it/s][31m[EVAL] Top-1:61.896| Top-5:87.562[0m:  47%|████▋     | 74/157 [00:01<00:01, 80.07it/s][31m[EVAL] Top-1:61.760| Top-5:87.500[0m:  48%|████▊     | 75/157 [00:01<00:01, 80.07it/s][31m[EVAL] Top-1:61.648| Top-5:87.439[0m:  48%|████▊     | 76/157 [00:01<00:01, 80.07it/s][31m[EVAL] Top-1:61.719| Top-5:87.440[0m:  49%|████▉     | 77/157 [00:01<00:00, 80.07it/s][31m[EVAL] Top-1:61.729| Top-5:87.401[0m:  50%|████▉     | 78/157 [00:01<00:00, 80.07it/s][31m[EVAL] Top-1:61.758| Top-5:87.402[0m:  50%|█████     | 79/157 [00:01<00:00, 80.07it/s][31m[EVAL] Top-1:61.758| Top-5:87.402[0m:  51%|█████     | 80/157 [00:01<00:00, 81.01it/s][31m[EVAL] Top-1:61.902| Top-5:87.481[0m:  51%|█████     | 80/157 [00:01<00:00, 81.01it/s][31m[EVAL] Top-1:61.966| Top-5:87.576[0m:  52%|█████▏    | 81/157 [00:01<00:00, 81.01it/s][31m[EVAL] Top-1:61.973| Top-5:87.538[0m:  52%|█████▏    | 82/157 [00:01<00:00, 81.01it/s][31m[EVAL] Top-1:61.923| Top-5:87.537[0m:  53%|█████▎    | 83/157 [00:01<00:00, 81.01it/s][31m[EVAL] Top-1:61.875| Top-5:87.445[0m:  54%|█████▎    | 84/157 [00:01<00:00, 81.01it/s][31m[EVAL] Top-1:61.864| Top-5:87.427[0m:  54%|█████▍    | 85/157 [00:01<00:00, 81.01it/s][31m[EVAL] Top-1:61.889| Top-5:87.464[0m:  55%|█████▍    | 86/157 [00:01<00:00, 81.01it/s][31m[EVAL] Top-1:61.879| Top-5:87.482[0m:  55%|█████▌    | 87/157 [00:01<00:00, 81.01it/s][31m[EVAL] Top-1:61.903| Top-5:87.535[0m:  56%|█████▌    | 88/157 [00:01<00:00, 81.01it/s][31m[EVAL] Top-1:61.903| Top-5:87.535[0m:  57%|█████▋    | 89/157 [00:01<00:00, 80.94it/s][31m[EVAL] Top-1:61.892| Top-5:87.535[0m:  57%|█████▋    | 89/157 [00:01<00:00, 80.94it/s][31m[EVAL] Top-1:61.968| Top-5:87.569[0m:  57%|█████▋    | 90/157 [00:01<00:00, 80.94it/s][31m[EVAL] Top-1:61.889| Top-5:87.653[0m:  58%|█████▊    | 91/157 [00:01<00:00, 80.94it/s][31m[EVAL] Top-1:61.862| Top-5:87.752[0m:  59%|█████▊    | 92/157 [00:01<00:00, 80.94it/s][31m[EVAL] Top-1:61.785| Top-5:87.699[0m:  59%|█████▉    | 93/157 [00:01<00:00, 80.94it/s][31m[EVAL] Top-1:61.842| Top-5:87.681[0m:  60%|█████▉    | 94/157 [00:01<00:00, 80.94it/s][31m[EVAL] Top-1:61.816| Top-5:87.646[0m:  61%|██████    | 95/157 [00:01<00:00, 80.94it/s][31m[EVAL] Top-1:61.711| Top-5:87.548[0m:  61%|██████    | 96/157 [00:01<00:00, 80.94it/s][31m[EVAL] Top-1:61.735| Top-5:87.628[0m:  62%|██████▏   | 97/157 [00:01<00:00, 80.94it/s][31m[EVAL] Top-1:61.735| Top-5:87.628[0m:  62%|██████▏   | 98/157 [00:01<00:00, 80.97it/s][31m[EVAL] Top-1:61.758| Top-5:87.595[0m:  62%|██████▏   | 98/157 [00:01<00:00, 80.97it/s][31m[EVAL] Top-1:61.781| Top-5:87.594[0m:  63%|██████▎   | 99/157 [00:01<00:00, 80.97it/s][31m[EVAL] Top-1:61.742| Top-5:87.624[0m:  64%|██████▎   | 100/157 [00:01<00:00, 80.97it/s][31m[EVAL] Top-1:61.627| Top-5:87.577[0m:  64%|██████▍   | 101/157 [00:01<00:00, 80.97it/s][31m[EVAL] Top-1:61.484| Top-5:87.454[0m:  65%|██████▍   | 102/157 [00:01<00:00, 80.97it/s][31m[EVAL] Top-1:61.508| Top-5:87.485[0m:  66%|██████▌   | 103/157 [00:01<00:00, 80.97it/s][31m[EVAL] Top-1:61.592| Top-5:87.530[0m:  66%|██████▌   | 104/157 [00:01<00:00, 80.97it/s][31m[EVAL] Top-1:61.586| Top-5:87.500[0m:  67%|██████▋   | 105/157 [00:01<00:00, 80.97it/s][31m[EVAL] Top-1:61.595| Top-5:87.471[0m:  68%|██████▊   | 106/157 [00:01<00:00, 80.97it/s][31m[EVAL] Top-1:61.595| Top-5:87.471[0m:  68%|██████▊   | 107/157 [00:01<00:00, 81.28it/s][31m[EVAL] Top-1:61.719| Top-5:87.514[0m:  68%|██████▊   | 107/157 [00:01<00:00, 81.28it/s][31m[EVAL] Top-1:61.669| Top-5:87.557[0m:  69%|██████▉   | 108/157 [00:01<00:00, 81.28it/s][31m[EVAL] Top-1:61.591| Top-5:87.500[0m:  69%|██████▉   | 109/157 [00:01<00:00, 81.28it/s][31m[EVAL] Top-1:61.571| Top-5:87.458[0m:  70%|███████   | 110/157 [00:01<00:00, 81.28it/s][31m[EVAL] Top-1:61.579| Top-5:87.430[0m:  71%|███████   | 111/157 [00:01<00:00, 81.28it/s][31m[EVAL] Top-1:61.615| Top-5:87.486[0m:  71%|███████▏  | 112/157 [00:01<00:00, 81.28it/s][31m[EVAL] Top-1:61.678| Top-5:87.473[0m:  72%|███████▏  | 113/157 [00:01<00:00, 81.28it/s][31m[EVAL] Top-1:61.671| Top-5:87.514[0m:  73%|███████▎  | 114/157 [00:01<00:00, 81.28it/s][31m[EVAL] Top-1:61.598| Top-5:87.460[0m:  73%|███████▎  | 115/157 [00:01<00:00, 81.28it/s][31m[EVAL] Top-1:61.598| Top-5:87.460[0m:  74%|███████▍  | 116/157 [00:01<00:00, 81.53it/s][31m[EVAL] Top-1:61.538| Top-5:87.420[0m:  74%|███████▍  | 116/157 [00:01<00:00, 81.53it/s][31m[EVAL] Top-1:61.573| Top-5:87.474[0m:  75%|███████▍  | 117/157 [00:01<00:00, 81.53it/s][31m[EVAL] Top-1:61.594| Top-5:87.513[0m:  75%|███████▌  | 118/157 [00:01<00:00, 81.53it/s][31m[EVAL] Top-1:61.589| Top-5:87.539[0m:  76%|███████▌  | 119/157 [00:01<00:00, 81.53it/s][31m[EVAL] Top-1:61.570| Top-5:87.513[0m:  76%|███████▋  | 120/157 [00:01<00:00, 81.53it/s][31m[EVAL] Top-1:61.514| Top-5:87.487[0m:  77%|███████▋  | 121/157 [00:01<00:00, 81.53it/s][31m[EVAL] Top-1:61.547| Top-5:87.500[0m:  78%|███████▊  | 122/157 [00:01<00:00, 81.53it/s][31m[EVAL] Top-1:61.479| Top-5:87.538[0m:  78%|███████▊  | 123/157 [00:01<00:00, 81.53it/s][31m[EVAL] Top-1:61.488| Top-5:87.550[0m:  79%|███████▉  | 124/157 [00:01<00:00, 81.53it/s][31m[EVAL] Top-1:61.488| Top-5:87.550[0m:  80%|███████▉  | 125/157 [00:01<00:00, 81.51it/s][31m[EVAL] Top-1:61.483| Top-5:87.550[0m:  80%|███████▉  | 125/157 [00:01<00:00, 81.51it/s][31m[EVAL] Top-1:61.467| Top-5:87.512[0m:  80%|████████  | 126/157 [00:01<00:00, 81.51it/s][31m[EVAL] Top-1:61.438| Top-5:87.500[0m:  81%|████████  | 127/157 [00:01<00:00, 81.51it/s][31m[EVAL] Top-1:61.446| Top-5:87.512[0m:  82%|████████▏ | 128/157 [00:01<00:00, 81.51it/s][31m[EVAL] Top-1:61.430| Top-5:87.536[0m:  82%|████████▏ | 129/157 [00:01<00:00, 81.51it/s][31m[EVAL] Top-1:61.498| Top-5:87.560[0m:  83%|████████▎ | 130/157 [00:01<00:00, 81.51it/s][31m[EVAL] Top-1:61.529| Top-5:87.583[0m:  83%|████████▎ | 131/157 [00:01<00:00, 81.51it/s][31m[EVAL] Top-1:61.548| Top-5:87.582[0m:  84%|████████▍ | 132/157 [00:01<00:00, 81.51it/s][31m[EVAL] Top-1:61.625| Top-5:87.640[0m:  85%|████████▍ | 133/157 [00:01<00:00, 81.51it/s][31m[EVAL] Top-1:61.625| Top-5:87.640[0m:  85%|████████▌ | 134/157 [00:01<00:00, 79.14it/s][31m[EVAL] Top-1:61.632| Top-5:87.650[0m:  85%|████████▌ | 134/157 [00:01<00:00, 79.14it/s][31m[EVAL] Top-1:61.673| Top-5:87.661[0m:  86%|████████▌ | 135/157 [00:01<00:00, 79.14it/s][31m[EVAL] Top-1:61.759| Top-5:87.671[0m:  87%|████████▋ | 136/157 [00:01<00:00, 79.14it/s][31m[EVAL] Top-1:61.719| Top-5:87.670[0m:  87%|████████▋ | 137/157 [00:01<00:00, 79.14it/s][31m[EVAL] Top-1:61.747| Top-5:87.669[0m:  88%|████████▊ | 138/157 [00:01<00:00, 79.14it/s][31m[EVAL] Top-1:61.752| Top-5:87.701[0m:  89%|████████▊ | 139/157 [00:01<00:00, 79.14it/s][31m[EVAL] Top-1:61.802| Top-5:87.677[0m:  89%|████████▉ | 140/157 [00:01<00:00, 79.14it/s][31m[EVAL] Top-1:61.730| Top-5:87.709[0m:  90%|████████▉ | 141/157 [00:01<00:00, 79.14it/s][31m[EVAL] Top-1:61.659| Top-5:87.653[0m:  90%|█████████ | 142/157 [00:01<00:00, 79.14it/s][31m[EVAL] Top-1:61.659| Top-5:87.653[0m:  91%|█████████ | 143/157 [00:01<00:00, 80.14it/s][31m[EVAL] Top-1:61.686| Top-5:87.674[0m:  91%|█████████ | 143/157 [00:01<00:00, 80.14it/s][31m[EVAL] Top-1:61.681| Top-5:87.651[0m:  92%|█████████▏| 144/157 [00:01<00:00, 80.14it/s][31m[EVAL] Top-1:61.665| Top-5:87.671[0m:  92%|█████████▏| 145/157 [00:01<00:00, 80.14it/s][31m[EVAL] Top-1:61.650| Top-5:87.681[0m:  93%|█████████▎| 146/157 [00:01<00:00, 80.14it/s][31m[EVAL] Top-1:61.645| Top-5:87.679[0m:  94%|█████████▎| 147/157 [00:01<00:00, 80.14it/s][31m[EVAL] Top-1:61.703| Top-5:87.699[0m:  94%|█████████▍| 148/157 [00:01<00:00, 80.14it/s][31m[EVAL] Top-1:61.729| Top-5:87.719[0m:  95%|█████████▍| 149/157 [00:01<00:00, 80.14it/s][31m[EVAL] Top-1:61.714| Top-5:87.738[0m:  96%|█████████▌| 150/157 [00:01<00:00, 80.14it/s][31m[EVAL] Top-1:61.708| Top-5:87.726[0m:  96%|█████████▌| 151/157 [00:01<00:00, 80.14it/s][31m[EVAL] Top-1:61.708| Top-5:87.726[0m:  97%|█████████▋| 152/157 [00:01<00:00, 81.11it/s][31m[EVAL] Top-1:61.714| Top-5:87.704[0m:  97%|█████████▋| 152/157 [00:02<00:00, 81.11it/s][31m[EVAL] Top-1:61.739| Top-5:87.713[0m:  97%|█████████▋| 153/157 [00:02<00:00, 81.11it/s][31m[EVAL] Top-1:61.663| Top-5:87.722[0m:  98%|█████████▊| 154/157 [00:02<00:00, 81.11it/s][31m[EVAL] Top-1:61.679| Top-5:87.750[0m:  99%|█████████▊| 155/157 [00:02<00:00, 81.11it/s][31m[EVAL] Top-1:61.690| Top-5:87.740[0m:  99%|█████████▉| 156/157 [00:02<00:00, 81.11it/s][31m[EVAL] Top-1:61.690| Top-5:87.740[0m: 100%|██████████| 157/157 [00:02<00:00, 73.58it/s]64
+Epoch 115 Results - Train Acc: 71.14% | Test Acc: 61.69% | Best: 62.80%
+0.0058491958333333335
+Epoch 116: Training...
+
+  Batch 100/782 - Loss CE: 1.1279, Loss KD: 4.1748
+  Batch 200/782 - Loss CE: 1.1535, Loss KD: 4.2159
+  Batch 300/782 - Loss CE: 1.1613, Loss KD: 4.2506
+  Batch 400/782 - Loss CE: 1.1612, Loss KD: 4.2571
+  Batch 500/782 - Loss CE: 1.1655, Loss KD: 4.2891
+  Batch 600/782 - Loss CE: 1.1699, Loss KD: 4.3106
+  Batch 700/782 - Loss CE: 1.1771, Loss KD: 4.3325
+  Batch 782/782 - Loss CE: 1.1836, Loss KD: 4.3496
+Epoch 116 Training Complete - Avg Loss CE: 1.1836, Avg Loss KD: 4.3496
+  0%|          | 0/157 [00:00<?, ?it/s][31m[EVAL] Top-1:64.062| Top-5:81.250[0m:   0%|          | 0/157 [00:00<?, ?it/s][31m[EVAL] Top-1:64.062| Top-5:81.250[0m:   1%|          | 1/157 [00:00<00:20,  7.63it/s][31m[EVAL] Top-1:64.062| Top-5:85.156[0m:   1%|          | 1/157 [00:00<00:20,  7.63it/s][31m[EVAL] Top-1:65.104| Top-5:85.417[0m:   1%|▏         | 2/157 [00:00<00:20,  7.63it/s][31m[EVAL] Top-1:63.672| Top-5:85.547[0m:   2%|▏         | 3/157 [00:00<00:20,  7.63it/s][31m[EVAL] Top-1:63.438| Top-5:86.250[0m:   3%|▎         | 4/157 [00:00<00:20,  7.63it/s][31m[EVAL] Top-1:63.281| Top-5:85.677[0m:   3%|▎         | 5/157 [00:00<00:19,  7.63it/s][31m[EVAL] Top-1:61.384| Top-5:85.045[0m:   4%|▍         | 6/157 [00:00<00:19,  7.63it/s][31m[EVAL] Top-1:60.156| Top-5:84.766[0m:   4%|▍         | 7/157 [00:00<00:19,  7.63it/s][31m[EVAL] Top-1:58.681| Top-5:83.854[0m:   5%|▌         | 8/157 [00:00<00:19,  7.63it/s][31m[EVAL] Top-1:58.681| Top-5:83.854[0m:   6%|▌         | 9/157 [00:00<00:03, 43.62it/s][31m[EVAL] Top-1:59.219| Top-5:84.375[0m:   6%|▌         | 9/157 [00:00<00:03, 43.62it/s][31m[EVAL] Top-1:59.091| Top-5:84.517[0m:   6%|▋         | 10/157 [00:00<00:03, 43.62it/s][31m[EVAL] Top-1:59.766| Top-5:85.026[0m:   7%|▋         | 11/157 [00:00<00:03, 43.62it/s][31m[EVAL] Top-1:60.457| Top-5:84.976[0m:   8%|▊         | 12/157 [00:00<00:03, 43.62it/s][31m[EVAL] Top-1:60.268| Top-5:84.821[0m:   8%|▊         | 13/157 [00:00<00:03, 43.62it/s][31m[EVAL] Top-1:60.000| Top-5:84.479[0m:   9%|▉         | 14/157 [00:00<00:03, 43.62it/s][31m[EVAL] Top-1:59.766| Top-5:84.863[0m:  10%|▉         | 15/157 [00:00<00:03, 43.62it/s][31m[EVAL] Top-1:60.110| Top-5:84.743[0m:  10%|█         | 16/157 [00:00<00:03, 43.62it/s][31m[EVAL] Top-1:59.896| Top-5:84.722[0m:  11%|█         | 17/157 [00:00<00:03, 43.62it/s][31m[EVAL] Top-1:59.896| Top-5:84.722[0m:  11%|█▏        | 18/157 [00:00<00:02, 59.98it/s][31m[EVAL] Top-1:60.033| Top-5:85.115[0m:  11%|█▏        | 18/157 [00:00<00:02, 59.98it/s][31m[EVAL] Top-1:60.234| Top-5:85.469[0m:  12%|█▏        | 19/157 [00:00<00:02, 59.98it/s][31m[EVAL] Top-1:60.045| Top-5:85.417[0m:  13%|█▎        | 20/157 [00:00<00:02, 59.98it/s][31m[EVAL] Top-1:59.943| Top-5:85.511[0m:  13%|█▎        | 21/157 [00:00<00:02, 59.98it/s][31m[EVAL] Top-1:59.986| Top-5:85.734[0m:  14%|█▍        | 22/157 [00:00<00:02, 59.98it/s][31m[EVAL] Top-1:59.896| Top-5:85.482[0m:  15%|█▍        | 23/157 [00:00<00:02, 59.98it/s][31m[EVAL] Top-1:59.500| Top-5:85.625[0m:  15%|█▌        | 24/157 [00:00<00:02, 59.98it/s][31m[EVAL] Top-1:59.375| Top-5:85.457[0m:  16%|█▌        | 25/157 [00:00<00:02, 59.98it/s][31m[EVAL] Top-1:59.317| Top-5:85.243[0m:  17%|█▋        | 26/157 [00:00<00:02, 59.98it/s][31m[EVAL] Top-1:59.317| Top-5:85.243[0m:  17%|█▋        | 27/157 [00:00<00:01, 68.60it/s][31m[EVAL] Top-1:59.319| Top-5:85.268[0m:  17%|█▋        | 27/157 [00:00<00:01, 68.60it/s][31m[EVAL] Top-1:59.429| Top-5:85.345[0m:  18%|█▊        | 28/157 [00:00<00:01, 68.60it/s][31m[EVAL] Top-1:59.896| Top-5:85.521[0m:  18%|█▊        | 29/157 [00:00<00:01, 68.60it/s][31m[EVAL] Top-1:59.778| Top-5:85.585[0m:  19%|█▉        | 30/157 [00:00<00:01, 68.60it/s][31m[EVAL] Top-1:60.010| Top-5:85.791[0m:  20%|█▉        | 31/157 [00:00<00:01, 68.60it/s][31m[EVAL] Top-1:59.801| Top-5:85.606[0m:  20%|██        | 32/157 [00:00<00:01, 68.60it/s][31m[EVAL] Top-1:59.789| Top-5:85.616[0m:  21%|██        | 33/157 [00:00<00:01, 68.60it/s][31m[EVAL] Top-1:59.643| Top-5:85.580[0m:  22%|██▏       | 34/157 [00:00<00:01, 68.60it/s][31m[EVAL] Top-1:59.635| Top-5:85.764[0m:  22%|██▏       | 35/157 [00:00<00:01, 68.60it/s][31m[EVAL] Top-1:59.635| Top-5:85.764[0m:  23%|██▎       | 36/157 [00:00<00:01, 73.24it/s][31m[EVAL] Top-1:59.291| Top-5:85.473[0m:  23%|██▎       | 36/157 [00:00<00:01, 73.24it/s][31m[EVAL] Top-1:59.375| Top-5:85.567[0m:  24%|██▎       | 37/157 [00:00<00:01, 73.24it/s][31m[EVAL] Top-1:59.495| Top-5:85.657[0m:  24%|██▍       | 38/157 [00:00<00:01, 73.24it/s][31m[EVAL] Top-1:59.609| Top-5:85.547[0m:  25%|██▍       | 39/157 [00:00<00:01, 73.24it/s][31m[EVAL] Top-1:59.527| Top-5:85.518[0m:  25%|██▌       | 40/157 [00:00<00:01, 73.24it/s][31m[EVAL] Top-1:59.561| Top-5:85.491[0m:  26%|██▌       | 41/157 [00:00<00:01, 73.24it/s][31m[EVAL] Top-1:59.448| Top-5:85.429[0m:  27%|██▋       | 42/157 [00:00<00:01, 73.24it/s][31m[EVAL] Top-1:59.233| Top-5:85.298[0m:  27%|██▋       | 43/157 [00:00<00:01, 73.24it/s][31m[EVAL] Top-1:59.028| Top-5:85.104[0m:  28%|██▊       | 44/157 [00:00<00:01, 73.24it/s][31m[EVAL] Top-1:59.028| Top-5:85.104[0m:  29%|██▊       | 45/157 [00:00<00:01, 75.89it/s][31m[EVAL] Top-1:59.171| Top-5:85.156[0m:  29%|██▊       | 45/157 [00:00<00:01, 75.89it/s][31m[EVAL] Top-1:59.142| Top-5:85.206[0m:  29%|██▉       | 46/157 [00:00<00:01, 75.89it/s][31m[EVAL] Top-1:58.952| Top-5:85.286[0m:  30%|██▉       | 47/157 [00:00<00:01, 75.89it/s][31m[EVAL] Top-1:58.960| Top-5:85.236[0m:  31%|███       | 48/157 [00:00<00:01, 75.89it/s][31m[EVAL] Top-1:58.969| Top-5:85.312[0m:  31%|███       | 49/157 [00:00<00:01, 75.89it/s][31m[EVAL] Top-1:58.946| Top-5:85.294[0m:  32%|███▏      | 50/157 [00:00<00:01, 75.89it/s][31m[EVAL] Top-1:58.804| Top-5:85.276[0m:  32%|███▏      | 51/157 [00:00<00:01, 75.89it/s][31m[EVAL] Top-1:58.667| Top-5:85.318[0m:  33%|███▎      | 52/157 [00:00<00:01, 75.89it/s][31m[EVAL] Top-1:58.709| Top-5:85.301[0m:  34%|███▍      | 53/157 [00:00<00:01, 75.89it/s][31m[EVAL] Top-1:58.709| Top-5:85.301[0m:  34%|███▍      | 54/157 [00:00<00:01, 77.49it/s][31m[EVAL] Top-1:58.636| Top-5:85.227[0m:  34%|███▍      | 54/157 [00:00<00:01, 77.49it/s][31m[EVAL] Top-1:58.817| Top-5:85.296[0m:  35%|███▌      | 55/157 [00:00<00:01, 77.49it/s][31m[EVAL] Top-1:58.827| Top-5:85.334[0m:  36%|███▌      | 56/157 [00:00<00:01, 77.49it/s][31m[EVAL] Top-1:58.890| Top-5:85.453[0m:  36%|███▋      | 57/157 [00:00<00:01, 77.49it/s][31m[EVAL] Top-1:59.004| Top-5:85.540[0m:  37%|███▋      | 58/157 [00:00<00:01, 77.49it/s][31m[EVAL] Top-1:59.115| Top-5:85.625[0m:  38%|███▊      | 59/157 [00:00<00:01, 77.49it/s][31m[EVAL] Top-1:59.093| Top-5:85.681[0m:  38%|███▊      | 60/157 [00:00<00:01, 77.49it/s][31m[EVAL] Top-1:59.249| Top-5:85.761[0m:  39%|███▉      | 61/157 [00:00<00:01, 77.49it/s][31m[EVAL] Top-1:59.276| Top-5:85.863[0m:  39%|███▉      | 62/157 [00:00<00:01, 77.49it/s][31m[EVAL] Top-1:59.276| Top-5:85.863[0m:  40%|████      | 63/157 [00:00<00:01, 78.31it/s][31m[EVAL] Top-1:59.204| Top-5:85.840[0m:  40%|████      | 63/157 [00:00<00:01, 78.31it/s][31m[EVAL] Top-1:59.303| Top-5:85.865[0m:  41%|████      | 64/157 [00:00<00:01, 78.31it/s][31m[EVAL] Top-1:59.209| Top-5:85.795[0m:  41%|████▏     | 65/157 [00:00<00:01, 78.31it/s][31m[EVAL] Top-1:59.258| Top-5:85.704[0m:  42%|████▏     | 66/157 [00:00<00:01, 78.31it/s][31m[EVAL] Top-1:59.306| Top-5:85.777[0m:  43%|████▎     | 67/157 [00:00<00:01, 78.31it/s][31m[EVAL] Top-1:59.352| Top-5:85.779[0m:  43%|████▎     | 68/157 [00:00<00:01, 78.31it/s][31m[EVAL] Top-1:59.397| Top-5:85.759[0m:  44%|████▍     | 69/157 [00:00<00:01, 78.31it/s][31m[EVAL] Top-1:59.221| Top-5:85.673[0m:  45%|████▍     | 70/157 [00:01<00:01, 78.31it/s][31m[EVAL] Top-1:59.223| Top-5:85.634[0m:  45%|████▌     | 71/157 [00:01<00:01, 78.31it/s][31m[EVAL] Top-1:59.223| Top-5:85.634[0m:  46%|████▌     | 72/157 [00:01<00:01, 79.48it/s][31m[EVAL] Top-1:59.268| Top-5:85.702[0m:  46%|████▌     | 72/157 [00:01<00:01, 79.48it/s][31m[EVAL] Top-1:59.333| Top-5:85.684[0m:  46%|████▋     | 73/157 [00:01<00:01, 79.48it/s][31m[EVAL] Top-1:59.312| Top-5:85.688[0m:  47%|████▋     | 74/157 [00:01<00:01, 79.48it/s][31m[EVAL] Top-1:59.252| Top-5:85.650[0m:  48%|████▊     | 75/157 [00:01<00:01, 79.48it/s][31m[EVAL] Top-1:59.355| Top-5:85.674[0m:  48%|████▊     | 76/157 [00:01<00:01, 79.48it/s][31m[EVAL] Top-1:59.375| Top-5:85.657[0m:  49%|████▉     | 77/157 [00:01<00:01, 79.48it/s][31m[EVAL] Top-1:59.474| Top-5:85.621[0m:  50%|████▉     | 78/157 [00:01<00:00, 79.48it/s][31m[EVAL] Top-1:59.492| Top-5:85.684[0m:  50%|█████     | 79/157 [00:01<00:00, 79.48it/s][31m[EVAL] Top-1:59.491| Top-5:85.725[0m:  51%|█████     | 80/157 [00:01<00:00, 79.48it/s][31m[EVAL] Top-1:59.491| Top-5:85.725[0m:  52%|█████▏    | 81/157 [00:01<00:00, 80.14it/s][31m[EVAL] Top-1:59.546| Top-5:85.842[0m:  52%|█████▏    | 81/157 [00:01<00:00, 80.14it/s][31m[EVAL] Top-1:59.507| Top-5:85.919[0m:  52%|█████▏    | 82/157 [00:01<00:00, 80.14it/s][31m[EVAL] Top-1:59.431| Top-5:85.993[0m:  53%|█████▎    | 83/157 [00:01<00:00, 80.14it/s][31m[EVAL] Top-1:59.485| Top-5:86.011[0m:  54%|█████▎    | 84/157 [00:01<00:00, 80.14it/s][31m[EVAL] Top-1:59.448| Top-5:86.010[0m:  54%|█████▍    | 85/157 [00:01<00:00, 80.14it/s][31m[EVAL] Top-1:59.411| Top-5:86.099[0m:  55%|█████▍    | 86/157 [00:01<00:00, 80.14it/s][31m[EVAL] Top-1:59.464| Top-5:86.097[0m:  55%|█████▌    | 87/157 [00:01<00:00, 80.14it/s][31m[EVAL] Top-1:59.551| Top-5:86.096[0m:  56%|█████▌    | 88/157 [00:01<00:00, 80.14it/s][31m[EVAL] Top-1:59.583| Top-5:86.059[0m:  57%|█████▋    | 89/157 [00:01<00:00, 80.14it/s][31m[EVAL] Top-1:59.583| Top-5:86.059[0m:  57%|█████▋    | 90/157 [00:01<00:00, 78.70it/s][31m[EVAL] Top-1:59.667| Top-5:86.092[0m:  57%|█████▋    | 90/157 [00:01<00:00, 78.70it/s][31m[EVAL] Top-1:59.715| Top-5:86.090[0m:  58%|█████▊    | 91/157 [00:01<00:00, 78.70it/s][31m[EVAL] Top-1:59.745| Top-5:86.089[0m:  59%|█████▊    | 92/157 [00:01<00:00, 78.70it/s][31m[EVAL] Top-1:59.624| Top-5:86.037[0m:  59%|█████▉    | 93/157 [00:01<00:00, 78.70it/s][31m[EVAL] Top-1:59.622| Top-5:86.102[0m:  60%|█████▉    | 94/157 [00:01<00:00, 78.70it/s][31m[EVAL] Top-1:59.570| Top-5:86.133[0m:  61%|██████    | 95/157 [00:01<00:00, 78.70it/s][31m[EVAL] Top-1:59.439| Top-5:86.115[0m:  61%|██████    | 96/157 [00:01<00:00, 78.70it/s][31m[EVAL] Top-1:59.471| Top-5:86.161[0m:  62%|██████▏   | 97/157 [00:01<00:00, 78.70it/s][31m[EVAL] Top-1:59.454| Top-5:86.095[0m:  62%|██████▏   | 98/157 [00:01<00:00, 78.70it/s][31m[EVAL] Top-1:59.454| Top-5:86.095[0m:  63%|██████▎   | 99/157 [00:01<00:00, 79.62it/s][31m[EVAL] Top-1:59.438| Top-5:86.109[0m:  63%|██████▎   | 99/157 [00:01<00:00, 79.62it/s][31m[EVAL] Top-1:59.468| Top-5:86.170[0m:  64%|██████▎   | 100/157 [00:01<00:00, 79.62it/s][31m[EVAL] Top-1:59.436| Top-5:86.121[0m:  64%|██████▍   | 101/157 [00:01<00:00, 79.62it/s][31m[EVAL] Top-1:59.269| Top-5:86.013[0m:  65%|██████▍   | 102/157 [00:01<00:00, 79.62it/s][31m[EVAL] Top-1:59.240| Top-5:86.043[0m:  66%|██████▌   | 103/157 [00:01<00:00, 79.62it/s][31m[EVAL] Top-1:59.390| Top-5:86.071[0m:  66%|██████▌   | 104/157 [00:01<00:00, 79.62it/s][31m[EVAL] Top-1:59.346| Top-5:86.055[0m:  67%|██████▋   | 105/157 [00:01<00:00, 79.62it/s][31m[EVAL] Top-1:59.375| Top-5:86.069[0m:  68%|██████▊   | 106/157 [00:01<00:00, 79.62it/s][31m[EVAL] Top-1:59.447| Top-5:86.097[0m:  68%|██████▊   | 107/157 [00:01<00:00, 79.62it/s][31m[EVAL] Top-1:59.447| Top-5:86.097[0m:  69%|██████▉   | 108/157 [00:01<00:00, 80.45it/s][31m[EVAL] Top-1:59.475| Top-5:86.153[0m:  69%|██████▉   | 108/157 [00:01<00:00, 80.45it/s][31m[EVAL] Top-1:59.389| Top-5:86.165[0m:  69%|██████▉   | 109/157 [00:01<00:00, 80.45it/s][31m[EVAL] Top-1:59.417| Top-5:86.149[0m:  70%|███████   | 110/157 [00:01<00:00, 80.45it/s][31m[EVAL] Top-1:59.291| Top-5:86.119[0m:  71%|███████   | 111/157 [00:01<00:00, 80.45it/s][31m[EVAL] Top-1:59.278| Top-5:86.159[0m:  71%|███████▏  | 112/157 [00:01<00:00, 80.45it/s][31m[EVAL] Top-1:59.389| Top-5:86.157[0m:  72%|███████▏  | 113/157 [00:01<00:00, 80.45it/s][31m[EVAL] Top-1:59.402| Top-5:86.209[0m:  73%|███████▎  | 114/157 [00:01<00:00, 80.45it/s][31m[EVAL] Top-1:59.442| Top-5:86.261[0m:  73%|███████▎  | 115/157 [00:01<00:00, 80.45it/s][31m[EVAL] Top-1:59.415| Top-5:86.245[0m:  74%|███████▍  | 116/157 [00:01<00:00, 80.45it/s][31m[EVAL] Top-1:59.415| Top-5:86.245[0m:  75%|███████▍  | 117/157 [00:01<00:00, 80.99it/s][31m[EVAL] Top-1:59.481| Top-5:86.322[0m:  75%|███████▍  | 117/157 [00:01<00:00, 80.99it/s][31m[EVAL] Top-1:59.414| Top-5:86.292[0m:  75%|███████▌  | 118/157 [00:01<00:00, 80.99it/s][31m[EVAL] Top-1:59.440| Top-5:86.263[0m:  76%|███████▌  | 119/157 [00:01<00:00, 80.99it/s][31m[EVAL] Top-1:59.388| Top-5:86.247[0m:  76%|███████▋  | 120/157 [00:01<00:00, 80.99it/s][31m[EVAL] Top-1:59.349| Top-5:86.194[0m:  77%|███████▋  | 121/157 [00:01<00:00, 80.99it/s][31m[EVAL] Top-1:59.350| Top-5:86.242[0m:  78%|███████▊  | 122/157 [00:01<00:00, 80.99it/s][31m[EVAL] Top-1:59.274| Top-5:86.164[0m:  78%|███████▊  | 123/157 [00:01<00:00, 80.99it/s][31m[EVAL] Top-1:59.313| Top-5:86.113[0m:  79%|███████▉  | 124/157 [00:01<00:00, 80.99it/s][31m[EVAL] Top-1:59.387| Top-5:86.124[0m:  80%|███████▉  | 125/157 [00:01<00:00, 80.99it/s][31m[EVAL] Top-1:59.387| Top-5:86.124[0m:  80%|████████  | 126/157 [00:01<00:00, 80.93it/s][31m[EVAL] Top-1:59.363| Top-5:86.061[0m:  80%|████████  | 126/157 [00:01<00:00, 80.93it/s][31m[EVAL] Top-1:59.363| Top-5:86.035[0m:  81%|████████  | 127/157 [00:01<00:00, 80.93it/s][31m[EVAL] Top-1:59.351| Top-5:86.047[0m:  82%|████████▏ | 128/157 [00:01<00:00, 80.93it/s][31m[EVAL] Top-1:59.327| Top-5:86.070[0m:  82%|████████▏ | 129/157 [00:01<00:00, 80.93it/s][31m[EVAL] Top-1:59.303| Top-5:86.069[0m:  83%|████████▎ | 130/157 [00:01<00:00, 80.93it/s][31m[EVAL] Top-1:59.316| Top-5:86.068[0m:  83%|████████▎ | 131/157 [00:01<00:00, 80.93it/s][31m[EVAL] Top-1:59.352| Top-5:86.102[0m:  84%|████████▍ | 132/157 [00:01<00:00, 80.93it/s][31m[EVAL] Top-1:59.398| Top-5:86.147[0m:  85%|████████▍ | 133/157 [00:01<00:00, 80.93it/s][31m[EVAL] Top-1:59.363| Top-5:86.181[0m:  85%|████████▌ | 134/157 [00:01<00:00, 80.93it/s][31m[EVAL] Top-1:59.363| Top-5:86.181[0m:  86%|████████▌ | 135/157 [00:01<00:00, 81.08it/s][31m[EVAL] Top-1:59.398| Top-5:86.144[0m:  86%|████████▌ | 135/157 [00:01<00:00, 81.08it/s][31m[EVAL] Top-1:59.569| Top-5:86.211[0m:  87%|████████▋ | 136/157 [00:01<00:00, 81.08it/s][31m[EVAL] Top-1:59.534| Top-5:86.232[0m:  87%|████████▋ | 137/157 [00:01<00:00, 81.08it/s][31m[EVAL] Top-1:59.487| Top-5:86.207[0m:  88%|████████▊ | 138/157 [00:01<00:00, 81.08it/s][31m[EVAL] Top-1:59.408| Top-5:86.217[0m:  89%|████████▊ | 139/157 [00:01<00:00, 81.08it/s][31m[EVAL] Top-1:59.453| Top-5:86.170[0m:  89%|████████▉ | 140/157 [00:01<00:00, 81.08it/s][31m[EVAL] Top-1:59.397| Top-5:86.158[0m:  90%|████████▉ | 141/157 [00:01<00:00, 81.08it/s][31m[EVAL] Top-1:59.375| Top-5:86.123[0m:  90%|█████████ | 142/157 [00:01<00:00, 81.08it/s][31m[EVAL] Top-1:59.418| Top-5:86.144[0m:  91%|█████████ | 143/157 [00:01<00:00, 81.08it/s][31m[EVAL] Top-1:59.418| Top-5:86.144[0m:  92%|█████████▏| 144/157 [00:01<00:00, 81.45it/s][31m[EVAL] Top-1:59.440| Top-5:86.142[0m:  92%|█████████▏| 144/157 [00:01<00:00, 81.45it/s][31m[EVAL] Top-1:59.429| Top-5:86.152[0m:  92%|█████████▏| 145/157 [00:01<00:00, 81.45it/s][31m[EVAL] Top-1:59.449| Top-5:86.139[0m:  93%|█████████▎| 146/157 [00:01<00:00, 81.45it/s][31m[EVAL] Top-1:59.481| Top-5:86.149[0m:  94%|█████████▎| 147/157 [00:01<00:00, 81.45it/s][31m[EVAL] Top-1:59.511| Top-5:86.168[0m:  94%|█████████▍| 148/157 [00:01<00:00, 81.45it/s][31m[EVAL] Top-1:59.542| Top-5:86.198[0m:  95%|█████████▍| 149/157 [00:01<00:00, 81.45it/s][31m[EVAL] Top-1:59.530| Top-5:86.207[0m:  96%|█████████▌| 150/157 [00:01<00:00, 81.45it/s][31m[EVAL] Top-1:59.560| Top-5:86.236[0m:  96%|█████████▌| 151/157 [00:02<00:00, 81.45it/s][31m[EVAL] Top-1:59.508| Top-5:86.172[0m:  97%|█████████▋| 152/157 [00:02<00:00, 81.45it/s][31m[EVAL] Top-1:59.508| Top-5:86.172[0m:  97%|█████████▋| 153/157 [00:02<00:00, 81.05it/s][31m[EVAL] Top-1:59.507| Top-5:86.140[0m:  97%|█████████▋| 153/157 [00:02<00:00, 81.05it/s][31m[EVAL] Top-1:59.536| Top-5:86.119[0m:  98%|█████████▊| 154/157 [00:02<00:00, 81.05it/s][31m[EVAL] Top-1:59.515| Top-5:86.128[0m:  99%|█████████▊| 155/157 [00:02<00:00, 81.05it/s][31m[EVAL] Top-1:59.530| Top-5:86.120[0m:  99%|█████████▉| 156/157 [00:02<00:00, 81.05it/s][31m[EVAL] Top-1:59.530| Top-5:86.120[0m: 100%|██████████| 157/157 [00:02<00:00, 73.44it/s]64
+Epoch 116 Results - Train Acc: 71.17% | Test Acc: 59.53% | Best: 62.80%
+0.005666208333333334
+Epoch 117: Training...
+
+  Batch 100/782 - Loss CE: 1.1137, Loss KD: 4.1030
+  Batch 200/782 - Loss CE: 1.1260, Loss KD: 4.1331
+  Batch 300/782 - Loss CE: 1.1384, Loss KD: 4.1822
+  Batch 400/782 - Loss CE: 1.1415, Loss KD: 4.1986
+  Batch 500/782 - Loss CE: 1.1476, Loss KD: 4.2204
+  Batch 600/782 - Loss CE: 1.1604, Loss KD: 4.2610
+  Batch 700/782 - Loss CE: 1.1718, Loss KD: 4.2996
+  Batch 782/782 - Loss CE: 1.1752, Loss KD: 4.3101
+Epoch 117 Training Complete - Avg Loss CE: 1.1752, Avg Loss KD: 4.3101
+  0%|          | 0/157 [00:00<?, ?it/s][31m[EVAL] Top-1:62.500| Top-5:92.188[0m:   0%|          | 0/157 [00:00<?, ?it/s][31m[EVAL] Top-1:62.500| Top-5:92.188[0m:   1%|          | 1/157 [00:00<00:20,  7.65it/s][31m[EVAL] Top-1:60.938| Top-5:92.188[0m:   1%|          | 1/157 [00:00<00:20,  7.65it/s][31m[EVAL] Top-1:63.542| Top-5:90.625[0m:   1%|▏         | 2/157 [00:00<00:20,  7.65it/s][31m[EVAL] Top-1:63.672| Top-5:89.453[0m:   2%|▏         | 3/157 [00:00<00:20,  7.65it/s][31m[EVAL] Top-1:62.500| Top-5:88.125[0m:   3%|▎         | 4/157 [00:00<00:20,  7.65it/s][31m[EVAL] Top-1:61.719| Top-5:88.021[0m:   3%|▎         | 5/157 [00:00<00:19,  7.65it/s][31m[EVAL] Top-1:60.268| Top-5:86.830[0m:   4%|▍         | 6/157 [00:00<00:19,  7.65it/s][31m[EVAL] Top-1:59.961| Top-5:86.523[0m:   4%|▍         | 7/157 [00:00<00:19,  7.65it/s][31m[EVAL] Top-1:59.028| Top-5:85.764[0m:   5%|▌         | 8/157 [00:00<00:19,  7.65it/s][31m[EVAL] Top-1:59.028| Top-5:85.764[0m:   6%|▌         | 9/157 [00:00<00:03, 44.83it/s][31m[EVAL] Top-1:59.219| Top-5:86.250[0m:   6%|▌         | 9/157 [00:00<00:03, 44.83it/s][31m[EVAL] Top-1:59.801| Top-5:86.222[0m:   6%|▋         | 10/157 [00:00<00:03, 44.83it/s][31m[EVAL] Top-1:60.417| Top-5:86.458[0m:   7%|▋         | 11/157 [00:00<00:03, 44.83it/s][31m[EVAL] Top-1:60.577| Top-5:86.298[0m:   8%|▊         | 12/157 [00:00<00:03, 44.83it/s][31m[EVAL] Top-1:60.268| Top-5:86.049[0m:   8%|▊         | 13/157 [00:00<00:03, 44.83it/s][31m[EVAL] Top-1:60.208| Top-5:85.729[0m:   9%|▉         | 14/157 [00:00<00:03, 44.83it/s][31m[EVAL] Top-1:60.254| Top-5:86.133[0m:  10%|▉         | 15/157 [00:00<00:03, 44.83it/s][31m[EVAL] Top-1:60.018| Top-5:85.754[0m:  10%|█         | 16/157 [00:00<00:03, 44.83it/s][31m[EVAL] Top-1:59.635| Top-5:86.024[0m:  11%|█         | 17/157 [00:00<00:03, 44.83it/s][31m[EVAL] Top-1:59.635| Top-5:86.024[0m:  11%|█▏        | 18/157 [00:00<00:02, 61.85it/s][31m[EVAL] Top-1:59.539| Top-5:86.020[0m:  11%|█▏        | 18/157 [00:00<00:02, 61.85it/s][31m[EVAL] Top-1:60.312| Top-5:86.328[0m:  12%|█▏        | 19/157 [00:00<00:02, 61.85it/s][31m[EVAL] Top-1:60.342| Top-5:86.310[0m:  13%|█▎        | 20/157 [00:00<00:02, 61.85it/s][31m[EVAL] Top-1:60.227| Top-5:86.222[0m:  13%|█▎        | 21/157 [00:00<00:02, 61.85it/s][31m[EVAL] Top-1:60.190| Top-5:86.413[0m:  14%|█▍        | 22/157 [00:00<00:02, 61.85it/s][31m[EVAL] Top-1:59.961| Top-5:86.003[0m:  15%|█▍        | 23/157 [00:00<00:02, 61.85it/s][31m[EVAL] Top-1:59.812| Top-5:86.125[0m:  15%|█▌        | 24/157 [00:00<00:02, 61.85it/s][31m[EVAL] Top-1:59.736| Top-5:85.817[0m:  16%|█▌        | 25/157 [00:00<00:02, 61.85it/s][31m[EVAL] Top-1:59.259| Top-5:85.764[0m:  17%|█▋        | 26/157 [00:00<00:02, 61.85it/s][31m[EVAL] Top-1:59.259| Top-5:85.764[0m:  17%|█▋        | 27/157 [00:00<00:01, 70.38it/s][31m[EVAL] Top-1:59.319| Top-5:85.770[0m:  17%|█▋        | 27/157 [00:00<00:01, 70.38it/s][31m[EVAL] Top-1:59.159| Top-5:85.830[0m:  18%|█▊        | 28/157 [00:00<00:01, 70.38it/s][31m[EVAL] Top-1:59.323| Top-5:85.938[0m:  18%|█▊        | 29/157 [00:00<00:01, 70.38it/s][31m[EVAL] Top-1:59.627| Top-5:85.988[0m:  19%|█▉        | 30/157 [00:00<00:01, 70.38it/s][31m[EVAL] Top-1:59.863| Top-5:86.182[0m:  20%|█▉        | 31/157 [00:00<00:01, 70.38it/s][31m[EVAL] Top-1:59.848| Top-5:86.032[0m:  20%|██        | 32/157 [00:00<00:01, 70.38it/s][31m[EVAL] Top-1:59.743| Top-5:85.892[0m:  21%|██        | 33/157 [00:00<00:01, 70.38it/s][31m[EVAL] Top-1:59.777| Top-5:85.759[0m:  22%|██▏       | 34/157 [00:00<00:01, 70.38it/s][31m[EVAL] Top-1:59.939| Top-5:85.851[0m:  22%|██▏       | 35/157 [00:00<00:01, 70.38it/s][31m[EVAL] Top-1:59.939| Top-5:85.851[0m:  23%|██▎       | 36/157 [00:00<00:01, 74.20it/s][31m[EVAL] Top-1:59.671| Top-5:85.769[0m:  23%|██▎       | 36/157 [00:00<00:01, 74.20it/s][31m[EVAL] Top-1:59.581| Top-5:85.814[0m:  24%|██▎       | 37/157 [00:00<00:01, 74.20it/s][31m[EVAL] Top-1:59.615| Top-5:86.018[0m:  24%|██▍       | 38/157 [00:00<00:01, 74.20it/s][31m[EVAL] Top-1:59.805| Top-5:86.055[0m:  25%|██▍       | 39/157 [00:00<00:01, 74.20it/s][31m[EVAL] Top-1:59.870| Top-5:86.052[0m:  25%|██▌       | 40/157 [00:00<00:01, 74.20it/s][31m[EVAL] Top-1:59.784| Top-5:85.863[0m:  26%|██▌       | 41/157 [00:00<00:01, 74.20it/s][31m[EVAL] Top-1:59.884| Top-5:85.865[0m:  27%|██▋       | 42/157 [00:00<00:01, 74.20it/s][31m[EVAL] Top-1:59.943| Top-5:85.831[0m:  27%|██▋       | 43/157 [00:00<00:01, 74.20it/s][31m[EVAL] Top-1:59.757| Top-5:85.625[0m:  28%|██▊       | 44/157 [00:00<00:01, 74.20it/s][31m[EVAL] Top-1:59.757| Top-5:85.625[0m:  29%|██▊       | 45/157 [00:00<00:01, 77.05it/s][31m[EVAL] Top-1:59.749| Top-5:85.632[0m:  29%|██▊       | 45/157 [00:00<00:01, 77.05it/s][31m[EVAL] Top-1:59.741| Top-5:85.605[0m:  29%|██▉       | 46/157 [00:00<00:01, 77.05it/s][31m[EVAL] Top-1:59.766| Top-5:85.547[0m:  30%|██▉       | 47/157 [00:00<00:01, 77.05it/s][31m[EVAL] Top-1:59.790| Top-5:85.619[0m:  31%|███       | 48/157 [00:00<00:01, 77.05it/s][31m[EVAL] Top-1:59.781| Top-5:85.688[0m:  31%|███       | 49/157 [00:00<00:01, 77.05it/s][31m[EVAL] Top-1:59.651| Top-5:85.662[0m:  32%|███▏      | 50/157 [00:00<00:01, 77.05it/s][31m[EVAL] Top-1:59.555| Top-5:85.637[0m:  32%|███▏      | 51/157 [00:00<00:01, 77.05it/s][31m[EVAL] Top-1:59.463| Top-5:85.643[0m:  33%|███▎      | 52/157 [00:00<00:01, 77.05it/s][31m[EVAL] Top-1:59.375| Top-5:85.619[0m:  34%|███▍      | 53/157 [00:00<00:01, 77.05it/s][31m[EVAL] Top-1:59.375| Top-5:85.619[0m:  34%|███▍      | 54/157 [00:00<00:01, 79.11it/s][31m[EVAL] Top-1:59.176| Top-5:85.426[0m:  34%|███▍      | 54/157 [00:00<00:01, 79.11it/s][31m[EVAL] Top-1:59.235| Top-5:85.519[0m:  35%|███▌      | 55/157 [00:00<00:01, 79.11it/s][31m[EVAL] Top-1:59.183| Top-5:85.554[0m:  36%|███▌      | 56/157 [00:00<00:01, 79.11it/s][31m[EVAL] Top-1:59.375| Top-5:85.641[0m:  36%|███▋      | 57/157 [00:00<00:01, 79.11it/s][31m[EVAL] Top-1:59.454| Top-5:85.752[0m:  37%|███▋      | 58/157 [00:00<00:01, 79.11it/s][31m[EVAL] Top-1:59.505| Top-5:85.833[0m:  38%|███▊      | 59/157 [00:00<00:01, 79.11it/s][31m[EVAL] Top-1:59.401| Top-5:85.809[0m:  38%|███▊      | 60/157 [00:00<00:01, 79.11it/s][31m[EVAL] Top-1:59.501| Top-5:85.786[0m:  39%|███▉      | 61/157 [00:00<00:01, 79.11it/s][31m[EVAL] Top-1:59.425| Top-5:85.813[0m:  39%|███▉      | 62/157 [00:00<00:01, 79.11it/s][31m[EVAL] Top-1:59.425| Top-5:85.813[0m:  40%|████      | 63/157 [00:00<00:01, 80.42it/s][31m[EVAL] Top-1:59.448| Top-5:85.913[0m:  40%|████      | 63/157 [00:00<00:01, 80.42it/s][31m[EVAL] Top-1:59.495| Top-5:85.938[0m:  41%|████      | 64/157 [00:00<00:01, 80.42it/s][31m[EVAL] Top-1:59.493| Top-5:85.866[0m:  41%|████▏     | 65/157 [00:00<00:01, 80.42it/s][31m[EVAL] Top-1:59.562| Top-5:85.938[0m:  42%|████▏     | 66/157 [00:00<00:01, 80.42it/s][31m[EVAL] Top-1:59.467| Top-5:85.938[0m:  43%|████▎     | 67/157 [00:00<00:01, 80.42it/s][31m[EVAL] Top-1:59.330| Top-5:85.915[0m:  43%|████▎     | 68/157 [00:00<00:01, 80.42it/s][31m[EVAL] Top-1:59.375| Top-5:85.915[0m:  44%|████▍     | 69/157 [00:00<00:01, 80.42it/s][31m[EVAL] Top-1:59.331| Top-5:85.849[0m:  45%|████▍     | 70/157 [00:00<00:01, 80.42it/s][31m[EVAL] Top-1:59.375| Top-5:85.872[0m:  45%|████▌     | 71/157 [00:00<00:01, 80.42it/s][31m[EVAL] Top-1:59.375| Top-5:85.872[0m:  46%|████▌     | 72/157 [00:00<00:01, 81.40it/s][31m[EVAL] Top-1:59.375| Top-5:85.895[0m:  46%|████▌     | 72/157 [00:01<00:01, 81.40it/s][31m[EVAL] Top-1:59.333| Top-5:85.916[0m:  46%|████▋     | 73/157 [00:01<00:01, 81.40it/s][31m[EVAL] Top-1:59.250| Top-5:85.917[0m:  47%|████▋     | 74/157 [00:01<00:01, 81.40it/s][31m[EVAL] Top-1:59.252| Top-5:85.876[0m:  48%|████▊     | 75/157 [00:01<00:01, 81.40it/s][31m[EVAL] Top-1:59.192| Top-5:85.816[0m:  48%|████▊     | 76/157 [00:01<00:00, 81.40it/s][31m[EVAL] Top-1:59.295| Top-5:85.797[0m:  49%|████▉     | 77/157 [00:01<00:00, 81.40it/s][31m[EVAL] Top-1:59.316| Top-5:85.720[0m:  50%|████▉     | 78/157 [00:01<00:00, 81.40it/s][31m[EVAL] Top-1:59.434| Top-5:85.742[0m:  50%|█████     | 79/157 [00:01<00:00, 81.40it/s][31m[EVAL] Top-1:59.471| Top-5:85.667[0m:  51%|█████     | 80/157 [00:01<00:00, 81.40it/s][31m[EVAL] Top-1:59.471| Top-5:85.667[0m:  52%|█████▏    | 81/157 [00:01<00:00, 81.69it/s][31m[EVAL] Top-1:59.546| Top-5:85.728[0m:  52%|█████▏    | 81/157 [00:01<00:00, 81.69it/s][31m[EVAL] Top-1:59.469| Top-5:85.674[0m:  52%|█████▏    | 82/157 [00:01<00:00, 81.69it/s][31m[EVAL] Top-1:59.524| Top-5:85.677[0m:  53%|█████▎    | 83/157 [00:01<00:00, 81.69it/s][31m[EVAL] Top-1:59.559| Top-5:85.607[0m:  54%|█████▎    | 84/157 [00:01<00:00, 81.69it/s][31m[EVAL] Top-1:59.575| Top-5:85.556[0m:  54%|█████▍    | 85/157 [00:01<00:00, 81.69it/s][31m[EVAL] Top-1:59.555| Top-5:85.596[0m:  55%|█████▍    | 86/157 [00:01<00:00, 81.69it/s][31m[EVAL] Top-1:59.588| Top-5:85.671[0m:  55%|█████▌    | 87/157 [00:01<00:00, 81.69it/s][31m[EVAL] Top-1:59.673| Top-5:85.657[0m:  56%|█████▌    | 88/157 [00:01<00:00, 81.69it/s][31m[EVAL] Top-1:59.774| Top-5:85.660[0m:  57%|█████▋    | 89/157 [00:01<00:00, 81.69it/s][31m[EVAL] Top-1:59.774| Top-5:85.660[0m:  57%|█████▋    | 90/157 [00:01<00:00, 82.40it/s][31m[EVAL] Top-1:59.890| Top-5:85.697[0m:  57%|█████▋    | 90/157 [00:01<00:00, 82.40it/s][31m[EVAL] Top-1:59.885| Top-5:85.666[0m:  58%|█████▊    | 91/157 [00:01<00:00, 82.40it/s][31m[EVAL] Top-1:59.896| Top-5:85.719[0m:  59%|█████▊    | 92/157 [00:01<00:00, 82.40it/s][31m[EVAL] Top-1:59.840| Top-5:85.705[0m:  59%|█████▉    | 93/157 [00:01<00:00, 82.40it/s][31m[EVAL] Top-1:59.885| Top-5:85.757[0m:  60%|█████▉    | 94/157 [00:01<00:00, 82.40it/s][31m[EVAL] Top-1:59.896| Top-5:85.758[0m:  61%|██████    | 95/157 [00:01<00:00, 82.40it/s][31m[EVAL] Top-1:59.713| Top-5:85.760[0m:  61%|██████    | 96/157 [00:01<00:00, 82.40it/s][31m[EVAL] Top-1:59.694| Top-5:85.826[0m:  62%|██████▏   | 97/157 [00:01<00:00, 82.40it/s][31m[EVAL] Top-1:59.770| Top-5:85.843[0m:  62%|██████▏   | 98/157 [00:01<00:00, 82.40it/s][31m[EVAL] Top-1:59.770| Top-5:85.843[0m:  63%|██████▎   | 99/157 [00:01<00:00, 81.73it/s][31m[EVAL] Top-1:59.844| Top-5:85.828[0m:  63%|██████▎   | 99/157 [00:01<00:00, 81.73it/s][31m[EVAL] Top-1:59.932| Top-5:85.860[0m:  64%|██████▎   | 100/157 [00:01<00:00, 81.73it/s][31m[EVAL] Top-1:59.865| Top-5:85.800[0m:  64%|██████▍   | 101/157 [00:01<00:00, 81.73it/s][31m[EVAL] Top-1:59.800| Top-5:85.740[0m:  65%|██████▍   | 102/157 [00:01<00:00, 81.73it/s][31m[EVAL] Top-1:59.751| Top-5:85.787[0m:  66%|██████▌   | 103/157 [00:01<00:00, 81.73it/s][31m[EVAL] Top-1:59.747| Top-5:85.833[0m:  66%|██████▌   | 104/157 [00:01<00:00, 81.73it/s][31m[EVAL] Top-1:59.758| Top-5:85.775[0m:  67%|██████▋   | 105/157 [00:01<00:00, 81.73it/s][31m[EVAL] Top-1:59.769| Top-5:85.806[0m:  68%|██████▊   | 106/157 [00:01<00:00, 81.73it/s][31m[EVAL] Top-1:59.867| Top-5:85.851[0m:  68%|██████▊   | 107/157 [00:01<00:00, 81.73it/s][31m[EVAL] Top-1:59.867| Top-5:85.851[0m:  69%|██████▉   | 108/157 [00:01<00:00, 82.31it/s][31m[EVAL] Top-1:59.877| Top-5:85.880[0m:  69%|██████▉   | 108/157 [00:01<00:00, 82.31it/s][31m[EVAL] Top-1:59.858| Top-5:85.852[0m:  69%|██████▉   | 109/157 [00:01<00:00, 82.31it/s][31m[EVAL] Top-1:59.811| Top-5:85.797[0m:  70%|███████   | 110/157 [00:01<00:00, 82.31it/s][31m[EVAL] Top-1:59.919| Top-5:85.812[0m:  71%|███████   | 111/157 [00:01<00:00, 82.31it/s][31m[EVAL] Top-1:59.942| Top-5:85.827[0m:  71%|███████▏  | 112/157 [00:01<00:00, 82.31it/s][31m[EVAL] Top-1:60.019| Top-5:85.828[0m:  72%|███████▏  | 113/157 [00:01<00:00, 82.31it/s][31m[EVAL] Top-1:59.959| Top-5:85.815[0m:  73%|███████▎  | 114/157 [00:01<00:00, 82.31it/s][31m[EVAL] Top-1:59.954| Top-5:85.803[0m:  73%|███████▎  | 115/157 [00:01<00:00, 82.31it/s][31m[EVAL] Top-1:59.909| Top-5:85.764[0m:  74%|███████▍  | 116/157 [00:01<00:00, 82.31it/s][31m[EVAL] Top-1:59.909| Top-5:85.764[0m:  75%|███████▍  | 117/157 [00:01<00:00, 81.92it/s][31m[EVAL] Top-1:59.958| Top-5:85.818[0m:  75%|███████▍  | 117/157 [00:01<00:00, 81.92it/s][31m[EVAL] Top-1:59.913| Top-5:85.846[0m:  75%|███████▌  | 118/157 [00:01<00:00, 81.92it/s][31m[EVAL] Top-1:59.935| Top-5:85.846[0m:  76%|███████▌  | 119/157 [00:01<00:00, 81.92it/s][31m[EVAL] Top-1:59.853| Top-5:85.770[0m:  76%|███████▋  | 120/157 [00:01<00:00, 81.92it/s][31m[EVAL] Top-1:59.772| Top-5:85.707[0m:  77%|███████▋  | 121/157 [00:01<00:00, 81.92it/s][31m[EVAL] Top-1:59.782| Top-5:85.709[0m:  78%|███████▊  | 122/157 [00:01<00:00, 81.92it/s][31m[EVAL] Top-1:59.753| Top-5:85.761[0m:  78%|███████▊  | 123/157 [00:01<00:00, 81.92it/s][31m[EVAL] Top-1:59.775| Top-5:85.788[0m:  79%|███████▉  | 124/157 [00:01<00:00, 81.92it/s][31m[EVAL] Top-1:59.747| Top-5:85.764[0m:  80%|███████▉  | 125/157 [00:01<00:00, 81.92it/s][31m[EVAL] Top-1:59.747| Top-5:85.764[0m:  80%|████████  | 126/157 [00:01<00:00, 82.02it/s][31m[EVAL] Top-1:59.793| Top-5:85.716[0m:  80%|████████  | 126/157 [00:01<00:00, 82.02it/s][31m[EVAL] Top-1:59.790| Top-5:85.706[0m:  81%|████████  | 127/157 [00:01<00:00, 82.02it/s][31m[EVAL] Top-1:59.823| Top-5:85.707[0m:  82%|████████▏ | 128/157 [00:01<00:00, 82.02it/s][31m[EVAL] Top-1:59.844| Top-5:85.709[0m:  82%|████████▏ | 129/157 [00:01<00:00, 82.02it/s][31m[EVAL] Top-1:59.888| Top-5:85.771[0m:  83%|████████▎ | 130/157 [00:01<00:00, 82.02it/s][31m[EVAL] Top-1:59.825| Top-5:85.724[0m:  83%|████████▎ | 131/157 [00:01<00:00, 82.02it/s][31m[EVAL] Top-1:59.904| Top-5:85.785[0m:  84%|████████▍ | 132/157 [00:01<00:00, 82.02it/s][31m[EVAL] Top-1:59.970| Top-5:85.833[0m:  85%|████████▍ | 133/157 [00:01<00:00, 82.02it/s][31m[EVAL] Top-1:59.942| Top-5:85.856[0m:  85%|████████▌ | 134/157 [00:01<00:00, 82.02it/s][31m[EVAL] Top-1:59.942| Top-5:85.856[0m:  86%|████████▌ | 135/157 [00:01<00:00, 82.42it/s][31m[EVAL] Top-1:59.949| Top-5:85.869[0m:  86%|████████▌ | 135/157 [00:01<00:00, 82.42it/s][31m[EVAL] Top-1:60.071| Top-5:85.926[0m:  87%|████████▋ | 136/157 [00:01<00:00, 82.42it/s][31m[EVAL] Top-1:60.020| Top-5:85.938[0m:  87%|████████▋ | 137/157 [00:01<00:00, 82.42it/s][31m[EVAL] Top-1:60.004| Top-5:85.926[0m:  88%|████████▊ | 138/157 [00:01<00:00, 82.42it/s][31m[EVAL] Top-1:60.000| Top-5:85.926[0m:  89%|████████▊ | 139/157 [00:01<00:00, 82.42it/s][31m[EVAL] Top-1:60.051| Top-5:85.882[0m:  89%|████████▉ | 140/157 [00:01<00:00, 82.42it/s][31m[EVAL] Top-1:60.035| Top-5:85.882[0m:  90%|████████▉ | 141/157 [00:01<00:00, 82.42it/s][31m[EVAL] Top-1:59.976| Top-5:85.850[0m:  90%|█████████ | 142/157 [00:01<00:00, 82.42it/s][31m[EVAL] Top-1:59.983| Top-5:85.894[0m:  91%|█████████ | 143/157 [00:01<00:00, 82.42it/s][31m[EVAL] Top-1:59.983| Top-5:85.894[0m:  92%|█████████▏| 144/157 [00:01<00:00, 82.71it/s][31m[EVAL] Top-1:60.022| Top-5:85.884[0m:  92%|█████████▏| 144/157 [00:01<00:00, 82.71it/s][31m[EVAL] Top-1:60.071| Top-5:85.895[0m:  92%|█████████▏| 145/157 [00:01<00:00, 82.71it/s][31m[EVAL] Top-1:60.034| Top-5:85.938[0m:  93%|█████████▎| 146/157 [00:01<00:00, 82.71it/s][31m[EVAL] Top-1:60.061| Top-5:85.959[0m:  94%|█████████▎| 147/157 [00:01<00:00, 82.71it/s][31m[EVAL] Top-1:60.130| Top-5:85.979[0m:  94%|█████████▍| 148/157 [00:01<00:00, 82.71it/s][31m[EVAL] Top-1:60.146| Top-5:86.021[0m:  95%|█████████▍| 149/157 [00:01<00:00, 82.71it/s][31m[EVAL] Top-1:60.182| Top-5:86.041[0m:  96%|█████████▌| 150/157 [00:01<00:00, 82.71it/s][31m[EVAL] Top-1:60.269| Top-5:86.102[0m:  96%|█████████▌| 151/157 [00:01<00:00, 82.71it/s][31m[EVAL] Top-1:60.294| Top-5:86.080[0m:  97%|█████████▋| 152/157 [00:01<00:00, 82.71it/s][31m[EVAL] Top-1:60.294| Top-5:86.080[0m:  97%|█████████▋| 153/157 [00:01<00:00, 82.94it/s][31m[EVAL] Top-1:60.339| Top-5:86.110[0m:  97%|█████████▋| 153/157 [00:01<00:00, 82.94it/s][31m[EVAL] Top-1:60.312| Top-5:86.119[0m:  98%|█████████▊| 154/157 [00:01<00:00, 82.94it/s][31m[EVAL] Top-1:60.306| Top-5:86.158[0m:  99%|█████████▊| 155/157 [00:02<00:00, 82.94it/s][31m[EVAL] Top-1:60.320| Top-5:86.140[0m:  99%|█████████▉| 156/157 [00:02<00:00, 82.94it/s][31m[EVAL] Top-1:60.320| Top-5:86.140[0m: 100%|██████████| 157/157 [00:02<00:00, 74.84it/s]64
+Epoch 117 Results - Train Acc: 71.19% | Test Acc: 60.32% | Best: 62.80%
+0.005382882777777778
+Epoch 118: Training...
+

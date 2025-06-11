@@ -1,0 +1,120 @@
+Start time: Wed Jun 11 22:43:56 CST 2025
+Configuration: configs/cifar100/sdd_dkd_lskd/res32x4_mv2.yaml
+M setting: [1]
+=========================================
+<class 'str'>
+[36m[INFO] CONFIG:
+DATASET:
+  NUM_WORKERS: 2
+  TEST:
+    BATCH_SIZE: 64
+  TYPE: cifar100
+DISTILLER:
+  STUDENT: MobileNetV2_sdd
+  TEACHER: resnet32x4_sdd
+  TYPE: SDD_DKD_LSKD
+EXPERIMENT:
+  NAME: ''
+  PROJECT: cifar100_baselines
+  TAG: sdd_dkd_lskd,res32x4,mv2
+LOG:
+  PREFIX: ./output
+  SAVE_CHECKPOINT_FREQ: 40
+  TENSORBOARD_FREQ: 500
+  WANDB: false
+SOLVER:
+  BATCH_SIZE: 64
+  EPOCHS: 240
+  LR: 0.05
+  LR_DECAY_RATE: 0.1
+  LR_DECAY_STAGES:
+  - 150
+  - 180
+  - 210
+  MOMENTUM: 0.9
+  TRAINER: base
+  TYPE: SGD
+  WEIGHT_DECAY: 0.0005
+[0m
+Files already downloaded and verified
+Files already downloaded and verified
+[36m[INFO] Loading teacher model[0m
+[1]
+[1]
+6 0.5
+[36m[INFO] Extra parameters of SDD_DKD_LSKD: 0[0m[0m
+Epoch 1: Training...
+/root/repos/SDD-LSKD-Fusion/mdistiller/engine/utils.py:107: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  return torch.load(f, map_location="cpu")
+/root/miniconda3/envs/sdd-lskd-fusion/lib/python3.8/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='sum' instead.
+  warnings.warn(warning.format(ret))
+  Batch 100/782 - Loss CE: 4.9521, Loss KD: 2.6818
+  Batch 200/782 - Loss CE: 4.6756, Loss KD: 2.5909
+  Batch 300/782 - Loss CE: 4.5527, Loss KD: 2.5497
+  Batch 400/782 - Loss CE: 4.4637, Loss KD: 2.5186
+  Batch 500/782 - Loss CE: 4.3948, Loss KD: 2.4927
+  Batch 600/782 - Loss CE: 4.3398, Loss KD: 2.4668
+  Batch 700/782 - Loss CE: 4.2893, Loss KD: 2.4390
+  Batch 782/782 - Loss CE: 4.2568, Loss KD: 2.4189
+Epoch 1 Training Complete - Avg Loss CE: 4.2568, Avg Loss KD: 2.4189
+
+Epoch 1 Results - Train Acc: 5.51% | Test Acc: 8.59% | Best: 8.59%
+0.011627243333333332
+Epoch 2: Training...
+
+  Batch 100/782 - Loss CE: 3.9667, Loss KD: 4.4362
+  Batch 200/782 - Loss CE: 3.9510, Loss KD: 4.4099
+  Batch 300/782 - Loss CE: 3.9291, Loss KD: 4.3904
+  Batch 400/782 - Loss CE: 3.9117, Loss KD: 4.3732
+  Batch 500/782 - Loss CE: 3.8934, Loss KD: 4.3533
+  Batch 600/782 - Loss CE: 3.8721, Loss KD: 4.3361
+  Batch 700/782 - Loss CE: 3.8534, Loss KD: 4.3218
+  Batch 782/782 - Loss CE: 3.8357, Loss KD: 4.3084
+Epoch 2 Training Complete - Avg Loss CE: 3.8357, Avg Loss KD: 4.3084
+
+Epoch 2 Results - Train Acc: 9.82% | Test Acc: 13.17% | Best: 13.17%
+0.010868365
+Epoch 3: Training...
+
+  Batch 100/782 - Loss CE: 3.7186, Loss KD: 6.3033
+  Batch 200/782 - Loss CE: 3.6848, Loss KD: 6.2778
+  Batch 300/782 - Loss CE: 3.6673, Loss KD: 6.2474
+  Batch 400/782 - Loss CE: 3.6644, Loss KD: 6.2452
+  Batch 500/782 - Loss CE: 3.6534, Loss KD: 6.2302
+  Batch 600/782 - Loss CE: 3.6428, Loss KD: 6.2179
+  Batch 700/782 - Loss CE: 3.6264, Loss KD: 6.1953
+  Batch 782/782 - Loss CE: 3.6175, Loss KD: 6.1836
+Epoch 3 Training Complete - Avg Loss CE: 3.6175, Avg Loss KD: 6.1836
+
+Epoch 3 Results - Train Acc: 13.63% | Test Acc: 16.84% | Best: 16.84%
+0.011144973333333334
+Epoch 4: Training...
+
+  Batch 100/782 - Loss CE: 3.5445, Loss KD: 8.0749
+  Batch 200/782 - Loss CE: 3.5153, Loss KD: 8.0600
+  Batch 300/782 - Loss CE: 3.5033, Loss KD: 8.0518
+  Batch 400/782 - Loss CE: 3.4927, Loss KD: 8.0337
+  Batch 500/782 - Loss CE: 3.4865, Loss KD: 8.0210
+  Batch 600/782 - Loss CE: 3.4719, Loss KD: 7.9977
+  Batch 700/782 - Loss CE: 3.4537, Loss KD: 7.9674
+  Batch 782/782 - Loss CE: 3.4391, Loss KD: 7.9444
+Epoch 4 Training Complete - Avg Loss CE: 3.4391, Avg Loss KD: 7.9444
+
+Epoch 4 Results - Train Acc: 16.50% | Test Acc: 12.74% | Best: 16.84%
+0.0110224925
+Epoch 5: Training...
+
+  Batch 100/782 - Loss CE: 3.3689, Loss KD: 9.7736
+  Batch 200/782 - Loss CE: 3.3629, Loss KD: 9.7501
+  Batch 300/782 - Loss CE: 3.3470, Loss KD: 9.7075
+  Batch 400/782 - Loss CE: 3.3328, Loss KD: 9.6691
+  Batch 500/782 - Loss CE: 3.3132, Loss KD: 9.6263
+  Batch 600/782 - Loss CE: 3.3020, Loss KD: 9.6032
+  Batch 700/782 - Loss CE: 3.2838, Loss KD: 9.5697
+  Batch 782/782 - Loss CE: 3.2726, Loss KD: 9.5469
+Epoch 5 Training Complete - Avg Loss CE: 3.2726, Avg Loss KD: 9.5469
+
+Epoch 5 Results - Train Acc: 19.63% | Test Acc: 20.81% | Best: 20.81%
+0.011394570833333333
+Epoch 6: Training...
+

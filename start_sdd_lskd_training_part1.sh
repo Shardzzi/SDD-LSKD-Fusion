@@ -67,10 +67,6 @@ echo ""
 
 # 1. ResNet32x4 -> ResNet8x4 (Primary experiment - homogeneous architectures)
 echo "=== Experiment 1: ResNet32x4 -> ResNet8x4 (Homogeneous) ==="
-echo "--- SDD-DKD-LSKD experiments ---"
-run_full_training "configs/cifar100/sdd_dkd_lskd/res32x4_res8x4.yaml" "[1]" "res32x4_res8x4_dkd_global" "Global DKD-LSKD baseline"
-run_full_training "configs/cifar100/sdd_dkd_lskd/res32x4_res8x4.yaml" "[1,2]" "res32x4_res8x4_dkd_twoscale" "Two-scale SDD-DKD-LSKD fusion"
-run_full_training "configs/cifar100/sdd_dkd_lskd/res32x4_res8x4.yaml" "[1,2,4]" "res32x4_res8x4_dkd_threescale" "Three-scale SDD-DKD-LSKD fusion"
 echo "--- SDD-KD-LSKD experiments ---"
 run_full_training "configs/cifar100/sdd_kd_lskd/res32x4_res8x4.yaml" "[1]" "res32x4_res8x4_kd_global" "Global KD-LSKD baseline"
 run_full_training "configs/cifar100/sdd_kd_lskd/res32x4_res8x4.yaml" "[1,2]" "res32x4_res8x4_kd_twoscale" "Two-scale SDD-KD-LSKD fusion"
@@ -78,9 +74,6 @@ run_full_training "configs/cifar100/sdd_kd_lskd/res32x4_res8x4.yaml" "[1,2,4]" "
 
 # 2. SDD Ablation Study
 echo "=== Experiment 2: SDD Ablation Study ==="
-echo "--- DKD-LSKD ablation ---"
-run_full_training "configs/cifar100/sdd_dkd_lskd/res32x4_res8x4.yaml" "[1,4]" "res32x4_res8x4_dkd_scale1_4" "ResNet32x4->ResNet8x4 DKD M=[1,4] ablation"
-run_full_training "configs/cifar100/sdd_dkd_lskd/res32x4_shuv1.yaml" "[1,4]" "res32x4_shuv1_dkd_scale1_4" "ResNet32x4->ShuffleNetV1 DKD M=[1,4] ablation"
 echo "--- KD-LSKD ablation ---"
 run_full_training "configs/cifar100/sdd_kd_lskd/res32x4_res8x4.yaml" "[1,4]" "res32x4_res8x4_kd_scale1_4" "ResNet32x4->ResNet8x4 KD M=[1,4] ablation"
 run_full_training "configs/cifar100/sdd_kd_lskd/res32x4_shuv1.yaml" "[1,4]" "res32x4_shuv1_kd_scale1_4" "ResNet32x4->ShuffleNetV1 KD M=[1,4] ablation"

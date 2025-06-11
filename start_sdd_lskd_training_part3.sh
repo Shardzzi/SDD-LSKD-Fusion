@@ -68,10 +68,6 @@ echo ""
 
 # 5. ResNet32x4 -> MobileNetV2 (Teacher Accuracy: 79.42%, Student Baseline: 64.6%)
 echo "=== Experiment 5: ResNet32x4 -> MobileNetV2 ==="
-echo "--- SDD-DKD-LSKD experiments ---"
-run_full_training "configs/cifar100/sdd_dkd_lskd/res32x4_mv2.yaml" "[1]" "res32x4_mv2_dkd_global" "Global DKD-LSKD baseline"
-run_full_training "configs/cifar100/sdd_dkd_lskd/res32x4_mv2.yaml" "[1,2]" "res32x4_mv2_dkd_twoscale" "Two-scale SDD-DKD-LSKD fusion"
-run_full_training "configs/cifar100/sdd_dkd_lskd/res32x4_mv2.yaml" "[1,2,4]" "res32x4_mv2_dkd_threescale" "Three-scale SDD-DKD-LSKD fusion"
 echo "--- SDD-KD-LSKD experiments ---"
 run_full_training "configs/cifar100/sdd_kd_lskd/res32x4_mv2.yaml" "[1]" "res32x4_mv2_kd_global" "Global KD-LSKD baseline"
 run_full_training "configs/cifar100/sdd_kd_lskd/res32x4_mv2.yaml" "[1,2]" "res32x4_mv2_kd_twoscale" "Two-scale SDD-KD-LSKD fusion"
@@ -79,10 +75,6 @@ run_full_training "configs/cifar100/sdd_kd_lskd/res32x4_mv2.yaml" "[1,2,4]" "res
 
 # 6. WRN40-2 -> VGG8 (Teacher Accuracy: 75.61%, Student Baseline: 70.36%)
 echo "=== Experiment 6: WRN40-2 -> VGG8 ==="
-echo "--- SDD-DKD-LSKD experiments ---"
-run_full_training "configs/cifar100/sdd_dkd_lskd/wrn40_2_vgg8.yaml" "[1]" "wrn40_2_vgg8_dkd_global" "Global DKD-LSKD baseline"
-run_full_training "configs/cifar100/sdd_dkd_lskd/wrn40_2_vgg8.yaml" "[1,2]" "wrn40_2_vgg8_dkd_twoscale" "Two-scale SDD-DKD-LSKD fusion"
-run_full_training "configs/cifar100/sdd_dkd_lskd/wrn40_2_vgg8.yaml" "[1,2,4]" "wrn40_2_vgg8_dkd_threescale" "Three-scale SDD-DKD-LSKD fusion"
 echo "--- SDD-KD-LSKD experiments ---"
 run_full_training "configs/cifar100/sdd_kd_lskd/wrn40_2_vgg8.yaml" "[1]" "wrn40_2_vgg8_kd_global" "Global KD-LSKD baseline"
 run_full_training "configs/cifar100/sdd_kd_lskd/wrn40_2_vgg8.yaml" "[1,2]" "wrn40_2_vgg8_kd_twoscale" "Two-scale SDD-KD-LSKD fusion"
@@ -90,10 +82,6 @@ run_full_training "configs/cifar100/sdd_kd_lskd/wrn40_2_vgg8.yaml" "[1,2,4]" "wr
 
 # 7. WRN40-2 -> MobileNetV2 (Teacher Accuracy: 75.61%, Student Baseline: 64.6%)
 echo "=== Experiment 7: WRN40-2 -> MobileNetV2 ==="
-echo "--- SDD-DKD-LSKD experiments ---"
-run_full_training "configs/cifar100/sdd_dkd_lskd/wrn40_2_mv2.yaml" "[1]" "wrn40_2_mv2_dkd_global" "Global DKD-LSKD baseline"
-run_full_training "configs/cifar100/sdd_dkd_lskd/wrn40_2_mv2.yaml" "[1,2]" "wrn40_2_mv2_dkd_twoscale" "Two-scale SDD-DKD-LSKD fusion"
-run_full_training "configs/cifar100/sdd_dkd_lskd/wrn40_2_mv2.yaml" "[1,2,4]" "wrn40_2_mv2_dkd_threescale" "Three-scale SDD-DKD-LSKD fusion"
 echo "--- SDD-KD-LSKD experiments ---"
 run_full_training "configs/cifar100/sdd_kd_lskd/wrn40_2_mv2.yaml" "[1]" "wrn40_2_mv2_kd_global" "Global KD-LSKD baseline"
 run_full_training "configs/cifar100/sdd_kd_lskd/wrn40_2_mv2.yaml" "[1,2]" "wrn40_2_mv2_kd_twoscale" "Two-scale SDD-KD-LSKD fusion"
