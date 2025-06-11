@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# SDD-DKD-LSKD Full Training Script - Part 2
-# This script runs experiments 3 and 4 of comprehensive SDD-DKD-LSKD training
+# SDD-DKD-LSKD Full Training Script
+# This script starts comprehensive SDD-DKD-LSKD training after successful validation
 
 echo "=========================================="
-echo "Starting Comprehensive SDD-DKD-LSKD Training (Part 2)"
+echo "Starting Comprehensive SDD-DKD-LSKD Training (Part 1)"
 echo "=========================================="
 
 # Set up environment
@@ -61,31 +61,20 @@ run_full_training() {
     echo ""
 }
 
-# Main SDD-DKD-LSKD Training Experiments - Part 2
-echo "Starting SDD-DKD-LSKD training experiments Part 2..."
+# Main SDD-DKD-LSKD Training Experiments
+echo "Starting main SDD-DKD-LSKD training experiments..."
 echo ""
 
-# 3. ResNet32x4 -> ShuffleNetV1 (Heterogeneous architectures)
-echo "=== Experiment 3: ResNet32x4 -> ShuffleNetV1 (Heterogeneous) ==="
+# 1. ResNet32x4 -> ResNet8x4 (Primary experiment - homogeneous architectures)
+echo "=== Experiment 1: ResNet32x4 -> ResNet8x4 (Homogeneous) ==="
 echo "--- SDD-DKD-LSKD experiments ---"
-run_full_training "configs/cifar100/sdd_dkd_lskd/res32x4_shuv1.yaml" "[1]" "res32x4_shuv1_dkd_global" "Global DKD-LSKD baseline"
-run_full_training "configs/cifar100/sdd_dkd_lskd/res32x4_shuv1.yaml" "[1,2]" "res32x4_shuv1_dkd_twoscale" "Two-scale SDD-DKD-LSKD fusion"
-run_full_training "configs/cifar100/sdd_dkd_lskd/res32x4_shuv1.yaml" "[1,2,4]" "res32x4_shuv1_dkd_threescale" "Three-scale SDD-DKD-LSKD fusion"
+run_full_training "configs/cifar100/sdd_dkd_lskd/res32x4_res8x4.yaml" "[1]" "res32x4_res8x4_dkd_global" "Global DKD-LSKD baseline"
+run_full_training "configs/cifar100/sdd_dkd_lskd/res32x4_res8x4.yaml" "[1,2]" "res32x4_res8x4_dkd_twoscale" "Two-scale SDD-DKD-LSKD fusion"
+run_full_training "configs/cifar100/sdd_dkd_lskd/res32x4_res8x4.yaml" "[1,2,4]" "res32x4_res8x4_dkd_threescale" "Three-scale SDD-DKD-LSKD fusion"
 echo "--- SDD-KD-LSKD experiments ---"
-run_full_training "configs/cifar100/sdd_kd_lskd/res32x4_shuv1.yaml" "[1]" "res32x4_shuv1_kd_global" "Global KD-LSKD baseline"
-run_full_training "configs/cifar100/sdd_kd_lskd/res32x4_shuv1.yaml" "[1,2]" "res32x4_shuv1_kd_twoscale" "Two-scale SDD-KD-LSKD fusion"
-run_full_training "configs/cifar100/sdd_kd_lskd/res32x4_shuv1.yaml" "[1,2,4]" "res32x4_shuv1_kd_threescale" "Three-scale SDD-KD-LSKD fusion"
-
-# 4. WideResNet-40-2 -> ShuffleNetV1 (WideResNet to lightweight)
-echo "=== Experiment 4: WideResNet-40-2 -> ShuffleNetV1 ==="
-echo "--- SDD-DKD-LSKD experiments ---"
-run_full_training "configs/cifar100/sdd_dkd_lskd/wrn40_2_shuv1.yaml" "[1]" "wrn40_2_shuv1_dkd_global" "Global DKD-LSKD baseline"
-run_full_training "configs/cifar100/sdd_dkd_lskd/wrn40_2_shuv1.yaml" "[1,2]" "wrn40_2_shuv1_dkd_twoscale" "Two-scale SDD-DKD-LSKD fusion"
-run_full_training "configs/cifar100/sdd_dkd_lskd/wrn40_2_shuv1.yaml" "[1,2,4]" "wrn40_2_shuv1_dkd_threescale" "Three-scale SDD-DKD-LSKD fusion"
-echo "--- SDD-KD-LSKD experiments ---"
-run_full_training "configs/cifar100/sdd_kd_lskd/wrn40_2_shuv1.yaml" "[1]" "wrn40_2_shuv1_kd_global" "Global KD-LSKD baseline"
-run_full_training "configs/cifar100/sdd_kd_lskd/wrn40_2_shuv1.yaml" "[1,2]" "wrn40_2_shuv1_kd_twoscale" "Two-scale SDD-KD-LSKD fusion"
-run_full_training "configs/cifar100/sdd_kd_lskd/wrn40_2_shuv1.yaml" "[1,2,4]" "wrn40_2_shuv1_kd_threescale" "Three-scale SDD-KD-LSKD fusion"
+run_full_training "configs/cifar100/sdd_kd_lskd/res32x4_res8x4.yaml" "[1]" "res32x4_res8x4_kd_global" "Global KD-LSKD baseline"
+run_full_training "configs/cifar100/sdd_kd_lskd/res32x4_res8x4.yaml" "[1,2]" "res32x4_res8x4_kd_twoscale" "Two-scale SDD-KD-LSKD fusion"
+run_full_training "configs/cifar100/sdd_kd_lskd/res32x4_res8x4.yaml" "[1,2,4]" "res32x4_res8x4_kd_threescale" "Three-scale SDD-KD-LSKD fusion"
 
 # Generate training summary
 echo "=========================================="
@@ -93,22 +82,20 @@ echo "Generating training summary..."
 echo "=========================================="
 
 SUMMARY_FILE="$SESSION_DIR/training_summary.txt"
-echo "SDD-DKD-LSKD Training Session Summary - Part 2" > "$SUMMARY_FILE"
+echo "SDD-DKD-LSKD Training Session Summary" > "$SUMMARY_FILE"
 echo "Session: $TIMESTAMP" >> "$SUMMARY_FILE"
 echo "Date: $(date)" >> "$SUMMARY_FILE"
 echo "=========================================" >> "$SUMMARY_FILE"
 echo "" >> "$SUMMARY_FILE"
 echo "Experiments completed:" >> "$SUMMARY_FILE"
-echo "3. ResNet32x4 -> ShuffleNetV1 (DKD+KD variants, M=[1], M=[1,2], M=[1,2,4])" >> "$SUMMARY_FILE"
-echo "4. WideResNet-40-2 -> ShuffleNetV1 (DKD+KD variants, M=[1], M=[1,2], M=[1,2,4])" >> "$SUMMARY_FILE"
+echo "1. ResNet32x4 -> ResNet8x4 (M=[1], M=[1,2], M=[1,2,4]) - DKD+LSKD vs KD+LSKD" >> "$SUMMARY_FILE"
 echo "" >> "$SUMMARY_FILE"
-echo "Total experiments: 12 (2 pairs × 3 M-settings × 2 distillation methods)" >> "$SUMMARY_FILE"
 echo "Log files location: $SESSION_DIR" >> "$SUMMARY_FILE"
 
 # Show final results
 echo ""
 echo "=========================================="
-echo "🎉 SDD-DKD-LSKD Training Session Part 2 Completed! 🎉"
+echo "🎉 SDD-DKD-LSKD Training Session Part 1 Completed! 🎉"
 echo "=========================================="
 echo "Session: $TIMESTAMP"
 echo "All logs saved in: $SESSION_DIR"

@@ -58,7 +58,7 @@ CFG.LOG.WANDB = False
 
 # KD CFG
 CFG.KD = CN()
-CFG.KD.TEMPERATURE = 4
+CFG.KD.TEMPERATURE = 4.0  # Changed to float to support LSKD standard params
 CFG.KD.LOSS = CN()
 CFG.KD.LOSS.CE_WEIGHT = 0.1
 CFG.KD.LOSS.KD_WEIGHT = 0.9

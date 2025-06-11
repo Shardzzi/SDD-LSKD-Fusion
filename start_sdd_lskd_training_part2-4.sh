@@ -65,17 +65,6 @@ run_full_training() {
 echo "Starting SDD-DKD-LSKD training experiments Part 2..."
 echo ""
 
-# 3. ResNet32x4 -> ShuffleNetV1 (Heterogeneous architectures)
-echo "=== Experiment 3: ResNet32x4 -> ShuffleNetV1 (Heterogeneous) ==="
-echo "--- SDD-DKD-LSKD experiments ---"
-run_full_training "configs/cifar100/sdd_dkd_lskd/res32x4_shuv1.yaml" "[1]" "res32x4_shuv1_dkd_global" "Global DKD-LSKD baseline"
-run_full_training "configs/cifar100/sdd_dkd_lskd/res32x4_shuv1.yaml" "[1,2]" "res32x4_shuv1_dkd_twoscale" "Two-scale SDD-DKD-LSKD fusion"
-run_full_training "configs/cifar100/sdd_dkd_lskd/res32x4_shuv1.yaml" "[1,2,4]" "res32x4_shuv1_dkd_threescale" "Three-scale SDD-DKD-LSKD fusion"
-echo "--- SDD-KD-LSKD experiments ---"
-run_full_training "configs/cifar100/sdd_kd_lskd/res32x4_shuv1.yaml" "[1]" "res32x4_shuv1_kd_global" "Global KD-LSKD baseline"
-run_full_training "configs/cifar100/sdd_kd_lskd/res32x4_shuv1.yaml" "[1,2]" "res32x4_shuv1_kd_twoscale" "Two-scale SDD-KD-LSKD fusion"
-run_full_training "configs/cifar100/sdd_kd_lskd/res32x4_shuv1.yaml" "[1,2,4]" "res32x4_shuv1_kd_threescale" "Three-scale SDD-KD-LSKD fusion"
-
 # 4. WideResNet-40-2 -> ShuffleNetV1 (WideResNet to lightweight)
 echo "=== Experiment 4: WideResNet-40-2 -> ShuffleNetV1 ==="
 echo "--- SDD-DKD-LSKD experiments ---"
@@ -99,7 +88,6 @@ echo "Date: $(date)" >> "$SUMMARY_FILE"
 echo "=========================================" >> "$SUMMARY_FILE"
 echo "" >> "$SUMMARY_FILE"
 echo "Experiments completed:" >> "$SUMMARY_FILE"
-echo "3. ResNet32x4 -> ShuffleNetV1 (DKD+KD variants, M=[1], M=[1,2], M=[1,2,4])" >> "$SUMMARY_FILE"
 echo "4. WideResNet-40-2 -> ShuffleNetV1 (DKD+KD variants, M=[1], M=[1,2], M=[1,2,4])" >> "$SUMMARY_FILE"
 echo "" >> "$SUMMARY_FILE"
 echo "Total experiments: 12 (2 pairs × 3 M-settings × 2 distillation methods)" >> "$SUMMARY_FILE"

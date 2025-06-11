@@ -1,26 +1,25 @@
 EXPERIMENT:
   NAME: ""
-  TAG: "sdd_lskd,res50,mv2"
+  TAG: "sdd_kd_lskd,wrn40_2,mv2"
   PROJECT: "cifar100_baselines"
 DISTILLER:
-  TYPE: "SDD_LSKD"
-  TEACHER: "ResNet50_sdd"
+  TYPE: "SDD_KD_LSKD"
+  TEACHER: "wrn_40_2_sdd"
   STUDENT: "MobileNetV2_sdd"
 SOLVER:
   BATCH_SIZE: 64
   EPOCHS: 240
-  LR: 0.01
+  LR: 0.05
   LR_DECAY_STAGES: [150, 180, 210]
   LR_DECAY_RATE: 0.1
   WEIGHT_DECAY: 0.0005
   MOMENTUM: 0.9
   TYPE: "SGD"
-DKD:
-  CE_WEIGHT: 1.0
-  ALPHA: 1.0
-  BETA: 8.0
-  T: 4.0
-  WARMUP: 20
+KD:
+  TEMPERATURE: 2.0
+  LOSS:
+    CE_WEIGHT: 1.0
+    KD_WEIGHT: 9.0
 DATASET:
   TYPE: "cifar100"
   NUM_WORKERS: 2
