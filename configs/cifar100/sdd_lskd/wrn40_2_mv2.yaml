@@ -1,10 +1,10 @@
 EXPERIMENT:
   NAME: ""
-  TAG: "sdd_lskd,res32x4,mv2"
+  TAG: "sdd_lskd,wrn40_2,mv2"
   PROJECT: "cifar100_baselines"
 DISTILLER:
   TYPE: "SDD_LSKD"
-  TEACHER: "resnet32x4_sdd"
+  TEACHER: "wrn_40_2_sdd"
   STUDENT: "MobileNetV2_sdd"
 SOLVER:
   BATCH_SIZE: 64

@@ -5,7 +5,7 @@ EXPERIMENT:
 DISTILLER:
   TYPE: "SDD_LSKD"
   TEACHER: "vgg13_sdd"
-  STUDENT: "MobileNetV2"
+  STUDENT: "MobileNetV2_sdd"
 SOLVER:
   BATCH_SIZE: 64
   EPOCHS: 240
