@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# SDD-KD-LSKD CUB-200-2011 Training Script - Part 1
-# This script runs experiments 1-4 of comprehensive SDD-KD-LSKD training on CUB-200-2011 dataset
+# SDD-KD-LSKD CUB-200-2011 Complete Training Script
+# This script runs comprehensive SDD-KD-LSKD training experiments on CUB-200-2011 dataset
 
 echo "=========================================="
-echo "Starting Comprehensive SDD-KD-LSKD Training (CUB-200-2011 Part 1)"
+echo "Starting Comprehensive SDD-KD-LSKD Training (CUB-200-2011)"
 echo "=========================================="
 
 # Set up environment
@@ -61,7 +61,7 @@ run_full_training() {
     echo ""
 }
 
-# Main SDD-KD-LSKD Training Experiments - CUB-200-2011 Part 1
+# Main SDD-KD-LSKD Training Experiments - CUB-200-2011
 echo "Starting main SDD-KD-LSKD training experiments (CUB-200-2011)..."
 echo ""
 
@@ -99,7 +99,7 @@ echo "Generating training summary..."
 echo "=========================================="
 
 SUMMARY_FILE="$SESSION_DIR/training_summary.txt"
-echo "SDD-KD-LSKD Training Session Summary - CUB-200-2011 Part 1" > "$SUMMARY_FILE"
+echo "SDD-KD-LSKD Training Session Summary - CUB-200-2011" > "$SUMMARY_FILE"
 echo "Session: $TIMESTAMP" >> "$SUMMARY_FILE"
 echo "Date: $(date)" >> "$SUMMARY_FILE"
 echo "=========================================" >> "$SUMMARY_FILE"
@@ -117,7 +117,7 @@ echo "Log files location: $SESSION_DIR" >> "$SUMMARY_FILE"
 # Show final results
 echo ""
 echo "=========================================="
-echo "🎉 SDD-KD-LSKD Training Session Part 1 (CUB-200-2011) Completed! 🎉"
+echo "🎉 SDD-KD-LSKD Training Session (CUB-200-2011) Completed! 🎉"
 echo "=========================================="
 echo "Session: $TIMESTAMP"
 echo "All logs saved in: $SESSION_DIR"
@@ -129,8 +129,8 @@ echo "- Training convergence curves"
 echo "- Loss values and distillation metrics"
 echo ""
 echo "Next steps:"
-echo "1. Run Part 2 for research table validation experiments"
-echo "2. Run analysis scripts to compare results"
-echo "3. Generate performance plots"
-echo "4. Create evaluation reports"
+echo "1. Run analysis scripts to compare results"
+echo "2. Generate performance plots"
+echo "3. Create evaluation reports"
+echo "4. Compare with CIFAR-100 results"
 echo "=========================================="
