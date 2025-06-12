@@ -79,21 +79,54 @@ python -c "import torch; print(f'CUDA 可用: {torch.cuda.is_available()}, CUDA 
 
 ### 2. 下载预训练教师模型
 
+#### CIFAR-100 预训练模型
 ```bash
-# 下载预训练教师模型
+# 下载 CIFAR-100 预训练教师模型
 bash fetch_pretrained_teachers.sh
 ```
 
-### 3. 数据集准备
+该脚本将下载并保存模型到 `save/models` 目录。
 
-CIFAR-100 数据集将在首次运行时自动下载。其他数据集：
+#### CUB-200-2011 预训练模型
+CUB-200-2011 数据集需要单独下载预训练教师模型：
 
 ```bash
-# ImageNet（可选）
-# 从 https://image-net.org/ 下载并放置在 ./data/imagenet
+# 方法1: 从百度云下载（推荐）
+# 下载链接: https://pan.baidu.com/s/1uxyG3ZZO67i_dbXwuFB2yQ?pwd=bzc6
+# 提取码: bzc6
+# 下载 'cub200' 文件夹并将其移动到 'save' 目录下
 
-# CUB-200（可选）
-# 下载预训练模型并放置在 ./save/cub200/
+# 方法2: 手动创建目录结构
+mkdir -p save/cub200/resnet32x4_vanilla
+mkdir -p save/cub200/vgg13_vanilla  
+mkdir -p save/cub200/wrn40_2_vanilla
+# 注意：需要手动下载对应的 .pth 模型文件
+
+# 验证模型文件结构
+ls save/cub200/*/
+# 应该看到类似: resnet32x4_best.pth, vgg13_best.pth 等文件
+```
+
+**重要提示**: 
+- CUB-200-2011 实验需要预训练的教师模型才能运行
+- 如果没有下载教师模型，训练会因为 `FileNotFoundError` 而失败
+- 确保模型文件路径正确：`save/cub200/{model_name}_vanilla/{model_name}_best.pth`
+
+### 3. 数据集准备
+
+#### CIFAR-100（自动下载）
+CIFAR-100 数据集将在首次运行时自动下载到 `./data/` 目录。
+
+#### CUB-200-2011（自动下载）
+CUB-200-2011 数据集将在首次运行时自动下载，但需要预训练教师模型（见上一节）。
+
+#### ImageNet（可选，手动下载）
+```bash
+# ImageNet 需要手动下载
+# 1. 从 https://image-net.org/ 下载数据集
+# 2. 将数据放置在 ./data/imagenet 目录
+# 或者创建软链接：
+# ln -s /path/to/your/imagenet ./data/imagenet
 ```
 
 ## 🚀 快速开始
@@ -120,18 +153,28 @@ bash test_sdd_lskd.sh
 
 ### 完整训练套件
 
-本项目提供了三个完整的训练脚本，涵盖不同的实验配置：
+本项目提供了两个主要的训练脚本，分别针对不同数据集的完整实验：
 
 ```bash
-# 第一部分：ResNet32x4 -> ResNet8x4 基础实验和消融研究
-bash start_sdd_lskd_training_part1.sh
+# CIFAR-100数据集：完整SDD-KD-LSKD实验（23个实验）
+bash start_sdd_lskd_training_cifar.sh
 
-# 第二部分：异构网络对实验
-bash start_sdd_lskd_training_part2.sh  
-
-# 第三部分：完整研究表格验证实验
-bash start_sdd_lskd_training_part3.sh
+# CUB-200-2011数据集：完整SDD-KD-LSKD实验（12个实验）
+bash start_sdd_lskd_training_cub.sh
 ```
+
+**CIFAR-100训练特点：**
+- 涵盖基础实验、消融研究和异构网络对实验
+- 包含ResNet、WRN、VGG、MobileNet、ShuffleNet等多种架构
+- 支持M=[1]、M=[1,2]、M=[1,2,4]等多尺度设置
+- 训练日志保存至：`logs/sdd_kd_lskd_full/cifar100/`
+
+**CUB-200-2011训练特点：**
+- 细粒度图像分类任务
+- 4种师生网络对，每对测试3种M设置
+- 训练日志保存至：`logs/sdd_kd_lskd_full/cub200/`
+
+> **注意：** CUB数据集训练前需要下载预训练的教师模型，详见README_SDD.md中的百度云链接。
 
 ## ⚙️ 配置说明
 
