@@ -22,4 +22,4 @@ KD:
     KD_WEIGHT: 9.0
 DATASET:
   TYPE: "cifar100"
-  NUM_WORKERS: 2
+  NUM_WORKERS: 8

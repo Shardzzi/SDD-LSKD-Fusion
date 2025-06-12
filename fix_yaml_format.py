@@ -95,7 +95,7 @@ DKD:
   WARMUP: 20
 DATASET:
   TYPE: "cifar100"
-  NUM_WORKERS: 2
+  NUM_WORKERS: 8
 '''
     
     with open(config_path, 'w') as f:
@@ -174,7 +174,7 @@ KD:
     KD_WEIGHT: 9.0
 DATASET:
   TYPE: "cifar100"
-  NUM_WORKERS: 2
+  NUM_WORKERS: 8
 '''
     
     with open(config_path, 'w') as f:

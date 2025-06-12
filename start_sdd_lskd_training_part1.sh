@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# SDD-DKD-LSKD Full Training Script
-# This script starts comprehensive SDD-DKD-LSKD training after successful validation
+# SDD-KD-LSKD Full Training Script
+# This script starts comprehensive SDD-KD-LSKD training after successful validation
 
 echo "=========================================="
-echo "Starting Comprehensive SDD-DKD-LSKD Training (Part 1)"
+echo "Starting Comprehensive SDD-KD-LSKD Training (Part 1)"
 echo "=========================================="
 
 # Set up environment
@@ -13,12 +13,12 @@ source ~/miniconda3/etc/profile.d/conda.sh
 conda activate sdd-lskd-fusion
 
 # Create comprehensive logging directories
-mkdir -p logs/sdd_dkd_lskd_full/cifar100
-mkdir -p logs/sdd_dkd_lskd_full/summaries
+mkdir -p logs/sdd_kd_lskd_full/cifar100
+mkdir -p logs/sdd_kd_lskd_full/summaries
 
 # Set timestamp for this training session
 TIMESTAMP=$(date +%Y%m%d_%H%M%S)
-SESSION_DIR="logs/sdd_dkd_lskd_full/session_$TIMESTAMP"
+SESSION_DIR="logs/sdd_kd_lskd_full/cifar100/session_$TIMESTAMP"
 mkdir -p "$SESSION_DIR"
 
 echo "Training session: $TIMESTAMP"
@@ -61,8 +61,8 @@ run_full_training() {
     echo ""
 }
 
-# Main SDD-DKD-LSKD Training Experiments
-echo "Starting main SDD-DKD-LSKD training experiments..."
+# Main SDD-KD-LSKD Training Experiments
+echo "Starting main SDD-KD-LSKD training experiments..."
 echo ""
 
 # 1. ResNet32x4 -> ResNet8x4 (Primary experiment - homogeneous architectures)
@@ -84,22 +84,22 @@ echo "Generating training summary..."
 echo "=========================================="
 
 SUMMARY_FILE="$SESSION_DIR/training_summary.txt"
-echo "SDD-DKD-LSKD Training Session Summary" > "$SUMMARY_FILE"
+echo "SDD-KD-LSKD Training Session Summary" > "$SUMMARY_FILE"
 echo "Session: $TIMESTAMP" >> "$SUMMARY_FILE"
 echo "Date: $(date)" >> "$SUMMARY_FILE"
 echo "=========================================" >> "$SUMMARY_FILE"
 echo "" >> "$SUMMARY_FILE"
 echo "Experiments completed:" >> "$SUMMARY_FILE"
-echo "1. ResNet32x4 -> ResNet8x4 (M=[1], M=[1,2], M=[1,2,4]) - DKD+LSKD vs KD+LSKD" >> "$SUMMARY_FILE"
-echo "2. SDD Ablation Study - DKD+LSKD vs KD+LSKD (M=[1,4])" >> "$SUMMARY_FILE"
+echo "1. ResNet32x4 -> ResNet8x4 (M=[1], M=[1,2], M=[1,2,4]) - SDD-KD-LSKD" >> "$SUMMARY_FILE"
+echo "2. SDD Ablation Study - SDD-KD-LSKD (M=[1,4])" >> "$SUMMARY_FILE"
 echo "" >> "$SUMMARY_FILE"
-echo "Total experiments: 10 (5 DKD + 5 KD)" >> "$SUMMARY_FILE"
+echo "Total experiments: 5 (KD)" >> "$SUMMARY_FILE"
 echo "Log files location: $SESSION_DIR" >> "$SUMMARY_FILE"
 
 # Show final results
 echo ""
 echo "=========================================="
-echo "🎉 SDD-DKD-LSKD Training Session Part 1 Completed! 🎉"
+echo "🎉 SDD-KD-LSKD Training Session Part 1 Completed! 🎉"
 echo "=========================================="
 echo "Session: $TIMESTAMP"
 echo "All logs saved in: $SESSION_DIR"

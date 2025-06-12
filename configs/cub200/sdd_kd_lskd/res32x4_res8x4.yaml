@@ -1,15 +1,15 @@
 EXPERIMENT:
   NAME: ""
-  TAG: "sdd_kd_lskd,wrn40_2,mv2"
-  PROJECT: "cifar100_baselines"
+  TAG: "sdd_kd_lskd,res32x4,res8x4,cub200"
+  PROJECT: "cub200_baselines"
 DISTILLER:
   TYPE: "SDD_KD_LSKD"
-  TEACHER: "wrn_40_2_sdd"
-  STUDENT: "MobileNetV2_sdd"
+  TEACHER: "resnet32x4_sdd"
+  STUDENT: "resnet8x4_sdd"
 SOLVER:
   BATCH_SIZE: 64
   EPOCHS: 240
-  LR: 0.05
+  LR: 0.01
   LR_DECAY_STAGES: [150, 180, 210]
   LR_DECAY_RATE: 0.1
   WEIGHT_DECAY: 0.0005
@@ -21,5 +21,5 @@ KD:
     CE_WEIGHT: 1.0
     KD_WEIGHT: 9.0
 DATASET:
-  TYPE: "cifar100"
+  TYPE: "cub200"
   NUM_WORKERS: 8

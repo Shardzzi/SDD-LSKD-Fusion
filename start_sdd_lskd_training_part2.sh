@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# SDD-DKD-LSKD Full Training Script - Part 2
-# This script runs experiments 3 and 4 of comprehensive SDD-DKD-LSKD training
+# SDD-KD-LSKD Full Training Script - Part 2
+# This script runs experiments 3 and 4 of comprehensive SDD-KD-LSKD training
 
 echo "=========================================="
-echo "Starting Comprehensive SDD-DKD-LSKD Training (Part 2)"
+echo "Starting Comprehensive SDD-KD-LSKD Training (Part 2)"
 echo "=========================================="
 
 # Set up environment
@@ -13,12 +13,12 @@ source ~/miniconda3/etc/profile.d/conda.sh
 conda activate sdd-lskd-fusion
 
 # Create comprehensive logging directories
-mkdir -p logs/sdd_dkd_lskd_full/cifar100
-mkdir -p logs/sdd_dkd_lskd_full/summaries
+mkdir -p logs/sdd_kd_lskd_full/cifar100
+mkdir -p logs/sdd_kd_lskd_full/summaries
 
 # Set timestamp for this training session
 TIMESTAMP=$(date +%Y%m%d_%H%M%S)
-SESSION_DIR="logs/sdd_dkd_lskd_full/session_$TIMESTAMP"
+SESSION_DIR="logs/sdd_kd_lskd_full/cifar100/session_$TIMESTAMP"
 mkdir -p "$SESSION_DIR"
 
 echo "Training session: $TIMESTAMP"
@@ -61,8 +61,8 @@ run_full_training() {
     echo ""
 }
 
-# Main SDD-DKD-LSKD Training Experiments - Part 2
-echo "Starting SDD-DKD-LSKD training experiments Part 2..."
+# Main SDD-KD-LSKD Training Experiments - Part 2
+echo "Starting SDD-KD-LSKD training experiments Part 2..."
 echo ""
 
 # 3. ResNet32x4 -> ShuffleNetV1 (Heterogeneous architectures)
@@ -85,22 +85,22 @@ echo "Generating training summary..."
 echo "=========================================="
 
 SUMMARY_FILE="$SESSION_DIR/training_summary.txt"
-echo "SDD-DKD-LSKD Training Session Summary - Part 2" > "$SUMMARY_FILE"
+echo "SDD-KD-LSKD Training Session Summary - Part 2" > "$SUMMARY_FILE"
 echo "Session: $TIMESTAMP" >> "$SUMMARY_FILE"
 echo "Date: $(date)" >> "$SUMMARY_FILE"
 echo "=========================================" >> "$SUMMARY_FILE"
 echo "" >> "$SUMMARY_FILE"
 echo "Experiments completed:" >> "$SUMMARY_FILE"
-echo "3. ResNet32x4 -> ShuffleNetV1 (DKD+KD variants, M=[1], M=[1,2], M=[1,2,4])" >> "$SUMMARY_FILE"
-echo "4. WideResNet-40-2 -> ShuffleNetV1 (DKD+KD variants, M=[1], M=[1,2], M=[1,2,4])" >> "$SUMMARY_FILE"
+echo "3. ResNet32x4 -> ShuffleNetV1 (KD variants, M=[1], M=[1,2], M=[1,2,4])" >> "$SUMMARY_FILE"
+echo "4. WideResNet-40-2 -> ShuffleNetV1 (KD variants, M=[1], M=[1,2], M=[1,2,4])" >> "$SUMMARY_FILE"
 echo "" >> "$SUMMARY_FILE"
-echo "Total experiments: 12 (2 pairs × 3 M-settings × 2 distillation methods)" >> "$SUMMARY_FILE"
+echo "Total experiments: 6 (2 pairs × 3 M-settings)" >> "$SUMMARY_FILE"
 echo "Log files location: $SESSION_DIR" >> "$SUMMARY_FILE"
 
 # Show final results
 echo ""
 echo "=========================================="
-echo "🎉 SDD-DKD-LSKD Training Session Part 2 Completed! 🎉"
+echo "🎉 SDD-KD-LSKD Training Session Part 2 Completed! 🎉"
 echo "=========================================="
 echo "Session: $TIMESTAMP"
 echo "All logs saved in: $SESSION_DIR"
