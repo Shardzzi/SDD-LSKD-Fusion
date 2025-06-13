@@ -18,15 +18,15 @@ class SPP(nn.Module):
         x_1x1 = self.pooling_1x1(x_4x4)
 
         x_4x4_flatten = torch.flatten(x_4x4, start_dim=2, end_dim=3)  # B X C X feature_num
-
         x_2x2_flatten = torch.flatten(x_2x2, start_dim=2, end_dim=3)
-
         x_1x1_flatten = torch.flatten(x_1x1, start_dim=2, end_dim=3)
 
         if self.M == '[1,2,4]':
             x_feature = torch.cat((x_1x1_flatten, x_2x2_flatten, x_4x4_flatten), dim=2)
         elif self.M == '[1,2]':
             x_feature = torch.cat((x_1x1_flatten, x_2x2_flatten), dim=2)
+        elif self.M == '[1,4]':
+            x_feature = torch.cat((x_1x1_flatten, x_4x4_flatten), dim=2)
         elif self.M=='[1]':
             x_feature = x_1x1_flatten
         else:

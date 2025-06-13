@@ -1,0 +1,13 @@
+Start time: Fri Jun 13 12:11:30 CST 2025
+Configuration: configs/cifar100/sdd_kd_lskd/res32x4_res8x4.yaml
+M setting: [1,4]
+=========================================
+usage: training for knowledge distillation. [-h] [--cfg CFG] [--resume]
+                                            [--gpu GPU] [--warmup WARMUP]
+                                            [--M M]
+                                            ...
+training for knowledge distillation.: error: unrecognized arguments: --epochs
+=========================================
+End time: Fri Jun 13 12:11:34 CST 2025
+Exit status: 0
+Test completed for: res32x4_res8x4_kd_scale1_4 (M=[1,4])
