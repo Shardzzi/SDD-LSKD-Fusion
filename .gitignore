@@ -62,7 +62,7 @@ db.sqlite3
 db.sqlite3-journal
 *.log.backup
 # Exception: Allow log files in logs/ directory
-!logs/**/*.log
+# !logs/**/*.log
 
 # Flask stuff:
 instance/
@@ -183,7 +183,7 @@ model_*.pth
 best_*.pth
 
 # Experiment Logs and Outputs (Allow logs to be tracked)
-# /logs/
+/logs/
 /output/
 # experiment_*.log
 # sdd_lskd_*.log
